@@ -1,0 +1,10 @@
+.activeLabel {
+	color: #fa6100;
+}
+
+.orangeSwitch,
+.orangeSwitch:checked {
+	background-color: #fa6100;
+	border-color: #fa6100;
+	border: none;
+}
