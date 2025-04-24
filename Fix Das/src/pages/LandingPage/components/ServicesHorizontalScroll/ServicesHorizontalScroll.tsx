@@ -30,10 +30,15 @@ const services = [
 	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
 ];
 
-const chunkArray = (arr: { name: string; image: string }[], size: number) => {
-	return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-		arr.slice(i * size, i * size + size)
-	);
+const chunkArray = (
+	arr: { name: string; image: string }[],
+	size: number
+): { name: string; image: string }[][] => {
+	const chunks = [];
+	for (let i = 0; i < arr.length; i += size) {
+		chunks.push(arr.slice(i, i + size));
+	}
+	return chunks;
 };
 
 const ServicesHorizontalScroll = () => {
