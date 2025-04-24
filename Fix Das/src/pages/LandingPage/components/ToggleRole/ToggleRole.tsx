@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./ToggleRole.module.css";
+import ClientLandingPage from "../ClientLandingPage/ClientLandingPage";
 
 const RoleToggle = () => {
 	const [selectedRole, setSelectedRole] = useState("client");
@@ -28,7 +29,13 @@ const RoleToggle = () => {
 				</span>
 			</div>
 
-			<div className="mt-3">{selectedRole}</div>
+			<div className="mt-3">
+				{selectedRole === "client" ? (
+					<ClientLandingPage />
+				) : (
+					<div className="text-center">This is a handyman landing page.</div>
+				)}
+			</div>
 		</div>
 	);
 };

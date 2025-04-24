@@ -1,0 +1,58 @@
+.secondTitle {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 40px;
+}
+
+.serviceName {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.scrollContainer {
+	overflow-x: scroll;
+	white-space: nowrap;
+	scrollbar-width: none;
+}
+
+.scrollItem {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+	background-color: #777;
+}
+/* 
+.scroll-wrapper {
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+
+.scroll-container {
+	display: flex;
+	gap: 1rem;
+	scroll-behavior: smooth;
+}
+
+.scroll-slide {
+	min-width: 100%;
+	flex-shrink: 0;
+	scroll-snap-align: start;
+}
+
+.indicator-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: none;
+	background-color: #ccc;
+	transition: background-color 0.3s;
+}
+
+.indicator-dot.active {
+	background-color: #ff6600;
+} */

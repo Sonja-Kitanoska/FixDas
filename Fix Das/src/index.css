@@ -37,18 +37,6 @@
 	border-radius: 15px;
 }
 
-/* .orange-border-btn {
-	width: 100%;
-	padding: 15px 10px;
-	border: none;
-	background-color: #ffffff;
-	border-radius: 15px;
-	color: #080808;
-	font-weight: 600;
-	font-size: 12px;
-	border: 1px solid #fa6100;
-} */
-
 .orange-border-btn {
 	width: 100%;
 	padding: 15px 10px;
@@ -63,8 +51,3 @@
 	cursor: pointer;
 }
 
-/* INPUT FIELDS */
-.input-field {
-	padding: 15px 10px;
-	border-radius: 15px;
-}

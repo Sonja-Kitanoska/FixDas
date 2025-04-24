@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Fasthand&display=swap");
+
+.fasthandRegular {
+	font-family: "Fasthand", cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.title {
+	font-size: 40px;
+	font-weight: 400;
+	line-height: 48px;
+}
+
+.fontSize18 {
+	font-size: 18px;
+}
+
+.inputWrapper {
+	position: relative;
+}
+
+.inputField {
+	padding: 15px 10px;
+	padding-left: 2.7rem;
+}
+
+.inputField::placeholder {
+	color: #939393;
+}
+
+.icon {
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #939393;
+	pointer-events: none;
+}
+
+.filterIcon {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #939393;
+	cursor: pointer;
+	z-index: 2;
+}

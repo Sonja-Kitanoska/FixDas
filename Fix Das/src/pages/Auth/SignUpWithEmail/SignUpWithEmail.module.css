@@ -8,6 +8,7 @@
 
 .inputField {
 	width: 100%;
+	padding: 15px 10px;
 	padding-left: 45px;
 }
 
@@ -29,7 +30,6 @@
 	font-size: 20px;
 	color: #939393;
 	cursor: pointer;
-
 	z-index: 2;
 }
 
