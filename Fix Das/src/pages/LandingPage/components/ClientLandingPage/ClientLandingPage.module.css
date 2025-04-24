@@ -49,3 +49,11 @@
 	cursor: pointer;
 	z-index: 2;
 }
+
+.indicator {
+	background-color: gray;
+}
+
+.activeIndicator {
+	background-color: orange;
+}

@@ -24,6 +24,10 @@ const services = [
 	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
 	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
 	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
+	{ name: "Cleaning", image: "LandingPage/services/Group-6.svg" },
+	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
+	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
+	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
 ];
 
 const chunkArray = (arr: { name: string; image: string }[], size: number) => {
@@ -105,10 +109,9 @@ const ServicesHorizontalScroll = () => {
 				{chunks.map((_, index) => (
 					<button
 						key={index}
-						className={`btn btn-sm rounded-circle ${
-							index === activeIndex ? "btn-primary" : "btn-outline-primary"
+						className={` ${
+							index === activeIndex ? styles.activeIndicator : styles.indicator
 						}`}
-						style={{ width: "10px", height: "10px", padding: 0 }}
 						onClick={() => scrollTo(index)}
 					></button>
 				))}
