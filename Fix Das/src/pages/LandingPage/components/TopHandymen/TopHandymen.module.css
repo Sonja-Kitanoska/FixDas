@@ -35,6 +35,10 @@
 	font-weight: 400;
 }
 
+.professionHeading {
+	font-size: 11px;
+}
+
 .nameParagraph {
 	color: #080808;
 	font-weight: 700;
@@ -45,4 +49,15 @@
 	color: #575757;
 	background-color: transparent;
 	border: 1px solid #575757;
+	font-size: 12px;
+}
+
+.blueBg {
+	background-color: #1461f0;
+	color: #ffffff;
+}
+
+.yellowBg {
+	background-color: #f5ce47;
+	color: #080808;
 }

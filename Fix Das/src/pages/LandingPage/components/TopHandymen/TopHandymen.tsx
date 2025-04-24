@@ -1,4 +1,5 @@
 import styles from "./TopHandymen.module.css";
+import { LuMapPin } from "react-icons/lu";
 
 const topHandymen = [
 	{
@@ -35,10 +36,16 @@ const TopHandymen = () => {
 			</h2>
 
 			<div className={styles.scrollContainer}>
-				{topHandymen.map((handyman) => (
+				{topHandymen.map((handyman, index) => (
 					<div key={handyman.id} className={`${styles.scrollItem} `}>
 						<div className={`${styles.handymanCard} card `}>
-							<h5 className="card-title">{handyman.profession}</h5>
+							<h5
+								className={`${styles.professionHeading} ${
+									index % 2 === 0 ? styles.blueBg : styles.yellowBg
+								} card-title mb-0 p-2`}
+							>
+								{handyman.profession}
+							</h5>
 							<div className={styles.imgContainer}>
 								<img
 									className={`${styles.cardImg} card-img-top w-100 h-100 object-fit-cover`}
@@ -53,8 +60,11 @@ const TopHandymen = () => {
 								<p className={`${styles.orangeFont}`}>
 									{handyman.workDone} Abgeschlossene Aufträge
 								</p>
-								<button className={` btn ${styles.grayBtn}`}>
-									{handyman.location}
+								<button
+									className={` btn d-flex flex-row justify-content-center align-items-center gap-1 ${styles.grayBtn}`}
+								>
+									<LuMapPin />
+									<p className="mb-0">{handyman.location}</p>
 								</button>
 							</div>
 						</div>
