@@ -1,4 +1,5 @@
 import ServicesHorizontalScroll from "../ServicesHorizontalScroll/ServicesHorizontalScroll";
+import TopHandymen from "../TopHandymen/TopHandymen";
 import styles from "./ClientLandingPage.module.css";
 import { IoSearch } from "react-icons/io5";
 
@@ -73,6 +74,8 @@ const ClientLandingPage = () => {
 			</section>
 
 			<ServicesHorizontalScroll />
+
+			<TopHandymen />
 		</>
 	);
 };

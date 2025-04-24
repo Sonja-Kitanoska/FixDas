@@ -1,0 +1,48 @@
+.scrollContainer {
+	overflow-x: scroll;
+	white-space: nowrap;
+	scrollbar-width: none;
+}
+
+.scrollItem {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.imgContainer {
+	width: 240px;
+	height: 240px;
+}
+
+.cardImg {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.contentDiv {
+	background-color: #f0f0f0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px;
+}
+
+.orangeFont {
+	color: #e45800;
+	font-size: 10px;
+	font-weight: 400;
+}
+
+.nameParagraph {
+	color: #080808;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.grayBtn {
+	color: #575757;
+	background-color: transparent;
+	border: 1px solid #575757;
+}
