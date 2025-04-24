@@ -34,7 +34,6 @@ const TopHandymen = () => {
 			<h2 className={`${styles.secondTitle} text-center`}>
 				Top-bewertete <br /> Handwerker
 			</h2>
-
 			<div className={styles.scrollContainer}>
 				{topHandymen.map((handyman, index) => (
 					<div key={handyman.id} className={`${styles.scrollItem} `}>
@@ -71,6 +70,9 @@ const TopHandymen = () => {
 					</div>
 				))}
 			</div>
+			<button className="orange-btn font-size-12 border-0 mt-4">
+				Hausmeister Finden
+			</button>
 		</section>
 	);
 };
