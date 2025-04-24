@@ -52,6 +52,7 @@ const ServicesHorizontalScroll = () => {
 			setActiveIndex(index);
 		}
 	};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const handleScroll = () => {
 		const scrollContainer = scrollRef.current;
 		if (scrollContainer) {
@@ -74,7 +75,7 @@ const ServicesHorizontalScroll = () => {
 				scrollContainer.removeEventListener("scroll", handleScroll);
 			}
 		};
-	}, [activeIndex]);
+	}, [activeIndex, handleScroll]);
 	return (
 		<section>
 			<h2 className={`text-center ${styles.secondTitle}`}>

@@ -12,6 +12,18 @@
 	line-height: 48px;
 }
 
+.secondTitle {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 40px;
+}
+
+.blueUnderline {
+	position: absolute;
+	top: 65px;
+	right: 90px;
+}
+
 .fontSize18 {
 	font-size: 18px;
 }
