@@ -26,6 +26,7 @@
 	width: 100%;
 	padding: 15px 10px;
 	border-radius: 15px;
+	cursor: pointer;
 }
 
 .orange-btn {
@@ -35,6 +36,7 @@
 	padding: 15px 10px;
 	font-size: 12px;
 	border-radius: 15px;
+	cursor: pointer;
 }
 
 .orange-border-btn {
@@ -50,4 +52,3 @@
 	border: 1px solid transparent;
 	cursor: pointer;
 }
-

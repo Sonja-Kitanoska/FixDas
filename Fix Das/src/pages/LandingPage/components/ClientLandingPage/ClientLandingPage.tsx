@@ -1,4 +1,5 @@
 import HowItWorks from "../HowItWorks/HowItWorks";
+import NewlyJoinedHandymen from "../NewlyJoinedHandymen/NewlyJoinedHandymen";
 import ServicesHorizontalScroll from "../ServicesHorizontalScroll/ServicesHorizontalScroll";
 import TopHandymen from "../TopHandymen/TopHandymen";
 import styles from "./ClientLandingPage.module.css";
@@ -79,6 +80,8 @@ const ClientLandingPage = () => {
 			<TopHandymen />
 
 			<HowItWorks />
+
+			<NewlyJoinedHandymen />
 		</>
 	);
 };
