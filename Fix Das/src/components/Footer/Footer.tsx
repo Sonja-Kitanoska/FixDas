@@ -20,23 +20,42 @@ const Footer = () => {
 				</div>
 
 				<div className="d-flex justify-content-center align-items-center gap-2 pb-4">
-					<img
-						src="/footer/social-media-icons/Facebook.svg"
-						alt="Facebook logo"
-					/>
-					<img
-						src="/footer/social-media-icons/Twitter.svg"
-						alt="Twitter logo"
-					/>
-					<img
-						src="/footer/social-media-icons/Instagram.svg"
-						alt="Instagram logo"
-					/>
-
-					<img
-						src="/footer/social-media-icons/LinkedIn.svg"
-						alt="LinkedIn logo"
-					/>
+					<a
+						href="https://www.facebook.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img
+							src="/footer/social-media-icons/Facebook.svg"
+							alt="Facebook logo"
+						/>
+					</a>
+					<a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
+						<img
+							src="/footer/social-media-icons/Twitter.svg"
+							alt="Twitter logo"
+						/>
+					</a>
+					<a
+						href="https://www.instagram.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img
+							src="/footer/social-media-icons/Instagram.svg"
+							alt="Instagram logo"
+						/>
+					</a>
+					<a
+						href="https://www.linkedin.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img
+							src="/footer/social-media-icons/LinkedIn.svg"
+							alt="LinkedIn logo"
+						/>
+					</a>
 				</div>
 			</div>
 			<p
