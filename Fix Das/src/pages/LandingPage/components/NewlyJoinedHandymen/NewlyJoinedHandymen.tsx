@@ -29,7 +29,7 @@ const newHandymen = [
 
 const NewlyJoinedHandymen = () => {
 	return (
-		<div className="container">
+		<div className="container pb-4">
 			<h2 className={styles.title}>
 				Neu beigetreten, bereit zu{" "}
 				<span className={styles.fasthandRegular}>helfen</span> !

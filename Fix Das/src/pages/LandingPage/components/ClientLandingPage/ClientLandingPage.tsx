@@ -1,3 +1,5 @@
+import Footer from "../../../../components/Footer/Footer";
+import FindAndBookHandyman from "../FindAndBookHandyman/FindAndBookHandyman";
 import HowItWorks from "../HowItWorks/HowItWorks";
 import NewlyJoinedHandymen from "../NewlyJoinedHandymen/NewlyJoinedHandymen";
 import ServicesHorizontalScroll from "../ServicesHorizontalScroll/ServicesHorizontalScroll";
@@ -84,7 +86,11 @@ const ClientLandingPage = () => {
 
 			<NewlyJoinedHandymen />
 
-			<Testimonials/>
+			<Testimonials />
+
+			<FindAndBookHandyman />
+
+			<Footer />
 		</>
 	);
 };

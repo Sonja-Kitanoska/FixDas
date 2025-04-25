@@ -1,0 +1,7 @@
+.image {
+	position: absolute;
+	top: 85%;
+	right: 15%;
+	z-index: -1;
+	transform: rotate(-3deg);
+}

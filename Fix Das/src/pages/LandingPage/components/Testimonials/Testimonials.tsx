@@ -2,7 +2,7 @@ import styles from "./Testimonials.module.css";
 
 const testimonials = [
 	{
-		id: "1",
+		id: crypto.randomUUID(),
 		image: "/LandingPage/testimonials/client1.svg",
 		name: "Barack Obama",
 		location: "Dresden",
@@ -17,7 +17,7 @@ const testimonials = [
 		],
 	},
 	{
-		id: "2",
+		id: crypto.randomUUID(),
 		image: "/LandingPage/testimonials/client3.svg",
 		name: "Angela Merkel",
 		location: "Hamburg",
@@ -30,7 +30,7 @@ const testimonials = [
 		],
 	},
 	{
-		id: "3",
+		id: crypto.randomUUID(),
 		image: "/LandingPage/testimonials/client2.svg",
 		name: "Gerhard Schröder",
 		location: "Berlin",
@@ -66,7 +66,7 @@ const Testimonials = () => {
 
 			<div className={styles.testimonialCards}>
 				{testimonials.map((testimonial) => (
-					<div className="bg-white p-3 rounded-3">
+					<div key={testimonial.id} className="bg-white p-3 rounded-3">
 						<div className="d-flex gap-4 align-items-center">
 							<div style={{ width: "60px", height: "60px" }}>
 								<img
@@ -99,8 +99,9 @@ const Testimonials = () => {
 						</div>
 						<p>{testimonial.comment}</p>
 						<div className={styles.scrollContainer}>
-							{testimonial.workImages.map((image) => (
+							{testimonial.workImages.map((image, index) => (
 								<img
+									key={index}
 									src={image}
 									alt="Image of the work"
 									className={styles.scrollItem}

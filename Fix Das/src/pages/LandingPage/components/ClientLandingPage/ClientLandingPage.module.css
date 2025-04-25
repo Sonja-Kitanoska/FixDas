@@ -22,6 +22,7 @@
 	position: absolute;
 	top: 65px;
 	right: 90px;
+	z-index: -1;
 }
 
 .fontSize18 {
@@ -61,4 +62,3 @@
 	cursor: pointer;
 	z-index: 2;
 }
-

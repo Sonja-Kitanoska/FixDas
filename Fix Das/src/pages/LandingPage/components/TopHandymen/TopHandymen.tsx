@@ -3,7 +3,7 @@ import { LuMapPin } from "react-icons/lu";
 
 const topHandymen = [
 	{
-		id: 1,
+		id: crypto.randomUUID(),
 		profession: "SANITÄRREPARATUREN",
 		image: "/LandingPage/handyman-img.png",
 		name: "Marcus Schmidt",
@@ -11,7 +11,7 @@ const topHandymen = [
 		location: "Ingolstadt",
 	},
 	{
-		id: 1,
+		id: crypto.randomUUID(),
 		profession: "SANITÄRREPARATUREN",
 		image: "/LandingPage/handyman-img.png",
 		name: "Marcus Schmidt",
@@ -19,7 +19,7 @@ const topHandymen = [
 		location: "Ingolstadt",
 	},
 	{
-		id: 1,
+		id: crypto.randomUUID(),
 		profession: "SANITÄRREPARATUREN",
 		image: "/LandingPage/handyman-img.png",
 		name: "Marcus Schmidt",
