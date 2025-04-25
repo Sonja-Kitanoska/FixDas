@@ -8,6 +8,10 @@
 	color: #fa6100;
 }
 
+.blue {
+	color: #5584e5;
+}
+
 .font-size-12 {
 	font-size: 12px;
 }
@@ -16,8 +20,28 @@
 	font-size: 14px;
 }
 
+.font-size-18 {
+	font-size: 18px;
+}
+
+.font-size-32 {
+	font-size: 32px;
+}
+
+.font-weight-400 {
+	font-weight: 500;
+}
+
+.font-weight-500 {
+	font-weight: 500;
+}
+
 .font-weight-600 {
 	font-weight: 600;
+}
+
+.font-weight-700 {
+	font-weight: 700;
 }
 
 /* BUTTONS */

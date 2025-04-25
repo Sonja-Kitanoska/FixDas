@@ -1,6 +1,7 @@
 import HowItWorks from "../HowItWorks/HowItWorks";
 import NewlyJoinedHandymen from "../NewlyJoinedHandymen/NewlyJoinedHandymen";
 import ServicesHorizontalScroll from "../ServicesHorizontalScroll/ServicesHorizontalScroll";
+import Testimonials from "../Testimonials/Testimonials";
 import TopHandymen from "../TopHandymen/TopHandymen";
 import styles from "./ClientLandingPage.module.css";
 import { IoSearch } from "react-icons/io5";
@@ -82,6 +83,8 @@ const ClientLandingPage = () => {
 			<HowItWorks />
 
 			<NewlyJoinedHandymen />
+
+			<Testimonials/>
 		</>
 	);
 };

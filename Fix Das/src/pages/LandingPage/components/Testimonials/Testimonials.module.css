@@ -1,0 +1,51 @@
+.title {
+	color: #080808;
+	line-height: 40px;
+	font-size: 32px;
+}
+
+.lightOrangeBg {
+	background-color: #ffefe6;
+	z-index: 2;
+}
+
+.quatationImgWrapper {
+	width: 105px;
+	height: 70px;
+	top: 20px;
+	position: absolute;
+	z-index: 1;
+}
+
+.quatationMarksImg {
+	height: 100%;
+	width: 100%;
+}
+
+.heading {
+	text-align: center;
+	position: relative;
+	top: 55px;
+	z-index: 3;
+	padding-inline: 13px;
+}
+
+.testimonialCards {
+	padding-top: 70px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.scrollContainer {
+	overflow-x: scroll;
+	white-space: nowrap;
+	scrollbar-width: none;
+}
+
+.scrollItem {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+}
