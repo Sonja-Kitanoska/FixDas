@@ -2,6 +2,18 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+	// const location = useLocation();
+	// const currentPath = location.pathname;
+	// const profileRoutes = [
+	// 	"/profile",
+	// 	"/profile/edit",
+	// 	"/profile/add-post",
+	// 	"profile/notifications",
+	// ];
+	// const isProfileActive = profileRoutes.some((route) =>
+	// 	currentPath.startsWith(route)
+	// );
+
 	return (
 		<div className="container-fluid position-fixed bottom-0 bg-white">
 			<div className="d-flex justify-content-between align-items-center py-2">
@@ -107,7 +119,7 @@ const Navbar = () => {
 					)}
 				</NavLink>
 
-				<NavLink to="/aaa" className="text-decoration-none">
+				<NavLink to="/profile" className="text-decoration-none">
 					{({ isActive }) => (
 						<div
 							className={`d-flex flex-column gap-1 align-items-center py-2 ${
