@@ -9,7 +9,7 @@ const Review = () => {
 			<div className="d-flex gap-3 align-items-center ">
 				<IoChevronBack
 					style={{ fontSize: "20px" }}
-					onClick={() => navigate("bookings/ongoing")}
+					onClick={() => navigate("/bookings/ongoing")}
 				/>
 
 				<p className="mb-0 font-size-18 font-weight-400">Leave a review</p>
