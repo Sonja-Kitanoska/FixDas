@@ -10,10 +10,7 @@ const images = [
 
 const FindAndBookHandyman = () => {
 	return (
-		<div
-			className="container py-3 text-center"
-			style={{ backgroundColor: "#FAFAFA" }}
-		>
+		<div className="container py-3 text-center">
 			<div className="position-relative">
 				<h2 className="font-size-32 font-weight-500 line-height-40">
 					Finde und buche zuverlässige Handwerker
