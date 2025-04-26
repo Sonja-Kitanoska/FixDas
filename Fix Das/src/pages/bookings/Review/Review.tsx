@@ -86,7 +86,7 @@ const Review = () => {
 					multiple
 				/>
 
-				<div className="py-3 d-flex gap-2">
+				<div className="py-3 pt-5 d-flex gap-2">
 					<input
 						type="checkbox"
 						name="agree"
