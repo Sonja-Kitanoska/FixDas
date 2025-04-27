@@ -1,0 +1,23 @@
+.editIconContainer {
+	width: 54px;
+	height: 54px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #e9e9e9;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.scrollContainer {
+	overflow-x: scroll;
+	white-space: nowrap;
+	scrollbar-width: none;
+}
+
+.scrollItem {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+}

@@ -14,6 +14,7 @@ import NewProposals from "./pages/bookings/NewProposals/NewProposals";
 import OngoingBooking from "./pages/bookings/OngoingBooking/OngoingBooking";
 import CompletedBookings from "./pages/bookings/CompletedBookings/CompletedBookings";
 import Review from "./pages/bookings/Review/Review";
+import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
 	return (
@@ -33,6 +34,9 @@ function App() {
 				<Route path="bookings/ongoing" element={<OngoingBooking />} />
 				<Route path="bookings/review" element={<Review />} />
 				<Route path="bookings/completed" element={<CompletedBookings />} />
+
+				{/* Homepage */}
+				<Route path="homepage" element={<Homepage />} />
 
 				{/* Profile */}
 				<Route path="/profile" element={<Profile />} />
