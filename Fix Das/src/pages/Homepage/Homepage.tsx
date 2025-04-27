@@ -71,11 +71,11 @@ const Homepage = () => {
 					Recommended listings
 				</h6>
 
-				<div className="py-3 container">
+				<div className="py-3">
 					{handymen.map((handyman) => (
 						<div key={handyman.id} className="border-bottom border-top py-4">
 							<div className="d-flex justify-content-between mb-4">
-								<div className="d-flex gap-4 align-items-center">
+								<div className="d-flex gap-1 align-items-center">
 									<div style={{ width: "36px", height: "36px" }}>
 										<img
 											src="/LandingPage/testimonials/client1.svg"
@@ -90,9 +90,11 @@ const Homepage = () => {
 												className="font-size-14 font-weight-700 mb-0"
 												style={{ color: "#080808" }}
 											>
-												{handyman.name}
+												{handyman.name}{" "}
+												<span>
+													<MdVerified color="#1461F0" />
+												</span>
 											</p>
-											<MdVerified color="#1461F0" />
 										</div>
 										<div className="d-flex gap-2 align-items-center">
 											<FaStar color="#F5CE47" />
@@ -107,10 +109,10 @@ const Homepage = () => {
 									</div>
 								</div>
 
-								<div className="d-flex gap-3">
+								<div className="d-flex gap-2">
 									<div>
 										<p
-											className="mb-0 font-size-14 font-weight-700 rounded p-1"
+											className="mb-0 font-size-10 font-weight-600 rounded p-1"
 											style={{ color: "#38830A", backgroundColor: "#C3E2B0" }}
 										>
 											Now available
