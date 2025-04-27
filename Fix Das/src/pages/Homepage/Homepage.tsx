@@ -3,6 +3,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import styles from "./Homepage.module.css";
 import { LuMapPin } from "react-icons/lu";
 import { MdVerified } from "react-icons/md";
+import Navbar from "../../components/Navbar/Navbar";
 
 const handymen = [
 	{
@@ -165,6 +166,7 @@ const Homepage = () => {
 					))}
 				</div>
 			</div>
+			<Navbar />
 		</>
 	);
 };

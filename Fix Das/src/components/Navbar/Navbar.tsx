@@ -69,7 +69,7 @@ const Navbar = () => {
 					)}
 				</NavLink>
 
-				<NavLink to="/" className="text-decoration-none">
+				<NavLink to="/homepage" className="text-decoration-none">
 					{({ isActive }) => (
 						<div
 							className={`d-flex flex-column gap-1 align-items-center py-2 ${
