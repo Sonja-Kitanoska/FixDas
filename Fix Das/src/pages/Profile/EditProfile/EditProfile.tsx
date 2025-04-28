@@ -7,7 +7,7 @@ const EditProfile = () => {
 		<div className="container py-3">
 			<div className="d-flex justify-content-between align-items-center">
 				<IoChevronBack style={{ fontSize: "20px" }} />
-				<p className="orange mb-0">Konto bearbeiten</p>
+				<p className="orange mb-0 font-weight-700">Konto bearbeiten</p>
 				<img src="/notification-icon.svg" alt="Notifications icon" />
 			</div>
 
