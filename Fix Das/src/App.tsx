@@ -15,6 +15,7 @@ import OngoingBooking from "./pages/bookings/OngoingBooking/OngoingBooking";
 import CompletedBookings from "./pages/bookings/CompletedBookings/CompletedBookings";
 import Review from "./pages/bookings/Review/Review";
 import Homepage from "./pages/Homepage/Homepage";
+import Categories from "./pages/Categories/Categories";
 
 function App() {
 	return (
@@ -37,7 +38,7 @@ function App() {
 					<Route path="bookings/completed" element={<CompletedBookings />} />
 
 					{/* Categories*/}
-					<Route path="categories" element={<>Categories</>} />
+					<Route path="categories" element={<Categories />} />
 					<Route path="chat/filter" element={<>Categories filter</>} />
 
 					{/* Chat */}
