@@ -18,33 +18,44 @@ import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				{/* Landing page */}
-				<Route path="/" element={<LandingPage />} />
-				<Route path="/find-handyman" element={<FindHandyman />} />
-				<Route path="/menu" element={<Menu />} />
+		<div style={{ backgroundColor: "#FAFAFA" }}>
+			<BrowserRouter>
+				<Routes>
+					{/* Landing page */}
+					<Route path="/" element={<LandingPage />} />
+					<Route path="/find-handyman" element={<FindHandyman />} />
+					<Route path="/menu" element={<Menu />} />
 
-				{/* Login and sign up */}
-				<Route path="sign-up" element={<SignUp />} />
-				<Route path="sign-up-email" element={<SignUpWithEmail />} />
+					{/* Login and sign up */}
+					<Route path="sign-up" element={<SignUp />} />
+					<Route path="sign-up-email" element={<SignUpWithEmail />} />
 
-				{/* Bookings */}
-				<Route path="bookings/new-proposals" element={<NewProposals />} />
-				<Route path="bookings/ongoing" element={<OngoingBooking />} />
-				<Route path="bookings/review" element={<Review />} />
-				<Route path="bookings/completed" element={<CompletedBookings />} />
+					{/* Bookings */}
+					<Route path="bookings" element={<NewProposals />} />
+					<Route path="bookings/ongoing" element={<OngoingBooking />} />
+					<Route path="bookings/review" element={<Review />} />
+					<Route path="bookings/completed" element={<CompletedBookings />} />
 
-				{/* Homepage */}
-				<Route path="homepage" element={<Homepage />} />
+					{/* Categories*/}
+					<Route path="categories" element={<>Categories</>} />
+					<Route path="chat/filter" element={<>Categories filter</>} />
 
-				{/* Profile */}
-				<Route path="/profile" element={<Profile />} />
-				<Route path="/profile/edit" element={<EditProfile />} />
-				<Route path="/profile/post-add" element={<PostAdd />} />
-				<Route path="/profile/notifications" element={<Notifications />} />
-			</Routes>
-		</BrowserRouter>
+					{/* Chat */}
+					<Route path="chat" element={<>Chat</>} />
+					<Route path="chat/start" element={<>Chat start</>} />
+					<Route path="chat/ongoing" element={<>Chat ongoing</>} />
+
+					{/* Homepage */}
+					<Route path="homepage" element={<Homepage />} />
+
+					{/* Profile */}
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/profile/edit" element={<EditProfile />} />
+					<Route path="/profile/post-add" element={<PostAdd />} />
+					<Route path="/profile/notifications" element={<Notifications />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
 	);
 }
 

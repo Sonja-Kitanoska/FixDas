@@ -59,7 +59,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<p
-				className={`${styles.grayFont} text-center font-size-14 font-weight-400 pt-4 border-top`}
+				className={`${styles.grayFont} text-center font-size-14 font-weight-400 py-4 border-top mb-0`}
 			>
 				Copyright © {new Date().getFullYear()} Mein Hausmaister <br /> All
 				Rights Reserved

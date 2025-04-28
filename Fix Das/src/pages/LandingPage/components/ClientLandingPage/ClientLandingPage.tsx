@@ -15,8 +15,9 @@ const ClientLandingPage = () => {
 			<HeroSection />
 
 			<FeaturesSection />
-
-			<SearchBar />
+			<div className="container pb-3">
+				<SearchBar />
+			</div>
 
 			<ServicesHorizontalScroll />
 
