@@ -1,7 +1,6 @@
-import Footer from "../../components/Footer/Footer";
 import LandingPageNavbar from "../../components/LandingPageNavbar/LandingPageNavbar";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import FindAndBookHandyman from "../LandingPage/components/FindAndBookHandyman/FindAndBookHandyman";
+import RoleToggle from "../LandingPage/components/ToggleRole/ToggleRole";
+import ClientFindHandyman from "./components/ClientFindHandyman/ClientFindHandyman";
 
 const FindHandyman = () => {
 	return (
@@ -12,11 +11,12 @@ const FindHandyman = () => {
 				Find a craftsman
 			</h2>
 
-			<SearchBar />
-
-			<FindAndBookHandyman />
-
-			<Footer />
+			<RoleToggle
+				ClientComponent={<ClientFindHandyman />}
+				HandymanComponent={
+					<p className="text-center">This is handyman Find handyman page.</p>
+				}
+			/>
 		</div>
 	);
 };

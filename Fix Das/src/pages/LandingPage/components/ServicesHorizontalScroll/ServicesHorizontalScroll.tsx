@@ -92,7 +92,7 @@ const ServicesHorizontalScroll = () => {
 						<div className="row justify-content-start gy-2">
 							{group.map((service, i) => (
 								<div className="col-4 text-center" key={i}>
-									<div className="rounded shadow h-100 d-flex flex-column justify-content-center align-items-center gap-1 p-1">
+									<div className="rounded shadow-sm h-100 d-flex flex-column justify-content-center align-items-center gap-1 p-1">
 										<div style={{ width: "60px", height: "60px" }}>
 											<img
 												src={service.image}

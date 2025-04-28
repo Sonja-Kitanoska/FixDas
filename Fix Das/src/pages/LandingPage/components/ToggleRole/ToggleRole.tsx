@@ -1,8 +1,15 @@
 import { useState } from "react";
 import styles from "./ToggleRole.module.css";
-import ClientLandingPage from "../ClientLandingPage/ClientLandingPage";
 
-const RoleToggle = () => {
+interface RoleToggleProps {
+	ClientComponent: React.ReactNode;
+	HandymanComponent: React.ReactNode;
+}
+
+const ToggleRole = ({
+	ClientComponent,
+	HandymanComponent,
+}: RoleToggleProps) => {
 	const [selectedRole, setSelectedRole] = useState("client");
 
 	const handleToggle = () => {
@@ -30,14 +37,10 @@ const RoleToggle = () => {
 			</div>
 
 			<div className="mt-3">
-				{selectedRole === "client" ? (
-					<ClientLandingPage />
-				) : (
-					<div className="text-center">This is a handyman landing page.</div>
-				)}
+				{selectedRole === "client" ? ClientComponent : HandymanComponent}
 			</div>
 		</div>
 	);
 };
 
-export default RoleToggle;
+export default ToggleRole;
