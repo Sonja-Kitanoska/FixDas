@@ -62,7 +62,7 @@ const Homepage = () => {
 					</div>
 					<div>
 						<div className={styles.editIconContainer}>
-							<FaRegEdit size={20} color="#939393" />
+							<FaRegEdit size={20} color="#939393"  />
 						</div>
 					</div>
 				</div>
