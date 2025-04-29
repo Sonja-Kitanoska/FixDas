@@ -8,11 +8,12 @@ import { auth, db } from "../../../firebase";
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 import styles from "./SignUp.module.css";
+import SmartImage from "../../../components/SmartImage/SmartImage";
 
 const provider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
-export const SignUp = () => {
+const SignUp = () => {
 	const [loading, setLoading] = useState(false);
 
 	const handleGoogleSignUp = async () => {
@@ -70,11 +71,12 @@ export const SignUp = () => {
 	};
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid pb-3">
 			<div className="text-center p-3">
-				<img src="./logo.svg" alt="Logo" />
+				{/* <img src="./logo.svg" alt="Logo" /> */}
+				<SmartImage src="/logo.svg" alt="Logo" width={120} height={120} />
 			</div>
-			<div className={`${styles.divider} d-flex justify-content-evenly mb-4`}>
+			<div className={`${styles.divider} d-flex justify-content-evenly mb-5`}>
 				<p className="font-size-12 font-weight-600">Register as customers</p>
 				<p className="font-size-12 font-weight-600">Register as craftsmen</p>
 			</div>
@@ -103,11 +105,13 @@ export const SignUp = () => {
 				<p className="mb-0"> With email</p>
 			</button>
 
-			<button className="btn orange-btn">Register</button>
+			<button className="btn orange-btn mb-3">Register</button>
 
-			<p className="gray-light my-3 text-center font-size-14">
+			<p className="gray-light my-3 text-center font-size-14 mb-0">
 				Already an account? <span className="orange">Register</span>
 			</p>
 		</div>
 	);
 };
+
+export default SignUp;

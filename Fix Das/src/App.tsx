@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import MyBookings from "../src/pages/bookings/MyBookings";
-import { SignUp } from "./pages/Auth/SignUp/SignUp";
+
 import SignUpWithEmail from "./pages/Auth/SignUpWithEmail/SignUpWithEmail";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Profile from "./pages/Profile/Profile/Profile";
@@ -16,6 +16,7 @@ import CompletedBookings from "./pages/bookings/CompletedBookings/CompletedBooki
 import Review from "./pages/bookings/Review/Review";
 import Homepage from "./pages/Homepage/Homepage";
 import Categories from "./pages/Categories/Categories";
+import SignUp from "./pages/Auth/SignUp/SignUp";
 
 function App() {
 	return (
