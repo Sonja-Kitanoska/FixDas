@@ -17,6 +17,7 @@ import Review from "./pages/bookings/Review/Review";
 import Homepage from "./pages/Homepage/Homepage";
 import Categories from "./pages/Categories/Categories";
 import SignUp from "./pages/Auth/SignUp/SignUp";
+import SignIn from "./pages/Auth/SignIn/SignIn";
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
 					{/* Login and sign up */}
 					<Route path="sign-up" element={<SignUp />} />
 					<Route path="sign-up-email" element={<SignUpWithEmail />} />
+					<Route path="sign-in" element={<SignIn />} />
 
 					{/* Bookings */}
 					<Route path="bookings" element={<NewProposals />} />
