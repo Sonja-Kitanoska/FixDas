@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "../../../firebase";
+import { useNavigate } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
@@ -18,6 +19,7 @@ const facebookProvider = new FacebookAuthProvider();
 const SignIn = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
 
 	const handleGoogleSignUp = async () => {
 		if (loading) return; // Prevent multiple clicks while loading
@@ -96,7 +98,11 @@ const SignIn = () => {
 
 	return (
 		<div className="container py-4">
-			<IoChevronBack style={{ fontSize: "20px" }} className="mb-4" />
+			<IoChevronBack
+				onClick={() => navigate("/sign-up")}
+				style={{ fontSize: "20px" }}
+				className="mb-4"
+			/>
 			<h6 style={{ fontSize: "24px" }} className="font-weight-400">
 				Welcome back
 			</h6>

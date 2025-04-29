@@ -9,12 +9,14 @@ import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 import styles from "./SignUp.module.css";
 import SmartImage from "../../../components/SmartImage/SmartImage";
+import { useNavigate } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
 const SignUp = () => {
 	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
 
 	const handleGoogleSignUp = async () => {
 		if (loading) return; // Prevent multiple clicks while loading
@@ -105,10 +107,18 @@ const SignUp = () => {
 				<p className="mb-0"> With email</p>
 			</button>
 
-			<button className="btn orange-btn mb-3">Register</button>
+			<button
+				onClick={() => navigate("/sign-in")}
+				className="btn orange-btn mb-3"
+			>
+				Register
+			</button>
 
 			<p className="gray-light my-3 text-center font-size-14 mb-0">
-				Already an account? <span className="orange">Register</span>
+				Already an account?{" "}
+				<span onClick={() => navigate("/sign-in")} className="orange">
+					Register
+				</span>
 			</p>
 		</div>
 	);
