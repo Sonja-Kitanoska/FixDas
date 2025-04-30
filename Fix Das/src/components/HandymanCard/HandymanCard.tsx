@@ -76,7 +76,11 @@ const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 				style={{ color: "#5584E5" }}
 			>
 				{handyman.categories.map((category) => (
-					<p style={{ backgroundColor: "#E8EFFE" }} className="p-1 mb-0">
+					<p
+						key={crypto.randomUUID()}
+						style={{ backgroundColor: "#E8EFFE" }}
+						className="p-1 mb-0"
+					>
 						{category}
 					</p>
 				))}

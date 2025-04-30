@@ -7,14 +7,16 @@ const FindHandyman = () => {
 		<div>
 			<LandingPageNavbar />
 
-			<h2 className="font-size-32 font-weight-500 container">
+			<h2 className="font-size-32 font-weight-500 container pt-3">
 				Find a craftsman
 			</h2>
 
 			<RoleToggle
 				ClientComponent={<ClientFindHandyman />}
 				HandymanComponent={
-					<p className="text-center">This is handyman Find handyman page.</p>
+					<p className="text-center">
+						This is Find-handyman page for handymen.
+					</p>
 				}
 			/>
 		</div>

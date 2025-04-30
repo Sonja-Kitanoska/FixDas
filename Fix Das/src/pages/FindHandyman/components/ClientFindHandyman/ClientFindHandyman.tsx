@@ -3,6 +3,7 @@ import Footer from "../../../../components/Footer/Footer";
 import HandymanCard from "../../../../components/HandymanCard/HandymanCard";
 import SearchBar from "../../../../components/SearchBar/SearchBar";
 import FindAndBookHandyman from "../../../LandingPage/components/FindAndBookHandyman/FindAndBookHandyman";
+import PostRequest from "../PostRequest/PostRequest";
 
 const handymen = [
 	{
@@ -133,6 +134,8 @@ const ClientFindHandyman = () => {
 					</button>
 				</div>
 			)}
+
+			<PostRequest />
 			<FindAndBookHandyman />
 
 			<Footer />

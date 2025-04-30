@@ -79,7 +79,9 @@ const SignUp = () => {
 				<SmartImage src="/logo.svg" alt="Logo" width={120} height={120} />
 			</div>
 			<div className={`${styles.divider} d-flex justify-content-evenly mb-5`}>
-				<p className="font-size-12 font-weight-600">Register as customers</p>
+				<p className="font-size-12 font-weight-600 orange">
+					Register as customers
+				</p>
 				<p className="font-size-12 font-weight-600">Register as craftsmen</p>
 			</div>
 
@@ -102,7 +104,10 @@ const SignUp = () => {
 				<img src="coloured-icons/Logo-Apple.svg" alt="Apple logo" />
 				<p className="mb-0"> Continue with Apple</p>
 			</button>
-			<button className="btn login-btn mb-5 d-flex align-items-center justify-content-center gap-2">
+			<button
+				onClick={() => navigate("/sign-up-email")}
+				className="btn login-btn mb-5 d-flex align-items-center justify-content-center gap-2"
+			>
 				<img src="coloured-icons/Logo-Email.svg" alt="Email logo" />
 				<p className="mb-0"> With email</p>
 			</button>

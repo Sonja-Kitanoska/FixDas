@@ -6,11 +6,13 @@ import { TbLockPassword } from "react-icons/tb";
 
 import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const SignUpWithEmail = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
 		useState(false);
+	const navigate = useNavigate();
 
 	const [formData, setFormData] = useState({
 		name: "",
@@ -46,7 +48,9 @@ const SignUpWithEmail = () => {
 				<img src="./logo.svg" alt="Logo" />
 			</div>
 			<div className={`${styles.divider} d-flex justify-content-evenly mb-4`}>
-				<p className="font-size-12 font-weight-600">Register as customers</p>
+				<p className="font-size-12 font-weight-600 orange">
+					Register as customers
+				</p>
 				<p className="font-size-12 font-weight-600">Register as craftsmen</p>
 			</div>
 			<form onSubmit={handleSubmit}>
@@ -131,7 +135,10 @@ const SignUpWithEmail = () => {
 			</form>
 
 			<p className="gray-light my-3 text-center font-size-14">
-				Already an account? <span className="orange">Register</span>
+				Already an account?{" "}
+				<span onClick={() => navigate("/sign-in")} className="orange">
+					Register
+				</span>
 			</p>
 		</div>
 	);

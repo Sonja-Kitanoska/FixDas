@@ -157,7 +157,7 @@ const SignIn = () => {
 				>
 					<img src="coloured-icons/Logo-Google.svg" alt="Google logo" />
 
-					<p className="mb-0">Continue with Googgle</p>
+					<p className="mb-0">Continue with Google</p>
 				</button>
 				<button
 					onClick={handleFacebookSignUp}
