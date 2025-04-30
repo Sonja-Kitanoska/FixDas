@@ -1,0 +1,12 @@
+.scrollContainer {
+	overflow-x: scroll;
+	white-space: nowrap;
+	scrollbar-width: none;
+}
+
+.scrollItem {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+}
