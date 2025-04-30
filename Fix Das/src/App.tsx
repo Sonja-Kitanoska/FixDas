@@ -18,6 +18,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import Categories from "./pages/Categories/Categories";
 import SignUp from "./pages/Auth/SignUp/SignUp";
 import SignIn from "./pages/Auth/SignIn/SignIn";
+import HandymanPublicProfile from "./pages/HandymanPublicProfile/HandymanPublicProfile";
 
 function App() {
 	return (
@@ -30,27 +31,32 @@ function App() {
 					<Route path="/menu" element={<Menu />} />
 
 					{/* Login and sign up */}
-					<Route path="sign-up" element={<SignUp />} />
-					<Route path="sign-up-email" element={<SignUpWithEmail />} />
-					<Route path="sign-in" element={<SignIn />} />
+					<Route path="/sign-up" element={<SignUp />} />
+					<Route path="/sign-up-email" element={<SignUpWithEmail />} />
+					<Route path="/sign-in" element={<SignIn />} />
 
 					{/* Bookings */}
-					<Route path="bookings" element={<NewProposals />} />
-					<Route path="bookings/ongoing" element={<OngoingBooking />} />
-					<Route path="bookings/review" element={<Review />} />
-					<Route path="bookings/completed" element={<CompletedBookings />} />
+					<Route path="/bookings" element={<NewProposals />} />
+					<Route path="/bookings/ongoing" element={<OngoingBooking />} />
+					<Route path="/bookings/review" element={<Review />} />
+					<Route path="/bookings/completed" element={<CompletedBookings />} />
 
 					{/* Categories*/}
-					<Route path="categories" element={<Categories />} />
-					<Route path="chat/filter" element={<>Categories filter</>} />
+					<Route path="/categories" element={<Categories />} />
+					<Route path="/categories/filter" element={<>Categories filter</>} />
 
 					{/* Chat */}
-					<Route path="chat" element={<>Chat</>} />
-					<Route path="chat/start" element={<>Chat start</>} />
-					<Route path="chat/ongoing" element={<>Chat ongoing</>} />
+					<Route path="/chat" element={<>Chat</>} />
+					<Route path="/chat/start" element={<>Chat start</>} />
+					<Route path="/chat/ongoing" element={<>Chat ongoing</>} />
 
 					{/* Homepage */}
-					<Route path="homepage" element={<Homepage />} />
+					<Route path="/homepage" element={<Homepage />} />
+					{/* Public Profile Handyman */}
+					<Route
+						path="/homepage/handyman-public-profile"
+						element={<HandymanPublicProfile />}
+					/>
 
 					{/* Profile */}
 					<Route path="/profile" element={<Profile />} />

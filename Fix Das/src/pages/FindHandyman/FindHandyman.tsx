@@ -7,7 +7,7 @@ const FindHandyman = () => {
 		<div>
 			<LandingPageNavbar />
 
-			<h2 className="font-size-32 font-weight-500 container pt-3">
+			<h2 className="font-size-32 font-weight-500 container py-3">
 				Find a craftsman
 			</h2>
 
