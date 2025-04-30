@@ -106,7 +106,7 @@ const SignIn = () => {
 			<h6 style={{ fontSize: "24px" }} className="font-weight-400">
 				Welcome back
 			</h6>
-			<p>Register with your account</p>
+			<p className="font-size-14">Register with your account</p>
 
 			<form onSubmit={handleSubmit}>
 				<div className={styles.inputWrapper}>
@@ -140,7 +140,12 @@ const SignIn = () => {
 						{isPasswordVisible ? <IoEyeOutline /> : <IoEyeOffOutline />}
 					</span>
 				</div>
-				<p className="orange font-size-12">Forgot password?</p>
+				<p
+					onClick={() => navigate("/reset-password")}
+					className="orange font-size-12"
+				>
+					Forgot password?
+				</p>
 				<div className="py-2">
 					<button className="orange-btn">Register</button>
 				</div>

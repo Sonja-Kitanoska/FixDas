@@ -19,6 +19,8 @@ import Categories from "./pages/Categories/Categories";
 import SignUp from "./pages/Auth/SignUp/SignUp";
 import SignIn from "./pages/Auth/SignIn/SignIn";
 import HandymanPublicProfile from "./pages/HandymanPublicProfile/HandymanPublicProfile";
+import Chat from "./pages/Chat/Chat/Chat";
+import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
 
 function App() {
 	return (
@@ -34,6 +36,7 @@ function App() {
 					<Route path="/sign-up" element={<SignUp />} />
 					<Route path="/sign-up-email" element={<SignUpWithEmail />} />
 					<Route path="/sign-in" element={<SignIn />} />
+					<Route path="/reset-password" element={<ResetPassword />} />
 
 					{/* Bookings */}
 					<Route path="/bookings" element={<NewProposals />} />
@@ -46,7 +49,7 @@ function App() {
 					<Route path="/categories/filter" element={<>Categories filter</>} />
 
 					{/* Chat */}
-					<Route path="/chat" element={<>Chat</>} />
+					<Route path="/chat" element={<Chat />} />
 					<Route path="/chat/start" element={<>Chat start</>} />
 					<Route path="/chat/ongoing" element={<>Chat ongoing</>} />
 

@@ -1,15 +1,25 @@
 import { IoChevronBack } from "react-icons/io5";
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./EditProfile.module.css";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<div className="container py-3">
 				<div className="d-flex justify-content-between align-items-center">
-					<IoChevronBack style={{ fontSize: "20px" }} />
+					<IoChevronBack
+						style={{ fontSize: "20px" }}
+						onClick={() => navigate("/profile")}
+					/>
 					<p className="orange mb-0 font-weight-700">Konto bearbeiten</p>
-					<img src="/notification-icon.svg" alt="Notifications icon" />
+					<img
+						src="/notification-icon.svg"
+						alt="Notifications icon"
+						onClick={() => navigate("/profile/notifications")}
+					/>
 				</div>
 
 				<div className="py-4 d-flex justify-content-center">

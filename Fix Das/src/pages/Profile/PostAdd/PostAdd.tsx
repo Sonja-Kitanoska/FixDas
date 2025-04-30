@@ -4,8 +4,11 @@ import styles from "./PostAdd.module.css";
 import { LuMapPin } from "react-icons/lu";
 import { TbCurrentLocation } from "react-icons/tb";
 import { MdCloudUpload } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const PostAdd = () => {
+	const navigate = useNavigate();
+
 	const handleFileUploadClick = () => {
 		const fileInput = document.getElementById("photoUpload");
 		if (fileInput) {
@@ -16,9 +19,16 @@ const PostAdd = () => {
 		<>
 			<div className="container pt-3" style={{ paddingBottom: "80px" }}>
 				<div className="d-flex justify-content-between align-items-center">
-					<IoChevronBack style={{ fontSize: "20px" }} />
+					<IoChevronBack
+						onClick={() => navigate("/profile")}
+						style={{ fontSize: "20px" }}
+					/>
 					<p className="orange mb-0 font-weight-700">Stelle ausschreiben</p>
-					<img src="/notification-icon.svg" alt="Notifications icon" />
+					<img
+						onClick={() => navigate("/profile/notifications")}
+						src="/notification-icon.svg"
+						alt="Notifications icon"
+					/>
 				</div>
 
 				<form className="font-size-14 pt-5">
