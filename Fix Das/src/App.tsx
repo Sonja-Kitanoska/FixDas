@@ -1,7 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-// import MyBookings from "../src/pages/bookings/MyBookings";
-
 import SignUpWithEmail from "./pages/Auth/SignUpWithEmail/SignUpWithEmail";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Profile from "./pages/Profile/Profile/Profile";
@@ -21,12 +19,42 @@ import SignIn from "./pages/Auth/SignIn/SignIn";
 import HandymanPublicProfile from "./pages/HandymanPublicProfile/HandymanPublicProfile";
 import Chat from "./pages/Chat/Chat/Chat";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
+import { useUserStore } from "./store/userStore";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { useEffect, useState } from "react";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function App() {
+	const [loading, setLoading] = useState(false);
+	const setUser = useUserStore((state) => state.setUser);
+	const user = useUserStore((state) => state.user);
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+			setLoading(true);
+			if (firebaseUser) {
+				setUser(user);
+				setLoading(false);
+			} else {
+				setUser(null);
+				setLoading(false);
+			}
+		});
+
+		return () => unsubscribe();
+	});
+
+	if (loading) {
+		return <LoadingSpinner />;
+	}
+
 	return (
 		<div style={{ backgroundColor: "#FAFAFA" }}>
 			<BrowserRouter>
 				<Routes>
+					{/* PUBLIC ROUTES */}
 					{/* Landing page */}
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/find-handyman" element={<FindHandyman />} />
@@ -38,34 +66,41 @@ function App() {
 					<Route path="/sign-in" element={<SignIn />} />
 					<Route path="/reset-password" element={<ResetPassword />} />
 
+					{/* PROTECTED ROUTES */}
+
 					{/* Bookings */}
-					<Route path="/bookings" element={<NewProposals />} />
-					<Route path="/bookings/ongoing" element={<OngoingBooking />} />
-					<Route path="/bookings/review" element={<Review />} />
-					<Route path="/bookings/completed" element={<CompletedBookings />} />
+					<Route element={<ProtectedRoute />}>
+						<Route path="/bookings" element={<NewProposals />} />
+						<Route path="/bookings/ongoing" element={<OngoingBooking />} />
+						<Route path="/bookings/review" element={<Review />} />
+						<Route path="/bookings/completed" element={<CompletedBookings />} />
 
-					{/* Categories*/}
-					<Route path="/categories" element={<Categories />} />
-					<Route path="/categories/filter" element={<>Categories filter</>} />
+						{/* Categories*/}
+						<Route path="/categories" element={<Categories />} />
+						<Route path="/categories/filter" element={<>Categories filter</>} />
 
-					{/* Chat */}
-					<Route path="/chat" element={<Chat />} />
-					<Route path="/chat/start" element={<>Chat start</>} />
-					<Route path="/chat/ongoing" element={<>Chat ongoing</>} />
+						{/* Chat */}
+						<Route path="/chat" element={<Chat />} />
+						<Route path="/chat/start" element={<>Chat start</>} />
+						<Route path="/chat/ongoing" element={<>Chat ongoing</>} />
 
-					{/* Homepage */}
-					<Route path="/homepage" element={<Homepage />} />
-					{/* Public Profile Handyman */}
-					<Route
-						path="/homepage/handyman-public-profile"
-						element={<HandymanPublicProfile />}
-					/>
+						{/* Homepage */}
+						<Route path="/homepage" element={<Homepage />} />
+						{/* Public Profile Handyman */}
+						<Route
+							path="/homepage/handyman-public-profile"
+							element={<HandymanPublicProfile />}
+						/>
 
-					{/* Profile */}
-					<Route path="/profile" element={<Profile />} />
-					<Route path="/profile/edit" element={<EditProfile />} />
-					<Route path="/profile/post-add" element={<PostAdd />} />
-					<Route path="/profile/notifications" element={<Notifications />} />
+						{/* Profile */}
+						<Route path="/profile" element={<Profile />} />
+						<Route path="/profile/edit" element={<EditProfile />} />
+						<Route path="/profile/post-add" element={<PostAdd />} />
+						<Route path="/profile/notifications" element={<Notifications />} />
+					</Route>
+
+					{/* Catch-all route for non-existent pages */}
+					<Route path="*" element={<Navigate to="/" replace />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

@@ -1,19 +1,21 @@
-import { useState } from "react";
+import { Role } from "../../../../store/userStore";
 import styles from "./ToggleRole.module.css";
 
 interface RoleToggleProps {
 	ClientComponent: React.ReactNode;
 	HandymanComponent: React.ReactNode;
+	selectedRole: Role;
+	setSelectedRole: (role: Role) => void;
 }
 
 const ToggleRole = ({
+	selectedRole,
+	setSelectedRole,
 	ClientComponent,
 	HandymanComponent,
 }: RoleToggleProps) => {
-	const [selectedRole, setSelectedRole] = useState("client");
-
 	const handleToggle = () => {
-		setSelectedRole((prev) => (prev === "client" ? "handyman" : "client"));
+		setSelectedRole(selectedRole === "client" ? "handyman" : "client");
 	};
 
 	return (

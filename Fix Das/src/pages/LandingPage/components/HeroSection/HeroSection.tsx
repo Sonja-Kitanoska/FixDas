@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 
 const HeroSection = () => {
+	const navigate = useNavigate();
 	return (
 		<section className="container">
 			<div className="px-4 text-center">
@@ -22,7 +24,12 @@ const HeroSection = () => {
 			<div className="d-flex gap-2 my-4">
 				<button className="btn orange-border-btn">Anfrage Posten</button>
 
-				<button className="btn orange-btn">Hausmeister Finden</button>
+				<button
+					onClick={() => navigate("/find-handyman")}
+					className="btn orange-btn"
+				>
+					Hausmeister Finden
+				</button>
 			</div>
 		</section>
 	);

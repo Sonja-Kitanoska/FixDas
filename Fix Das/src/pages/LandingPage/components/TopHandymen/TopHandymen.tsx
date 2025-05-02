@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./TopHandymen.module.css";
 import { LuMapPin } from "react-icons/lu";
 
@@ -29,6 +30,7 @@ const topHandymen = [
 ];
 
 const TopHandymen = () => {
+	const navigate = useNavigate();
 	return (
 		<section className="container py-5">
 			<h2 className={`${styles.secondTitle} text-center`}>
@@ -70,7 +72,10 @@ const TopHandymen = () => {
 					</div>
 				))}
 			</div>
-			<button className="orange-btn font-size-12 border-0 mt-4">
+			<button
+				onClick={() => navigate("/find-handyman")}
+				className="orange-btn font-size-12 border-0 mt-4"
+			>
 				Hausmeister Finden
 			</button>
 		</section>

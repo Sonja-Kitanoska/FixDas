@@ -19,7 +19,6 @@ const Menu = () => {
 					className={({ isActive }) =>
 						`text-decoration-none ${isActive ? "orange" : styles.grayColor}`
 					}
-					
 				>
 					<p>Suchen</p>
 				</NavLink>
@@ -28,25 +27,22 @@ const Menu = () => {
 					className={({ isActive }) =>
 						`text-decoration-none ${isActive ? "orange" : styles.grayColor}`
 					}
-			
 				>
 					<p>Inserent</p>
+				</NavLink>
+				<NavLink
+					to={"/sign-in"}
+					className={({ isActive }) =>
+						`text-decoration-none ${isActive ? "orange" : styles.grayColor}`
+					}
+				>
+					<p>Anmelden</p>
 				</NavLink>
 				<NavLink
 					to={"/sign-up"}
 					className={({ isActive }) =>
 						`text-decoration-none ${isActive ? "orange" : styles.grayColor}`
 					}
-			
-				>
-					<p>Anmelden</p>
-				</NavLink>
-				<NavLink
-					to={"/login"}
-					className={({ isActive }) =>
-						`text-decoration-none ${isActive ? "orange" : styles.grayColor}`
-					}
-
 				>
 					<p>Registrieren</p>
 				</NavLink>

@@ -6,22 +6,27 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../../firebase";
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
-import { useState } from "react";
+
 import styles from "./SignUp.module.css";
 import SmartImage from "../../../components/SmartImage/SmartImage";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../../../store/userStore";
+import { useState } from "react";
+import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 
 const provider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
 const SignUp = () => {
-	const [loading, setLoading] = useState(false);
+	const setUser = useUserStore((state) => state.setUser);
+	const selectedRole = useUserStore((state) => state.selectedRole);
 	const navigate = useNavigate();
+	const [loading, setLoading] = useState(false);
 
 	const handleGoogleSignUp = async () => {
-		if (loading) return; // Prevent multiple clicks while loading
-		setLoading(true);
+		// if (loading) return; // Prevent multiple clicks while loading
 		try {
+			setLoading(true);
 			const userCredentials = await signInWithPopup(auth, provider);
 			if (userCredentials) {
 				const user: User = userCredentials.user;
@@ -34,9 +39,20 @@ const SignUp = () => {
 						id: user.uid,
 						email: user.email,
 						username: user.displayName,
+						role: selectedRole,
 						createdAt: Timestamp.now(),
 					});
 				}
+
+				setUser({
+					id: user.uid,
+					email: user.email,
+					username: user.displayName,
+					role: selectedRole,
+				});
+
+				setLoading(false);
+				navigate("/homepage");
 			}
 		} catch (error) {
 			if (error instanceof Error) console.log(error);
@@ -47,12 +63,11 @@ const SignUp = () => {
 
 	const handleFacebookSignUp = async () => {
 		if (loading) return; // Prevent multiple clicks while loading
-		setLoading(true);
+
 		try {
 			const userCredentials = await signInWithPopup(auth, facebookProvider);
 			if (userCredentials) {
 				const user: User = userCredentials.user;
-
 				const userRef = doc(db, "users", user.uid);
 				const userSnap = await getDoc(userRef);
 
@@ -71,6 +86,10 @@ const SignUp = () => {
 			setLoading(false);
 		}
 	};
+
+	if (loading) {
+		return <LoadingSpinner />;
+	}
 
 	return (
 		<div className="container-fluid pb-3">

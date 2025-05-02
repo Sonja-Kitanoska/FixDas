@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./NewlyJoinedHandymen.module.css";
 
 const newHandymen = [
@@ -28,6 +29,7 @@ const newHandymen = [
 ];
 
 const NewlyJoinedHandymen = () => {
+	const navigate = useNavigate();
 	return (
 		<div className="container pb-4">
 			<h2 className={styles.title}>
@@ -59,7 +61,10 @@ const NewlyJoinedHandymen = () => {
 				))}
 			</div>
 
-			<button className="orange-btn font-size-12 border-0 mt-2">
+			<button
+				onClick={() => navigate("/find-handyman")}
+				className="orange-btn font-size-12 border-0 mt-2"
+			>
 				Hausmeister Finden
 			</button>
 		</div>

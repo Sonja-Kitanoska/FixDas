@@ -4,6 +4,7 @@ import styles from "./Homepage.module.css";
 import { LuMapPin } from "react-icons/lu";
 import { MdVerified } from "react-icons/md";
 import Navbar from "../../components/Navbar/Navbar";
+import { useUserStore } from "../../store/userStore";
 
 const handymen = [
 	{
@@ -43,12 +44,14 @@ const handymen = [
 ];
 
 const Homepage = () => {
+	const user = useUserStore((state) => state.user);
+
 	return (
 		<>
 			<div className="container" style={{ paddingBottom: "76px" }}>
 				<div className="d-flex justify-content-between py-5">
 					<h2 className="orange font-size-24 font-weight-700 mb-0">
-						Hello Anna,
+						Hello {user?.username},
 					</h2>
 					<img src="/notification-icon.svg" alt="Notification icon" />
 				</div>
@@ -62,7 +65,7 @@ const Homepage = () => {
 					</div>
 					<div>
 						<div className={styles.editIconContainer}>
-							<FaRegEdit size={20} color="#939393"  />
+							<FaRegEdit size={20} color="#939393" />
 						</div>
 					</div>
 				</div>

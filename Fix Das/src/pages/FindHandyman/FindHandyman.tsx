@@ -1,8 +1,10 @@
 import LandingPageNavbar from "../../components/LandingPageNavbar/LandingPageNavbar";
+import { useUserStore } from "../../store/userStore";
 import RoleToggle from "../LandingPage/components/ToggleRole/ToggleRole";
 import ClientFindHandyman from "./components/ClientFindHandyman/ClientFindHandyman";
 
 const FindHandyman = () => {
+	const { selectedRole, setSelectedRole } = useUserStore();
 	return (
 		<div>
 			<LandingPageNavbar />
@@ -12,6 +14,8 @@ const FindHandyman = () => {
 			</h2>
 
 			<RoleToggle
+				selectedRole={selectedRole}
+				setSelectedRole={setSelectedRole}
 				ClientComponent={<ClientFindHandyman />}
 				HandymanComponent={
 					<p className="text-center">

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./FindAndBookHandyman.module.css";
 
 const images = [
@@ -9,6 +10,7 @@ const images = [
 ];
 
 const FindAndBookHandyman = () => {
+	const navigate = useNavigate();
 	return (
 		<div className="container py-3 text-center">
 			<div className="position-relative">
@@ -49,7 +51,9 @@ const FindAndBookHandyman = () => {
 				erledigen – alles an einem Ort.
 			</p>
 
-			<button className="orange-btn">Jetz anmelden</button>
+			<button onClick={() => navigate("/sign-in")} className="orange-btn">
+				Jetz anmelden
+			</button>
 		</div>
 	);
 };
