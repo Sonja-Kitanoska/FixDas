@@ -6,25 +6,26 @@ import styles from "./SignUp.module.css";
 import SmartImage from "../../../components/SmartImage/SmartImage";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../store/userStore";
-// import { useState } from "react";
+import { FirebaseError } from "firebase/app";
+import { useState } from "react";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 
 const provider = new GoogleAuthProvider();
 
 const SignUp = () => {
 	const setUser = useUserStore((state) => state.setUser);
-	const loading = useUserStore((state) => state.loading);
 
 	const setLoading = useUserStore((state) => state.setLoading);
+	const loading = useUserStore((state) => state.loading);
 
 	const selectedRole = useUserStore((state) => state.selectedRole);
 	const navigate = useNavigate();
-	// const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
 
 	const handleGoogleSignUp = async () => {
 		// if (loading) return; // Prevent multiple clicks while loading
+		setLoading(true);
 		try {
-			setLoading(true);
 			const userCredentials = await signInWithPopup(auth, provider);
 			if (userCredentials) {
 				const user: User = userCredentials.user;
@@ -46,6 +47,7 @@ const SignUp = () => {
 					id: user.uid,
 					email: user.email,
 					username: user.displayName,
+					phone: user.phoneNumber,
 					role: selectedRole,
 				});
 
@@ -53,18 +55,25 @@ const SignUp = () => {
 				navigate("/homepage");
 			}
 		} catch (error) {
-			if (error instanceof Error) console.log(error);
+			if (error instanceof FirebaseError) {
+				if (error.code === "auth/email-already-in-use") {
+					setError(
+						"This email is already in use. Try logging in or using a different email."
+					);
+				} else {
+					setError("Failed to sign up. Please try again.");
+				}
+			} else {
+				setError("An unexpected error occurred. Please try again.");
+			}
 		} finally {
 			setLoading(false);
 		}
 	};
 
-	if (loading) {
-		return <LoadingSpinner />;
-	}
-
 	return (
 		<div className="container-fluid pb-3">
+			{loading && <LoadingSpinner />}
 			<div className="text-center p-3">
 				{/* <img src="./logo.svg" alt="Logo" /> */}
 				<SmartImage src="/logo.svg" alt="Logo" width={120} height={120} />

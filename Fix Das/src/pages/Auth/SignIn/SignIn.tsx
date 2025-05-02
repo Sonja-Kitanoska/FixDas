@@ -14,7 +14,6 @@ import { auth, db } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
 
 const SignIn = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -45,33 +44,7 @@ const SignIn = () => {
 			if (error instanceof Error) console.log(error);
 		} finally {
 			setLoading(false);
-		}
-	};
-
-	const handleFacebookSignUp = async () => {
-		if (loading) return; // Prevent multiple clicks while loading
-		setLoading(true);
-		try {
-			const userCredentials = await signInWithPopup(auth, facebookProvider);
-			if (userCredentials) {
-				const user: User = userCredentials.user;
-
-				const userRef = doc(db, "users", user.uid);
-				const userSnap = await getDoc(userRef);
-
-				if (!userSnap.exists()) {
-					await setDoc(userRef, {
-						id: user.uid,
-						email: user.email,
-						username: user.displayName,
-						createdAt: Timestamp.now(),
-					});
-				}
-			}
-		} catch (error) {
-			if (error instanceof Error) console.log(error);
-		} finally {
-			setLoading(false);
+			navigate("/homepage");
 		}
 	};
 
@@ -164,10 +137,7 @@ const SignIn = () => {
 
 					<p className="mb-0">Continue with Google</p>
 				</button>
-				<button
-					onClick={handleFacebookSignUp}
-					className="btn login-btn mb-3 d-flex align-items-center justify-content-center gap-2"
-				>
+				<button className="btn login-btn mb-3 d-flex align-items-center justify-content-center gap-2">
 					<img src="coloured-icons/Logo-Facebook.svg" alt="Facebook logo" />
 					<p className="mb-0"> Continue with Facebook</p>
 				</button>

@@ -19,18 +19,10 @@ import SignIn from "./pages/Auth/SignIn/SignIn";
 import HandymanPublicProfile from "./pages/HandymanPublicProfile/HandymanPublicProfile";
 import Chat from "./pages/Chat/Chat/Chat";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
-// import { useUserStore } from "./store/userStore";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-// import { useEffect, useState } from "react";
-// import { auth } from "./firebase";
-// import { onAuthStateChanged } from "firebase/auth";
-// import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
 
 function App() {
-	// const [loading, setLoading] = useState(false);
-	// const setUser = useUserStore((state) => state.setUser);
-	// const user = useUserStore((state) => state.user);
-
 	return (
 		<div style={{ backgroundColor: "#FAFAFA" }}>
 			<BrowserRouter>
@@ -42,10 +34,12 @@ function App() {
 					<Route path="/menu" element={<Menu />} />
 
 					{/* Login and sign up */}
-					<Route path="/sign-up" element={<SignUp />} />
-					<Route path="/sign-up-email" element={<SignUpWithEmail />} />
-					<Route path="/sign-in" element={<SignIn />} />
-					<Route path="/reset-password" element={<ResetPassword />} />
+					<Route element={<PublicRoute />}>
+						<Route path="/sign-up" element={<SignUp />} />
+						<Route path="/sign-up-email" element={<SignUpWithEmail />} />
+						<Route path="/sign-in" element={<SignIn />} />
+						<Route path="/reset-password" element={<ResetPassword />} />
+					</Route>
 
 					{/* PROTECTED ROUTES */}
 

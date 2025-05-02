@@ -51,7 +51,7 @@ const Homepage = () => {
 			<div className="container" style={{ paddingBottom: "76px" }}>
 				<div className="d-flex justify-content-between py-5">
 					<h2 className="orange font-size-24 font-weight-700 mb-0">
-						Hello {user?.username},
+						Hello {user!.username},
 					</h2>
 					<img src="/notification-icon.svg" alt="Notification icon" />
 				</div>

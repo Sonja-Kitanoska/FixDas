@@ -7,6 +7,7 @@ export type User = {
 	id: string;
 	email: string | null;
 	username: string | null;
+	phone: string | null;
 	role: Role;
 };
 
@@ -27,7 +28,7 @@ export const useUserStore = create<UserState>()(
 			setUser: (user: User | null) => set({ user }),
 			selectedRole: "client",
 			setSelectedRole: (role: Role) => set({ selectedRole: role }),
-			loading: true,
+			loading: false,
 			setLoading: (loading) => set({ loading }),
 			logout: () => set({ user: null }),
 		}),
