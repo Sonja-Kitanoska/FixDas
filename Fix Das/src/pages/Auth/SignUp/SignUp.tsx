@@ -115,6 +115,9 @@ const SignUp = () => {
 			>
 				Register
 			</button>
+			<p className="font-size-12 text-center" style={{ color: "red" }}>
+				{error}
+			</p>
 
 			<p className="gray-light my-3 text-center font-size-14 mb-0">
 				Already an account?{" "}

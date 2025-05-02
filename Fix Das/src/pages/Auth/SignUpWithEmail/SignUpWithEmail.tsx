@@ -29,7 +29,7 @@ const SignUpWithEmail = () => {
 		phone: "",
 	});
 
-	const { user, setUser, loading } = useUserStore();
+	const { setUser, loading } = useUserStore();
 	const selectedRole = useUserStore((state) => state.selectedRole);
 
 	const [error, setError] = useState("");

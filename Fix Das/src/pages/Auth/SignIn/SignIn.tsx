@@ -3,12 +3,7 @@ import { IoChevronBack, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import styles from "./SignIn.module.css";
-import {
-	FacebookAuthProvider,
-	GoogleAuthProvider,
-	signInWithPopup,
-	User,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
