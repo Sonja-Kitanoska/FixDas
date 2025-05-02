@@ -1,9 +1,4 @@
-import {
-	GoogleAuthProvider,
-	FacebookAuthProvider,
-	signInWithPopup,
-	User,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import { auth, db } from "../../../firebase";
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 
@@ -11,17 +6,20 @@ import styles from "./SignUp.module.css";
 import SmartImage from "../../../components/SmartImage/SmartImage";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../store/userStore";
-import { useState } from "react";
+// import { useState } from "react";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 
 const provider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
 
 const SignUp = () => {
 	const setUser = useUserStore((state) => state.setUser);
+	const loading = useUserStore((state) => state.loading);
+
+	const setLoading = useUserStore((state) => state.setLoading);
+
 	const selectedRole = useUserStore((state) => state.selectedRole);
 	const navigate = useNavigate();
-	const [loading, setLoading] = useState(false);
+	// const [loading, setLoading] = useState(false);
 
 	const handleGoogleSignUp = async () => {
 		// if (loading) return; // Prevent multiple clicks while loading
@@ -61,32 +59,6 @@ const SignUp = () => {
 		}
 	};
 
-	const handleFacebookSignUp = async () => {
-		if (loading) return; // Prevent multiple clicks while loading
-
-		try {
-			const userCredentials = await signInWithPopup(auth, facebookProvider);
-			if (userCredentials) {
-				const user: User = userCredentials.user;
-				const userRef = doc(db, "users", user.uid);
-				const userSnap = await getDoc(userRef);
-
-				if (!userSnap.exists()) {
-					await setDoc(userRef, {
-						id: user.uid,
-						email: user.email,
-						username: user.displayName,
-						createdAt: Timestamp.now(),
-					});
-				}
-			}
-		} catch (error) {
-			if (error instanceof Error) console.log(error);
-		} finally {
-			setLoading(false);
-		}
-	};
-
 	if (loading) {
 		return <LoadingSpinner />;
 	}
@@ -112,10 +84,7 @@ const SignUp = () => {
 
 				<p className="mb-0">Continue with Googgle</p>
 			</button>
-			<button
-				onClick={handleFacebookSignUp}
-				className="btn login-btn mb-3 d-flex align-items-center justify-content-center gap-2"
-			>
+			<button className="btn login-btn mb-3 d-flex align-items-center justify-content-center gap-2">
 				<img src="coloured-icons/Logo-Facebook.svg" alt="Facebook logo" />
 				<p className="mb-0"> Continue with Facebook</p>
 			</button>

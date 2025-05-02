@@ -19,36 +19,17 @@ import SignIn from "./pages/Auth/SignIn/SignIn";
 import HandymanPublicProfile from "./pages/HandymanPublicProfile/HandymanPublicProfile";
 import Chat from "./pages/Chat/Chat/Chat";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
-import { useUserStore } from "./store/userStore";
+// import { useUserStore } from "./store/userStore";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import { useEffect, useState } from "react";
-import { auth } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+// import { useEffect, useState } from "react";
+// import { auth } from "./firebase";
+// import { onAuthStateChanged } from "firebase/auth";
+// import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function App() {
-	const [loading, setLoading] = useState(false);
-	const setUser = useUserStore((state) => state.setUser);
-	const user = useUserStore((state) => state.user);
-
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-			setLoading(true);
-			if (firebaseUser) {
-				setUser(user);
-				setLoading(false);
-			} else {
-				setUser(null);
-				setLoading(false);
-			}
-		});
-
-		return () => unsubscribe();
-	});
-
-	if (loading) {
-		return <LoadingSpinner />;
-	}
+	// const [loading, setLoading] = useState(false);
+	// const setUser = useUserStore((state) => state.setUser);
+	// const user = useUserStore((state) => state.user);
 
 	return (
 		<div style={{ backgroundColor: "#FAFAFA" }}>

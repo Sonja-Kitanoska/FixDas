@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 
 export type Role = "client" | "handyman";
 
-type User = {
+export type User = {
 	id: string;
 	email: string | null;
 	username: string | null;
@@ -15,8 +15,8 @@ export interface UserState {
 	setUser: (user: User | null) => void;
 	selectedRole: Role;
 	setSelectedRole: (role: Role) => void;
-	// loading: boolean;
-	// setLoading: (loading: boolean) => void;
+	loading: boolean;
+	setLoading: (loading: boolean) => void;
 	logout: () => void;
 }
 
@@ -27,8 +27,8 @@ export const useUserStore = create<UserState>()(
 			setUser: (user: User | null) => set({ user }),
 			selectedRole: "client",
 			setSelectedRole: (role: Role) => set({ selectedRole: role }),
-			// loading: true,
-			// setLoading: (loading) => set({ loading }),
+			loading: true,
+			setLoading: (loading) => set({ loading }),
 			logout: () => set({ user: null }),
 		}),
 		{
