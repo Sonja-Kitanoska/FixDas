@@ -5,7 +5,7 @@ const PublicRoute = () => {
 	const { user } = useUserStore();
 
 	if (user) {
-		return <Navigate to="/" replace />;
+		return <Navigate to="/homepage" replace />;
 	}
 
 	return <Outlet />;

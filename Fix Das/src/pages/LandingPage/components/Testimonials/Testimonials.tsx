@@ -1,50 +1,19 @@
+import { useEffect, useState } from "react";
 import styles from "./Testimonials.module.css";
+import { fetchTestimonials } from "../../../../api/testimonials";
+import { Testimonial } from "../../../../types/types";
 
-const testimonials = [
-	{
-		id: crypto.randomUUID(),
-		image: "/LandingPage/testimonials/client1.svg",
-		name: "Barack Obama",
-		location: "Dresden",
-		stars: 5,
-		comment:
-			"Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-		workImages: [
-			"/LandingPage/testimonials/work-images/work1.svg",
-			"/LandingPage/testimonials/work-images/work2.svg",
-			"/LandingPage/testimonials/work-images/work3.svg",
-			"/LandingPage/testimonials/work-images/work4.svg",
-		],
-	},
-	{
-		id: crypto.randomUUID(),
-		image: "/LandingPage/testimonials/client3.svg",
-		name: "Angela Merkel",
-		location: "Hamburg",
-		stars: 4,
-		comment:
-			"Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-		workImages: [
-			"/LandingPage/testimonials/work-images/work1.svg",
-			"/LandingPage/testimonials/work-images/work2.svg",
-		],
-	},
-	{
-		id: crypto.randomUUID(),
-		image: "/LandingPage/testimonials/client2.svg",
-		name: "Gerhard Schröder",
-		location: "Berlin",
-		stars: 5,
-		comment:
-			"Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-		workImages: [
-			"/LandingPage/testimonials/work-images/work1.svg",
-			"/LandingPage/testimonials/work-images/work2.svg",
-			"/LandingPage/testimonials/work-images/work3.svg",
-		],
-	},
-];
 const Testimonials = () => {
+	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+	useEffect(() => {
+		const getTestimonials = async () => {
+			const data = await fetchTestimonials();
+			setTestimonials(data);
+		};
+		getTestimonials();
+	}, []);
+
 	return (
 		<div className={`${styles.lightOrangeBg} container py-3 pb-5`}>
 			<div className="position-relative">

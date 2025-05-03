@@ -1,0 +1,234 @@
+{
+  "handymen": [
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Klaus Schneider",
+      "location": "Berlin, Germany",
+      "stars": 5,
+      "numberReviews": 38,
+      "categories": [
+        "Heating",
+        "Sanitary",
+        "A/C",
+        "Solar systems"
+      ],
+      "description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "5 days ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Sarah Miller",
+      "location": "Munich, Germany",
+      "stars": 4,
+      "numberReviews": 25,
+      "categories": [
+        "Electrical",
+        "Plumbing",
+        "Heating"
+      ],
+      "description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "3 days ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "John Doe",
+      "location": "Frankfurt, Germany",
+      "stars": 5,
+      "numberReviews": 50,
+      "categories": [
+        "A/C",
+        "Plumbing",
+        "Renovation"
+      ],
+      "description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2 weeks ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client4.svg",
+      "name": "Emma Clark",
+      "location": "Hamburg, Germany",
+      "stars": 4,
+      "numberReviews": 30,
+      "categories": [
+        "Solar systems",
+        "Heating"
+      ],
+      "description": "Specialized in solar energy systems installation. Offering eco-friendly solutions.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "1 week ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client5.svg",
+      "name": "Liam Johnson",
+      "location": "Stuttgart, Germany",
+      "stars": 4,
+      "numberReviews": 40,
+      "categories": [
+        "Electrical",
+        "A/C",
+        "Renovation"
+      ],
+      "description": "Offering professional electrical installations and A/C repairs. Fast response times.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "1 month ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client6.svg",
+      "name": "Sophia Williams",
+      "location": "Cologne, Germany",
+      "stars": 5,
+      "numberReviews": 60,
+      "categories": [
+        "Sanitary",
+        "Plumbing",
+        "Heating"
+      ],
+      "description": "Highly skilled plumber and heating engineer. Reliable, efficient, and friendly.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2 months ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client7.svg",
+      "name": "Benjamin Lewis",
+      "location": "Berlin, Germany",
+      "stars": 3,
+      "numberReviews": 20,
+      "categories": [
+        "Electrical",
+        "Renovation",
+        "Solar systems"
+      ],
+      "description": "Electrical work and home renovation expert. Focus on sustainable solutions.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "3 months ago"
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client8.svg",
+      "name": "Olivia Brown",
+      "location": "Hamburg, Germany",
+      "stars": 5,
+      "numberReviews": 75,
+      "categories": [
+        "Solar systems",
+        "Plumbing",
+        "Heating"
+      ],
+      "description": "Top-tier plumber specializing in solar-powered heating systems. Committed to quality.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "6 days ago"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Barack Obama",
+      "location": "Dresden",
+      "stars": 5,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ]
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Angela Merkel",
+      "location": "Hamburg",
+      "stars": 4,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg"
+      ]
+    },
+    {
+      "id": "crypto.randomUUID()",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Gerhard Schröder",
+      "location": "Berlin",
+      "stars": 5,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg"
+      ]
+    }
+  ],
+  "client-adds": [
+    {
+      "title": "dwdd",
+      "description": "ws",
+      "location": "dwa",
+      "images": [
+        "https://picsum.photos/400/200?random=536"
+      ],
+      "id": 2
+    },
+    {
+      "title": "dd",
+      "description": "e",
+      "location": "de",
+      "images": [
+        "https://picsum.photos/400/200?random=282"
+      ],
+      "userId": "4nB3ToC9PUURjoRViqoZuCRPhJG2",
+      "id": 3
+    }
+  ]
+}
