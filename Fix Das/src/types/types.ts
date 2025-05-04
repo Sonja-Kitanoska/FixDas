@@ -1,3 +1,25 @@
+export type Role = "client" | "handyman";
+
+export type User = {
+	id: string;
+	email: string | null;
+	username: string | null;
+	phone: string | null;
+	location?: string;
+	password?: string;
+	role: Role;
+};
+
+export interface UserState {
+	user: User | null;
+	setUser: (user: User | null) => void;
+	selectedRole: Role;
+	setSelectedRole: (role: Role) => void;
+	loading: boolean;
+	setLoading: (loading: boolean) => void;
+	logout: () => void;
+}
+
 export type Handyman = {
 	id: `${string}-${string}-${string}-${string}-${string}`;
 	image: string;

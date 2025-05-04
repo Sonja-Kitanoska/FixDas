@@ -1,25 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-export type Role = "client" | "handyman";
-
-export type User = {
-	id: string;
-	email: string | null;
-	username: string | null;
-	phone: string | null;
-	role: Role;
-};
-
-export interface UserState {
-	user: User | null;
-	setUser: (user: User | null) => void;
-	selectedRole: Role;
-	setSelectedRole: (role: Role) => void;
-	loading: boolean;
-	setLoading: (loading: boolean) => void;
-	logout: () => void;
-}
+import { Role, User, UserState } from "../types/types";
 
 export const useUserStore = create<UserState>()(
 	persist(
