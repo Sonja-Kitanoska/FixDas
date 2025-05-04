@@ -23,10 +23,16 @@ export type Testimonial = {
 };
 
 export type ClientAddData = {
-	id: number;
 	title: string;
 	description: string;
 	location: string;
 	images: (File | string)[];
 	userId: string;
+};
+
+export type ReviewFormData = {
+	rating: string | null;
+	comment: string | null;
+	photos: (File | string)[];
+	agreedToPublish: boolean;
 };
