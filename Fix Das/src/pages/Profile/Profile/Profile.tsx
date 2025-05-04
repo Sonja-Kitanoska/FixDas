@@ -23,20 +23,23 @@ const Profile = () => {
 		getAdds();
 	}, [user]);
 
-	const phoneNumber = "+41 987 654 321";
+	const formatPhoneNumber = (number: string | undefined | null) => {
+		if (!number) {
+			return;
+		}
+		const cleaned = number.replace(/[^\d+]/g, "");
 
-	const formatPhoneNumber = (number: string) => {
-		// Adjusting regex to handle the '+' sign
-		return number.replace(
-			/\+(\d{2}) (\d{3}) (\d{3}) (\d{3})/,
-			"+$1 $2 *** ***"
-		);
+		const match = cleaned.match(/^(\+?\d+)(\d{3})(\d{3})$/);
+		if (!match) return number;
+
+		const [, start, ,] = match;
+		return `${start} *** ***`;
 	};
 
 	return (
 		<>
 			<div className="py-3">
-				<div className="container " style={{ paddingBottom: "78px" }}>
+				<div className="container" style={{ paddingBottom: "78px" }}>
 					<div className="d-flex justify-content-between align-items-center">
 						<p className="orange mb-0 font-weight-700">Konto</p>
 						<img
@@ -46,7 +49,7 @@ const Profile = () => {
 						/>
 					</div>
 
-					<div className="py-5 d-flex gap-3">
+					<div className="pt-4 d-flex gap-3">
 						<div className="d-flex flex-column justify-content-center">
 							<img src="/Profile/ProfilePicture.svg" alt="Profile Image" />
 							<p
@@ -58,21 +61,26 @@ const Profile = () => {
 						</div>
 						<div className="w-100 font-size-14 font-weight-400">
 							<div className="d-flex justify-content-between">
-								<p className="mb-1 font-weight-700">Ana Muller</p>
+								<p className="mb-1 font-weight-700">{user?.username}</p>
 								<MdOutlineModeEdit
 									color="#1461F0"
 									size={18}
 									onClick={() => navigate("/profile/edit")}
 								/>
 							</div>
-							<p className="mb-1">annamuller@yahoo.com</p>
-							<div className="d-flex align-items-center gap-1 mb-1">
-								<LuMapPin color="#1461F0" /> <p className="mb-0">Ingolstadt</p>
-							</div>
-							<div className="d-flex align-items-center gap-1 mb-1">
-								<MdOutlineLocalPhone />
-								<p className="mb-0">{formatPhoneNumber(phoneNumber)}</p>
-							</div>
+							<p className="mb-1">{user?.email}</p>
+							{user?.location && (
+								<div className="d-flex align-items-center gap-1 mb-1">
+									<LuMapPin color="#1461F0" />{" "}
+									<p className="mb-0">{user?.location}</p>
+								</div>
+							)}
+							{user?.phone && (
+								<div className="d-flex align-items-center gap-1 mb-1">
+									<MdOutlineLocalPhone />
+									<p className="mb-0">{formatPhoneNumber(user?.phone)}</p>
+								</div>
+							)}
 						</div>
 					</div>
 					<div className="py-3">
