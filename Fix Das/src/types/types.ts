@@ -23,6 +23,7 @@ export type Testimonial = {
 };
 
 export type ClientAddData = {
+	id: number;
 	title: string;
 	description: string;
 	location: string;
