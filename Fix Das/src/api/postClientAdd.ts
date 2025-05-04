@@ -51,7 +51,8 @@ export const postClientAdd = async (data: ClientAddData) => {
 		description: data.description,
 		location: data.location,
 		images: base64Images,
-        userId: data.userId, 
+		userId: data.userId,
+		createdAt: data.createdAt,
 	};
 
 	try {

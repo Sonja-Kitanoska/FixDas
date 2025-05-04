@@ -66,15 +66,19 @@ const PostAdd = () => {
 				return;
 			}
 
-			await postClientAdd({
+			const data = {
+				id: crypto.randomUUID(),
 				title: formData.title,
 				description: formData.description,
 				location: formData.location,
 				images,
 				userId: user.id,
-			});
+				createdAt: new Date().toISOString(),
+			};
+
+			await postClientAdd(data);
+
 			navigate("/profile");
-			console.log(formData);
 		} catch (err) {
 			if (err instanceof Error) {
 				setError(`Something went wrong: ${err.message}`);

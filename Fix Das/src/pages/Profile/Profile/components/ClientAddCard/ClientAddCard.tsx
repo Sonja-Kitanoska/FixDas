@@ -2,6 +2,7 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { LuMapPin } from "react-icons/lu";
 import { ClientAddData } from "../../../../../types/types";
 import { useUserStore } from "../../../../../store/userStore";
+import { formatDistanceToNow } from "date-fns";
 
 const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 	const user = useUserStore((state) => state.user);
@@ -55,7 +56,7 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 					style={{ color: "#939393", fontSize: "10px" }}
 					className="mb-0 font-weight-400"
 				>
-					5 days ago
+					{formatDistanceToNow(new Date(add.createdAt), { addSuffix: true })}
 				</p>
 			</div>
 
