@@ -3,16 +3,21 @@ import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./EditProfile.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../store/userStore";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { User } from "../../../types/types";
 
 const EditProfile = () => {
 	const navigate = useNavigate();
 	const user = useUserStore((state) => state.user);
 	const setUser = useUserStore((state) => state.setUser);
+	const nameRef = useRef<HTMLInputElement>(null);
+	const emailRef = useRef<HTMLInputElement>(null);
+	const locationRef = useRef<HTMLInputElement>(null);
+	const phoneRef = useRef<HTMLInputElement>(null);
+	const passwordRef = useRef<HTMLInputElement>(null);
 
 	const [formData, setFormData] = useState<User | null>(user);
-	const [isEditing, setIsEditing] = useState(false);
+	const [editingField, setEditingField] = useState<string | null>(null);
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -25,24 +30,33 @@ const EditProfile = () => {
 			};
 		});
 	};
-
-	const enableEditing = (e: React.MouseEvent<HTMLButtonElement>) => {
+	const enableEditing = (
+		e: React.MouseEvent<HTMLButtonElement>,
+		fieldName: string,
+		inputRef: React.RefObject<HTMLInputElement | null>
+	) => {
 		e.preventDefault();
-		setIsEditing(true);
+		setEditingField(fieldName);
+		setTimeout(() => inputRef.current?.focus(), 0);
 	};
 
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+		}
+	};
 	const handleSave = () => {
 		if (formData) {
 			setUser(formData);
-			setIsEditing(false);
 			navigate("/profile");
 		}
 	};
 
 	const handleCancel = () => {
 		setFormData(user);
-		setIsEditing(false);
+		navigate("/profile");
 	};
+
 	return (
 		<>
 			<div style={{ paddingBottom: "78px" }}>
@@ -80,19 +94,21 @@ const EditProfile = () => {
 								</label>
 								<input
 									type="text"
-									name="name"
+									name="username"
 									id="name"
 									className={`${styles.bgColor} border-0`}
 									style={{ color: "#939393" }}
 									value={formData?.username || ""}
 									onChange={handleInputChange}
-									disabled={!isEditing}
+									disabled={editingField !== "username"}
+									ref={nameRef}
+									onKeyDown={handleKeyDown}
 								/>
 							</div>
 							<div>
 								<button
 									type="button"
-									onClick={enableEditing}
+									onClick={(e) => enableEditing(e, "username", nameRef)}
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
@@ -113,15 +129,17 @@ const EditProfile = () => {
 									className={`${styles.bgColor} border-0`}
 									style={{ color: "#939393" }}
 									value={formData?.email || ""}
-									disabled={!isEditing}
+									disabled={editingField !== "email"}
 									onChange={handleInputChange}
+									ref={emailRef}
+									onKeyDown={handleKeyDown}
 								/>
 								<p className="orange font-size-12 mb-0">Verify email address</p>
 							</div>
 							<div>
 								<button
 									type="button"
-									onClick={enableEditing}
+									onClick={(e) => enableEditing(e, "email", emailRef)}
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
@@ -144,13 +162,15 @@ const EditProfile = () => {
 									value={formData?.location || ""}
 									placeholder="No location entered yet"
 									onChange={handleInputChange}
-									disabled={!isEditing}
+									disabled={editingField !== "location"}
+									ref={locationRef}
+									onKeyDown={handleKeyDown}
 								/>
 							</div>
 							<div>
 								<button
 									type="button"
-									onClick={enableEditing}
+									onClick={(e) => enableEditing(e, "location", locationRef)}
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
@@ -173,13 +193,15 @@ const EditProfile = () => {
 									value={formData?.phone || ""}
 									placeholder="No phone number entered yet"
 									onChange={handleInputChange}
-									disabled={!isEditing}
+									disabled={editingField !== "phone"}
+									ref={phoneRef}
+									onKeyDown={handleKeyDown}
 								/>
 							</div>
 							<div>
 								<button
 									type="button"
-									onClick={enableEditing}
+									onClick={(e) => enableEditing(e, "phone", phoneRef)}
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
@@ -201,13 +223,15 @@ const EditProfile = () => {
 									style={{ color: "#939393" }}
 									value={formData?.password}
 									onChange={handleInputChange}
-									disabled={!isEditing}
+									disabled={editingField !== "password"}
+									ref={passwordRef}
+									onKeyDown={handleKeyDown}
 								/>
 							</div>
 							<div>
 								<button
 									type="button"
-									onClick={enableEditing}
+									onClick={(e) => enableEditing(e, "password", passwordRef)}
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
