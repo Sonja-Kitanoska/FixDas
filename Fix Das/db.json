@@ -1,7 +1,7 @@
 {
 	"handymen": [
 		{
-			"id": "crypto.randomUUID()",
+			"id": "33b7c1fe-272d-4dbb-88d0-326b78d0405c",
 			"image": "/LandingPage/testimonials/client1.svg",
 			"name": "Klaus Schneider",
 			"location": "Berlin, Germany",
@@ -18,7 +18,7 @@
 			"createdAt": "5 days ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "65764a12-5b9d-48ac-8e4f-4ef6a4548753",
 			"image": "/LandingPage/testimonials/client2.svg",
 			"name": "Sarah Miller",
 			"location": "Munich, Germany",
@@ -35,7 +35,7 @@
 			"createdAt": "3 days ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "fe46059b-d11c-40c6-909f-6a1f000b52c1",
 			"image": "/LandingPage/testimonials/client3.svg",
 			"name": "John Doe",
 			"location": "Frankfurt, Germany",
@@ -52,7 +52,7 @@
 			"createdAt": "2 weeks ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "8d514cfa-5639-4347-b1bc-0979f9fa8b58",
 			"image": "/LandingPage/testimonials/client4.svg",
 			"name": "Emma Clark",
 			"location": "Hamburg, Germany",
@@ -69,7 +69,7 @@
 			"createdAt": "1 week ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "fcc641df-e9a6-4547-8317-60a7ffda4a73",
 			"image": "/LandingPage/testimonials/client5.svg",
 			"name": "Liam Johnson",
 			"location": "Stuttgart, Germany",
@@ -86,7 +86,7 @@
 			"createdAt": "1 month ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "fcc641df-e9a6-4547-8317-60a7ffda4a73",
 			"image": "/LandingPage/testimonials/client6.svg",
 			"name": "Sophia Williams",
 			"location": "Cologne, Germany",
@@ -103,7 +103,7 @@
 			"createdAt": "2 months ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "d6b33df2-c706-410a-a924-e32542957412",
 			"image": "/LandingPage/testimonials/client7.svg",
 			"name": "Benjamin Lewis",
 			"location": "Berlin, Germany",
@@ -120,7 +120,7 @@
 			"createdAt": "3 months ago"
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "fdc18598-77a7-4656-b5d5-215d00f08bdc",
 			"image": "/LandingPage/testimonials/client8.svg",
 			"name": "Olivia Brown",
 			"location": "Hamburg, Germany",
@@ -139,7 +139,7 @@
 	],
 	"testimonials": [
 		{
-			"id": "crypto.randomUUID()",
+			"id": "1",
 			"image": "/LandingPage/testimonials/client1.svg",
 			"name": "Barack Obama",
 			"location": "Dresden",
@@ -153,7 +153,7 @@
 			]
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "2",
 			"image": "/LandingPage/testimonials/client3.svg",
 			"name": "Angela Merkel",
 			"location": "Hamburg",
@@ -165,7 +165,7 @@
 			]
 		},
 		{
-			"id": "crypto.randomUUID()",
+			"id": "3",
 			"image": "/LandingPage/testimonials/client2.svg",
 			"name": "Gerhard Schröder",
 			"location": "Berlin",
@@ -188,7 +188,6 @@
 			"createdAt": "2025-05-04T12:55:42.680Z",
 			"id": 2
 		},
-
 		{
 			"title": "Fix the sofa",
 			"description": "The sofa is broken.",
@@ -213,6 +212,59 @@
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 2
+		}
+	],
+	"proposals": [
+		{
+			"id": 1,
+			"from": {
+				"id": "2",
+				"name": "Madonna",
+				"role": "handyman"
+			},
+			"to": {
+				"id": "4nB3ToC9PUURjoRViqoZuCRPhJG2",
+				"role": "client"
+			},
+			"title": "Electrician service",
+			"description": "Fix a lamp",
+			"location": "Strasse, Munich",
+			"time": "2025-05-04T11:00:42.680Z",
+			"status": "accepted"
+		},
+		{
+			"id": 2,
+			"from": {
+				"id": "2",
+				"name": "Madonna",
+				"role": "handyman"
+			},
+			"to": {
+				"id": "4nB3ToC9PUURjoRViqoZuCRPhJG2",
+				"role": "client"
+			},
+			"title": "Electrician service",
+			"description": "Fix a lamp",
+			"location": "Strasse, Munich",
+			"time": "2025-05-04T11:00:42.680Z",
+			"status": "pending"
+		},
+		{
+			"id": 9,
+			"from": {
+				"id": "2",
+				"name": "Madonna",
+				"role": "handyman"
+			},
+			"to": {
+				"id": "4nB3ToC9PUURjoRViqoZuCRPhJG2",
+				"role": "client"
+			},
+			"title": "Electrician service",
+			"description": "Fix a lamp",
+			"location": "Strasse, Munich",
+			"time": "2025-05-04T11:00:42.680Z",
+			"status": "accepted"
 		}
 	]
 }

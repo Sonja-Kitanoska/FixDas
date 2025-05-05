@@ -60,3 +60,21 @@ export type ReviewFormData = {
 	photos: (File | string)[];
 	agreedToPublish: boolean;
 };
+
+export type Proposal = {
+	id: number;
+	from: {
+		id: string;
+		name: string;
+		role: Role;
+	};
+	to: {
+		id: string;
+		role: Role;
+	};
+	title: string;
+	description: string;
+	location: string;
+	time: string;
+	status: "pending" | "accepted" | "completed";
+};
