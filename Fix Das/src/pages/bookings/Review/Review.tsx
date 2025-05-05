@@ -1,17 +1,40 @@
 import { IoChevronBack } from "react-icons/io5";
 import Navbar from "../../../components/Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaCamera } from "react-icons/fa6";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BasicRating from "./components/Rating/Rating";
 import { postReview } from "../../../api/postReview";
+import { getProposalById } from "../../../api/proposals";
+import { Proposal } from "../../../types/types";
 
 const Review = () => {
 	const navigate = useNavigate();
+	const { proposalId } = useParams();
+
 	const fileInputRef = useRef<HTMLInputElement>(null);
 	const commentRef = useRef<HTMLTextAreaElement>(null);
 	const [rating, setRating] = useState<number | null>(0);
 	const [agreedToPublish, setAgreedToPublish] = useState(false);
+	const [handymanId, setHandymanId] = useState<string | null>(null);
+	const [proposal, setProposal] = useState<Proposal | null>(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchHandymanId = async () => {
+			try {
+				if (!proposalId) return;
+				const proposal = await getProposalById(proposalId);
+				setProposal(proposal);
+				setHandymanId(proposal.from.id);
+			} catch (err) {
+				console.error("Failed to fetch proposal details:", err);
+			} finally {
+				setLoading(false);
+			}
+		};
+		fetchHandymanId();
+	}, [proposalId]);
 
 	const handleAddPhotosClick = () => {
 		if (fileInputRef.current) {
@@ -20,9 +43,18 @@ const Review = () => {
 	};
 
 	const handleSubmit = async (event: React.FormEvent) => {
+		console.log("Submit button clicked");
 		event.preventDefault();
 
+		if (!handymanId) {
+			console.error("Cannot submit review without handymanId");
+			return;
+		}
+
 		const formData = {
+			handymanId,
+			proposalId: proposal?.id ?? null,
+			name: proposal?.from?.name ?? "",
 			rating: rating?.toString() ?? null,
 			comment: commentRef.current?.value ?? null,
 			photos: [] as File[],
@@ -43,6 +75,8 @@ const Review = () => {
 			console.error("Failed to submit review:", err);
 		}
 	};
+
+	if (loading) return <p>Loading...</p>;
 	return (
 		<div className="py-3">
 			<div style={{ paddingBottom: "78px" }} className="container">
@@ -60,7 +94,8 @@ const Review = () => {
 				</p>
 
 				<p className="font-size-14 text-center mb-0">
-					Rate your service with <span className="fw-bold">Klaus ...</span>
+					Rate your service with
+					<span className="fw-bold"> {proposal?.from.name}</span>
 				</p>
 
 				<form onSubmit={handleSubmit}>

@@ -83,7 +83,7 @@ const NewProposals = () => {
 										proposal={proposal}
 										onDelete={handleDeleteProposal}
 										updateProposal={async () =>
-											await updateProposalStatus(proposal)
+											await updateProposalStatus(proposal, "accepted")
 										}
 									/>
 								))

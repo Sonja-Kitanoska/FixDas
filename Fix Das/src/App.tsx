@@ -47,7 +47,7 @@ function App() {
 					<Route element={<ProtectedRoute />}>
 						<Route path="/bookings" element={<NewProposals />} />
 						<Route path="/bookings/ongoing" element={<OngoingBooking />} />
-						<Route path="/bookings/review" element={<Review />} />
+						<Route path="/bookings/review/:proposalId" element={<Review />} />
 						<Route path="/bookings/completed" element={<CompletedBookings />} />
 
 						{/* Categories*/}

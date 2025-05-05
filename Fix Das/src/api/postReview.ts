@@ -47,6 +47,8 @@ export const postReview = async (data: ReviewFormData) => {
 		})
 	);
 	const body = {
+		handymanId: data.handymanId,
+		proposalId: data.proposalId,
 		rating: data.rating,
 		comment: data.comment,
 		photos: base64Images,

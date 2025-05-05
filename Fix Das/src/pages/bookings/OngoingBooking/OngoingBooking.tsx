@@ -1,7 +1,7 @@
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "../Bookings.module.css";
 import { useEffect, useState } from "react";
-import { fetchProposals } from "../../../api/proposals";
+import { fetchProposals, updateProposalStatus } from "../../../api/proposals";
 import { Proposal } from "../../../types/types";
 import { useUserStore } from "../../../store/userStore";
 import OngoingCard from "../components/OngoingCard";
@@ -47,7 +47,7 @@ const OngoingBooking = () => {
 						Ongoing
 					</p>
 					<p
-						onClick={() => navigate("/bookings/review")}
+						onClick={() => navigate(`/bookings/completed`)}
 						className="font-size-14 font-weight-500"
 					>
 						Completed
@@ -57,7 +57,13 @@ const OngoingBooking = () => {
 					{proposals
 						.filter((proposal) => proposal.status === "accepted")
 						.map((proposal) => (
-							<OngoingCard key={proposal.id} proposal={proposal} />
+							<OngoingCard
+								key={proposal.id}
+								proposal={proposal}
+								updateProposal={async () =>
+									await updateProposalStatus(proposal, "completed")
+								}
+							/>
 						))}
 				</div>
 			</div>

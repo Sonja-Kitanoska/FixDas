@@ -55,6 +55,8 @@ export type ClientAddData = {
 };
 
 export type ReviewFormData = {
+	handymanId: string;
+	proposalId: number | null;
 	rating: string | null;
 	comment: string | null;
 	photos: (File | string)[];

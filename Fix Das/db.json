@@ -200,18 +200,38 @@
 	],
 	"reviews": [
 		{
-			"rating": "4",
-			"comment": "The handyman fixed the sofa, but he did not clean the mess after.",
-			"photos": [],
-			"agreedToPublish": false,
-			"id": 1
-		},
-		{
-			"rating": "2.5",
-			"comment": "Not so good service.",
+			"handymanId": "2",
+			"rating": "3",
+			"comment": "good",
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 2
+		},
+		{
+			"handymanId": "2",
+			"rating": "5",
+			"comment": "masterpiece",
+			"photos": [],
+			"agreedToPublish": true,
+			"id": 3
+		},
+		{
+			"handymanId": "2",
+			"proposalId": 9,
+			"rating": "5",
+			"comment": "Madonna, your work is excellent!",
+			"photos": [],
+			"agreedToPublish": true,
+			"id": 4
+		},
+		{
+			"handymanId": "2",
+			"proposalId": 2,
+			"rating": "1",
+			"comment": "not good",
+			"photos": [],
+			"agreedToPublish": true,
+			"id": 5
 		}
 	],
 	"proposals": [
@@ -219,7 +239,7 @@
 			"id": 1,
 			"from": {
 				"id": "2",
-				"name": "Madonna",
+				"name": "Barack Obama",
 				"role": "handyman"
 			},
 			"to": {
@@ -230,7 +250,7 @@
 			"description": "Fix a lamp",
 			"location": "Strasse, Munich",
 			"time": "2025-05-04T11:00:42.680Z",
-			"status": "accepted"
+			"status": "pending"
 		},
 		{
 			"id": 2,
@@ -247,13 +267,13 @@
 			"description": "Fix a lamp",
 			"location": "Strasse, Munich",
 			"time": "2025-05-04T11:00:42.680Z",
-			"status": "pending"
+			"status": "accepted"
 		},
 		{
 			"id": 9,
 			"from": {
 				"id": "2",
-				"name": "Madonna",
+				"name": "Brad Pitt",
 				"role": "handyman"
 			},
 			"to": {
@@ -264,7 +284,7 @@
 			"description": "Fix a lamp",
 			"location": "Strasse, Munich",
 			"time": "2025-05-04T11:00:42.680Z",
-			"status": "accepted"
+			"status": "completed"
 		}
 	]
 }

@@ -4,7 +4,13 @@ import { PiArrowsClockwiseFill, PiUserGearLight } from "react-icons/pi";
 import { Proposal } from "../../../types/types";
 import { useNavigate } from "react-router-dom";
 
-const OngoingCard = ({ proposal }: { proposal: Proposal }) => {
+const OngoingCard = ({
+	proposal,
+	updateProposal,
+}: {
+	proposal: Proposal;
+	updateProposal: (proposal: Proposal) => void;
+}) => {
 	const navigate = useNavigate();
 	return (
 		<div className="card">
@@ -49,7 +55,10 @@ const OngoingCard = ({ proposal }: { proposal: Proposal }) => {
 					<button className="btn orange-border-btn">Chat now</button>
 
 					<button
-						onClick={() => navigate("/bookings/review")}
+						onClick={async () => {
+							updateProposal(proposal);
+							navigate(`/bookings/review/${proposal.id}`);
+						}}
 						className="btn orange-btn"
 					>
 						Completed

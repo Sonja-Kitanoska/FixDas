@@ -55,14 +55,17 @@ export const deleteProposal = async (proposalId: number) => {
 };
 
 // update proposal status
-export const updateProposalStatus = async (proposal: Proposal) => {
+export const updateProposalStatus = async (
+	proposal: Proposal,
+	status: "accepted" | "completed"
+) => {
 	try {
 		const response = await fetch(`${BASE_URL}/proposals/${proposal.id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ ...proposal, status: "accepted" }),
+			body: JSON.stringify({ ...proposal, status }),
 		});
 
 		if (!response.ok) {
