@@ -53,11 +53,16 @@ const CompletedBookings = () => {
 					</p>
 				</div>
 				<div className="d-flex flex-column gap-2">
-					{proposals
-						.filter((proposal) => proposal.status === "completed")
-						.map((proposal) => (
-							<CompletedCard key={proposal.id} proposal={proposal} />
-						))}
+					{proposals.filter((proposal) => proposal.status === "completed")
+						.length === 0 ? (
+						<p className="mt-4 text-center">No completed jobs at the moment.</p>
+					) : (
+						proposals
+							.filter((proposal) => proposal.status === "completed")
+							.map((proposal) => (
+								<CompletedCard key={proposal.id} proposal={proposal} />
+							))
+					)}
 				</div>
 			</div>
 			<Navbar />

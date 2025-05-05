@@ -232,6 +232,15 @@
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 5
+		},
+		{
+			"handymanId": "2",
+			"proposalId": 2,
+			"rating": "4",
+			"comment": "Good job Madonna",
+			"photos": [],
+			"agreedToPublish": true,
+			"id": 6
 		}
 	],
 	"proposals": [
@@ -267,7 +276,7 @@
 			"description": "Fix a lamp",
 			"location": "Strasse, Munich",
 			"time": "2025-05-04T11:00:42.680Z",
-			"status": "accepted"
+			"status": "pending"
 		},
 		{
 			"id": 9,
@@ -284,7 +293,7 @@
 			"description": "Fix a lamp",
 			"location": "Strasse, Munich",
 			"time": "2025-05-04T11:00:42.680Z",
-			"status": "completed"
+			"status": "accepted"
 		}
 	]
 }

@@ -25,46 +25,53 @@ const OngoingBooking = () => {
 
 	return (
 		<>
-			<div className="container py-3">
-				<div className="d-flex justify-content-between align-items-center py-2">
-					<h3 className="orange">My bookings</h3>
-					<img src="/notification-icon.svg" alt="Notiffication icon" />
-				</div>
-				<div
-					className={`d-flex justify-content-between mt-3 py-2 ${styles.grayFont}`}
-				>
-					<p
-						onClick={() => navigate("/bookings")}
-						className="font-size-14 font-weight-500"
+			<div style={{ paddingBottom: "78px", minHeight: "100vh" }}>
+				<div className="container py-3">
+					<div className="d-flex justify-content-between align-items-center py-2">
+						<h3 className="orange">My bookings</h3>
+						<img src="/notification-icon.svg" alt="Notiffication icon" />
+					</div>
+					<div
+						className={`d-flex justify-content-between mt-3 py-2 ${styles.grayFont}`}
 					>
-						New Proposals (
-						{proposals.filter((p) => p.status === "pending").length})
-					</p>
-					<p
-						onClick={() => navigate("/bookings/ongoing")}
-						className={`font-size-14 font-weight-500 orange ${styles.orangeBorder}`}
-					>
-						Ongoing
-					</p>
-					<p
-						onClick={() => navigate(`/bookings/completed`)}
-						className="font-size-14 font-weight-500"
-					>
-						Completed
-					</p>
-				</div>
-				<div className="d-flex flex-column gap-2">
-					{proposals
-						.filter((proposal) => proposal.status === "accepted")
-						.map((proposal) => (
-							<OngoingCard
-								key={proposal.id}
-								proposal={proposal}
-								updateProposal={async () =>
-									await updateProposalStatus(proposal, "completed")
-								}
-							/>
-						))}
+						<p
+							onClick={() => navigate("/bookings")}
+							className="font-size-14 font-weight-500"
+						>
+							New Proposals (
+							{proposals.filter((p) => p.status === "pending").length})
+						</p>
+						<p
+							onClick={() => navigate("/bookings/ongoing")}
+							className={`font-size-14 font-weight-500 orange ${styles.orangeBorder}`}
+						>
+							Ongoing
+						</p>
+						<p
+							onClick={() => navigate(`/bookings/completed`)}
+							className="font-size-14 font-weight-500"
+						>
+							Completed
+						</p>
+					</div>
+					<div className="d-flex flex-column gap-2">
+						{proposals.filter((proposal) => proposal.status === "accepted")
+							.length === 0 ? (
+							<p className="mt-4 text-center">No ongoing jobs at the moment.</p>
+						) : (
+							proposals
+								.filter((proposal) => proposal.status === "accepted")
+								.map((proposal) => (
+									<OngoingCard
+										key={proposal.id}
+										proposal={proposal}
+										updateProposal={async () =>
+											await updateProposalStatus(proposal, "completed")
+										}
+									/>
+								))
+						)}
+					</div>
 				</div>
 			</div>
 			<Navbar />
