@@ -21,6 +21,7 @@ import Chat from "./pages/Chat/Chat/Chat";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
+import CalendarPage from "./pages/SendRequestToHandyman/CalendarPage";
 
 function App() {
 	return (
@@ -32,9 +33,14 @@ function App() {
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/find-handyman" element={<FindHandyman />} />
 					<Route path="/menu" element={<Menu />} />
+					{/* Public Profile Handyman */}
+					<Route
+						path="/homepage/handyman-public-profile"
+						element={<HandymanPublicProfile />}
+					/>
 
-					{/* Login and sign up */}
 					<Route element={<PublicRoute />}>
+						{/* Login and sign up */}
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-up-email" element={<SignUpWithEmail />} />
 						<Route path="/sign-in" element={<SignIn />} />
@@ -49,6 +55,8 @@ function App() {
 						<Route path="/bookings/ongoing" element={<OngoingBooking />} />
 						<Route path="/bookings/review/:proposalId" element={<Review />} />
 						<Route path="/bookings/completed" element={<CompletedBookings />} />
+						{/* Send request to handyman */}
+						<Route path="/bookings/calendar" element={<CalendarPage />} />
 
 						{/* Categories*/}
 						<Route path="/categories" element={<Categories />} />
@@ -61,11 +69,6 @@ function App() {
 
 						{/* Homepage */}
 						<Route path="/homepage" element={<Homepage />} />
-						{/* Public Profile Handyman */}
-						<Route
-							path="/homepage/handyman-public-profile"
-							element={<HandymanPublicProfile />}
-						/>
 
 						{/* Profile */}
 						<Route path="/profile" element={<Profile />} />
