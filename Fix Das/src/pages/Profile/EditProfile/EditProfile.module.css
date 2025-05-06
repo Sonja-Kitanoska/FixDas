@@ -33,10 +33,6 @@
 	text-transform: uppercase;
 }
 
-input[type="checkbox"] {
-	accent-color: #fa6100;
-}
-
 .bgColor {
 	background-color: #fafafa;
 }

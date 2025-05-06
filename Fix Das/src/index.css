@@ -79,7 +79,7 @@ body {
 	width: 100%;
 	padding: 15px 10px;
 	font-size: 12px;
-	border-radius: 15px;
+	border-radius: 13px;
 	font-weight: 600;
 	cursor: pointer;
 	border: none;
@@ -97,4 +97,8 @@ body {
 		linear-gradient(90deg, #fa6100, #ffbb91) border-box;
 	border: 1px solid transparent;
 	cursor: pointer;
+}
+
+input[type="checkbox"] {
+	accent-color: #fa6100;
 }

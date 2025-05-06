@@ -137,6 +137,18 @@
 			"createdAt": "6 days ago"
 		}
 	],
+	"specialties": [
+		{ "id": 1, "name": "Electrical installation" },
+		{ "id": 2, "name": "Sanitary installation" },
+		{ "id": 3, "name": "Painting and painting work" },
+		{ "id": 4, "name": "Carpentry/carpentry" },
+		{ "id": 5, "name": "Roofing" },
+		{ "id": 6, "name": "Heating installation" },
+		{ "id": 7, "name": "Tile work" },
+		{ "id": 8, "name": "Bricklaying" },
+		{ "id": 9, "name": "Garden and landscaping" },
+		{ "id": 10, "name": "Locksmith work" }
+	],
 	"testimonials": [
 		{
 			"id": "1",

@@ -1,0 +1,13 @@
+.inputField {
+	padding: 15px 10px;
+	background-color: transparent;
+	border-radius: 15px !important;
+}
+
+.inputField::placeholder {
+	color: #939393;
+}
+
+.form-control {
+	border-radius: 15px;
+}

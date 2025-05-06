@@ -34,6 +34,11 @@ export type Handyman = {
 	createdAt: string;
 };
 
+export type Specialty = {
+	id: number;
+	name: string;
+};
+
 export type Testimonial = {
 	id: number;
 	name: string;
