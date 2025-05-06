@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "../../../../components/Footer/Footer";
 import SearchBar from "../../../../components/SearchBar/SearchBar";
 import FeaturesSection from "../FeaturesSection/FeaturesSection";
@@ -10,13 +11,18 @@ import Testimonials from "../Testimonials/Testimonials";
 import TopHandymen from "../TopHandymen/TopHandymen";
 
 const ClientLandingPage = () => {
+	const [searchQuery, setSearchQuery] = useState("");
 	return (
 		<>
 			<HeroSection />
 
 			<FeaturesSection />
 			<div className="container pb-3">
-				<SearchBar />
+				<SearchBar
+					searchQuery={searchQuery}
+					setSearchQuery={setSearchQuery}
+					redirectOnEnter={true}
+				/>
 			</div>
 
 			<ServicesHorizontalScroll />

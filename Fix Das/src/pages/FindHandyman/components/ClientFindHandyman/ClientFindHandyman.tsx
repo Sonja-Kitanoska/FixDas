@@ -6,11 +6,15 @@ import FindAndBookHandyman from "../../../LandingPage/components/FindAndBookHand
 import PostRequest from "../PostRequest/PostRequest";
 import { fetchHandymen } from "../../../../api/handymen";
 import { Handyman } from "../../../../types/types";
+import { useLocation } from "react-router-dom";
 
 const ClientFindHandyman = () => {
 	const [visibleCount, setVisibleCount] = useState(3);
 	const [handymen, setHandymen] = useState<Handyman[]>([]);
-	const [searchQuery, setSearchQuery] = useState("");
+	const location = useLocation();
+	const params = new URLSearchParams(location.search);
+	const initialQuery = params.get("query") || "";
+	const [searchQuery, setSearchQuery] = useState(initialQuery);
 
 	useEffect(() => {
 		const getHandymen = async () => {

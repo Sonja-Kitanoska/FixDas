@@ -5,7 +5,7 @@ import styles from "./Menu.module.css";
 const Menu = () => {
 	const navigate = useNavigate();
 	return (
-		<div className="container py-2">
+		<div className="container py-2 vh-100">
 			<div className="d-flex justify-content-between align-items-center">
 				<img src="/small-logo.svg" alt="Logo" />
 				<IoCloseSharp
