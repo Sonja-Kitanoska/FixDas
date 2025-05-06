@@ -22,6 +22,7 @@ import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import CalendarPage from "./pages/SendRequestToHandyman/CalendarPage";
+import Filter from "./pages/Filter/Filter";
 
 function App() {
 	return (
@@ -33,6 +34,7 @@ function App() {
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/find-handyman" element={<FindHandyman />} />
 					<Route path="/menu" element={<Menu />} />
+					<Route path="/filter" element={<Filter />} />
 					{/* Public Profile Handyman */}
 					<Route
 						path="/homepage/handyman-public-profile"

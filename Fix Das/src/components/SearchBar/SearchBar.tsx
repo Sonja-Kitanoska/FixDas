@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 import { IoSearch } from "react-icons/io5";
 
@@ -13,12 +13,18 @@ const SearchBar = ({
 	redirectOnEnter,
 }: SearchBarProps) => {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter" && redirectOnEnter) {
 			navigate(`/find-handyman?query=${encodeURIComponent(searchQuery)}`);
 		}
 	};
+
+	const handleFilterClick = () => {
+		navigate("/filter", { state: { from: location.pathname } });
+	};
+	
 	return (
 		<div className={styles.inputWrapper}>
 			{<IoSearch className={styles.icon} />}
@@ -36,6 +42,7 @@ const SearchBar = ({
 				src="/LandingPage/filter-icon.svg"
 				alt="filter icon"
 				className={styles.filterIcon}
+				onClick={handleFilterClick}
 			/>
 		</div>
 	);
