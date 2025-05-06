@@ -1,7 +1,11 @@
 import styles from "./SearchBar.module.css";
-
 import { IoSearch } from "react-icons/io5";
-const SearchBar = () => {
+
+type SearchBarProps = {
+	searchQuery: string;
+	setSearchQuery: (query: string) => void;
+};
+const SearchBar = ({ searchQuery, setSearchQuery }: SearchBarProps) => {
 	return (
 		<div className={styles.inputWrapper}>
 			{<IoSearch className={styles.icon} />}
@@ -10,6 +14,8 @@ const SearchBar = () => {
 				type="text"
 				name="password"
 				placeholder="Search"
+				value={searchQuery}
+				onChange={(e) => setSearchQuery(e.target.value)}
 				className={`form-control input-field ${styles.inputField}`}
 			/>
 			<img

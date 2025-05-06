@@ -10,6 +10,7 @@ import { Handyman } from "../../../../types/types";
 const ClientFindHandyman = () => {
 	const [visibleCount, setVisibleCount] = useState(3);
 	const [handymen, setHandymen] = useState<Handyman[]>([]);
+	const [searchQuery, setSearchQuery] = useState("");
 
 	useEffect(() => {
 		const getHandymen = async () => {
@@ -22,18 +23,29 @@ const ClientFindHandyman = () => {
 	const handleSeeMore = () => {
 		setVisibleCount((prev) => prev + 3);
 	};
+
+	const filteredHandymen = handymen.filter((handyman) => {
+		const query = searchQuery.toLowerCase();
+		return (
+			handyman.name.toLowerCase().includes(query) ||
+			handyman.description.toLowerCase().includes(query) ||
+			handyman.location.toLowerCase().includes(query) ||
+			handyman.categories.some((cat) => cat.toLowerCase().includes(query))
+		);
+	});
+
 	return (
 		<>
 			<div className="container">
-				<SearchBar />
+				<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 			</div>
 			<div className="py-3 pt-3 container">
-				{handymen.slice(0, visibleCount).map((handyman) => (
+				{filteredHandymen.slice(0, visibleCount).map((handyman) => (
 					<HandymanCard key={handyman.id} handyman={handyman} />
 				))}
 			</div>
 
-			{visibleCount < handymen.length && (
+			{visibleCount < filteredHandymen.length && (
 				<div className="mt-3 d-flex justify-content-center">
 					<button
 						onClick={handleSeeMore}
