@@ -38,7 +38,7 @@ const Profile = () => {
 
 	return (
 		<>
-			<div className="py-3">
+			<div className="py-3 vh-100">
 				<div className="container" style={{ paddingBottom: "78px" }}>
 					<div className="d-flex justify-content-between align-items-center">
 						<p className="orange mb-0 font-weight-700">Konto</p>
@@ -102,12 +102,11 @@ const Profile = () => {
 							für Serviceanfragen.
 						</p>
 					</div>
-
 					<div className="d-flex flex-column gap-2">
 						{clientAdds.length > 0 ? (
 							clientAdds.map((add) => <ClientAddCard key={add.id} add={add} />)
 						) : (
-							<p className="mt-2">Keine aktiven Anzeigen.</p>
+							<p className="mt-2 text-center">Keine aktiven Anzeigen.</p>
 						)}
 					</div>
 				</div>

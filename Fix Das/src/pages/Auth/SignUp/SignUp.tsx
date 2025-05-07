@@ -119,7 +119,11 @@ const SignUp = () => {
 
 			<p className="gray-light my-3 text-center font-size-14 mb-0">
 				Already an account?{" "}
-				<span onClick={() => navigate("/sign-in")} className="orange">
+				<span
+					onClick={() => navigate("/sign-in")}
+					className="orange"
+					style={{ cursor: "pointer" }}
+				>
 					Register
 				</span>
 			</p>

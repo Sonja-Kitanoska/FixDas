@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../store/userStore";
 import { useRef, useState } from "react";
 import { User } from "../../../types/types";
+import { FiLogOut } from "react-icons/fi";
+import { auth } from "../../../firebase";
+import { deleteUser, signOut } from "firebase/auth";
+import { deleteUserData } from "../../../api/users";
 
 const EditProfile = () => {
 	const navigate = useNavigate();
@@ -55,6 +59,31 @@ const EditProfile = () => {
 	const handleCancel = () => {
 		setFormData(user);
 		navigate("/profile");
+	};
+
+	const handleSignOut = async () => {
+		try {
+			await signOut(auth);
+			console.log("Sign-out successful.");
+			setUser(null);
+			navigate("/");
+		} catch (error) {
+			console.error("An error occurred during sign-out:", error);
+		}
+	};
+	const deleteAccount = async () => {
+		const firebaseUser = auth.currentUser;
+		if (!firebaseUser) return;
+
+		try {
+			await deleteUser(firebaseUser);
+			await deleteUserData(firebaseUser.uid);
+			setUser(null);
+			navigate("/");
+			console.log("User deleted successfully");
+		} catch (error) {
+			console.error("Error deleting user from Firebase", error);
+		}
 	};
 
 	return (
@@ -126,7 +155,7 @@ const EditProfile = () => {
 									type="email"
 									name="email"
 									id="email"
-									className={`${styles.bgColor} border-0`}
+									className={`${styles.bgColor} border-0 w-100`}
 									style={{ color: "#939393" }}
 									value={formData?.email || ""}
 									disabled={editingField !== "email"}
@@ -188,7 +217,7 @@ const EditProfile = () => {
 									type="tel"
 									name="phone"
 									id="phone"
-									className={`${styles.bgColor} border-0`}
+									className={`${styles.bgColor} border-0 w-100`}
 									style={{ color: "#939393" }}
 									value={formData?.phone || ""}
 									placeholder="No phone number entered yet"
@@ -272,6 +301,23 @@ const EditProfile = () => {
 							<button type="submit" className="orange-btn">
 								Save
 							</button>
+						</div>
+						<div className="d-flex flex-column justify-content-center align-items-center gap-2 pt-3 font-size-14">
+							<div
+								onClick={handleSignOut}
+								className="d-flex align-items-center gap-2 justify-content-center"
+								style={{ color: "#080808", cursor: "pointer" }}
+							>
+								<p className="mb-0">Logout</p>
+								<FiLogOut />
+							</div>
+							<p
+								onClick={deleteAccount}
+								style={{ color: "#939393", cursor: "pointer" }}
+								className="mb-0"
+							>
+								Delete your account
+							</p>
 						</div>
 					</form>
 				</div>

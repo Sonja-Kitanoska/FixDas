@@ -1,8 +1,21 @@
 import { User } from "../types/types";
 const BASE_URL = "http://localhost:5000";
 
-// create user
+// fetch users
+export const fetchUsers = async (): Promise<User[]> => {
+	try {
+		const response = await fetch(`${BASE_URL}/users`);
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 
+		const data: User[] = await response.json();
+		return data;
+	} catch (err) {
+		console.error("Error fetching users:", err);
+		return [];
+	}
+};
+
+// create user
 export const createUser = async (userData: User) => {
 	try {
 		const response = await fetch(`${BASE_URL}/users`, {
@@ -23,5 +36,22 @@ export const createUser = async (userData: User) => {
 		if (error instanceof Error) {
 			console.error("Failed to create user:", error.message);
 		}
+	}
+};
+
+// deleteUser
+export const deleteUserData = async (userId: string) => {
+	try {
+		const response = await fetch(`${BASE_URL}/users/${userId}`, {
+			method: "DELETE",
+		});
+
+		if (response.ok) {
+			console.log("User deleted from JSON Server");
+		} else {
+			console.error("Error deleting user from JSON Server");
+		}
+	} catch (error) {
+		console.error("Error deleting user from JSON Server", error);
 	}
 };

@@ -3,10 +3,17 @@ import { IoChevronBack, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import styles from "./SignIn.module.css";
-import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import {
+	GoogleAuthProvider,
+	signInWithEmailAndPassword,
+	signInWithPopup,
+	User,
+} from "firebase/auth";
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
+import { fetchUsers } from "../../../api/users";
+import { useUserStore } from "../../../store/userStore";
 
 const provider = new GoogleAuthProvider();
 
@@ -14,6 +21,7 @@ const SignIn = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
+	const setUser = useUserStore((state) => state.setUser);
 
 	const handleGoogleSignUp = async () => {
 		if (loading) return; // Prevent multiple clicks while loading
@@ -55,10 +63,60 @@ const SignIn = () => {
 			[name]: value,
 		}));
 	};
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log("Form submitted:", formData);
+
+		if (loading) return;
+		setLoading(true);
+
+		try {
+			// Sign in with Firebase Authentication (no password in JSON Server)
+			const userCredential = await signInWithEmailAndPassword(
+				auth,
+				formData.email,
+				formData.password
+			);
+			const userFirebase = userCredential.user;
+
+			// Fetch user details from JSON Server based on email (or uid)
+			const users = await fetchUsers(); // This fetches all users from your JSON server
+			const currentUser = users.find(
+				(user) => user.email === userFirebase.email
+			);
+
+			if (currentUser) {
+				// Store user info in Zustand store
+				setUser(currentUser);
+				navigate("/homepage");
+			} else {
+				console.error("User not found in the database");
+			}
+		} catch (error) {
+			console.error("Error signing in:", error);
+		} finally {
+			setLoading(false);
+		}
 	};
+
+	// With firebase
+	// const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	// 	e.preventDefault();
+	// 	setLoading(true);
+	// 	try {
+	// 		const userCredential = await signInWithEmailAndPassword(
+	// 			auth,
+	// 			formData.email,
+	// 			formData.password
+	// 		);
+	// 		console.log("Signed in:", userCredential.user);
+	// 		navigate("/homepage");
+	// 	} catch (error) {
+	// 		console.error("Error signing in:", error);
+	// 	} finally {
+	// 		setLoading(false);
+	// 	}
+	// };
 
 	const togglePasswordVisibility = () => {
 		setIsPasswordVisible(!isPasswordVisible);
