@@ -25,7 +25,7 @@
 			"location": "Munich, Germany",
 			"stars": 4,
 			"numberReviews": 25,
-			"categories": ["Electrical", "Plumbing", "Heating"],
+			"categories": ["Cleaning"],
 			"specialties": ["Electrical installation"],
 			"description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
 			"workImages": [
@@ -43,7 +43,7 @@
 			"location": "Frankfurt, Germany",
 			"stars": 5,
 			"numberReviews": 50,
-			"categories": ["A/C", "Plumbing", "Renovation"],
+			"categories": ["A/C", "Plumbing", "Renovation", "Construction"],
 			"specialties": ["Heating installation"],
 			"description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
 			"workImages": [
@@ -156,6 +156,56 @@
 		{ "id": 8, "name": "Bricklaying" },
 		{ "id": 9, "name": "Garden and landscaping" },
 		{ "id": 10, "name": "Locksmith work" }
+	],
+	"categories": [
+		{
+			"id": 1,
+			"name": "Home Repair",
+			"image": "/LandingPage/services/Group-1.svg"
+		},
+		{
+			"id": 1,
+			"name": "Windows",
+			"image": "/LandingPage/services/Group-2.svg"
+		},
+		{
+			"id": 1,
+			"name": "Painter",
+			"image": "/LandingPage/services/Group-3.svg"
+		},
+		{
+			"id": 1,
+			"name": "Electrician",
+			"image": "/LandingPage/services/Group-4.svg"
+		},
+		{ "id": 1, "name": "A / C", "image": "LandingPage/services/Group-5.svg" },
+		{
+			"id": 1,
+			"name": "Cleaning",
+			"image": "LandingPage/services/Group-6.svg"
+		},
+		{
+			"id": 1,
+			"name": "Assembly",
+			"image": "LandingPage/services/Group-7.svg"
+		},
+		{
+			"id": 1,
+			"name": "Carpenter",
+			"image": "LandingPage/services/Group-8.svg"
+		},
+		{
+			"id": 1,
+			"name": "Construction",
+			"image": "LandingPage/services/Group-9.svg"
+		},
+		{ "id": 1, "name": "A / C", "image": "LandingPage/services/Group-5.svg" },
+		{
+			"id": 1,
+			"name": "Cleaning",
+			"image": "LandingPage/services/Group-6.svg"
+		},
+		{ "id": 1, "name": "Assembly", "image": "LandingPage/services/Group-7.svg" }
 	],
 	"testimonials": [
 		{

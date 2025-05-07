@@ -1,7 +1,7 @@
 import { IoCloseSharp } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Filter.module.css";
-import useSpecialties from "../useSpecialties";
+import useSpecialties from "../../hooks/useSpecialties";
 import { useState } from "react";
 
 const Filter = () => {

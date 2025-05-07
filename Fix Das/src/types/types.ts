@@ -40,6 +40,12 @@ export type Specialty = {
 	name: string;
 };
 
+export type Category = {
+	id: number;
+	name: string;
+	image: string;
+};
+
 export type Testimonial = {
 	id: number;
 	name: string;
