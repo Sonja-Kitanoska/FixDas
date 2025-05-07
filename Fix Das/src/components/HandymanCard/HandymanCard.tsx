@@ -1,20 +1,7 @@
 import { FaStar } from "react-icons/fa6";
 import { LuMapPin } from "react-icons/lu";
 import { MdVerified } from "react-icons/md";
-
-export type Handyman = {
-	id: `${string}-${string}-${string}-${string}-${string}`;
-	image: string;
-	name: string;
-	location: string;
-	stars: number;
-	numberJobs?: number;
-	numberReviews: number;
-	categories: string[];
-	description: string;
-	workImages: string[];
-	createdAt: string;
-};
+import { Handyman } from "../../types/types";
 
 const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 	return (

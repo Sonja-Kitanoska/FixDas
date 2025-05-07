@@ -1,13 +1,14 @@
 {
 	"handymen": [
 		{
-			"id": "33b7c1fe-272d-4dbb-88d0-326b78d0405c",
+			"id": "1",
 			"image": "/LandingPage/testimonials/client1.svg",
 			"name": "Klaus Schneider",
 			"location": "Berlin, Germany",
 			"stars": 5,
 			"numberReviews": 38,
 			"categories": ["Heating", "Sanitary", "A/C", "Solar systems"],
+			"specialties": ["Heating installation"],
 			"description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -18,13 +19,14 @@
 			"createdAt": "5 days ago"
 		},
 		{
-			"id": "65764a12-5b9d-48ac-8e4f-4ef6a4548753",
+			"id": "2",
 			"image": "/LandingPage/testimonials/client2.svg",
 			"name": "Sarah Miller",
 			"location": "Munich, Germany",
 			"stars": 4,
 			"numberReviews": 25,
 			"categories": ["Electrical", "Plumbing", "Heating"],
+			"specialties": ["Electrical installation"],
 			"description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -35,13 +37,14 @@
 			"createdAt": "3 days ago"
 		},
 		{
-			"id": "fe46059b-d11c-40c6-909f-6a1f000b52c1",
+			"id": "3",
 			"image": "/LandingPage/testimonials/client3.svg",
 			"name": "John Doe",
 			"location": "Frankfurt, Germany",
 			"stars": 5,
 			"numberReviews": 50,
 			"categories": ["A/C", "Plumbing", "Renovation"],
+			"specialties": ["Heating installation"],
 			"description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -52,13 +55,14 @@
 			"createdAt": "2 weeks ago"
 		},
 		{
-			"id": "8d514cfa-5639-4347-b1bc-0979f9fa8b58",
+			"id": "4",
 			"image": "/LandingPage/testimonials/client4.svg",
 			"name": "Emma Clark",
 			"location": "Hamburg, Germany",
 			"stars": 4,
 			"numberReviews": 30,
 			"categories": ["Solar systems", "Heating"],
+			"specialties": ["Heating installation"],
 			"description": "Specialized in solar energy systems installation. Offering eco-friendly solutions.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -69,13 +73,14 @@
 			"createdAt": "1 week ago"
 		},
 		{
-			"id": "fcc641df-e9a6-4547-8317-60a7ffda4a73",
+			"id": "5",
 			"image": "/LandingPage/testimonials/client5.svg",
 			"name": "Liam Johnson",
 			"location": "Stuttgart, Germany",
 			"stars": 4,
 			"numberReviews": 40,
 			"categories": ["Electrical", "A/C", "Renovation"],
+			"specialties": ["Heating installation"],
 			"description": "Offering professional electrical installations and A/C repairs. Fast response times.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -86,13 +91,14 @@
 			"createdAt": "1 month ago"
 		},
 		{
-			"id": "fcc641df-e9a6-4547-8317-60a7ffda4a73",
+			"id": "6",
 			"image": "/LandingPage/testimonials/client6.svg",
 			"name": "Sophia Williams",
 			"location": "Cologne, Germany",
 			"stars": 5,
 			"numberReviews": 60,
 			"categories": ["Sanitary", "Plumbing", "Heating"],
+			"specialties": ["Heating installation"],
 			"description": "Highly skilled plumber and heating engineer. Reliable, efficient, and friendly.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -103,13 +109,14 @@
 			"createdAt": "2 months ago"
 		},
 		{
-			"id": "d6b33df2-c706-410a-a924-e32542957412",
+			"id": "7",
 			"image": "/LandingPage/testimonials/client7.svg",
 			"name": "Benjamin Lewis",
 			"location": "Berlin, Germany",
 			"stars": 3,
 			"numberReviews": 20,
 			"categories": ["Electrical", "Renovation", "Solar systems"],
+			"specialties": ["Electrical installation"],
 			"description": "Electrical work and home renovation expert. Focus on sustainable solutions.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",
@@ -120,13 +127,14 @@
 			"createdAt": "3 months ago"
 		},
 		{
-			"id": "fdc18598-77a7-4656-b5d5-215d00f08bdc",
+			"id": "8",
 			"image": "/LandingPage/testimonials/client8.svg",
 			"name": "Olivia Brown",
 			"location": "Hamburg, Germany",
 			"stars": 5,
 			"numberReviews": 75,
 			"categories": ["Solar systems", "Plumbing", "Heating"],
+			"specialties": ["Heating installation"],
 			"description": "Top-tier plumber specializing in solar-powered heating systems. Committed to quality.",
 			"workImages": [
 				"/LandingPage/testimonials/work-images/work1.svg",

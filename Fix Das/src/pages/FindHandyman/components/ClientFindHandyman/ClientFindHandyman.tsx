@@ -24,6 +24,22 @@ const ClientFindHandyman = () => {
 		getHandymen();
 	}, []);
 
+	useEffect(() => {
+		const queryFromUrl =
+			new URLSearchParams(location.search).get("query") || "";
+		if (queryFromUrl !== searchQuery) {
+			setSearchQuery(queryFromUrl);
+		}
+	}, [location.search]);
+
+	useEffect(() => {
+		const queryFromUrl =
+			new URLSearchParams(location.search).get("query") || "";
+		setSearchQuery(queryFromUrl);
+		// Only run this once on component mount
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	const handleSeeMore = () => {
 		setVisibleCount((prev) => prev + 3);
 	};
@@ -41,7 +57,11 @@ const ClientFindHandyman = () => {
 	return (
 		<>
 			<div className="container">
-				<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+				<SearchBar
+					searchQuery={searchQuery}
+					setSearchQuery={setSearchQuery}
+					redirectOnEnter={true}
+				/>
 			</div>
 			<div className="py-3 pt-3 container">
 				{filteredHandymen.slice(0, visibleCount).map((handyman) => (

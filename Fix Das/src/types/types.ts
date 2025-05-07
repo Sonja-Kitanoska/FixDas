@@ -21,7 +21,7 @@ export interface UserState {
 }
 
 export type Handyman = {
-	id: `${string}-${string}-${string}-${string}-${string}`;
+	id: string;
 	image: string;
 	name: string;
 	location: string;
@@ -29,6 +29,7 @@ export type Handyman = {
 	numberJobs?: number;
 	numberReviews: number;
 	categories: string[];
+	specialties: string[];
 	description: string;
 	workImages: string[];
 	createdAt: string;
