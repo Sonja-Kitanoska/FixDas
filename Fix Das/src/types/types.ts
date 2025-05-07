@@ -8,6 +8,8 @@ export type User = {
 	location?: string;
 	password?: string;
 	role: Role;
+	image?: string;
+	createdAt?: string;
 };
 
 export interface UserState {

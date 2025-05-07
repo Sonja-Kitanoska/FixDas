@@ -10,9 +10,11 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { User, useUserStore } from "../../../store/userStore";
+import { useUserStore } from "../../../store/userStore";
 import { FirebaseError } from "firebase/app";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
+import { createUser } from "../../../api/users";
+import { User } from "../../../types/types";
 
 const SignUpWithEmail = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -66,13 +68,14 @@ const SignUpWithEmail = () => {
 				phone: formData.phone,
 				email: formData.email,
 				role: selectedRole,
+				createdAt: new Date().toISOString(),
 			};
 
 			await setDoc(doc(db, "users", result.uid), newUser);
 
 			setUser(newUser);
+			createUser(newUser);
 
-			console.log("User signed up:", newUser);
 			navigate("/homepage");
 		} catch (error) {
 			if (error instanceof FirebaseError) {

@@ -1,4 +1,22 @@
 {
+	"users": [
+		{
+			"id": "zdqqWCGUcIUe5luxxVgFR10blws2",
+			"username": "Veronika",
+			"phone": "033310049",
+			"email": "veronika@gmail.com",
+			"role": "client",
+			"createdAt": "2025-05-07T19:48:04.471Z"
+		},
+		{
+			"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+			"email": "avramoskamkd@gmail.com",
+			"username": "Sonja Kitanoska",
+			"phone": null,
+			"role": "client",
+			"createdAt": "2025-05-07T19:48:50.028Z"
+		}
+	],
 	"handymen": [
 		{
 			"id": "1",
@@ -152,16 +170,46 @@
 		}
 	],
 	"specialties": [
-		{ "id": 1, "name": "Electrical installation" },
-		{ "id": 2, "name": "Sanitary installation" },
-		{ "id": 3, "name": "Painting and painting work" },
-		{ "id": 4, "name": "Carpentry/carpentry" },
-		{ "id": 5, "name": "Roofing" },
-		{ "id": 6, "name": "Heating installation" },
-		{ "id": 7, "name": "Tile work" },
-		{ "id": 8, "name": "Bricklaying" },
-		{ "id": 9, "name": "Garden and landscaping" },
-		{ "id": 10, "name": "Locksmith work" }
+		{
+			"id": 1,
+			"name": "Electrical installation"
+		},
+		{
+			"id": 2,
+			"name": "Sanitary installation"
+		},
+		{
+			"id": 3,
+			"name": "Painting and painting work"
+		},
+		{
+			"id": 4,
+			"name": "Carpentry/carpentry"
+		},
+		{
+			"id": 5,
+			"name": "Roofing"
+		},
+		{
+			"id": 6,
+			"name": "Heating installation"
+		},
+		{
+			"id": 7,
+			"name": "Tile work"
+		},
+		{
+			"id": 8,
+			"name": "Bricklaying"
+		},
+		{
+			"id": 9,
+			"name": "Garden and landscaping"
+		},
+		{
+			"id": 10,
+			"name": "Locksmith work"
+		}
 	],
 	"categories": [
 		{
@@ -184,7 +232,11 @@
 			"name": "Electrician",
 			"image": "/LandingPage/services/Group-4.svg"
 		},
-		{ "id": 5, "name": "A / C", "image": "LandingPage/services/Group-5.svg" },
+		{
+			"id": 5,
+			"name": "A / C",
+			"image": "LandingPage/services/Group-5.svg"
+		},
 		{
 			"id": 6,
 			"name": "Cleaning",
@@ -205,7 +257,11 @@
 			"name": "Construction",
 			"image": "LandingPage/services/Group-9.svg"
 		},
-		{ "id": 10, "name": "A / C", "image": "LandingPage/services/Group-5.svg" },
+		{
+			"id": 10,
+			"name": "A / C",
+			"image": "LandingPage/services/Group-5.svg"
+		},
 		{
 			"id": 11,
 			"name": "Cleaning",

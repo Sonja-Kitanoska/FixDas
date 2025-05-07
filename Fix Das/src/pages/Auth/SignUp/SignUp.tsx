@@ -1,6 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import { auth, db } from "../../../firebase";
-import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 import styles from "./SignUp.module.css";
 import SmartImage from "../../../components/SmartImage/SmartImage";
@@ -9,6 +9,7 @@ import { useUserStore } from "../../../store/userStore";
 import { FirebaseError } from "firebase/app";
 import { useState } from "react";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
+import { createUser } from "../../../api/users";
 
 const provider = new GoogleAuthProvider();
 
@@ -33,23 +34,20 @@ const SignUp = () => {
 				const userRef = doc(db, "users", user.uid);
 				const userSnap = await getDoc(userRef);
 
-				if (!userSnap.exists()) {
-					await setDoc(userRef, {
-						id: user.uid,
-						email: user.email,
-						username: user.displayName,
-						role: selectedRole,
-						createdAt: Timestamp.now(),
-					});
-				}
-
-				setUser({
+				const newUser = {
 					id: user.uid,
 					email: user.email,
 					username: user.displayName,
 					phone: user.phoneNumber,
 					role: selectedRole,
-				});
+					createdAt: new Date().toISOString(),
+				};
+
+				if (!userSnap.exists()) {
+					await setDoc(userRef, newUser);
+				}
+				setUser(newUser);
+				createUser(newUser);
 
 				setLoading(false);
 				navigate("/homepage");
@@ -91,7 +89,7 @@ const SignUp = () => {
 			>
 				<img src="coloured-icons/Logo-Google.svg" alt="Google logo" />
 
-				<p className="mb-0">Continue with Googgle</p>
+				<p className="mb-0">Continue with Google</p>
 			</button>
 			<button className="btn login-btn mb-3 d-flex align-items-center justify-content-center gap-2">
 				<img src="coloured-icons/Logo-Facebook.svg" alt="Facebook logo" />
