@@ -8,7 +8,7 @@ import { User } from "../../../types/types";
 import { FiLogOut } from "react-icons/fi";
 import { auth } from "../../../firebase";
 import { deleteUser, signOut } from "firebase/auth";
-import { deleteUserData } from "../../../api/users";
+import { deleteUserData, updateUser } from "../../../api/users";
 
 const EditProfile = () => {
 	const navigate = useNavigate();
@@ -52,6 +52,7 @@ const EditProfile = () => {
 	const handleSave = () => {
 		if (formData) {
 			setUser(formData);
+			updateUser(formData.id, formData);
 			navigate("/profile");
 		}
 	};

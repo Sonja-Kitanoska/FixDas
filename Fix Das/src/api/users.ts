@@ -55,3 +55,28 @@ export const deleteUserData = async (userId: string) => {
 		console.error("Error deleting user from JSON Server", error);
 	}
 };
+
+// update user
+export const updateUser = async (userId: string, updatedData: User) => {
+	try {
+		const response = await fetch(`${BASE_URL}/users/${userId}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(updatedData),
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+
+		const result = await response.json();
+		console.log("User updated:", result);
+		return result;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error("Failed to update user:", error.message);
+		}
+	}
+};
