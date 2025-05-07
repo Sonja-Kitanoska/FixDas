@@ -19,6 +19,8 @@ const SearchBar = ({ searchQuery, setSearchQuery }: SearchBarProps) => {
 				navigate(`/find-handyman?query=${encodedQuery}`);
 			} else if (location.pathname === "/homepage") {
 				navigate(`/homepage?query=${encodedQuery}`, { replace: true });
+			} else if (location.pathname === "/categories") {
+				navigate(`/categories?query=${encodedQuery}`, { replace: true });
 			} else {
 				navigate(`/find-handyman?query=${encodedQuery}`);
 			}
