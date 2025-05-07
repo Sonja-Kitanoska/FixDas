@@ -5,24 +5,15 @@ import useCategories from "../../hooks/useCategories";
 import { Handyman } from "../../types/types";
 import { fetchHandymen } from "../../api/handymen";
 import HandymanCard from "../../components/HandymanCard/HandymanCard";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Categories = () => {
 	const categories = useCategories();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [handymen, setHandymen] = useState<Handyman[]>([]);
 
-	const navigate = useNavigate();
 	const location = useLocation();
 	const isSearchNotActive = searchQuery.trim() === "";
-
-	// useEffect(() => {
-	// 	if (searchQuery.trim() === "") {
-	// 		setIsSearchNotActive(true);
-	// 	} else {
-	// 		setIsSearchNotActive(false);
-	// 	}
-	// }, [searchQuery]);
 
 	useEffect(() => {
 		const getHandymen = async () => {
@@ -44,10 +35,6 @@ const Categories = () => {
 
 	const filteredHandymen = handymen.filter((handyman) => {
 		const query = searchQuery.toLowerCase().trim();
-		// If searchQuery is empty, show all handymen
-		if (searchQuery.trim() === "") {
-			return true;
-		}
 
 		// Filter by category if searchQuery is a category name
 		const isCategoryFilter = handyman.categories.some((cat) =>
