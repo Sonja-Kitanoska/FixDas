@@ -20,11 +20,14 @@ const SearchBar = ({
 			navigate(`/find-handyman?query=${encodeURIComponent(searchQuery)}`);
 		}
 	};
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchQuery(e.target.value);
+	};
 
 	const handleFilterClick = () => {
 		navigate("/filter", { state: { from: location.pathname } });
 	};
-	
+
 	return (
 		<div className={styles.inputWrapper}>
 			{<IoSearch className={styles.icon} />}
@@ -34,7 +37,7 @@ const SearchBar = ({
 				name="password"
 				placeholder="Search"
 				value={searchQuery}
-				onChange={(e) => setSearchQuery(e.target.value)}
+				onChange={handleChange}
 				onKeyDown={handleKeyDown}
 				className={`form-control input-field ${styles.inputField}`}
 			/>

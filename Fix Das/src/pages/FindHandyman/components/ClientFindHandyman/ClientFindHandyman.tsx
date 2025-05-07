@@ -11,10 +11,14 @@ import { useLocation } from "react-router-dom";
 const ClientFindHandyman = () => {
 	const [visibleCount, setVisibleCount] = useState(3);
 	const [handymen, setHandymen] = useState<Handyman[]>([]);
+
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
+
 	const initialQuery = params.get("query") || "";
+
 	const [searchQuery, setSearchQuery] = useState(initialQuery);
+	const [specialtiesFilter, setSpecialtiesFilter] = useState<string[]>([]);
 
 	useEffect(() => {
 		const getHandymen = async () => {
@@ -25,18 +29,19 @@ const ClientFindHandyman = () => {
 	}, []);
 
 	useEffect(() => {
-		const queryFromUrl =
-			new URLSearchParams(location.search).get("query") || "";
-		if (queryFromUrl !== searchQuery) {
-			setSearchQuery(queryFromUrl);
-		}
+		const specialtiesFromUrl = params.get("specialties") || "";
+		setSpecialtiesFilter(
+			specialtiesFromUrl
+				.split(",")
+				.map((s) => s.trim().toLowerCase())
+				.filter((s) => s)
+		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [location.search]);
 
 	useEffect(() => {
-		const queryFromUrl =
-			new URLSearchParams(location.search).get("query") || "";
+		const queryFromUrl = params.get("query") || "";
 		setSearchQuery(queryFromUrl);
-		// Only run this once on component mount
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -45,6 +50,13 @@ const ClientFindHandyman = () => {
 	};
 
 	const filteredHandymen = handymen.filter((handyman) => {
+		if (specialtiesFilter.length > 0) {
+			// Only match handymen with at least one of the selected specialties
+			return handyman.specialties?.some((spec) =>
+				specialtiesFilter.includes(spec.toLowerCase())
+			);
+		}
+
 		const query = searchQuery.toLowerCase();
 		return (
 			handyman.name.toLowerCase().includes(query) ||
@@ -64,9 +76,17 @@ const ClientFindHandyman = () => {
 				/>
 			</div>
 			<div className="py-3 pt-3 container">
-				{filteredHandymen.slice(0, visibleCount).map((handyman) => (
-					<HandymanCard key={handyman.id} handyman={handyman} />
-				))}
+				{filteredHandymen.length === 0 ? (
+					<div className="text-center">
+						<p>No handymen found matching your search criteria.</p>
+					</div>
+				) : (
+					filteredHandymen
+						.slice(0, visibleCount)
+						.map((handyman) => (
+							<HandymanCard key={handyman.id} handyman={handyman} />
+						))
+				)}
 			</div>
 
 			{visibleCount < filteredHandymen.length && (

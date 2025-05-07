@@ -2,12 +2,30 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Filter.module.css";
 import useSpecialties from "../useSpecialties";
+import { useState } from "react";
 
 const Filter = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const previousPath = location.state?.from || "/";
 	const specialties = useSpecialties();
+
+	const [selectedSpecialties, setSelectedSpecialties] = useState<string[]>([]);
+
+	const handleCheckboxChange = (specialty: string) => {
+		setSelectedSpecialties((prev) =>
+			prev.includes(specialty)
+				? prev.filter((s) => s !== specialty)
+				: [...prev, specialty]
+		);
+	};
+
+	const handleApplyFilters = () => {
+		if (selectedSpecialties.length === 0) return;
+
+		const query = selectedSpecialties.join(",");
+		navigate(`/find-handyman?specialties=${encodeURIComponent(query)}`);
+	};
 
 	return (
 		<div className="vh-100 container py-2">
@@ -72,7 +90,12 @@ const Filter = () => {
 						key={specialty.id}
 						className="d-flex gap-2 font-size-14 font-weight-500 mb-2"
 					>
-						<input type="checkbox" className="scale-150 mr-2" />
+						<input
+							type="checkbox"
+							className="scale-150 mr-2"
+							checked={selectedSpecialties.includes(specialty.name)}
+							onChange={() => handleCheckboxChange(specialty.name)}
+						/>
 						<label htmlFor="" style={{ color: "#575757" }}>
 							{specialty.name}
 						</label>
@@ -80,7 +103,9 @@ const Filter = () => {
 				))}
 			</div>
 			<div className="py-2">
-				<button className="orange-btn">Use the filters</button>
+				<button onClick={handleApplyFilters} className="orange-btn">
+					Use the filters
+				</button>
 			</div>
 		</div>
 	);
