@@ -5,20 +5,24 @@ import useCategories from "../../hooks/useCategories";
 import { Handyman } from "../../types/types";
 import { fetchHandymen } from "../../api/handymen";
 import HandymanCard from "../../components/HandymanCard/HandymanCard";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Categories = () => {
 	const categories = useCategories();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [handymen, setHandymen] = useState<Handyman[]>([]);
-	const [isSearchNotActive, setIsSearchNotActive] = useState(true);
 
-	useEffect(() => {
-		if (searchQuery.trim() === "") {
-			setIsSearchNotActive(true);
-		} else {
-			setIsSearchNotActive(false);
-		}
-	}, [searchQuery]);
+	const navigate = useNavigate();
+	const location = useLocation();
+	const isSearchNotActive = searchQuery.trim() === "";
+
+	// useEffect(() => {
+	// 	if (searchQuery.trim() === "") {
+	// 		setIsSearchNotActive(true);
+	// 	} else {
+	// 		setIsSearchNotActive(false);
+	// 	}
+	// }, [searchQuery]);
 
 	useEffect(() => {
 		const getHandymen = async () => {
@@ -28,15 +32,47 @@ const Categories = () => {
 		getHandymen();
 	}, []);
 
+	useEffect(() => {
+		const params = new URLSearchParams(location.search);
+		const queryFromUrl = params.get("query") || "";
+		setSearchQuery(queryFromUrl);
+	}, [location.search]);
+
+	const handleCategoryClick = (categoryName: string) => {
+		setSearchQuery(categoryName);
+	};
+
 	const filteredHandymen = handymen.filter((handyman) => {
-		const query = searchQuery.toLowerCase();
+		const query = searchQuery.toLowerCase().trim();
+		// If searchQuery is empty, show all handymen
+		if (searchQuery.trim() === "") {
+			return true;
+		}
+
+		// Filter by category if searchQuery is a category name
+		const isCategoryFilter = handyman.categories.some((cat) =>
+			cat.toLowerCase().trim().includes(query)
+		);
+
+		// If category filter is active (searchQuery is a category)
+		if (isCategoryFilter) {
+			// If it's a category filter, only filter by categories
+			return handyman.categories.some((cat) =>
+				cat.toLowerCase().trim().includes(query)
+			);
+		}
+
+		// If no category filter is active, filter by name, description, location, and categories
 		return (
 			handyman.name.toLowerCase().includes(query) ||
 			handyman.description.toLowerCase().includes(query) ||
 			handyman.location.toLowerCase().includes(query) ||
-			handyman.categories.some((cat) => cat.toLowerCase().includes(query))
+			handyman.categories.some((cat) =>
+				cat.toLowerCase().trim().includes(query.trim())
+			)
 		);
 	});
+
 	return (
 		<>
 			<div style={{ paddingBottom: "76px", minHeight: "100vh" }}>
@@ -78,7 +114,11 @@ const Categories = () => {
 					{isSearchNotActive && (
 						<div className="row g-2 py-3">
 							{categories.map((category) => (
-								<div key={category.id} className="col-4">
+								<div
+									key={category.id}
+									className="col-4"
+									onClick={() => handleCategoryClick(category.name)}
+								>
 									<div className="bg-white h-100 p-2 d-flex flex-column align-items-center justify-content-center">
 										<div style={{ width: "50px", height: "50px" }}>
 											<img

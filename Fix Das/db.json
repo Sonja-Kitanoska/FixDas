@@ -7,7 +7,13 @@
 			"location": "Berlin, Germany",
 			"stars": 5,
 			"numberReviews": 38,
-			"categories": ["Heating", "Sanitary", "A/C", "Solar systems"],
+			"categories": [
+				"Heating",
+				"Windows",
+				"Sanitary",
+				"Cleaning",
+				"Solar systems"
+			],
 			"specialties": ["Heating installation"],
 			"description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
 			"workImages": [
@@ -25,7 +31,7 @@
 			"location": "Munich, Germany",
 			"stars": 4,
 			"numberReviews": 25,
-			"categories": ["Cleaning"],
+			"categories": ["Cleaning", "Home Repair", "A/C"],
 			"specialties": ["Electrical installation"],
 			"description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
 			"workImages": [
