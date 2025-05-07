@@ -7,17 +7,21 @@ type SearchBarProps = {
 	setSearchQuery: (query: string) => void;
 	redirectOnEnter?: boolean;
 };
-const SearchBar = ({
-	searchQuery,
-	setSearchQuery,
-	redirectOnEnter,
-}: SearchBarProps) => {
+const SearchBar = ({ searchQuery, setSearchQuery }: SearchBarProps) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === "Enter" && redirectOnEnter) {
-			navigate(`/find-handyman?query=${encodeURIComponent(searchQuery)}`);
+		if (e.key === "Enter") {
+			const encodedQuery = encodeURIComponent(searchQuery);
+
+			if (location.pathname === "/") {
+				navigate(`/find-handyman?query=${encodedQuery}`);
+			} else if (location.pathname === "/homepage") {
+				navigate(`/homepage?query=${encodedQuery}`, { replace: true });
+			} else {
+				navigate(`/find-handyman?query=${encodedQuery}`);
+			}
 		}
 	};
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

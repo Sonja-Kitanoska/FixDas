@@ -24,7 +24,7 @@ const Filter = () => {
 		if (selectedSpecialties.length === 0) return;
 
 		const query = selectedSpecialties.join(",");
-		navigate(`/find-handyman?specialties=${encodeURIComponent(query)}`);
+		navigate(`${previousPath}?specialties=${encodeURIComponent(query)}`);
 	};
 
 	return (
