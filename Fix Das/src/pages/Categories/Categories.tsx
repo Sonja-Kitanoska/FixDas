@@ -11,8 +11,10 @@ const Categories = () => {
 	const categories = useCategories();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [handymen, setHandymen] = useState<Handyman[]>([]);
+	const [specialtiesFilter, setSpecialtiesFilter] = useState<string[]>([]);
 
 	const location = useLocation();
+	const params = new URLSearchParams(location.search);
 	const isSearchNotActive = searchQuery.trim() === "";
 
 	useEffect(() => {
@@ -22,6 +24,17 @@ const Categories = () => {
 		};
 		getHandymen();
 	}, []);
+
+	useEffect(() => {
+		const specialtiesFromUrl = params.get("specialties") || "";
+		setSpecialtiesFilter(
+			specialtiesFromUrl
+				.split(",")
+				.map((s) => s.trim().toLowerCase())
+				.filter((s) => s)
+		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [location.search]);
 
 	useEffect(() => {
 		const params = new URLSearchParams(location.search);
@@ -34,6 +47,12 @@ const Categories = () => {
 	};
 
 	const filteredHandymen = handymen.filter((handyman) => {
+		if (specialtiesFilter.length > 0) {
+			return handyman.specialties?.some((spec) =>
+				specialtiesFilter.includes(spec.toLowerCase())
+			);
+		}
+
 		const query = searchQuery.toLowerCase().trim();
 
 		// Filter by category if searchQuery is a category name
@@ -85,7 +104,7 @@ const Categories = () => {
 					</div>
 
 					{/* WHEN WE SEARCH IN THE SEARCH BAR HANDYMANCARDS SHOULD BE RENDERED */}
-					{!isSearchNotActive && (
+					{(!isSearchNotActive || specialtiesFilter.length > 0) && (
 						<div className="py-3 pt-3 container">
 							{filteredHandymen.length === 0 ? (
 								<div className="text-center">
@@ -98,7 +117,7 @@ const Categories = () => {
 							)}
 						</div>
 					)}
-					{isSearchNotActive && (
+					{isSearchNotActive && specialtiesFilter.length === 0 && (
 						<div className="row g-2 py-3">
 							{categories.map((category) => (
 								<div
