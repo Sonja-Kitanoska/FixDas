@@ -2,8 +2,10 @@ import { FaStar } from "react-icons/fa6";
 import { LuMapPin } from "react-icons/lu";
 import { MdVerified } from "react-icons/md";
 import { Handyman } from "../../types/types";
+import { useNavigate } from "react-router-dom";
 
 const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
+	const navigate = useNavigate();
 	return (
 		<div key={handyman.id} className="border-bottom py-4">
 			<div className="d-flex justify-content-between mb-4">
@@ -83,7 +85,11 @@ const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 				>
 					Show profile
 				</a>
-				<button className="orange-btn " style={{ width: "110px" }}>
+				<button
+					onClick={() => navigate("/chat/start")}
+					className="orange-btn "
+					style={{ width: "110px" }}
+				>
 					Contact
 				</button>
 			</div>

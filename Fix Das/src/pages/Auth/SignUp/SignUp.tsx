@@ -111,20 +111,20 @@ const SignUp = () => {
 				onClick={() => navigate("/sign-in")}
 				className="btn orange-btn mb-3"
 			>
-				Register
+				Sign in
 			</button>
 			<p className="font-size-12 text-center" style={{ color: "red" }}>
 				{error}
 			</p>
 
 			<p className="gray-light my-3 text-center font-size-14 mb-0">
-				Already an account?{" "}
+				Already an account? 
 				<span
 					onClick={() => navigate("/sign-in")}
 					className="orange"
 					style={{ cursor: "pointer" }}
 				>
-					Register
+					Sign in
 				</span>
 			</p>
 		</div>

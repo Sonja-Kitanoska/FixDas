@@ -8,7 +8,7 @@ import { useUserStore } from "../../store/userStore";
 import { useEffect, useState } from "react";
 import { Handyman } from "../../types/types";
 import { fetchHandymen } from "../../api/handymen";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Homepage = () => {
 	const user = useUserStore((state) => state.user);
@@ -17,6 +17,7 @@ const Homepage = () => {
 	const [specialtiesFilter, setSpecialtiesFilter] = useState<string[]>([]);
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const getHandymen = async () => {
@@ -188,7 +189,13 @@ const Homepage = () => {
 										>
 											Show profile
 										</a>
-										<button className="orange-btn " style={{ width: "110px" }}>
+										<button
+											onClick={() => {
+												navigate(`/chat/${handyman.id}`);
+											}}
+											className="orange-btn "
+											style={{ width: "110px" }}
+										>
 											Contact
 										</button>
 									</div>

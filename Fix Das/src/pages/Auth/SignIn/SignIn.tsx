@@ -99,25 +99,6 @@ const SignIn = () => {
 		}
 	};
 
-	// With firebase
-	// const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-	// 	e.preventDefault();
-	// 	setLoading(true);
-	// 	try {
-	// 		const userCredential = await signInWithEmailAndPassword(
-	// 			auth,
-	// 			formData.email,
-	// 			formData.password
-	// 		);
-	// 		console.log("Signed in:", userCredential.user);
-	// 		navigate("/homepage");
-	// 	} catch (error) {
-	// 		console.error("Error signing in:", error);
-	// 	} finally {
-	// 		setLoading(false);
-	// 	}
-	// };
-
 	const togglePasswordVisibility = () => {
 		setIsPasswordVisible(!isPasswordVisible);
 	};

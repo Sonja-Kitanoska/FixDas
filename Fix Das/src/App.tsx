@@ -23,6 +23,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import CalendarPage from "./pages/SendRequestToHandyman/CalendarPage";
 import Filter from "./pages/Filter/Filter";
+import ChatRoom from "./pages/Chat/ChatRoom/ChatRoom";
 
 function App() {
 	return (
@@ -66,8 +67,7 @@ function App() {
 
 						{/* Chat */}
 						<Route path="/chat" element={<Chat />} />
-						<Route path="/chat/start" element={<>Chat start</>} />
-						<Route path="/chat/ongoing" element={<>Chat ongoing</>} />
+						<Route path="/chat/:handymanId" element={<ChatRoom />} />
 
 						{/* Homepage */}
 						<Route path="/homepage" element={<Homepage />} />
