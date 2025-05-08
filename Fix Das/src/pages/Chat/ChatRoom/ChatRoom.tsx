@@ -8,7 +8,7 @@ import {
 	Timestamp,
 	where,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { auth, db } from "../../../firebase";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Role } from "../../../types/types";
@@ -37,6 +37,12 @@ const ChatRoom = () => {
 	);
 
 	const messagesRef = collection(db, "messages");
+	const messagesEndRef = useRef<HTMLDivElement | null>(null);
+	useEffect(() => {
+		if (messagesEndRef.current) {
+			messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+		}
+	}, [messages]);
 
 	const { id } = useParams();
 
@@ -102,27 +108,23 @@ const ChatRoom = () => {
 
 	return (
 		<>
-			<div style={{ paddingBottom: "80px", minHeight: "100vh" }}>
-				<div className="d-flex flex-column justify-content-between position-relative">
-					<div
-						className="d-flex gap-2 py-3 align-items-center position-fixed top-0 w-100 bg-white"
-						style={{ zIndex: 2 }}
-					>
+			<div style={{ paddingBottom: "80px" }}>
+				<div className="position-relative">
+					<div className="d-flex gap-2 py-3 align-items-center w-100 bg-white position-fixed top-0">
 						<IoChevronBack
 							onClick={() => navigate("/chat")}
 							style={{ fontSize: "20px" }}
 						/>
 						<p className="mb-0">{handyman.name}</p>
 					</div>
+
 					<div
-						className="mt-5 pt-4 container"
+						className="pt-4 container"
 						style={{
-							display: "flex",
-							flexDirection: "column",
-							justifyContent: "flex-end",
-							flex: 1,
-							overflowY: "auto",
-							paddingBottom: "60px",
+							maxHeight: "calc(100vh-300px)",
+							overflowY: "scroll",
+							marginTop: "56px",
+							marginBottom: "120px",
 						}}
 					>
 						{messages.map((message) => {
@@ -155,11 +157,10 @@ const ChatRoom = () => {
 							);
 						})}
 					</div>
-
+					<div ref={messagesEndRef}></div>
 					<form
 						onSubmit={handleSubmit}
-						className="position-fixed"
-						style={{ bottom: "88px", left: 0, right: 0, width: "100%" }}
+						style={{ position: "fixed", bottom: "85px", width: "100%" }}
 					>
 						<div className={styles.textareaWrapper}>
 							{<VscSmiley className={styles.icon} />}
