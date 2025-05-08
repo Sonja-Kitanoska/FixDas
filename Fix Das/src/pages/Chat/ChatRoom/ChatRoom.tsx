@@ -14,6 +14,9 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Role } from "../../../types/types";
 import Navbar from "../../../components/Navbar/Navbar";
 import { IoChevronBack } from "react-icons/io5";
+import styles from "./ChatRoom.module.css";
+import { VscSmiley } from "react-icons/vsc";
+import { LuSendHorizontal } from "react-icons/lu";
 
 type Message = {
 	text: string;
@@ -35,14 +38,14 @@ const ChatRoom = () => {
 
 	const messagesRef = collection(db, "messages");
 
-	const { handymanId } = useParams();
+	const { id } = useParams();
 
 	const handyman = location.state?.handyman;
 
 	useEffect(() => {
 		const queryMessages = query(
 			messagesRef,
-			where("room", "==", handymanId),
+			where("room", "==", id),
 			orderBy("createdAt")
 		);
 		const unsubscribe = onSnapshot(queryMessages, (snapshot) => {
@@ -64,7 +67,7 @@ const ChatRoom = () => {
 			text: newMessage,
 			createdAt: serverTimestamp(),
 			user: auth.currentUser?.displayName,
-			room: handymanId,
+			room: id,
 			role: "client",
 		});
 		setNewMessage("");
@@ -86,12 +89,12 @@ const ChatRoom = () => {
 					text: "Hi, how can I help you?",
 					createdAt: serverTimestamp(),
 					user: handyman.name,
-					room: handymanId,
+					room: id,
 					role: "handyman",
 				});
 			}, 1000);
 		}
-	}, [handymanId, lastClientMessageId, messages, messagesRef, handyman.name]);
+	}, [id, lastClientMessageId, messages, messagesRef, handyman.name]);
 
 	if (!handyman) {
 		return <p>No handyman data found.</p>;
@@ -99,8 +102,8 @@ const ChatRoom = () => {
 
 	return (
 		<>
-			<div style={{ paddingBottom: "76px" }}>
-				<div className="d-flex flex-column justify-content-between py-2 position-relative">
+			<div style={{ paddingBottom: "80px", minHeight: "100vh" }}>
+				<div className="d-flex flex-column justify-content-between position-relative">
 					<div
 						className="d-flex gap-2 py-3 align-items-center position-fixed top-0 w-100 bg-white"
 						style={{ zIndex: 2 }}
@@ -117,11 +120,9 @@ const ChatRoom = () => {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "flex-end",
+							flex: 1,
 							overflowY: "auto",
-
-							minHeight: "calc(100vh - 140px)",
-
-							paddingBottom: "1rem",
+							paddingBottom: "60px",
 						}}
 					>
 						{messages.map((message) => {
@@ -130,19 +131,22 @@ const ChatRoom = () => {
 							return (
 								<div
 									key={message.id}
-									className="mb-2"
+									className="mb-4"
 									style={{
 										display: "flex",
 										justifyContent: isClient ? "flex-end" : "flex-start",
 									}}
 								>
-									<span className="mb-0">{message.user}</span>
+									<span className="mb-0">{!isClient && message.user}</span>
 									<p
-										className="p-3 py-2 mb-0 rounded"
+										className="p-3 py-2 mb-0 rounded font-weight-400"
 										style={{
-											backgroundColor: isClient ? "orange" : "lightgray",
+											backgroundColor: isClient ? "#FB8133" : "#F0F0F0",
+											color: isClient ? "white" : "",
 											maxWidth: "100%",
 											display: "inline-block",
+											wordBreak: "break-word",
+											overflowWrap: "break-word",
 										}}
 									>
 										{message.text}
@@ -151,17 +155,36 @@ const ChatRoom = () => {
 							);
 						})}
 					</div>
+
 					<form
 						onSubmit={handleSubmit}
-						className="position-fixed bottom-0 left-0"
+						className="position-fixed"
+						style={{ bottom: "88px", left: 0, right: 0, width: "100%" }}
 					>
-						<input
-							type="text"
-							placeholder="Type your message here"
-							onChange={(e) => setNewMessage(e.target.value)}
-							value={newMessage}
-						/>
-						<button type="submit">Send</button>
+						<div className={styles.textareaWrapper}>
+							{<VscSmiley className={styles.icon} />}
+							<div className="container">
+								<textarea
+									placeholder="Your message"
+									onChange={(e) => setNewMessage(e.target.value)}
+									value={newMessage}
+									rows={1}
+									className={`form-control input-field ${styles.textareaField}`}
+									onKeyDown={(e) => {
+										if (e.key === "Enter" && !e.shiftKey) {
+											e.preventDefault();
+											e.currentTarget.form?.requestSubmit();
+										}
+									}}
+								/>
+							</div>
+							<button
+								className={`${styles.sendIcon} border-0 bg-transparent`}
+								type="submit"
+							>
+								{<LuSendHorizontal />}
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>

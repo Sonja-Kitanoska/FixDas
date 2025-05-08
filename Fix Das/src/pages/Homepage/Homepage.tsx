@@ -166,7 +166,7 @@ const Homepage = () => {
 
 									<div className="d-flex gap-1">
 										<LuMapPin color="#5584E5" />
-										<p className="font-size-12 fontt-weight-400 mb-0">
+										<p className="font-size-12 font-weight-400 mb-0">
 											{handyman.location}
 										</p>
 									</div>
@@ -191,7 +191,8 @@ const Homepage = () => {
 										</a>
 										<button
 											onClick={() => {
-												navigate(`/chat/${handyman.id}`, {
+												const id = `${user?.id}_${handyman.id}`;
+												navigate(`/chat/${id}`, {
 													state: { handyman: handyman },
 												});
 											}}

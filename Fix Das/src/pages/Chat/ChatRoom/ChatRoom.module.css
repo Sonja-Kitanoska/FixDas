@@ -1,0 +1,30 @@
+.textareaWrapper {
+	position: relative;
+	width: 100%;
+}
+
+.textareaField {
+	width: 100%;
+	padding: 15px 45px;
+	resize: none;
+}
+
+.icon {
+	position: absolute;
+	left: 25px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #1461f0;
+}
+
+.sendIcon {
+	position: absolute;
+	right: 25px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	cursor: pointer;
+	z-index: 2;
+	color: #1461f0;
+}
