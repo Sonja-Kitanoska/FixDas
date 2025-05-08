@@ -114,7 +114,7 @@ const Homepage = () => {
 														className="font-size-14 font-weight-700 mb-0"
 														style={{ color: "#080808" }}
 													>
-														{handyman.name}{" "}
+														{handyman.name}
 														<span>
 															<MdVerified color="#1461F0" />
 														</span>
@@ -191,7 +191,9 @@ const Homepage = () => {
 										</a>
 										<button
 											onClick={() => {
-												navigate(`/chat/${handyman.id}`);
+												navigate(`/chat/${handyman.id}`, {
+													state: { handyman: handyman },
+												});
 											}}
 											className="orange-btn "
 											style={{ width: "110px" }}
