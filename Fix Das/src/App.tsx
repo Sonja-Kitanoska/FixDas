@@ -21,9 +21,10 @@ import Chat from "./pages/Chat/Chat/Chat";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
-import CalendarPage from "./pages/SendRequestToHandyman/CalendarPage";
+import CalendarPage from "./pages/SendRequestToHandyman/CalendarPage/CalendarPage";
 import Filter from "./pages/Filter/Filter";
 import ChatRoom from "./pages/Chat/ChatRoom/ChatRoom";
+import BookingDetails from "./pages/SendRequestToHandyman/BookingDetails/BookingDetails";
 
 function App() {
 	return (
@@ -57,6 +58,10 @@ function App() {
 						<Route
 							path="/bookings/calendar/:handymanId"
 							element={<CalendarPage />}
+						/>
+						<Route
+							path="/bookings/booking-details/:handymanId"
+							element={<BookingDetails />}
 						/>
 
 						{/* Categories*/}
