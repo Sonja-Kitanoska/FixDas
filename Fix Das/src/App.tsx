@@ -54,7 +54,10 @@ function App() {
 						<Route path="/bookings/review/:proposalId" element={<Review />} />
 						<Route path="/bookings/completed" element={<CompletedBookings />} />
 						{/* Send request to handyman */}
-						<Route path="/bookings/calendar" element={<CalendarPage />} />
+						<Route
+							path="/bookings/calendar/:handymanId"
+							element={<CalendarPage />}
+						/>
 
 						{/* Categories*/}
 						<Route path="/categories" element={<Categories />} />

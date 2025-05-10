@@ -5,7 +5,7 @@ import HandymansPostedAdds from "./components/HandymansPostedAdds/HandymansPoste
 import SimilarProfiles from "./components/SimilarProfiles/SimilarProfiles";
 import HandymanInfo from "./components/HandymanInfo/HandymanInfo";
 import CurrentJobs from "./components/CurrentJobs/CurrentJobs";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchHandymanById } from "../../api/handymen";
 import { useEffect, useState } from "react";
 import { Handyman, ReviewFormData } from "../../types/types";
@@ -13,6 +13,7 @@ import { fetchReviewsByHandymanId } from "../../api/fedbacksForHandman";
 
 const HandymanPublicProfile = () => {
 	const { handymanId } = useParams();
+	const navigate = useNavigate();
 	const [handyman, setHandyman] = useState<Handyman | null>(null);
 	const [feedbacks, setFeedbacks] = useState<ReviewFormData[] | null>(null);
 
@@ -47,7 +48,9 @@ const HandymanPublicProfile = () => {
 			<div className="py-3 container">
 				<div className="d-flex gap-2 align-items-center">
 					<IoChevronBack style={{ fontSize: "20px" }} />
-					<p className="mb-0">Zurück</p>
+					<p className="mb-0" onClick={() => navigate("/homepage")}>
+						Zurück
+					</p>
 				</div>
 				<HandymanInfo handyman={handyman} />
 				<HandymansPostedAdds />

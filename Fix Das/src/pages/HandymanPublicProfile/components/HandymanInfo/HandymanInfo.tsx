@@ -3,8 +3,12 @@ import { MdVerified } from "react-icons/md";
 import { LuMapPin } from "react-icons/lu";
 import { PiSuitcaseSimpleBold } from "react-icons/pi";
 import { Handyman } from "../../../../types/types";
+import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../../../../store/userStore";
 
 const HandymanInfo = ({ handyman }: { handyman: Handyman }) => {
+	const navigate = useNavigate();
+	const user = useUserStore((state) => state.user);
 	return (
 		<div>
 			<div className="py-3">
@@ -75,13 +79,24 @@ const HandymanInfo = ({ handyman }: { handyman: Handyman }) => {
 					{handyman.numberJobs} Abgeschlossene Aufträge
 				</p>
 			</div>
-			<div className="row py-4 m-0">
-				<div className="col-10 ps-0">
-					<button className="orange-btn">Jetzt chatten</button>
-				</div>
-				<div className="col-2 p-0 d-flex justify-content-center align-items-center bg-white rounded-3">
-					<p style={{ fontSize: "24px" }}>...</p>
-				</div>
+			<div className="d-flex gap-2 py-3">
+				<button
+					className="orange-border-btn"
+					onClick={() => navigate(`/bookings/calendar/${handyman.id}`)}
+				>
+					Buchen
+				</button>
+				<button
+					className="orange-btn"
+					onClick={() => {
+						const id = `${user?.id}_${handyman.id}`;
+						navigate(`/chat/${id}`, {
+							state: { handyman: handyman },
+						});
+					}}
+				>
+					Jetzt chatten
+				</button>
 			</div>
 
 			<div>
