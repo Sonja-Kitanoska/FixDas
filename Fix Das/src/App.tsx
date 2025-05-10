@@ -36,11 +36,6 @@ function App() {
 					<Route path="/find-handyman" element={<FindHandyman />} />
 					<Route path="/menu" element={<Menu />} />
 					<Route path="/filter" element={<Filter />} />
-					{/* Public Profile Handyman */}
-					<Route
-						path="/homepage/handyman-public-profile"
-						element={<HandymanPublicProfile />}
-					/>
 
 					<Route element={<PublicRoute />}>
 						{/* Login and sign up */}
@@ -71,6 +66,11 @@ function App() {
 
 						{/* Homepage */}
 						<Route path="/homepage" element={<Homepage />} />
+						{/* Public Profile Handyman */}
+						<Route
+							path="/homepage/handyman-public-profile/:handymanId"
+							element={<HandymanPublicProfile />}
+						/>
 
 						{/* Profile */}
 						<Route path="/profile" element={<Profile />} />
@@ -80,7 +80,7 @@ function App() {
 					</Route>
 
 					{/* Catch-all route for non-existent pages */}
-					<Route path="*" element={<Navigate to="/" replace />} />
+					<Route path="*" element={<Navigate to="/sign-up" replace />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

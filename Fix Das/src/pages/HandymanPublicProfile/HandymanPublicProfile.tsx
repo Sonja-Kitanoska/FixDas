@@ -5,28 +5,43 @@ import HandymansPostedAdds from "./components/HandymansPostedAdds/HandymansPoste
 import SimilarProfiles from "./components/SimilarProfiles/SimilarProfiles";
 import HandymanInfo from "./components/HandymanInfo/HandymanInfo";
 import CurrentJobs from "./components/CurrentJobs/CurrentJobs";
-
-const handyman = {
-	id: crypto.randomUUID(),
-	image: "/LandingPage/testimonials/client1.svg",
-	name: "Klaus Schneider",
-	location: "Rheda-Wiedenbrück",
-	stars: 5,
-	numberReviews: 38,
-	numberJobs: 4,
-	categories: ["Heating", "Sanitary", "A/C", "Solar systems"],
-	description:
-		"I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
-	workImages: [
-		"/LandingPage/testimonials/work-images/work1.svg",
-		"/LandingPage/testimonials/work-images/work2.svg",
-		"/LandingPage/testimonials/work-images/work3.svg",
-		"/LandingPage/testimonials/work-images/work4.svg",
-	],
-	createdAt: "5 days ago",
-};
+import { useParams } from "react-router-dom";
+import { fetchHandymanById } from "../../api/handymen";
+import { useEffect, useState } from "react";
+import { Handyman, ReviewFormData } from "../../types/types";
+import { fetchReviewsByHandymanId } from "../../api/fedbacksForHandman";
 
 const HandymanPublicProfile = () => {
+	const { handymanId } = useParams();
+	const [handyman, setHandyman] = useState<Handyman | null>(null);
+	const [feedbacks, setFeedbacks] = useState<ReviewFormData[] | null>(null);
+
+	useEffect(() => {
+		const getHandyman = async () => {
+			if (handymanId) {
+				const data = await fetchHandymanById(handymanId);
+				setHandyman(data);
+			}
+		};
+
+		getHandyman();
+	}, [handymanId]);
+
+	useEffect(() => {
+		const getFeedbacksForHandyman = async () => {
+			if (handymanId) {
+				const data: ReviewFormData[] = await fetchReviewsByHandymanId(
+					handymanId
+				);
+				setFeedbacks(data);
+			}
+		};
+
+		getFeedbacksForHandyman();
+	}, [handymanId]);
+
+	if (!handyman) return <p>Loading handyman profile...</p>;
+
 	return (
 		<div style={{ paddingBottom: "76px" }}>
 			<div className="py-3 container">
@@ -38,7 +53,7 @@ const HandymanPublicProfile = () => {
 				<HandymansPostedAdds />
 				<SimilarProfiles />
 				<CurrentJobs />
-				<FeedbackForHandyman />
+				<FeedbackForHandyman feedbacks={feedbacks || []} />
 			</div>
 			<Navbar />
 		</div>

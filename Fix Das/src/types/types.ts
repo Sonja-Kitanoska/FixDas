@@ -69,12 +69,14 @@ export type ClientAddData = {
 };
 
 export type ReviewFormData = {
+	id: string;
 	handymanId: string;
 	proposalId: number | null;
 	rating: string | null;
 	comment: string | null;
 	photos: (File | string)[];
 	agreedToPublish: boolean;
+	from: { name: string; id: string; location: string };
 };
 
 export type Proposal = {

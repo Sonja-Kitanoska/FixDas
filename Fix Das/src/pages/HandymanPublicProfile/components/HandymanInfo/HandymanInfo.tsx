@@ -1,8 +1,8 @@
 import { FaStar } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
-import { Handyman } from "../../../../components/HandymanCard/HandymanCard";
 import { LuMapPin } from "react-icons/lu";
 import { PiSuitcaseSimpleBold } from "react-icons/pi";
+import { Handyman } from "../../../../types/types";
 
 const HandymanInfo = ({ handyman }: { handyman: Handyman }) => {
 	return (

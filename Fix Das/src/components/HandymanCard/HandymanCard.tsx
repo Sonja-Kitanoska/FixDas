@@ -3,9 +3,11 @@ import { LuMapPin } from "react-icons/lu";
 import { MdVerified } from "react-icons/md";
 import { Handyman } from "../../types/types";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../../store/userStore";
 
 const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 	const navigate = useNavigate();
+	const user = useUserStore((state) => state.user);
 	return (
 		<div key={handyman.id} className="border-bottom py-4">
 			<div className="d-flex justify-content-between mb-4">
@@ -79,14 +81,32 @@ const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 			<p className="font-size-12 font-weight-400">{handyman.description}</p>
 
 			<div className="d-flex justify-content-between font-size-12 font-weight-600 mb-3">
-				<a
+				<p
 					className="orange mb-0 text-decoration-none align-self-end"
 					style={{ cursor: "pointer" }}
+					onClick={() => {
+						if (user) {
+							navigate(`/homepage/handyman-public-profile/${handyman.id}`, {
+								state: { handyman: handyman },
+							});
+						} else {
+							navigate("/sign-up");
+						}
+					}}
 				>
 					Show profile
-				</a>
+				</p>
 				<button
-					onClick={() => navigate("/chat/start")}
+					onClick={() => {
+						if (user) {
+							const id = `${user.id}_${handyman.id}`;
+							navigate(`/chat/${id}`, {
+								state: { handyman: handyman },
+							});
+						} else {
+							navigate("/sign-up");
+						}
+					}}
 					className="orange-btn "
 					style={{ width: "110px" }}
 				>

@@ -186,6 +186,14 @@ const Homepage = () => {
 										<a
 											className="orange mb-0 text-decoration-none align-self-end"
 											style={{ cursor: "pointer" }}
+											onClick={() => {
+												navigate(
+													`/homepage/handyman-public-profile/${handyman.id}`,
+													{
+														state: { handyman: handyman },
+													}
+												);
+											}}
 										>
 											Show profile
 										</a>

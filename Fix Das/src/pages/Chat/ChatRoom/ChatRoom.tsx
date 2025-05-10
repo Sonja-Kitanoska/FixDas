@@ -108,7 +108,13 @@ const ChatRoom = () => {
 
 	return (
 		<>
-			<div style={{ paddingBottom: "80px" }}>
+			<div
+				style={{
+					paddingBottom: "80px",
+					minHeight: "100vh",
+					backgroundColor: "red",
+				}}
+			>
 				<div className="position-relative">
 					<div className="d-flex gap-2 py-3 align-items-center w-100 bg-white position-fixed top-0">
 						<IoChevronBack
