@@ -25,6 +25,7 @@ import CalendarPage from "./pages/SendRequestToHandyman/CalendarPage/CalendarPag
 import Filter from "./pages/Filter/Filter";
 import ChatRoom from "./pages/Chat/ChatRoom/ChatRoom";
 import BookingDetails from "./pages/SendRequestToHandyman/BookingDetails/BookingDetails";
+import EnterLocation from "./pages/SendRequestToHandyman/EnterLocation/EnterLocation";
 
 function App() {
 	return (
@@ -62,6 +63,10 @@ function App() {
 						<Route
 							path="/bookings/booking-details/:handymanId"
 							element={<BookingDetails />}
+						/>
+						<Route
+							path="/bookings/enter-location/:handymanId"
+							element={<EnterLocation />}
 						/>
 
 						{/* Categories*/}

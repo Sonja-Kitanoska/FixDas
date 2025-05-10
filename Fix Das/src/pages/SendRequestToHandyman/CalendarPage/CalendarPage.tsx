@@ -114,6 +114,9 @@ const CalendarPage = () => {
 						className="orange-btn"
 						disabled={selectedTime === ""}
 						onClick={() => {
+							const formattedDate = formatDate(selectedDate as Date); 
+							localStorage.setItem("selectedDate", formattedDate);
+							localStorage.setItem("selectedTime", selectedTime);
 							navigate(`/bookings/booking-details/${handymanId}`, {
 								state: {
 									selectedDate: formatDate(selectedDate as Date),

@@ -10,17 +10,16 @@ import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./BookingDetails.module.css";
 import { TbCurrentLocation } from "react-icons/tb";
 
-interface LocationState {
-	selectedDate: string;
-	selectedTime: string;
-}
-
 const BookingDetails = () => {
 	const { handymanId } = useParams<{ handymanId: string }>();
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { selectedDate, selectedTime } = location.state as LocationState;
+	const { selectedDate, selectedTime } = location.state || {
+		selectedDate: localStorage.getItem("selectedDate"),
+		selectedTime: localStorage.getItem("selectedTime"),
+	};
 	const [handyman, setHandyman] = useState<Handyman | null>(null);
+	const [addressInput, setAddressInput] = useState("");
 
 	useEffect(() => {
 		const getHandyman = async () => {
@@ -34,6 +33,41 @@ const BookingDetails = () => {
 	}, [handymanId]);
 
 	if (!handyman) return <p>Loading handyman profile...</p>;
+
+	// const reverseGeocode = async (lat: number, lon: number) => {
+	// 	try {
+	// 		const response = await fetch(
+	// 			`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
+	// 		);
+	// 		const data = await response.json();
+	// 		return data.display_name;
+	// 	} catch (error) {
+	// 		console.error("Error in reverse geocoding:", error);
+	// 		return null;
+	// 	}
+	// };
+	// const handleGetCurrentLocation = () => {
+	// 	if (navigator.geolocation) {
+	// 		navigator.geolocation.getCurrentPosition(
+	// 			async (position) => {
+	// 				const { latitude, longitude } = position.coords;
+	// 				const address = await reverseGeocode(latitude, longitude);
+	// 				if (address) {
+	// 					setAddressInput(address);
+	// 				}
+	// 			},
+	// 			(error) => {
+	// 				console.error("Location error:", error.message);
+	// 				if (error.code === error.PERMISSION_DENIED) {
+	// 					alert("Bitte erlaube den Standortzugriff in deinem Browser.");
+	// 				}
+	// 			}
+	// 		);
+	// 	} else {
+	// 		console.error("Geolocation is not supported by this browser.");
+	// 	}
+	// };
+
 	return (
 		<>
 			<div style={{ minHeight: "100vh" }}>
@@ -46,13 +80,15 @@ const BookingDetails = () => {
 						onClick={() => navigate(`/bookings/calendar/${handymanId}`)}
 					>
 						<IoChevronBack style={{ fontSize: "20px", cursor: "pointer" }} />
-						<p className="mb-0">Datum/Zeit</p>
+						<p className="mb-0" style={{ fontSize: "16px" }}>
+							Datum/Zeit
+						</p>
 					</div>
 
 					<div>
 						<p className="font-weight-700">Serviceanfrage</p>
 						<div className="d-flex justify-content-between bg-white p-2 border-top mb-3">
-							<p className="mb-0">{selectedDate}</p>
+							{selectedDate && <p className="mb-0">{selectedDate}</p>}
 							<div className="d-flex align-items-center gap-2">
 								<LuClock3 color="#5584E5" size={15} />
 								<p className="mb-0">{selectedTime}</p>
@@ -157,33 +193,26 @@ const BookingDetails = () => {
 						<div className={styles.inputWrapper}>
 							{<LuMapPin className={styles.icon} />}
 							<input
+								id="address"
 								name="address"
 								placeholder="Gib deine Adresse ein"
-								required
 								className={`form-control input-field ${styles.inputField}`}
+								value={addressInput}
+								onChange={(e) => setAddressInput(e.target.value)}
 							/>
-							<span className={styles.eyeIcon} role="button">
+							<span
+								className={styles.locationIcon}
+								role="button"
+								// onClick={handleGetCurrentLocation}
+								onClick={() => {
+									navigate(`/bookings/enter-location/${handymanId}`);
+								}}
+							>
 								<TbCurrentLocation color="#939393" />
 							</span>
 						</div>
 					</div>
-					{/* <div>
-						<label htmlFor="address" className="font-weight-700 py-3 pb-2">
-							Was ist deine Adresse? &nbsp;
-							<span
-								style={{ color: "#1461F0" }}
-								className="font-weight-400 font-size-12"
-							>
-								Optional
-							</span>
-						</label>
-						<input
-							id="address"
-							name="address"
-							placeholder="Gib deine Adresse ein"
-							className="w-100 border rounded p-2"
-						></input>
-					</div> */}
+
 					<div className="py-4">
 						<button className="orange-btn">Anfrage senden</button>
 					</div>
