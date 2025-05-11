@@ -9,9 +9,12 @@ import { fetchHandymanById } from "../../../api/handymen";
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./BookingDetails.module.css";
 import { TbCurrentLocation } from "react-icons/tb";
+import { updateFormData } from "../../../utils";
+import { useUserStore } from "../../../store/userStore";
 
 const BookingDetails = () => {
 	const { handymanId } = useParams<{ handymanId: string }>();
+	const user = useUserStore((state) => state.user);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const { selectedDate, selectedTime } = location.state || {
@@ -19,7 +22,8 @@ const BookingDetails = () => {
 		selectedTime: localStorage.getItem("selectedTime"),
 	};
 	const [handyman, setHandyman] = useState<Handyman | null>(null);
-	const [addressInput, setAddressInput] = useState("");
+	const [message, setMessage] = useState("");
+	const [address, setAddress] = useState("");
 
 	useEffect(() => {
 		const getHandyman = async () => {
@@ -32,46 +36,31 @@ const BookingDetails = () => {
 		getHandyman();
 	}, [handymanId]);
 
-	if (!handyman) return <p>Loading handyman profile...</p>;
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 
-	// const reverseGeocode = async (lat: number, lon: number) => {
-	// 	try {
-	// 		const response = await fetch(
-	// 			`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
-	// 		);
-	// 		const data = await response.json();
-	// 		return data.display_name;
-	// 	} catch (error) {
-	// 		console.error("Error in reverse geocoding:", error);
-	// 		return null;
-	// 	}
-	// };
-	// const handleGetCurrentLocation = () => {
-	// 	if (navigator.geolocation) {
-	// 		navigator.geolocation.getCurrentPosition(
-	// 			async (position) => {
-	// 				const { latitude, longitude } = position.coords;
-	// 				const address = await reverseGeocode(latitude, longitude);
-	// 				if (address) {
-	// 					setAddressInput(address);
-	// 				}
-	// 			},
-	// 			(error) => {
-	// 				console.error("Location error:", error.message);
-	// 				if (error.code === error.PERMISSION_DENIED) {
-	// 					alert("Bitte erlaube den Standortzugriff in deinem Browser.");
-	// 				}
-	// 			}
-	// 		);
-	// 	} else {
-	// 		console.error("Geolocation is not supported by this browser.");
-	// 	}
-	// };
+		updateFormData({
+			from: {
+				id: user?.id,
+				name: user?.username,
+				role: "client",
+			},
+			to: {
+				id: handyman?.id,
+				role: "handyman",
+			},
+			message: message,
+			location: { address, lat: "fl", lon: "f" },
+		});
+	};
+
+	if (!handyman) return <p>Loading handyman profile...</p>;
 
 	return (
 		<>
 			<div style={{ minHeight: "100vh" }}>
 				<form
+					onSubmit={handleSubmit}
 					className="container py-3 font-size-14"
 					style={{ paddingBottom: "78px" }}
 				>
@@ -178,6 +167,8 @@ const BookingDetails = () => {
 							className="w-100 border rounded p-2"
 							style={{ resize: "none", outline: "none" }}
 							rows={4}
+							value={message}
+							onChange={(e) => setMessage(e.target.value)}
 						></textarea>
 					</div>
 					<div>
@@ -197,13 +188,12 @@ const BookingDetails = () => {
 								name="address"
 								placeholder="Gib deine Adresse ein"
 								className={`form-control input-field ${styles.inputField}`}
-								value={addressInput}
-								onChange={(e) => setAddressInput(e.target.value)}
+								value={address}
+								onChange={(e) => setAddress(e.target.value)}
 							/>
 							<span
 								className={styles.locationIcon}
 								role="button"
-								// onClick={handleGetCurrentLocation}
 								onClick={() => {
 									navigate(`/bookings/enter-location/${handymanId}`);
 								}}

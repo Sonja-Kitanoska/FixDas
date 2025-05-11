@@ -96,3 +96,20 @@ export type Proposal = {
 	time: string;
 	status: "pending" | "accepted" | "completed";
 };
+
+export type Request = {
+	id: string;
+	from: {
+		id: string;
+		name: string;
+		role: Role;
+	};
+	to: {
+		id: string;
+		role: Role;
+	};
+	message: string;
+	location: { address: string; lat: string; lon: string };
+	time: string;
+	date: string;
+};

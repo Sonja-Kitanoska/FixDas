@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Handyman } from "../../../types/types";
 import { fetchHandymanById } from "../../../api/handymen";
+import { getFormData, updateFormData } from "../../../utils";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -25,6 +26,14 @@ const CalendarPage = () => {
 		};
 
 		getHandyman();
+
+		const storedData = getFormData();
+		if (storedData.selectedDate) {
+			setSelectedDate(new Date(storedData.selectedDate as string));
+		}
+		if (storedData.selectedTime) {
+			setSelectedTime(storedData.selectedTime as string);
+		}
 	}, [handymanId]);
 
 	if (!handyman) return <p>Loading handyman profile...</p>;
@@ -114,9 +123,11 @@ const CalendarPage = () => {
 						className="orange-btn"
 						disabled={selectedTime === ""}
 						onClick={() => {
-							const formattedDate = formatDate(selectedDate as Date); 
-							localStorage.setItem("selectedDate", formattedDate);
-							localStorage.setItem("selectedTime", selectedTime);
+							const formattedDate = formatDate(selectedDate as Date);
+							updateFormData({
+								selectedDate: formattedDate,
+								selectedTime,
+							});
 							navigate(`/bookings/booking-details/${handymanId}`, {
 								state: {
 									selectedDate: formatDate(selectedDate as Date),
