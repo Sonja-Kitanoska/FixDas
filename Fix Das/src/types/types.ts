@@ -97,15 +97,15 @@ export type Proposal = {
 	status: "pending" | "accepted" | "completed";
 };
 
-export type Request = {
+export type ClientRequest = {
 	id: string;
 	from: {
-		id: string;
-		name: string;
+		id: string | undefined;
+		name: string | null | undefined;
 		role: Role;
 	};
 	to: {
-		id: string;
+		id: string | undefined;
 		role: Role;
 	};
 	message: string;

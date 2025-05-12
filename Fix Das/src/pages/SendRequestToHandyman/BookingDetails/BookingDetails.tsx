@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Handyman } from "../../../types/types";
+import { ClientRequest, Handyman } from "../../../types/types";
 import { IoChevronBack } from "react-icons/io5";
 import { LuClock3, LuMapPin } from "react-icons/lu";
 import { FaStar } from "react-icons/fa6";
@@ -9,21 +9,37 @@ import { fetchHandymanById } from "../../../api/handymen";
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./BookingDetails.module.css";
 import { TbCurrentLocation } from "react-icons/tb";
-import { updateFormData } from "../../../utils";
+import { getFormData, updateFormData } from "../../../utils";
 import { useUserStore } from "../../../store/userStore";
+import { postRequest } from "../../../api/requests";
 
 const BookingDetails = () => {
 	const { handymanId } = useParams<{ handymanId: string }>();
 	const user = useUserStore((state) => state.user);
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { selectedDate, selectedTime } = location.state || {
-		selectedDate: localStorage.getItem("selectedDate"),
-		selectedTime: localStorage.getItem("selectedTime"),
-	};
+
 	const [handyman, setHandyman] = useState<Handyman | null>(null);
 	const [message, setMessage] = useState("");
 	const [address, setAddress] = useState("");
+	const [selectedDate, setSelectedDate] = useState("");
+	const [selectedTime, setSelectedTime] = useState("");
+
+	useEffect(() => {
+		const formData = getFormData();
+		if (formData.address) {
+			setAddress(formData.address as string);
+		}
+		if (formData.message) {
+			setMessage(formData.message as string);
+		}
+		if (formData.selectedDate) {
+			setSelectedDate(formData.selectedDate as string);
+		}
+		if (formData.selectedTime) {
+			setSelectedTime(formData.selectedTime as string);
+		}
+	}, [location.state]);
 
 	useEffect(() => {
 		const getHandyman = async () => {
@@ -36,10 +52,10 @@ const BookingDetails = () => {
 		getHandyman();
 	}, [handymanId]);
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
-		updateFormData({
+		const newRequest: ClientRequest = {
+			id: crypto.randomUUID(),
 			from: {
 				id: user?.id,
 				name: user?.username,
@@ -51,7 +67,12 @@ const BookingDetails = () => {
 			},
 			message: message,
 			location: { address, lat: "fl", lon: "f" },
-		});
+			time: selectedTime,
+			date: selectedDate,
+		};
+
+		updateFormData(newRequest);
+		await postRequest(newRequest);
 	};
 
 	if (!handyman) return <p>Loading handyman profile...</p>;
@@ -195,6 +216,10 @@ const BookingDetails = () => {
 								className={styles.locationIcon}
 								role="button"
 								onClick={() => {
+									updateFormData({
+										message,
+										address,
+									});
 									navigate(`/bookings/enter-location/${handymanId}`);
 								}}
 							>

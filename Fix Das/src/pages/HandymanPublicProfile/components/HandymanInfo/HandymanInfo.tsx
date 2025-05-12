@@ -82,11 +82,12 @@ const HandymanInfo = ({ handyman }: { handyman: Handyman }) => {
 			<div className="d-flex gap-2 py-3">
 				<button
 					className="orange-border-btn"
-					onClick={() =>
+					onClick={() => {
+						localStorage.removeItem("formData");
 						navigate(`/bookings/calendar/${handyman.id}`, {
 							state: { handyman: handyman },
-						})
-					}
+						});
+					}}
 				>
 					Buchen
 				</button>

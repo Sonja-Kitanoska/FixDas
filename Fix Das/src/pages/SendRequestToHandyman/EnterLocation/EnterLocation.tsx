@@ -5,6 +5,7 @@ import { IoSearch } from "react-icons/io5";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { TiLocationArrowOutline } from "react-icons/ti";
 import { useState } from "react";
+import { updateFormData } from "../../../utils";
 const LOCATIONIQ_TOKEN = import.meta.env.VITE_LOCATIONIQ_TOKEN;
 
 const EnterLocation = () => {
@@ -37,8 +38,12 @@ const EnterLocation = () => {
 				async (position) => {
 					const { latitude, longitude } = position.coords;
 					const address = await reverseGeocode(latitude, longitude);
-					setSelectedAddress(address);
-					return address;
+					if (address) {
+						updateFormData({ address });
+						navigate(`/bookings/booking-details/${handymanId}`);
+					} else {
+						alert("Konnte Ihre Adresse nicht bestimmen.");
+					}
 				},
 				(error) => {
 					console.error("Location error:", error.message);
@@ -91,10 +96,18 @@ const EnterLocation = () => {
 	}
 
 	const handleSelect = (place: Place) => {
-		setQuery(place.display_name);
+		const address = place.display_name;
+		setQuery(address);
 		setSuggestions([]);
-		setSelectedAddress(place.display_name);
-		console.log("Selected:", place);
+		setSelectedAddress(address);
+		updateFormData({ address });
+
+		// navigate(`/bookings/booking-details/${handymanId}`);
+
+		// setQuery(place.display_name);
+		// setSuggestions([]);
+		// setSelectedAddress(place.display_name);
+		// console.log("Selected:", place);
 	};
 
 	return (
@@ -127,12 +140,10 @@ const EnterLocation = () => {
 						<span
 							className={styles.closeIcon}
 							role="button"
-							// onClick={handleGetCurrentLocation}
 							onClick={() => {
 								setQuery("");
 								setSelectedAddress("");
 								setSuggestions([]);
-								// navigate(`/bookings/enter-location/${handymanId}`);
 							}}
 						>
 							<IoIosCloseCircleOutline color="red" />
@@ -163,14 +174,30 @@ const EnterLocation = () => {
 						className="d-flex align-items-center gap-2 py-2 pt-4 border-bottom"
 						onClick={handleGetCurrentLocation}
 					>
-						<TiLocationArrowOutline size={25} color="#FA6100" />
+						<TiLocationArrowOutline
+							size={25}
+							color="#FA6100"
+							style={{ flexShrink: 0 }}
+						/>
 						<p className="mb-0">Verwenden Sie Ihren aktuellen Standort</p>
 					</div>
 
 					<div className="py-4">
 						<p style={{ color: "#939393" }}>Suchergebnis</p>
-						<div className="d-flex align-items-center gap-2">
-							<TiLocationArrowOutline size={25} color="#FA6100" />
+						<div
+							className="d-flex align-items-center gap-2"
+							onClick={() => {
+								if (selectedAddress) {
+									updateFormData({ address: selectedAddress });
+									navigate(`/bookings/booking-details/${handymanId}`);
+								}
+							}}
+						>
+							<TiLocationArrowOutline
+								size={25}
+								color="#FA6100"
+								style={{ flexShrink: 0 }}
+							/>
 							<p className="mb-0">
 								{selectedAddress || "Noch nichts ausgewählt"}
 							</p>
