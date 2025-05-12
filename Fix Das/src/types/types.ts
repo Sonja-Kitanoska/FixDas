@@ -109,7 +109,7 @@ export type ClientRequest = {
 		role: Role;
 	};
 	message: string;
-	location: { address: string; lat: string; lon: string };
+	location: { address: string; lat: number | null; lon: number | null };
 	time: string;
 	date: string;
 };

@@ -24,6 +24,8 @@ const BookingDetails = () => {
 	const [address, setAddress] = useState("");
 	const [selectedDate, setSelectedDate] = useState("");
 	const [selectedTime, setSelectedTime] = useState("");
+	const [lat, setLat] = useState<number | null>(null);
+	const [lon, setLon] = useState<number | null>(null);
 
 	useEffect(() => {
 		const formData = getFormData();
@@ -39,6 +41,8 @@ const BookingDetails = () => {
 		if (formData.selectedTime) {
 			setSelectedTime(formData.selectedTime as string);
 		}
+		if (formData.lat) setLat(formData.lat as number);
+		if (formData.lon) setLon(formData.lon as number);
 	}, [location.state]);
 
 	useEffect(() => {
@@ -54,6 +58,8 @@ const BookingDetails = () => {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		const hasAddress = address.trim() !== "";
+
 		const newRequest: ClientRequest = {
 			id: crypto.randomUUID(),
 			from: {
@@ -66,7 +72,11 @@ const BookingDetails = () => {
 				role: "handyman",
 			},
 			message: message,
-			location: { address, lat: "fl", lon: "f" },
+			location: {
+				address: hasAddress ? address : "",
+				lat: hasAddress ? lat : null,
+				lon: hasAddress ? lon : null,
+			},
 			time: selectedTime,
 			date: selectedDate,
 		};

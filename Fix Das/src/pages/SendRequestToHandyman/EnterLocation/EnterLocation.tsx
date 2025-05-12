@@ -39,7 +39,7 @@ const EnterLocation = () => {
 					const { latitude, longitude } = position.coords;
 					const address = await reverseGeocode(latitude, longitude);
 					if (address) {
-						updateFormData({ address });
+						updateFormData({ address, lat: latitude, lon: longitude });
 						navigate(`/bookings/booking-details/${handymanId}`);
 					} else {
 						alert("Konnte Ihre Adresse nicht bestimmen.");
@@ -93,21 +93,19 @@ const EnterLocation = () => {
 	interface Place {
 		display_name: string;
 		place_id: string;
+		lat: string;
+		lon: string;
 	}
 
 	const handleSelect = (place: Place) => {
 		const address = place.display_name;
+		const lat = parseFloat(place.lat);
+		const lon = parseFloat(place.lon);
 		setQuery(address);
 		setSuggestions([]);
 		setSelectedAddress(address);
-		updateFormData({ address });
 
-		// navigate(`/bookings/booking-details/${handymanId}`);
-
-		// setQuery(place.display_name);
-		// setSuggestions([]);
-		// setSelectedAddress(place.display_name);
-		// console.log("Selected:", place);
+		updateFormData({ address, lat, lon });
 	};
 
 	return (

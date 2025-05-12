@@ -601,6 +601,126 @@
       },
       "time": "12pm-4pm",
       "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "f0886441-c038-4523-b755-c4dfba17e76b",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "6",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "9, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
+        "lat": 59.307641269313685,
+        "lon": 18.03003688208066
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "3829829e-32c1-4ce3-9e85-aebd4440de80",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "6",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "",
+        "lat": 59.307641269313685,
+        "lon": 18.03003688208066
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "665ecad5-3c34-4b05-9885-9f5380dd8549",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "6",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "Stockholm",
+        "lat": 59.307641269313685,
+        "lon": 18.03003688208066
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "b5fa3759-3a2f-4339-b4ca-c4fc5ca914f8",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "6",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "",
+        "lat": null,
+        "lon": null
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "0d0b6aae-8c1e-437f-bd6a-693a1619f45f",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "6",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "stockholm",
+        "lat": 41.9996707,
+        "lon": 21.4333514
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "3e5c6dba-09bd-4706-9829-d9ba1b50ed35",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "6",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "7, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
+        "lat": 59.3076236,
+        "lon": 18.0302477
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
     }
   ]
 }
