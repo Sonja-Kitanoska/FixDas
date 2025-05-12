@@ -6,9 +6,10 @@ import { useUserStore } from "../../../store/userStore";
 import { useRef, useState } from "react";
 import { User } from "../../../types/types";
 import { FiLogOut } from "react-icons/fi";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { deleteUser, signOut } from "firebase/auth";
 import { deleteUserData, updateUser } from "../../../api/users";
+import { doc, updateDoc } from "firebase/firestore";
 
 const EditProfile = () => {
 	const navigate = useNavigate();
@@ -22,6 +23,17 @@ const EditProfile = () => {
 
 	const [formData, setFormData] = useState<User | null>(user);
 	const [editingField, setEditingField] = useState<string | null>(null);
+
+	async function updateUserProfile(userId: string, updatedUser: User) {
+		try {
+			const userRef = doc(db, "users", userId);
+			await updateDoc(userRef, updatedUser);
+
+			console.log("User updated in Firestore.");
+		} catch (error) {
+			console.error("Error updating user:", error);
+		}
+	}
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -53,6 +65,7 @@ const EditProfile = () => {
 		if (formData) {
 			setUser(formData);
 			updateUser(formData.id, formData);
+			updateUserProfile(formData.id, formData);
 			navigate("/profile");
 		}
 	};
