@@ -110,6 +110,7 @@ const BookingDetails = () => {
 		try {
 			await postRequest(newRequest);
 			handleOpen();
+			localStorage.removeItem("formData");
 		} catch (error) {
 			console.error("Failed to send request:", error);
 		}
