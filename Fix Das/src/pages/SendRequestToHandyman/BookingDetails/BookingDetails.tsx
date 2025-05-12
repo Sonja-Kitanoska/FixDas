@@ -12,6 +12,9 @@ import { TbCurrentLocation } from "react-icons/tb";
 import { getFormData, updateFormData } from "../../../utils";
 import { useUserStore } from "../../../store/userStore";
 import { postRequest } from "../../../api/requests";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const BookingDetails = () => {
 	const { handymanId } = useParams<{ handymanId: string }>();
@@ -26,6 +29,28 @@ const BookingDetails = () => {
 	const [selectedTime, setSelectedTime] = useState("");
 	const [lat, setLat] = useState<number | null>(null);
 	const [lon, setLon] = useState<number | null>(null);
+	const [open, setOpen] = useState(false);
+
+	const handleOpen = () => setOpen(true);
+
+	const handleClose = (_: string, reason: string) => {
+		if (reason === "backdropClick" || reason === "escapeKeyDown") {
+			return;
+		}
+		setOpen(false);
+	};
+
+	const modalStyle = {
+		position: "absolute",
+		top: "50%",
+		left: "50%",
+		transform: "translate(-50%, -50%)",
+		width: "80%",
+		bgcolor: "background.paper",
+		borderRadius: "8px",
+		boxShadow: 24,
+		p: 4,
+	};
 
 	useEffect(() => {
 		const formData = getFormData();
@@ -82,7 +107,12 @@ const BookingDetails = () => {
 		};
 
 		updateFormData(newRequest);
-		await postRequest(newRequest);
+		try {
+			await postRequest(newRequest);
+			handleOpen();
+		} catch (error) {
+			console.error("Failed to send request:", error);
+		}
 	};
 
 	if (!handyman) return <p>Loading handyman profile...</p>;
@@ -239,8 +269,43 @@ const BookingDetails = () => {
 					</div>
 
 					<div className="py-4">
-						<button className="orange-btn">Anfrage senden</button>
+						<button type="submit" className="orange-btn">
+							Anfrage senden
+						</button>
 					</div>
+
+					{/* Modal */}
+					<Modal
+						open={open}
+						onClose={handleClose}
+						aria-labelledby="modal-title"
+						aria-describedby="modal-description"
+						className="text-center"
+					>
+						<Box sx={modalStyle}>
+							<div>
+								<img src="/Checkmark.png" alt="Checkmark" />
+							</div>
+							<Typography id="modal-title" variant="h6" component="h2">
+								Anfrage Gesendet!
+							</Typography>
+							<Typography
+								id="modal-description"
+								sx={{ mt: 2, color: "#939393" }}
+								className="font-size-24"
+							>
+								Der Handwerker wird so schnell wie möglich antworten.
+							</Typography>
+							<div className="py-3">
+								<button
+									className="orange-btn w-50 font-size-12"
+									onClick={() => navigate("/homepage")}
+								>
+									Startseite
+								</button>
+							</div>
+						</Box>
+					</Modal>
 				</form>
 			</div>
 			<Navbar />
