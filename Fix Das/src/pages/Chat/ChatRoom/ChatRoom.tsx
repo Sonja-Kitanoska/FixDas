@@ -109,12 +109,7 @@ const ChatRoom = () => {
 
 	return (
 		<>
-			<div
-				style={{
-					paddingBottom: "80px",
-					minHeight: "100vh",
-				}}
-			>
+			<div style={{ height: "100vh" }}>
 				<div className="position-relative">
 					<div className="d-flex gap-3 py-3 align-items-center w-100 bg-white position-fixed top-0">
 						<IoChevronBack
@@ -135,12 +130,11 @@ const ChatRoom = () => {
 					</div>
 
 					<div
-						className="pt-4 container"
+						className="container"
 						style={{
-							maxHeight: "calc(100vh-300px)",
-							overflowY: "scroll",
-							marginTop: "62px",
-							marginBottom: "120px",
+							paddingTop: "80px",
+							paddingBottom: "130px",
+							backgroundColor: "#FAFAFA",
 						}}
 					>
 						{messages.map((message) => {
@@ -172,6 +166,23 @@ const ChatRoom = () => {
 								</div>
 							);
 						})}
+
+						{/* Background */}
+						{messages.length === 0 && (
+							<div
+								className="d-flex flex-column text-center container justify-content-center align-items-center"
+								style={{ height: "calc(100vh - 250px)" }}
+							>
+								<div>
+									<img src="./Illustration.png" alt="Ilustration" />
+								</div>
+								<h1 style={{ fontSize: "20px" }}>Gespräch beginnen</h1>
+								<p className="font-size-14">
+									Lorem ipsum dolor sit amet consectetur. Elit eget donec ipsum
+									a bibendum fermentum velit.
+								</p>
+							</div>
+						)}
 					</div>
 					<div ref={messagesEndRef}></div>
 					<form
@@ -204,18 +215,6 @@ const ChatRoom = () => {
 						</div>
 					</form>
 				</div>
-				{messages.length === 0 && (
-					<div className="d-flex flex-column text-center container">
-						<div>
-							<img src="./Illustration.png" alt="Ilustration" />
-						</div>
-						<h1 style={{ fontSize: "20px" }}>Gespräch beginnen</h1>
-						<p className="font-size-14">
-							Lorem ipsum dolor sit amet consectetur. Elit eget donec ipsum a
-							bibendum fermentum velit.
-						</p>
-					</div>
-				)}
 			</div>
 
 			<Navbar />
