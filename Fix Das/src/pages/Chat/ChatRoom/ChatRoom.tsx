@@ -17,6 +17,7 @@ import { IoChevronBack } from "react-icons/io5";
 import styles from "./ChatRoom.module.css";
 import { VscSmiley } from "react-icons/vsc";
 import { LuSendHorizontal } from "react-icons/lu";
+import { MdVerified } from "react-icons/md";
 
 type Message = {
 	text: string;
@@ -115,12 +116,22 @@ const ChatRoom = () => {
 				}}
 			>
 				<div className="position-relative">
-					<div className="d-flex gap-2 py-3 align-items-center w-100 bg-white position-fixed top-0">
+					<div className="d-flex gap-3 py-3 align-items-center w-100 bg-white position-fixed top-0">
 						<IoChevronBack
 							onClick={() => navigate("/chat")}
 							style={{ fontSize: "20px" }}
 						/>
-						<p className="mb-0">{handyman.name}</p>
+						<div className="d-flex gap-2 align-items-center">
+							<div style={{ width: "30px", height: "30px" }}>
+								<img
+									src="https://picsum.photos/200/300?random=1"
+									alt="handyman-image"
+									className="w-100 h-100 object-fit-cover rounded-circle"
+								/>
+							</div>
+							<p className="mb-0">{handyman.name}</p>
+							<MdVerified color="#1461F0" />
+						</div>
 					</div>
 
 					<div
