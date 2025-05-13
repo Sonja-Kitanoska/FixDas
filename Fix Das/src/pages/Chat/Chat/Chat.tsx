@@ -10,6 +10,10 @@ import Navbar from "../../../components/Navbar/Navbar";
 import { useUserStore } from "../../../store/userStore";
 import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
+import { formatDistanceToNow } from "date-fns";
+import { IoSearch } from "react-icons/io5";
+import styles from "./Chat.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface Message {
 	handymanId: string;
@@ -21,6 +25,9 @@ interface Message {
 const Chat = () => {
 	const user = useUserStore((state) => state.user);
 	const [handymanChats, setHandymanChats] = useState<Message[]>([]);
+	const [searchTerm, setSearchTerm] = useState("");
+	const navigate = useNavigate();
+
 	const db = getFirestore();
 
 	useEffect(() => {
@@ -62,59 +69,88 @@ const Chat = () => {
 		fetchMessages();
 	}, [user?.id, db]);
 
+	const filteredChats = handymanChats.filter((chat) =>
+		chat.handymanName.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+
 	return (
 		<>
-			<div className="py-3 container">
-				<div className="d-flex justify-content-between mb-3">
-					<div className="d-flex align-items-center gap-1">
-						<p className="mb-0 orange font-weight-700">Chat</p>
-						<p
-							style={{
-								backgroundColor: "#E9E9E9",
-								borderRadius: "24px",
-							}}
-							className="rounded font-size-12 text-center mb-0 px-2"
-						>
-							{handymanChats.length}
-						</p>
-					</div>
-					<FaRegEdit size={20} color="#1461F0" />
-				</div>
-				{handymanChats.map((chat) => (
-					<div
-						key={chat.handymanId}
-						style={{
-							padding: "10px",
-							borderRadius: "5px",
-						}}
-						className="border-bottom mb-3 d-flex gap-4 align-items-start"
-					>
-						<div style={{ width: "48px", height: "48px" }}>
-							<img
-								src="https://picsum.photos/200/300?random=1"
-								alt="handyman-image"
-								className="w-100 h-100 object-fit-cover"
-							/>
-						</div>
-
-						<div className="">
-							<h4 className="font-weight-700 font-weight-14">
-								{chat.handymanName}
-							</h4>
-							<p className="font-size-12" style={{ color: "#939393" }}>
-								{chat.text}
+			<div style={{ paddingBottom: "78px" }} className="min-vh-100">
+				<div className="py-3 container">
+					<div className="d-flex justify-content-between pb-4 border-bottom">
+						<div className="d-flex align-items-center gap-1">
+							<p className="mb-0 orange font-weight-700">Chat</p>
+							<p
+								style={{
+									backgroundColor: "#E9E9E9",
+									borderRadius: "24px",
+								}}
+								className="rounded font-size-12 text-center mb-0 px-2"
+							>
+								{handymanChats.length}
 							</p>
 						</div>
-						<div className="ms-auto d-flex align-items-start">
-							<small
-								style={{ color: "#575757" }}
-								className="font-size-14 font-weight-700 justify-end ms-auto"
-							>
-								12m
-							</small>
-						</div>
+						<FaRegEdit size={20} color="#1461F0" />
 					</div>
-				))}
+
+					{/* Search  */}
+					<div className={`${styles.inputWrapper} py-4`}>
+						{<IoSearch className={styles.icon} />}
+						<input
+							type="text"
+							name="search"
+							placeholder="Search conversation"
+							value={searchTerm}
+							onChange={(e) => setSearchTerm(e.target.value)}
+							className={`form-control input-field ${styles.inputField}`}
+						/>
+					</div>
+					{/* Chats */}
+					{filteredChats.map((chat) => (
+						<div
+							key={chat.handymanId}
+							style={{
+								padding: "10px",
+								borderRadius: "5px",
+							}}
+							className="border-bottom mb-3 d-flex gap-4 align-items-start"
+							onClick={() => {
+								const id = `${user?.id}_${chat.handymanId}`;
+								navigate(`/chat/${id}`, {
+									state: {
+										handyman: { name: chat.handymanName, id: chat.handymanId },
+									},
+								});
+							}}
+						>
+							<div style={{ width: "48px", height: "48px" }}>
+								<img
+									src="https://picsum.photos/200/300?random=1"
+									alt="handyman-image"
+									className="w-100 h-100 object-fit-cover"
+									style={{ borderRadius: "12px" }}
+								/>
+							</div>
+
+							<div>
+								<h4 className="font-weight-700 font-weight-14">
+									{chat.handymanName}
+								</h4>
+								<p className="font-size-12" style={{ color: "#939393" }}>
+									{chat.text}
+								</p>
+							</div>
+							<div className="ms-auto d-flex align-items-start">
+								<small
+									style={{ color: "#575757" }}
+									className="font-size-14 font-weight-700 justify-end ms-auto"
+								>
+									{formatDistanceToNow(chat.createdAt, { addSuffix: true })}
+								</small>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 
 			<Navbar />

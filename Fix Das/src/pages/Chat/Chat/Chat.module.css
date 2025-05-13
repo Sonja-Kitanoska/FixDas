@@ -1,0 +1,22 @@
+.inputWrapper {
+	position: relative;
+}
+
+.inputField {
+	padding: 15px 10px;
+	padding-left: 2.7rem;
+}
+
+.inputField::placeholder {
+	color: #939393;
+}
+
+.icon {
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #939393;
+	pointer-events: none;
+}

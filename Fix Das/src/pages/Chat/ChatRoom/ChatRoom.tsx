@@ -11,7 +11,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { auth, db } from "../../../firebase";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Role } from "../../../types/types";
+import { Handyman, Role } from "../../../types/types";
 import Navbar from "../../../components/Navbar/Navbar";
 import { IoChevronBack } from "react-icons/io5";
 import styles from "./ChatRoom.module.css";
@@ -46,7 +46,7 @@ const ChatRoom = () => {
 
 	const { id } = useParams();
 
-	const handyman = location.state?.handyman;
+	const handyman: Handyman = location.state?.handyman;
 
 	useEffect(() => {
 		const queryMessages = query(
@@ -80,7 +80,7 @@ const ChatRoom = () => {
 	};
 
 	useEffect(() => {
-		if (messages.length === 0) return;
+		if (!handyman || messages.length === 0) return;
 
 		const lastMessage = messages[messages.length - 1];
 
@@ -88,7 +88,7 @@ const ChatRoom = () => {
 			lastMessage.role === "client" &&
 			lastMessage.id !== lastClientMessageId
 		) {
-			setLastClientMessageId(lastMessage.id); // mark as handled
+			setLastClientMessageId(lastMessage.id);
 
 			setTimeout(() => {
 				addDoc(messagesRef, {
@@ -100,7 +100,7 @@ const ChatRoom = () => {
 				});
 			}, 1000);
 		}
-	}, [id, lastClientMessageId, messages, messagesRef, handyman.name]);
+	}, [id, lastClientMessageId, messages, messagesRef, handyman]);
 
 	if (!handyman) {
 		return <p>No handyman data found.</p>;
@@ -112,7 +112,6 @@ const ChatRoom = () => {
 				style={{
 					paddingBottom: "80px",
 					minHeight: "100vh",
-					backgroundColor: "red",
 				}}
 			>
 				<div className="position-relative">
@@ -145,7 +144,7 @@ const ChatRoom = () => {
 										justifyContent: isClient ? "flex-end" : "flex-start",
 									}}
 								>
-									<span className="mb-0">{!isClient && message.user}</span>
+									<p className="mb-0 p-3 py-2">{!isClient && message.user}</p>
 									<p
 										className="p-3 py-2 mb-0 rounded font-weight-400"
 										style={{
