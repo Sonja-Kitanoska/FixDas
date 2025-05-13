@@ -139,7 +139,7 @@ const ChatRoom = () => {
 						style={{
 							maxHeight: "calc(100vh-300px)",
 							overflowY: "scroll",
-							marginTop: "56px",
+							marginTop: "62px",
 							marginBottom: "120px",
 						}}
 					>
@@ -204,7 +204,20 @@ const ChatRoom = () => {
 						</div>
 					</form>
 				</div>
+				{messages.length === 0 && (
+					<div className="d-flex flex-column text-center container">
+						<div>
+							<img src="./Illustration.png" alt="Ilustration" />
+						</div>
+						<h1 style={{ fontSize: "20px" }}>Gespräch beginnen</h1>
+						<p className="font-size-14">
+							Lorem ipsum dolor sit amet consectetur. Elit eget donec ipsum a
+							bibendum fermentum velit.
+						</p>
+					</div>
+				)}
 			</div>
+
 			<Navbar />
 		</>
 	);
