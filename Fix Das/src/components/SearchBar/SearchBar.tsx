@@ -46,6 +46,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }: SearchBarProps) => {
 				onChange={handleChange}
 				onKeyDown={handleKeyDown}
 				className={`form-control input-field ${styles.inputField}`}
+				style={{ borderRadius: "15px" }}
 			/>
 			<img
 				src="/LandingPage/filter-icon.svg"

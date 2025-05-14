@@ -16,7 +16,6 @@ const ClientLandingPage = () => {
 		<>
 			<HeroSection />
 
-			<FeaturesSection />
 			<div className="container pb-3">
 				<SearchBar
 					searchQuery={searchQuery}
@@ -24,6 +23,8 @@ const ClientLandingPage = () => {
 					redirectOnEnter={true}
 				/>
 			</div>
+
+			<FeaturesSection />
 
 			<ServicesHorizontalScroll />
 
