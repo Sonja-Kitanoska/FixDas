@@ -24,7 +24,11 @@ const Filter = () => {
 		if (selectedSpecialties.length === 0) return;
 
 		const query = selectedSpecialties.join(",");
-		navigate(`${previousPath}?specialties=${encodeURIComponent(query)}`);
+		if (previousPath === "/") {
+			navigate(`/find-handyman?specialties=${encodeURIComponent(query)}`);
+		} else {
+			navigate(`${previousPath}?specialties=${encodeURIComponent(query)}`);
+		}
 	};
 
 	return (
@@ -38,7 +42,12 @@ const Filter = () => {
 			</div>
 			<div className="d-flex justify-content-between py-3">
 				<p className="font-size-20 font-weight-700">Filter</p>
-				<p style={{ color: "#2B67F6" }}>Reset all</p>
+				<p
+					style={{ color: "#2B67F6" }}
+					onClick={() => setSelectedSpecialties([])}
+				>
+					Reset all
+				</p>
 			</div>
 			<div className="font-size-14">
 				<p className="mb-0 font-weight-700 py-2" style={{ color: "#939393" }}>
