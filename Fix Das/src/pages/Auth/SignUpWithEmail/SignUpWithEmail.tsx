@@ -116,11 +116,6 @@ const SignUpWithEmail = () => {
 		}
 		setError("");
 
-		if (formData.password !== formData.confirmPassword) {
-			setError("Passwords do not match.");
-			return;
-		}
-
 		try {
 			const userCredential = await createUserWithEmailAndPassword(
 				auth,
@@ -182,7 +177,6 @@ const SignUpWithEmail = () => {
 						type="text"
 						placeholder="Name"
 						name="name"
-						required
 						className={`form-control input-field mb-3 ${styles.inputField}`}
 						onChange={handleChange}
 						value={formData.name}
@@ -199,7 +193,6 @@ const SignUpWithEmail = () => {
 						type="email"
 						name="email"
 						placeholder="Email"
-						required
 						className={`form-control input-field mb-3 ${styles.inputField}`}
 						onChange={handleChange}
 						value={formData.email}
@@ -216,7 +209,6 @@ const SignUpWithEmail = () => {
 						type={isPasswordVisible ? "text" : "password"}
 						name="password"
 						placeholder="Password"
-						required
 						className={`form-control input-field mb-3 ${styles.inputField}`}
 						onChange={handleChange}
 						value={formData.password}
@@ -241,7 +233,6 @@ const SignUpWithEmail = () => {
 						type={isConfirmPasswordVisible ? "text" : "password"}
 						name="confirmPassword"
 						placeholder="Confirm password"
-						required
 						className={`form-control input-field mb-3 ${styles.inputField}`}
 						onChange={handleChange}
 						value={formData.confirmPassword}
@@ -267,7 +258,6 @@ const SignUpWithEmail = () => {
 						type="tel"
 						name="phone"
 						placeholder="Telephone number"
-						required
 						className={`form-control input-field mb-3 ${styles.inputField}`}
 						onChange={handleChange}
 						value={formData.phone}

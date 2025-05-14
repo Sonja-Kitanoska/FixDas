@@ -14,14 +14,43 @@ import { auth, db } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { fetchUsers } from "../../../api/users";
 import { useUserStore } from "../../../store/userStore";
+import { FirebaseError } from "firebase/app";
 
 const provider = new GoogleAuthProvider();
 
 const SignIn = () => {
-	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 	const setUser = useUserStore((state) => state.setUser);
+	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [errors, setErrors] = useState({
+		email: "",
+		password: "",
+	});
+	const [generalError, setGeneralError] = useState("");
+
+	const validate = () => {
+		const newErrors: typeof errors = { email: "", password: "" };
+		let isValid = true;
+
+		if (!formData.email.trim()) {
+			newErrors.email = "Email is required.";
+			isValid = false;
+		} else if (
+			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+		) {
+			newErrors.email = "Invalid email address.";
+			isValid = false;
+		}
+
+		if (!formData.password.trim()) {
+			newErrors.password = "Password is required.";
+			isValid = false;
+		}
+
+		setErrors(newErrors);
+		return isValid;
+	};
 
 	const handleGoogleSignUp = async () => {
 		if (loading) return; // Prevent multiple clicks while loading
@@ -44,7 +73,10 @@ const SignIn = () => {
 				}
 			}
 		} catch (error) {
-			if (error instanceof Error) console.log(error);
+			if (error instanceof Error) {
+				console.error(error);
+				setGeneralError("Google sign-in failed. Please try again.");
+			}
 		} finally {
 			setLoading(false);
 			navigate("/homepage");
@@ -62,16 +94,24 @@ const SignIn = () => {
 			...prevData,
 			[name]: value,
 		}));
+
+		setErrors((prevErrors) => ({
+			...prevErrors,
+			[name]: "",
+		}));
+
+		setGeneralError("");
 	};
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (loading) return;
+		if (!validate()) return;
+
 		setLoading(true);
 
 		try {
-			// Sign in with Firebase Authentication (no password in JSON Server)
 			const userCredential = await signInWithEmailAndPassword(
 				auth,
 				formData.email,
@@ -79,21 +119,39 @@ const SignIn = () => {
 			);
 			const userFirebase = userCredential.user;
 
-			// Fetch user details from JSON Server based on email (or uid)
-			const users = await fetchUsers(); // This fetches all users from your JSON server
+			const users = await fetchUsers();
 			const currentUser = users.find(
 				(user) => user.email === userFirebase.email
 			);
 
 			if (currentUser) {
-				// Store user info in Zustand store
 				setUser(currentUser);
 				navigate("/homepage");
 			} else {
-				console.error("User not found in the database");
+				setGeneralError(
+					"We couldn't find your account details. Please contact support or sign up again."
+				);
 			}
 		} catch (error) {
-			console.error("Error signing in:", error);
+			let errorMessage = "Failed to sign in. Please try again.";
+			if (error instanceof FirebaseError) {
+				switch (error.code) {
+					case "auth/user-not-found":
+						errorMessage = "No user found with this email.";
+						setErrors((prev) => ({ ...prev, email: errorMessage }));
+						break;
+					case "auth/wrong-password":
+						errorMessage = "Incorrect password.";
+						setErrors((prev) => ({ ...prev, password: errorMessage }));
+						break;
+					case "auth/invalid-email":
+						errorMessage = "Invalid email address format.";
+						setErrors((prev) => ({ ...prev, email: errorMessage }));
+						break;
+					default:
+						setGeneralError(errorMessage);
+				}
+			}
 		} finally {
 			setLoading(false);
 		}
@@ -115,7 +173,7 @@ const SignIn = () => {
 			</h6>
 			<p className="font-size-14">Register with your account</p>
 
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} noValidate>
 				<div className={styles.inputWrapper}>
 					<MdOutlineEmail className={styles.icon} />
 					<input
@@ -128,6 +186,9 @@ const SignIn = () => {
 						value={formData.email}
 					/>
 				</div>
+				{errors.email && (
+					<p className="text-danger font-size-12">{errors.email}</p>
+				)}
 				<div className={styles.inputWrapper}>
 					{<TbLockPassword className={styles.icon} />}
 					<input
@@ -147,14 +208,20 @@ const SignIn = () => {
 						{isPasswordVisible ? <IoEyeOutline /> : <IoEyeOffOutline />}
 					</span>
 				</div>
+				{errors.password && (
+					<p className="text-danger font-size-12">{errors.password}</p>
+				)}
 				<p
 					onClick={() => navigate("/reset-password")}
 					className="orange font-size-12"
 				>
 					Forgot password?
 				</p>
+				{generalError && (
+					<div className="text-danger font-size-14">{generalError}</div>
+				)}
 				<div className="py-2">
-					<button className="orange-btn">Register</button>
+					<button className="orange-btn">Sign in</button>
 				</div>
 			</form>
 
