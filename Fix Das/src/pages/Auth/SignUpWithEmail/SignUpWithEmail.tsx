@@ -17,12 +17,11 @@ import { createUser } from "../../../api/users";
 import { User } from "../../../types/types";
 
 const SignUpWithEmail = () => {
+	const navigate = useNavigate();
+
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
 		useState(false);
-
-	const navigate = useNavigate();
-
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -30,11 +29,71 @@ const SignUpWithEmail = () => {
 		confirmPassword: "",
 		phone: "",
 	});
-
+	const [validationErrors, setValidationErrors] = useState({
+		name: "",
+		email: "",
+		password: "",
+		confirmPassword: "",
+		phone: "",
+	});
 	const { setUser, loading } = useUserStore();
 	const selectedRole = useUserStore((state) => state.selectedRole);
-
 	const [error, setError] = useState("");
+
+	const getFirebaseErrorMessage = (code: string): string => {
+		switch (code) {
+			case "auth/email-already-in-use":
+				return "This email is already in use. Try logging in or using a different email.";
+			case "auth/invalid-email":
+				return "Invalid email format.";
+			case "auth/weak-password":
+				return "Password is too weak. Try a stronger one.";
+			default:
+				return "Failed to sign up. Please try again.";
+		}
+	};
+
+	const validateForm = () => {
+		const errors = {
+			name: "",
+			email: "",
+			password: "",
+			confirmPassword: "",
+			phone: "",
+		};
+
+		if (!formData.name.trim()) {
+			errors.name = "Name is required.";
+		}
+
+		if (!formData.email) {
+			errors.email = "Email is required.";
+		} else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+			errors.email = "Invalid email format.";
+		}
+
+		if (!formData.password) {
+			errors.password = "Password is required.";
+		} else if (formData.password.length < 6) {
+			errors.password = "Password must be at least 6 characters.";
+		}
+
+		if (!formData.confirmPassword) {
+			errors.confirmPassword = "Please confirm your password.";
+		} else if (formData.password !== formData.confirmPassword) {
+			errors.confirmPassword = "Passwords do not match.";
+		}
+
+		if (!formData.phone.trim()) {
+			errors.phone = "Phone number is required.";
+		} else if (!/^\+?\d{7,15}$/.test(formData.phone)) {
+			errors.phone = "Invalid phone number.";
+		}
+
+		setValidationErrors(errors);
+
+		return Object.values(errors).every((msg) => msg === "");
+	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -42,11 +101,20 @@ const SignUpWithEmail = () => {
 			...prevData,
 			[name]: value,
 		}));
+
+		setValidationErrors((prevErrors) => ({
+			...prevErrors,
+			[name]: "",
+		}));
 	};
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		setError(""); // Reset error before submitting
+
+		if (!validateForm()) {
+			return;
+		}
+		setError("");
 
 		if (formData.password !== formData.confirmPassword) {
 			setError("Passwords do not match.");
@@ -54,7 +122,6 @@ const SignUpWithEmail = () => {
 		}
 
 		try {
-			// Create user with Firebase Authentication
 			const userCredential = await createUserWithEmailAndPassword(
 				auth,
 				formData.email,
@@ -79,15 +146,11 @@ const SignUpWithEmail = () => {
 			navigate("/homepage");
 		} catch (error) {
 			if (error instanceof FirebaseError) {
-				if (error.code === "auth/email-already-in-use") {
-					setError(
-						"This email is already in use. Try logging in or using a different email."
-					);
+				if (error instanceof FirebaseError) {
+					setError(getFirebaseErrorMessage(error.code));
 				} else {
-					setError("Failed to sign up. Please try again.");
+					setError("An unexpected error occurred. Please try again.");
 				}
-			} else {
-				setError("An unexpected error occurred. Please try again.");
 			}
 		}
 	};
@@ -111,7 +174,8 @@ const SignUpWithEmail = () => {
 				</p>
 				<p className="font-size-12 font-weight-600">Register as craftsmen</p>
 			</div>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} noValidate>
+				{/* Name */}
 				<div className={styles.inputWrapper}>
 					<FaRegUser className={styles.icon} />
 					<input
@@ -124,6 +188,11 @@ const SignUpWithEmail = () => {
 						value={formData.name}
 					/>
 				</div>
+				{validationErrors.name && (
+					<p className="text-danger font-size-12">{validationErrors.name}</p>
+				)}
+
+				{/* Email */}
 				<div className={styles.inputWrapper}>
 					<MdOutlineEmail className={styles.icon} />
 					<input
@@ -136,6 +205,11 @@ const SignUpWithEmail = () => {
 						value={formData.email}
 					/>
 				</div>
+				{validationErrors.email && (
+					<p className="text-danger font-size-12">{validationErrors.email}</p>
+				)}
+
+				{/* Password */}
 				<div className={styles.inputWrapper}>
 					{<TbLockPassword className={styles.icon} />}
 					<input
@@ -155,6 +229,12 @@ const SignUpWithEmail = () => {
 						{isPasswordVisible ? <IoEyeOutline /> : <IoEyeOffOutline />}
 					</span>
 				</div>
+				{validationErrors.password && (
+					<p className="text-danger font-size-12">
+						{validationErrors.password}
+					</p>
+				)}
+				{/* Confirm Password */}
 				<div className={styles.inputWrapper}>
 					{<TbLockPassword className={styles.icon} />}
 					<input
@@ -175,6 +255,12 @@ const SignUpWithEmail = () => {
 						{isConfirmPasswordVisible ? <IoEyeOutline /> : <IoEyeOffOutline />}
 					</span>
 				</div>
+				{validationErrors.confirmPassword && (
+					<p className="text-danger font-size-12">
+						{validationErrors.confirmPassword}
+					</p>
+				)}
+				{/* Phone */}
 				<div className={styles.inputWrapper}>
 					{<MdOutlineLocalPhone className={styles.icon} />}
 					<input
@@ -187,18 +273,22 @@ const SignUpWithEmail = () => {
 						value={formData.phone}
 					/>
 				</div>
+				{validationErrors.phone && (
+					<p className="text-danger font-size-12">{validationErrors.phone}</p>
+				)}
+				{/* General Firebase Error */}
+				{error && (
+					<p className="text-danger text-center font-size-12">{error}</p>
+				)}
 				<button type="submit" className="btn orange-btn">
 					Register
 				</button>
-				<p className="font-size-12 text-center" style={{ color: "red" }}>
-					{error}
-				</p>
 			</form>
 
-			<p className="gray-light my-3 text-center font-size-14">
+			<p className="gray-light py-3 text-center font-size-14 mb-0">
 				Already an account?{" "}
 				<span onClick={() => navigate("/sign-in")} className="orange">
-					Register
+					Sign in
 				</span>
 			</p>
 		</div>

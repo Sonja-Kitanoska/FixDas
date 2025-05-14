@@ -40,6 +40,30 @@
       "email": "tosho@hotmail.com",
       "role": "client",
       "createdAt": "2025-05-09T18:41:32.080Z"
+    },
+    {
+      "id": "63rkzJdl3TUzxbDpn0UZ5oV5ECX2",
+      "username": "sonja",
+      "phone": "0721753744",
+      "email": "avramoska@gmail.com",
+      "role": "client",
+      "createdAt": "2025-05-14T07:25:24.067Z"
+    },
+    {
+      "id": "hLDY0ClCWON4VC3Oq77IwCzUPlK2",
+      "username": "sonja",
+      "phone": "0721753744",
+      "email": "hello@gmail.com",
+      "role": "client",
+      "createdAt": "2025-05-14T07:42:50.744Z"
+    },
+    {
+      "id": "C4kBiValGyXHRr2QZREeELNTdZD3",
+      "username": "sonja",
+      "phone": "0721753744",
+      "email": "avramoska@gmail.com",
+      "role": "client",
+      "createdAt": "2025-05-14T07:51:54.426Z"
     }
   ],
   "handymen": [
