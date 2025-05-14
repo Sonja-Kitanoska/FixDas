@@ -29,7 +29,7 @@ export type Handyman = {
 	profession: string;
 	location: string;
 	stars: number;
-	numberJobs?: number;
+	jobsDone: number;
 	numberReviews: number;
 	categories: string[];
 	specialties: string[];

@@ -43,7 +43,8 @@ const NewlyJoinedHandymen = () => {
 								<img
 									src={handyman.image}
 									alt="Handyman image"
-									className="w-100 h-100"
+									className="w-100 h-100 rounded-circle object-fit-cover"
+									style={{ objectPosition: "center" }}
 								/>
 							</div>
 							<div className="d-flex justify-content-center gap-2">
