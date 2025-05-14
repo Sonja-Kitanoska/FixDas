@@ -1,35 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./NewlyJoinedHandymen.module.css";
-
-const newHandymen = [
-	{
-		id: 1,
-		profession: "Elektriker",
-		image: "/LandingPage/new-handymen/new-handyman1.svg",
-		name: "Brad Pitt",
-		workDone: "38",
-		location: "Ingolstadt",
-	},
-	{
-		id: 2,
-		profession: "Schlosser",
-		image: "/LandingPage/new-handymen/new-handyman2.svg",
-		name: "George Clooney",
-		workDone: "38",
-		location: "Ingolstadt",
-	},
-	{
-		id: 3,
-		profession: "Elektriker",
-		image: "/LandingPage/new-handymen/new-handyman1.svg",
-		name: "Marcus Schmidt",
-		workDone: "38",
-		location: "Ingolstadt",
-	},
-];
+import { useEffect, useState } from "react";
+import { fetchHandymen } from "../../../../api/handymen";
+import { Handyman } from "../../../../types/types";
 
 const NewlyJoinedHandymen = () => {
 	const navigate = useNavigate();
+	const [handymen, setHandymen] = useState<Handyman[]>();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const handymenData = await fetchHandymen();
+			const sorted = handymenData
+				.slice()
+				.sort((a, b) => {
+					return (
+						new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+					);
+				})
+				.slice(0, 5);
+
+			setHandymen(sorted);
+		};
+		fetchData();
+	}, []);
+
 	return (
 		<div className="container pb-4">
 			<h2 className={styles.title}>
@@ -38,9 +33,12 @@ const NewlyJoinedHandymen = () => {
 			</h2>
 
 			<div className={styles.scrollContainer}>
-				{newHandymen.map((handyman) => (
-					<div key={handyman.id} className={`${styles.scrollItem} `}>
-						<div className="">
+				{handymen?.map((handyman) => (
+					<div key={handyman.id} className={`${styles.scrollItem}`}>
+						<div
+							className="d-flex flex-column justify-content-center align-items-center"
+							style={{ width: "135px" }}
+						>
 							<div className={styles.imgContainer}>
 								<img
 									src={handyman.image}
@@ -55,7 +53,12 @@ const NewlyJoinedHandymen = () => {
 									alt="Verified icon"
 								/>
 							</div>
-							<p className="font-size-14">{handyman.profession}</p>
+							<p
+								className="font-size-14 text-wrap"
+								style={{ wordBreak: "break-word" }}
+							>
+								{handyman.profession}
+							</p>
 						</div>
 					</div>
 				))}

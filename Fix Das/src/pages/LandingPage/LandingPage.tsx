@@ -14,7 +14,12 @@ const LandingPage = () => {
 				setSelectedRole={setSelectedRole}
 				ClientComponent={<ClientLandingPage />}
 				HandymanComponent={
-					<p className="text-center">This is Handyman landing page</p>
+					<p
+						className="text-center mb-0"
+						style={{ height: "calc(100vh - 112px)" }}
+					>
+						This is Handyman landing page
+					</p>
 				}
 			/>
 		</div>

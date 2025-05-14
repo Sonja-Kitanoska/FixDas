@@ -1,34 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ServicesHorizontalScroll.module.css";
-
-const services = [
-	{ name: "Home Repair", image: "LandingPage/services/Group-1.svg" },
-	{ name: "Windows", image: "LandingPage/services/Group-2.svg" },
-	{ name: "Painter", image: "LandingPage/services/Group-3.svg" },
-	{ name: "Electrician", image: "LandingPage/services/Group-4.svg" },
-	{ name: "A / C", image: "LandingPage/services/Group-5.svg" },
-	{ name: "Cleaning", image: "LandingPage/services/Group-6.svg" },
-	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
-	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
-	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
-	{ name: "A / C", image: "LandingPage/services/Group-5.svg" },
-	{ name: "Cleaning", image: "LandingPage/services/Group-6.svg" },
-	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
-	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
-	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
-	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
-	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
-	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
-	{ name: "A / C", image: "LandingPage/services/Group-5.svg" },
-	{ name: "Cleaning", image: "LandingPage/services/Group-6.svg" },
-	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
-	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
-	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
-	{ name: "Cleaning", image: "LandingPage/services/Group-6.svg" },
-	{ name: "Assembly", image: "LandingPage/services/Group-7.svg" },
-	{ name: "Carpenter", image: "LandingPage/services/Group-8.svg" },
-	{ name: "Construction", image: "LandingPage/services/Group-9.svg" },
-];
+import { fetchCategories } from "../../../../api/categories";
+import { Category } from "../../../../types/types";
 
 const chunkArray = (
 	arr: { name: string; image: string }[],
@@ -42,9 +15,18 @@ const chunkArray = (
 };
 
 const ServicesHorizontalScroll = () => {
-	const chunks = chunkArray(services, 9);
+	const [categories, setCategories] = useState<Category[]>([]);
+	const chunks = chunkArray(categories, 9);
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
+
+	useEffect(() => {
+		const getCategories = async () => {
+			const fetchedCategories = await fetchCategories();
+			setCategories(fetchedCategories);
+		};
+		getCategories();
+	}, []);
 
 	const scrollTo = (index: number) => {
 		const scrollContainer = scrollRef.current;
@@ -74,7 +56,7 @@ const ServicesHorizontalScroll = () => {
 		if (scrollContainer) {
 			scrollContainer.addEventListener("scroll", handleScroll);
 		}
-		// Cleanup listener on component unmount
+
 		return () => {
 			if (scrollContainer) {
 				scrollContainer.removeEventListener("scroll", handleScroll);

@@ -26,6 +26,7 @@ export type Handyman = {
 	id: string;
 	image: string;
 	name: string;
+	profession: string;
 	location: string;
 	stars: number;
 	numberJobs?: number;

@@ -22,7 +22,12 @@ const HeroSection = () => {
 				</div>
 			</div>
 			<div className="d-flex gap-2 my-4">
-				<button className="btn orange-border-btn">Anfrage Posten</button>
+				<button
+					onClick={() => navigate("/profile/post-add")}
+					className="btn orange-border-btn"
+				>
+					Anfrage Posten
+				</button>
 
 				<button
 					onClick={() => navigate("/find-handyman")}
