@@ -63,12 +63,14 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 			<p className="font-size-12 font-weight-400 py-3 mb-0">
 				{add.description}
 			</p>
-			<div className="d-flex gap-1 pb-3">
-				<LuMapPin color="#5584E5" />
-				<p className="font-size-12 fontt-weight-400 mb-0">{add.location}</p>
-			</div>
+
 			<div className="d-flex justify-content-between border-bottom pb-2">
-				<p className="font-size-12 mb-0">Adresse</p>
+				<div className="d-flex gap-1 pb-3">
+					<LuMapPin color="#5584E5" />
+					<p className="font-size-12 font-weight-400 mb-0">
+						{add.location.address}
+					</p>
+				</div>
 				<p className="font-size-10 mb-0" style={{ color: "#1461F0" }}>
 					Auf der Karte anzeigen
 				</p>

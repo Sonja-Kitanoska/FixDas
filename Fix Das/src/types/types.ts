@@ -63,7 +63,11 @@ export type ClientAddData = {
 	id: string;
 	title: string;
 	description: string;
-	location: string;
+	location: {
+		address: string;
+		lat: number;
+		lon: number;
+	};
 	images: (File | string)[];
 	userId: string;
 	createdAt: string;

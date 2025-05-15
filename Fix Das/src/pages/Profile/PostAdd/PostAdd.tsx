@@ -13,10 +13,107 @@ const PostAdd = () => {
 	const { user } = useUserStore();
 	const navigate = useNavigate();
 
+	const reverseGeocode = async (
+		lat: number,
+		lon: number
+	): Promise<string | null> => {
+		try {
+			const res = await fetch(
+				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+			);
+			const data = await res.json();
+			const address = `${data.address.road || ""}, ${
+				data.address.city || data.address.town || data.address.village || ""
+			}, ${data.address.postcode || ""}`;
+
+			return address || null;
+		} catch (err) {
+			console.error("Reverse geocoding error:", err);
+			return null;
+		}
+	};
+	const forwardGeocode = async (
+		address: string
+	): Promise<{ lat: number; lon: number } | null> => {
+		try {
+			const res = await fetch(
+				`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+					address
+				)}&limit=1`
+			);
+			const data = await res.json();
+			if (data && data.length > 0) {
+				return {
+					lat: parseFloat(data[0].lat),
+					lon: parseFloat(data[0].lon),
+				};
+			} else {
+				return null;
+			}
+		} catch (error) {
+			console.error("Forward geocoding error:", error);
+			return null;
+		}
+	};
+
+	const handleAddressBlur = async () => {
+		console.log("Address on blur:", formData.location.address);
+		if (formData.location.address.trim() === "") return;
+
+		const coords = await forwardGeocode(formData.location.address);
+		if (coords) {
+			setFormData((prev) => ({
+				...prev,
+				location: {
+					...prev.location,
+					lat: coords.lat,
+					lon: coords.lon,
+				},
+			}));
+			console.log("Coords set:", coords);
+		} else {
+			alert("Adresse konnte nicht gefunden werden.");
+		}
+	};
+
+	const handleGetCurrentLocation = () => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				async (position) => {
+					const { latitude, longitude } = position.coords;
+					const address = await reverseGeocode(latitude, longitude);
+
+					if (address) {
+						setFormData((prev) => ({
+							...prev,
+							location: {
+								address,
+								lat: latitude,
+								lon: longitude,
+							},
+						}));
+					} else {
+						alert("Konnte Ihre Adresse nicht bestimmen.");
+					}
+				},
+				(error) => {
+					console.error("Location error:", error.message);
+					if (error.code === error.PERMISSION_DENIED) {
+						alert("Bitte erlaube den Standortzugriff in deinem Browser.");
+					}
+				}
+			);
+		}
+	};
+
 	const [formData, setFormData] = useState({
 		title: "",
 		description: "",
-		location: "",
+		location: {
+			address: "",
+			lat: 0,
+			lon: 0,
+		},
 		images: [] as File[],
 	});
 	const [error, setError] = useState<string | null>(null);
@@ -52,6 +149,18 @@ const PostAdd = () => {
 	};
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
+
+		let lat = formData.location.lat;
+		let lon = formData.location.lon;
+		const address = formData.location.address;
+
+		if (address && (!lat || !lon)) {
+			const coords = await forwardGeocode(address);
+			if (coords) {
+				lat = coords.lat;
+				lon = coords.lon;
+			}
+		}
 		const images =
 			formData.images.length > 0
 				? formData.images
@@ -70,13 +179,18 @@ const PostAdd = () => {
 				id: crypto.randomUUID(),
 				title: formData.title,
 				description: formData.description,
-				location: formData.location,
+				location: {
+					address: address,
+					lat: lat,
+					lon: lon,
+				},
 				images,
 				userId: user.id,
 				createdAt: new Date().toISOString(),
 			};
 
 			await postClientAdd(data);
+			console.log(data);
 
 			navigate("/profile");
 		} catch (err) {
@@ -146,11 +260,25 @@ const PostAdd = () => {
 								type="text"
 								id="location"
 								name="location"
-								onChange={handleChange}
+								value={formData.location.address}
+								onChange={(e) =>
+									setFormData((prev) => ({
+										...prev,
+										location: {
+											...prev.location,
+											address: e.target.value,
+										},
+									}))
+								}
+								onBlur={handleAddressBlur}
 								placeholder="Gib deine Adresse ein"
-								className={`form-control input-field ${styles.inputField} ${styles.inputFieldPaddingLeft}`}
+								className={`form-control input-field ${styles.inputField} ${styles.inputFieldPaddingX}`}
 							/>
-							<span className={styles.locationIcon} role="button">
+							<span
+								className={styles.locationIcon}
+								role="button"
+								onClick={handleGetCurrentLocation}
+							>
 								<TbCurrentLocation color="#939393" />
 							</span>
 						</div>

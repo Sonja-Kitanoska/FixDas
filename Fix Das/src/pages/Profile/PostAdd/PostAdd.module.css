@@ -6,8 +6,8 @@
 	padding: 15px 10px;
 }
 
-.inputFieldPaddingLeft {
-	padding-left: 45px;
+.inputFieldPaddingX {
+	padding-inline: 45px;
 }
 
 .icon {
