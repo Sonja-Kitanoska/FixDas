@@ -18,7 +18,10 @@ const FindHandyman = () => {
 				setSelectedRole={setSelectedRole}
 				ClientComponent={<ClientFindHandyman />}
 				HandymanComponent={
-					<p className="text-center">
+					<p
+						className="text-center mb-0 container"
+						style={{ height: "calc(100vh - 194px)" }}
+					>
 						This is Find-handyman page for handymen.
 					</p>
 				}

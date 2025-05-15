@@ -1,3 +1,14 @@
 .grayColor {
 	color: #939393;
 }
+
+.inputField {
+	padding: 15px 10px;
+	padding-left: 2.7rem;
+	border-radius: 10px;
+	color: #939393;
+}
+
+.inputField::placeholder {
+	color: #939393;
+}

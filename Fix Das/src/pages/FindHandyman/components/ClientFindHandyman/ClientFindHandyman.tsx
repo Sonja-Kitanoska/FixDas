@@ -51,7 +51,6 @@ const ClientFindHandyman = () => {
 
 	const filteredHandymen = handymen.filter((handyman) => {
 		if (specialtiesFilter.length > 0) {
-			// Only match handymen with at least one of the selected specialties
 			return handyman.specialties?.some((spec) =>
 				specialtiesFilter.includes(spec.toLowerCase())
 			);

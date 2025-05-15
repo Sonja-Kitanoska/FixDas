@@ -1,8 +1,10 @@
 import { FaChevronDown, FaRegBookmark } from "react-icons/fa6";
 import styles from "./PostRequest.module.css";
 import { LuMapPin } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const PostRequest = () => {
+	const navigate = useNavigate();
 	return (
 		<div className="pt-5">
 			<div className="text-center container">
@@ -92,7 +94,12 @@ const PostRequest = () => {
 				</div>
 			</div>
 			<div className="container py-4">
-				<button className="orange-border-btn">Post request</button>
+				<button
+					className="orange-border-btn"
+					onClick={() => navigate("/profile/post-add")}
+				>
+					Post request
+				</button>
 			</div>
 		</div>
 	);
