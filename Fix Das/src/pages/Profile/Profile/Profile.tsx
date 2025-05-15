@@ -51,10 +51,20 @@ const Profile = () => {
 
 					<div className="pt-4 d-flex gap-3">
 						<div className="d-flex flex-column justify-content-center">
-							<img src="/Profile/ProfilePicture.svg" alt="Profile Image" />
+							<div style={{ width: "67px", height: "67px" }}>
+								<img
+									src={
+										typeof user?.image === "string" && user.image.length > 0
+											? user.image
+											: "/Profile/ProfilePicture.svg"
+									}
+									alt="Profile Image"
+									className="w-100 h-100 rounded-circle object-fit-cover"
+								/>
+							</div>
 							<p
 								style={{ color: "#1461F0", fontSize: "10px" }}
-								className="text-center"
+								className="text-center mb-0"
 							>
 								Client
 							</p>

@@ -56,8 +56,10 @@ export const deleteUserData = async (userId: string) => {
 	}
 };
 
+
 // update user
 export const updateUser = async (userId: string, updatedData: User) => {
+	
 	try {
 		const response = await fetch(`${BASE_URL}/users/${userId}`, {
 			method: "PUT",

@@ -1,15 +1,6 @@
 {
 	"users": [
 		{
-			"phone": null,
-			"createdAt": "2025-05-07T19:48:50.028Z",
-			"role": "client",
-			"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-			"email": "avramoskamkd@gmail.com",
-			"username": "Sonja Kitanoska",
-			"location": "Stockholm, SWE"
-		},
-		{
 			"id": "aecszqKN4JVmPsPLAV5SX15B0wk1",
 			"username": "Veronika",
 			"phone": "033310049",
@@ -64,6 +55,22 @@
 			"email": "avramoska@gmail.com",
 			"role": "client",
 			"createdAt": "2025-05-14T07:51:54.426Z"
+		},
+		{
+			"id": "TWxxpIK5g7ZIDQGfE2ZjxHzahCB2",
+			"email": "avramoskamkd@gmail.com",
+			"username": "Sonja Kitanoska",
+			"phone": null,
+			"role": "client",
+			"createdAt": "2025-05-15T13:09:59.150Z"
+		},
+		{
+			"id": "GXvhyG2naZQOryyifq8oIFirwlD2",
+			"email": "avramoskamkd@gmail.com",
+			"username": "Sonja Kitanoska",
+			"phone": null,
+			"role": "client",
+			"createdAt": "2025-05-15T13:13:25.981Z"
 		}
 	],
 	"handymen": [
@@ -567,6 +574,15 @@
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 6
+		},
+		{
+			"handymanId": "2",
+			"proposalId": 1,
+			"rating": "5",
+			"comment": "good, very good.",
+			"photos": [],
+			"agreedToPublish": true,
+			"id": 7
 		}
 	],
 	"proposals": [
@@ -585,7 +601,7 @@
 			"description": "Fix a lamp",
 			"location": "Strasse, Munich",
 			"time": "2025-05-04T11:00:42.680Z",
-			"status": "accepted"
+			"status": "completed"
 		},
 		{
 			"id": 2,

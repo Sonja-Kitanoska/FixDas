@@ -10,6 +10,7 @@ export type User = {
 	role: Role;
 	image?: string;
 	createdAt?: string;
+	profileImage?: string | File;
 };
 
 export interface UserState {

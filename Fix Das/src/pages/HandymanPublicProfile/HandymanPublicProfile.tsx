@@ -46,11 +46,12 @@ const HandymanPublicProfile = () => {
 	return (
 		<div style={{ paddingBottom: "76px" }}>
 			<div className="py-3 container">
-				<div className="d-flex gap-2 align-items-center">
+				<div
+					className="d-flex gap-2 align-items-center"
+					onClick={() => navigate("/homepage")}
+				>
 					<IoChevronBack style={{ fontSize: "20px" }} />
-					<p className="mb-0" onClick={() => navigate("/homepage")}>
-						Zurück
-					</p>
+					<p className="mb-0">Zurück</p>
 				</div>
 				<HandymanInfo handyman={handyman} />
 				<HandymansPostedAdds />

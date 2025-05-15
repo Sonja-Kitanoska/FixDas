@@ -11,6 +11,40 @@ import { deleteUser, signOut } from "firebase/auth";
 import { deleteUserData, updateUser } from "../../../api/users";
 import { doc, updateDoc } from "firebase/firestore";
 
+const resizeAndConvertToBase64 = (file: File): Promise<string> => {
+	return new Promise((resolve, reject) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+
+		reader.onload = () => {
+			const img = new Image();
+			img.src = reader.result as string;
+
+			img.onload = () => {
+				const canvas = document.createElement("canvas");
+				const MAX_WIDTH = 200;
+				const scaleSize = MAX_WIDTH / img.width;
+
+				canvas.width = MAX_WIDTH;
+				canvas.height = img.height * scaleSize;
+
+				const ctx = canvas.getContext("2d");
+				if (!ctx) return reject("Canvas context not available");
+
+				ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+				// Quality from 0.0 to 1.0
+				const compressedBase64 = canvas.toDataURL("image/jpeg", 0.5);
+				resolve(compressedBase64);
+			};
+
+			img.onerror = (error) => reject(error);
+		};
+
+		reader.onerror = (error) => reject(error);
+	});
+};
+
 const EditProfile = () => {
 	const navigate = useNavigate();
 	const user = useUserStore((state) => state.user);
@@ -23,6 +57,25 @@ const EditProfile = () => {
 
 	const [formData, setFormData] = useState<User | null>(user);
 	const [editingField, setEditingField] = useState<string | null>(null);
+
+	const fileInputRef = useRef<HTMLInputElement>(null);
+
+	const handleImageClick = () => {
+		fileInputRef.current?.click();
+	};
+
+	const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files && e.target.files[0]) {
+			const file = e.target.files[0];
+
+			try {
+				const base64Image = await resizeAndConvertToBase64(file);
+				setFormData((prev) => (prev ? { ...prev, image: base64Image } : prev));
+			} catch (error) {
+				console.error("Error resizing image:", error);
+			}
+		}
+	};
 
 	async function updateUserProfile(userId: string, updatedUser: User) {
 		try {
@@ -46,6 +99,7 @@ const EditProfile = () => {
 			};
 		});
 	};
+
 	const enableEditing = (
 		e: React.MouseEvent<HTMLButtonElement>,
 		fieldName: string,
@@ -117,20 +171,40 @@ const EditProfile = () => {
 						/>
 					</div>
 
-					<div className="py-4 d-flex justify-content-center">
-						<div className={styles.profileImageWrapper}>
-							<img
-								src="/Profile/ProfilePicture.svg"
-								alt="Profile Image"
-								className={styles.profileImage}
+					<form
+						onSubmit={(e) => {
+							e.preventDefault();
+							handleSave();
+						}}
+					>
+						<div className="py-4 d-flex justify-content-center">
+							<div
+								className={styles.profileImageWrapper}
+								onClick={handleImageClick}
+							>
+								<img
+									src={
+										typeof formData?.image === "string" &&
+										formData.image.length > 0
+											? formData.image
+											: "/Profile/ProfilePicture.svg"
+									}
+									alt="Profile Image"
+									className={styles.profileImage}
+								/>
+								<div className={styles.blurOverlay}>Edit</div>
+							</div>
+							{/* Hidden file input */}
+							<input
+								type="file"
+								accept="image/*"
+								ref={fileInputRef}
+								style={{ display: "none" }}
+								onChange={handleImageChange}
 							/>
-							<div className={styles.blurOverlay}>Edit</div>
 						</div>
-					</div>
-
-					<form onSubmit={handleSave} className="border-top">
 						{/* Name */}
-						<div className="d-flex justify-content-between align-items-center font-size-14 border-bottom py-2">
+						<div className="d-flex justify-content-between align-items-center font-size-14 border-bottom py-2 border-top">
 							<div>
 								<label htmlFor="name" className="w-100">
 									Full Name <span className="orange">*</span>
