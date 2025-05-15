@@ -309,6 +309,7 @@ const PostAdd = () => {
 						</div>
 					</div>
 					<button className="orange-btn">Post a job</button>
+					{error && <div className="text-danger text-center">{error}</div>}
 				</form>
 			</div>
 
