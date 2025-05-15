@@ -93,7 +93,7 @@ const Homepage = () => {
 							</div>
 						) : (
 							filteredHandymen.map((handyman) => (
-								<HomepageHandymanCard handyman={handyman} />
+								<HomepageHandymanCard key={handyman.id} handyman={handyman} />
 							))
 						)}
 					</div>
