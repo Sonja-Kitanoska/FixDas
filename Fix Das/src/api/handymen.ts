@@ -30,3 +30,25 @@ export const fetchHandymanById = async (
 		return null;
 	}
 };
+
+//handymanRatingUpdate
+export const handymanRatingUpdate = async (id: string, data: Handyman) => {
+	try {
+		const response = await fetch(`${BASE_URL}/handymen/${id}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		});
+
+		if (!response.ok) {
+			throw new Error(`Failed to update handyman (status ${response.status})`);
+		}
+
+		return await response.json();
+	} catch (error) {
+		console.error("PUT handyman error:", error);
+		throw error;
+	}
+};

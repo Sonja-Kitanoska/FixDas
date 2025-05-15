@@ -71,7 +71,6 @@ function App() {
 
 						{/* Categories*/}
 						<Route path="/categories" element={<Categories />} />
-						<Route path="/categories/filter" element={<>Categories filter</>} />
 
 						{/* Chat */}
 						<Route path="/chat" element={<Chat />} />

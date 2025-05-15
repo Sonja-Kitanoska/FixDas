@@ -7,10 +7,13 @@ import BasicRating from "./components/Rating/Rating";
 import { postReview } from "../../../api/postReview";
 import { getProposalById } from "../../../api/proposals";
 import { Proposal } from "../../../types/types";
+import { useUserStore } from "../../../store/userStore";
+import { fetchHandymanById, handymanRatingUpdate } from "../../../api/handymen";
 
 const Review = () => {
 	const navigate = useNavigate();
 	const { proposalId } = useParams();
+	const user = useUserStore((state) => state.user);
 
 	const fileInputRef = useRef<HTMLInputElement>(null);
 	const commentRef = useRef<HTMLTextAreaElement>(null);
@@ -24,7 +27,7 @@ const Review = () => {
 		const fetchHandymanId = async () => {
 			try {
 				if (!proposalId) return;
-				const proposal = await getProposalById(proposalId);
+				const proposal: Proposal = await getProposalById(proposalId);
 				setProposal(proposal);
 				setHandymanId(proposal.from.id);
 			} catch (err) {
@@ -43,7 +46,6 @@ const Review = () => {
 	};
 
 	const handleSubmit = async (event: React.FormEvent) => {
-		console.log("Submit button clicked");
 		event.preventDefault();
 
 		if (!handymanId) {
@@ -52,6 +54,7 @@ const Review = () => {
 		}
 
 		const formData = {
+			id: crypto.randomUUID(),
 			handymanId,
 			proposalId: proposal?.id ?? null,
 			name: proposal?.from?.name ?? "",
@@ -59,6 +62,11 @@ const Review = () => {
 			comment: commentRef.current?.value ?? null,
 			photos: [] as File[],
 			agreedToPublish,
+			from: {
+				name: user?.username ?? "Anonymous",
+				id: user?.id ?? "",
+				location: user?.location,
+			},
 		};
 
 		if (fileInputRef.current?.files) {
@@ -68,8 +76,25 @@ const Review = () => {
 		}
 
 		try {
-			const response = await postReview(formData);
-			console.log("Review submitted successfully:", response);
+			await postReview(formData);
+			if (rating !== null && handymanId) {
+				const handyman = await fetchHandymanById(handymanId);
+
+				if (handyman?.stars != null) {
+					const currentRating = handyman.stars;
+					const averageRating = (currentRating + rating) / 2;
+
+					if (handyman) {
+						const updatedHandyman = {
+							...handyman,
+							stars: averageRating,
+						};
+						await handymanRatingUpdate(handymanId, updatedHandyman);
+					}
+					console.log("Handyman rating updated to:", averageRating);
+				}
+			}
+
 			navigate("/bookings/completed");
 		} catch (err) {
 			console.error("Failed to submit review:", err);
