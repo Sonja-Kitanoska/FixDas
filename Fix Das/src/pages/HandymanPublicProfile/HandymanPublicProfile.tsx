@@ -6,7 +6,7 @@ import SimilarProfiles from "./components/SimilarProfiles/SimilarProfiles";
 import HandymanInfo from "./components/HandymanInfo/HandymanInfo";
 import CurrentJobs from "./components/CurrentJobs/CurrentJobs";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchHandymanById } from "../../api/handymen";
+import { fetchHandymanById, fetchHandymen } from "../../api/handymen";
 import { useEffect, useState } from "react";
 import { Handyman, ReviewFormData } from "../../types/types";
 import { fetchReviewsByHandymanId } from "../../api/fedbacksForHandman";
@@ -16,6 +16,28 @@ const HandymanPublicProfile = () => {
 	const navigate = useNavigate();
 	const [handyman, setHandyman] = useState<Handyman | null>(null);
 	const [feedbacks, setFeedbacks] = useState<ReviewFormData[] | null>(null);
+
+	const [handymen, setHandymen] = useState<Handyman[]>([]);
+
+	useEffect(() => {
+		const getHandymen = async () => {
+			const data: Handyman[] = await fetchHandymen();
+			setHandymen(data);
+		};
+		getHandymen();
+	}, []);
+
+	const similarHandymen = handyman
+		? handymen
+				.filter(
+					(h) =>
+						h.id !== handymanId &&
+						h.categories.some((category) =>
+							handyman.categories.includes(category)
+						)
+				)
+				.slice(0, 3)
+		: [];
 
 	useEffect(() => {
 		const getHandyman = async () => {
@@ -55,7 +77,7 @@ const HandymanPublicProfile = () => {
 				</div>
 				<HandymanInfo handyman={handyman} />
 				<HandymansPostedAdds />
-				<SimilarProfiles />
+				<SimilarProfiles similarHandymen={similarHandymen} />
 				<CurrentJobs />
 				<FeedbackForHandyman feedbacks={feedbacks || []} />
 			</div>
