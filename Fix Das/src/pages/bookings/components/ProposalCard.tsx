@@ -3,6 +3,7 @@ import { LuClock3, LuMapPin } from "react-icons/lu";
 import { PiArrowsClockwiseFill, PiUserGearLight } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { Proposal } from "../../../types/types";
+import { format, getHours } from "date-fns";
 
 const ProposalCard = ({
 	proposal,
@@ -14,6 +15,21 @@ const ProposalCard = ({
 	updateProposal: (proposal: Proposal) => void;
 }) => {
 	const navigate = useNavigate();
+
+	const date = new Date(proposal.time);
+	const formattedDate = format(date, "EEE, d MMM");
+
+	const hour = getHours(date);
+
+	const getTimeOfDay = (hour: number) => {
+		if (hour >= 5 && hour < 12) return "Morning";
+		if (hour >= 12 && hour < 17) return "Afternoon";
+		if (hour >= 17 && hour < 21) return "Evening";
+		return "Night";
+	};
+
+	const formattedTime = `${getTimeOfDay(hour)} ${format(date, "h a")}`;
+
 	return (
 		<div className="card">
 			<div className="card-body">
@@ -31,7 +47,7 @@ const ProposalCard = ({
 					<div className="f-flex flex-column">
 						<div className="d-flex align-items-center gap-2 mb-2">
 							<FaRegCalendarCheck className="orange font-size-14" />
-							<p className="mb-0">Wed, 8 Nov</p>
+							<p className="mb-0">{formattedDate}</p>
 						</div>
 						<div className="d-flex align-items-center mb-2 gap-2">
 							<PiArrowsClockwiseFill
@@ -49,7 +65,7 @@ const ProposalCard = ({
 					<div>
 						<div className="d-flex gap-2 align-items-center mb-1">
 							<LuClock3 className="orange" size={15} />
-							<p className="mb-0">Morning 9 am</p>
+							<p className="mb-0">{formattedTime}</p>
 						</div>
 					</div>
 				</div>

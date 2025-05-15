@@ -46,7 +46,7 @@ const Menu = () => {
 					<p>Suchen</p>
 				</NavLink>
 				<NavLink
-					to={"/ss"}
+					to={"/find-handyman"}
 					className={({ isActive }) =>
 						`text-decoration-none ${isActive ? "orange" : styles.grayColor}`
 					}
