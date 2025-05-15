@@ -25,13 +25,13 @@ const FeedbackForHandyman = ({
 									className="w-100 h-100 object-fit-cover"
 								/>
 							</div>
-							<p className="mb-0">{feedback.from.name}</p>
+							<p className="mb-0">{feedback.from?.name}</p>
 						</div>
-						<p className="orange mb-0">{feedback.from.location}</p>
+						<p className="orange mb-0">{feedback.from?.location}</p>
 					</div>
 
 					<div className="my-2 d-flex gap-1 ">
-						{[...Array(feedback.rating)].map((_, index) => (
+						{[...Array(Number(feedback.rating) || 0)].map((_, index) => (
 							<FaStar key={index} color="#F5CE47" />
 						))}
 					</div>
