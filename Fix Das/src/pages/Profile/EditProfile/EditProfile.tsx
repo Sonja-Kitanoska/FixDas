@@ -200,7 +200,6 @@ const EditProfile = () => {
 
 				if (formData.password && formData.password.length >= 6) {
 					try {
-						await reauthenticate(user!.password!);
 						await updatePassword(firebaseUser, formData.password);
 						console.log("Password updated successfully");
 					} catch (error: unknown) {
@@ -221,6 +220,13 @@ const EditProfile = () => {
 					}
 				}
 			}
+
+			// const { password, oldPassword, ...userDataWithoutPassword } = formData;
+
+			// setUser(userDataWithoutPassword); // Safe for Zustand
+			// await updateUser(formData.id, userDataWithoutPassword);
+			// await updateUserProfile(formData.id, userDataWithoutPassword);
+
 			setUser(formData);
 			updateUser(formData.id, formData);
 			updateUserProfile(formData.id, formData);
@@ -316,7 +322,7 @@ const EditProfile = () => {
 								<input
 									type="text"
 									name="username"
-									id="name"
+									id="username"
 									className={`${styles.bgColor} border-0`}
 									style={{ color: "#939393" }}
 									value={formData?.username || ""}
@@ -460,6 +466,7 @@ const EditProfile = () => {
 								</button>
 							</div>
 						</div>
+
 						{error && <p className="text-danger font-size-14">{error}</p>}
 						{success && <p className="text-success font-size-14">{success}</p>}
 

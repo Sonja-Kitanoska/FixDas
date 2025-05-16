@@ -7,6 +7,7 @@ export type User = {
 	phone: string | null;
 	location?: string;
 	password?: string;
+	oldPassword?: string;
 	role: Role;
 	image?: string;
 	createdAt?: string;
