@@ -221,15 +221,13 @@ const EditProfile = () => {
 				}
 			}
 
-			// const { password, oldPassword, ...userDataWithoutPassword } = formData;
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { password, ...userDataWithoutPassword } = formData;
 
-			// setUser(userDataWithoutPassword); // Safe for Zustand
-			// await updateUser(formData.id, userDataWithoutPassword);
-			// await updateUserProfile(formData.id, userDataWithoutPassword);
+			setUser(userDataWithoutPassword); // Safe for Zustand
+			await updateUser(formData.id, userDataWithoutPassword);
+			await updateUserProfile(formData.id, userDataWithoutPassword);
 
-			setUser(formData);
-			updateUser(formData.id, formData);
-			updateUserProfile(formData.id, formData);
 			navigate("/profile");
 		}
 	};
