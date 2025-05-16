@@ -7,7 +7,14 @@ import { useRef, useState } from "react";
 import { User } from "../../../types/types";
 import { FiLogOut } from "react-icons/fi";
 import { auth, db } from "../../../firebase";
-import { deleteUser, signOut } from "firebase/auth";
+import {
+	deleteUser,
+	EmailAuthProvider,
+	reauthenticateWithCredential,
+	signOut,
+	updatePassword,
+	verifyBeforeUpdateEmail,
+} from "firebase/auth";
 import { deleteUserData, updateUser } from "../../../api/users";
 import { doc, updateDoc } from "firebase/firestore";
 
@@ -57,8 +64,20 @@ const EditProfile = () => {
 
 	const [formData, setFormData] = useState<User | null>(user);
 	const [editingField, setEditingField] = useState<string | null>(null);
+	const [error, setError] = useState("");
+	const [success, setSuccess] = useState("");
 
 	const fileInputRef = useRef<HTMLInputElement>(null);
+
+	async function reauthenticate(password: string) {
+		if (!auth.currentUser || !auth.currentUser.email)
+			throw new Error("No user");
+		const credential = EmailAuthProvider.credential(
+			auth.currentUser.email,
+			password
+		);
+		return reauthenticateWithCredential(auth.currentUser, credential);
+	}
 
 	const handleImageClick = () => {
 		fileInputRef.current?.click();
@@ -115,8 +134,93 @@ const EditProfile = () => {
 			e.preventDefault();
 		}
 	};
-	const handleSave = () => {
+	const handleSave = async () => {
+		setError("");
+		setSuccess("");
 		if (formData) {
+			const firebaseUser = auth.currentUser;
+
+			if (firebaseUser) {
+				if (formData.email && formData.email !== firebaseUser.email) {
+					try {
+						if (!formData.password) {
+							setError("Password is required to reauthenticate.");
+							return;
+						}
+						await reauthenticate(formData.password);
+						await verifyBeforeUpdateEmail(firebaseUser, formData.email);
+						setSuccess(
+							"A verification email was sent to your new address. Please check your inbox to confirm the change and the click on the Save button again."
+						);
+						return;
+					} catch (error: unknown) {
+						console.error("Error updating email:", error);
+						if (
+							typeof error === "object" &&
+							error !== null &&
+							"code" in error &&
+							(error as { code?: string }).code === "auth/requires-recent-login"
+						) {
+							setError("Please sign in again to change your email.");
+							navigate("/sign-in");
+						} else if (
+							typeof error === "object" &&
+							error !== null &&
+							"code" in error &&
+							(error as { code?: string }).code === "auth/operation-not-allowed"
+						) {
+							setError(
+								"Email change requires verification. A verification email has been sent."
+							);
+						} else if (
+							typeof error === "object" &&
+							error !== null &&
+							"message" in error
+						) {
+							setError(
+								(error as { message?: string }).message ||
+									"An unknown error occurred."
+							);
+						} else {
+							setError("An unknown error occurred.");
+						}
+
+						if (
+							typeof error === "object" &&
+							error !== null &&
+							"code" in error &&
+							(error as { code?: string }).code === "auth/requires-recent-login"
+						) {
+							setError("Please sign in again to change your email.");
+							navigate("/sign-in");
+							return;
+						}
+					}
+				}
+
+				if (formData.password && formData.password.length >= 6) {
+					try {
+						await reauthenticate(user!.password!);
+						await updatePassword(firebaseUser, formData.password);
+						console.log("Password updated successfully");
+					} catch (error: unknown) {
+						console.error("Error updating password:", error);
+						// Handle re-authentication required
+						if (
+							typeof error === "object" &&
+							error !== null &&
+							"code" in error &&
+							(error as { code?: string }).code === "auth/requires-recent-login"
+						) {
+							setError(
+								"For security reasons, please sign in again to change your password."
+							);
+
+							navigate("/sign-in");
+						}
+					}
+				}
+			}
 			setUser(formData);
 			updateUser(formData.id, formData);
 			updateUserProfile(formData.id, formData);
@@ -356,6 +460,8 @@ const EditProfile = () => {
 								</button>
 							</div>
 						</div>
+						{error && <p className="text-danger font-size-14">{error}</p>}
+						{success && <p className="text-success font-size-14">{success}</p>}
 
 						{/* Notify */}
 						<div className="py-3">
