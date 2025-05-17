@@ -5,39 +5,13 @@ import { useUserStore } from "../../../../../store/userStore";
 import { formatDistanceToNow } from "date-fns";
 import { useState } from "react";
 import MapModal from "../../../../../components/MapModal/MapModal";
-const LOCATIONIQ_TOKEN = import.meta.env.VITE_LOCATIONIQ_TOKEN;
 
 const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 	const user = useUserStore((state) => state.user);
 	const [showMap, setShowMap] = useState(false);
-	const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(
-		null
-	);
-	const handleShowMap = async () => {
-		try {
-			const response = await fetch(
-				`https://us1.locationiq.com/v1/search?key=${LOCATIONIQ_TOKEN}&q=${encodeURIComponent(
-					add.location.address
-				)}&format=json`
-			);
 
-			if (!response.ok) {
-				throw new Error("Failed to fetch geolocation");
-			}
-
-			const data = await response.json();
-
-			if (data && data.length > 0) {
-				const { lat, lon } = data[0];
-				setCoords({ lat: parseFloat(lat), lon: parseFloat(lon) });
-				setShowMap(true);
-			} else {
-				alert("No coordinates found for this address.");
-			}
-		} catch (error) {
-			console.error("Geocoding failed", error);
-			alert("Couldn't load map for this address.");
-		}
+	const handleShowMap = () => {
+		setShowMap(true);
 	};
 
 	return (
@@ -113,19 +87,13 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 					Auf der Karte anzeigen
 				</p>
 			</div>
-			{showMap && coords && (
+			{showMap && add.location.lat && add.location.lon && (
 				<MapModal
-					lat={coords.lat}
-					lon={coords.lon}
+					lat={add.location.lat}
+					lon={add.location.lon}
 					onClose={() => setShowMap(false)}
 				/>
 			)}
-
-			{/* <div className="d-flex justify-content-end font-size-12 font-weight-600 pt-3">
-				<button className="orange-btn" style={{ width: "110px" }}>
-					Contact
-				</button>
-			</div> */}
 		</div>
 	);
 };
