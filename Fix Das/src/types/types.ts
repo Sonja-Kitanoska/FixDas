@@ -108,6 +108,8 @@ export type Proposal = {
 		id: string;
 		name: string;
 		role: Role;
+		lat: number;
+		lon: number;
 	};
 	to: {
 		id: string;

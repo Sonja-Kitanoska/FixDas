@@ -87,7 +87,7 @@ const Menu = () => {
 						value={selectedCategory}
 						onChange={(e) => setSelectedCategory(e.target.value)}
 					>
-						<option selected value="" style={{ color: "#939393" }}>
+						<option value="" style={{ color: "#939393" }}>
 							Kategorie
 						</option>
 						{categories.map((category) => (

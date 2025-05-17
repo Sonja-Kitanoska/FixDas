@@ -1,671 +1,748 @@
 {
-	"users": [
-		{
-			"id": "aJG1dWJzcJUeaZYiA0KiPvlQtfE2",
-			"username": "sonja",
-			"phone": "033310049",
-			"email": "avramoskamkd@gmail.com",
-			"role": "client",
-			"createdAt": "2025-05-16T11:18:22.643Z"
-		}
-	],
-	"handymen": [
-		{
-			"id": "14f3ca31-c0ea-4182-b78d-04c8f6142fa1",
-			"image": "/LandingPage/handyman-img.png",
-			"name": "Klaus Schneider",
-			"profession": "Heating & Sanitary Technician",
-			"location": "Berlin, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 38,
-			"categories": [
-				"Heating",
-				"Windows",
-				"Sanitary",
-				"Cleaning",
-				"Solar systems"
-			],
-			"specialties": ["Heating installation"],
-			"description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-05-01T10:30:00Z"
-		},
-		{
-			"id": "2",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Barack Obama",
-			"profession": "Cleaning & Home Repair Specialist",
-			"location": "Munich, Germany",
-			"stars": 3,
-			"jobsDone": 7,
-			"numberReviews": 25,
-			"categories": ["Cleaning", "Home Repair", "A/C"],
-			"specialties": ["Electrical installation"],
-			"description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-05-01T10:30:00Z"
-		},
-		{
-			"id": "3",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "John Doe",
-			"profession": "Renovation & A/C Technician",
-			"location": "Frankfurt, Germany",
-			"stars": 3.5,
-			"jobsDone": 6,
-			"numberReviews": 50,
-			"categories": ["A/C", "Plumbing", "Renovation", "Construction"],
-			"specialties": ["Heating installation"],
-			"description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-03-01T10:30:00Z"
-		},
-		{
-			"id": "4",
-			"image": "/LandingPage/testimonials/client1.svg",
-			"name": "Emma Clark",
-			"profession": "Solar Energy Specialist",
-			"location": "Hamburg, Germany",
-			"stars": 4,
-			"jobsDone": 11,
-			"numberReviews": 30,
-			"categories": ["Solar systems", "Heating"],
-			"specialties": ["Heating installation"],
-			"description": "Specialized in solar energy systems installation. Offering eco-friendly solutions.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-02-01T10:30:00Z"
-		},
-		{
-			"id": "5",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Liam Johnson",
-			"profession": "Electrician & A/C Specialist",
-			"location": "Stuttgart, Germany",
-			"stars": 4,
-			"jobsDone": 18,
-			"numberReviews": 40,
-			"categories": ["Electrical", "A/C", "Renovation"],
-			"specialties": ["Heating installation"],
-			"description": "Offering professional electrical installations and A/C repairs. Fast response times.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-01-01T10:30:00Z"
-		},
-		{
-			"id": "6",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "Sophia Williams",
-			"profession": "Plumber & Heating Technician",
-			"location": "Cologne, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 60,
-			"categories": ["Sanitary", "Plumbing", "Heating"],
-			"specialties": ["Heating installation"],
-			"description": "Highly skilled plumber and heating engineer. Reliable, efficient, and friendly.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2024-03-01T10:30:00Z"
-		},
-		{
-			"id": "7",
-			"image": "/LandingPage/testimonials/client1.svg",
-			"name": "Benjamin Lewis",
-			"profession": "Electrical & Renovation Specialist",
-			"location": "Berlin, Germany",
-			"stars": 3,
-			"jobsDone": 10,
-			"numberReviews": 20,
-			"categories": ["Electrical", "Renovation", "Solar systems"],
-			"specialties": ["Electrical installation"],
-			"description": "Electrical work and home renovation expert. Focus on sustainable solutions.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-03-01T10:30:00Z"
-		},
-		{
-			"id": "8",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Olivia Brown",
-			"profession": "Solar Heating & Plumbing Expert",
-			"location": "Hamburg, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 75,
-			"categories": ["Solar systems", "Plumbing", "Heating"],
-			"specialties": ["Heating installation"],
-			"description": "Top-tier plumber specializing in solar-powered heating systems. Committed to quality.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-04-01T13:30:00Z"
-		}
-	],
-	"handymenAdds": [
-		{
-			"id": "14f3ca31-c0ea-4182-b78d-04c8f6142fa1",
-			"image": "/LandingPage/handyman-img.png",
-			"name": "Klaus Schneider",
-			"profession": "Heating & Sanitary Technician",
-			"location": "Berlin, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 38,
-			"categories": [
-				"Heating",
-				"Windows",
-				"Sanitary",
-				"Cleaning",
-				"Solar systems"
-			],
-			"specialties": ["Heating installation"],
-			"description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-05-01T10:30:00Z"
-		}
-	],
-	"specialties": [
-		{
-			"id": 1,
-			"name": "Electrical installation"
-		},
-		{
-			"id": 2,
-			"name": "Sanitary installation"
-		},
-		{
-			"id": 3,
-			"name": "Painting and painting work"
-		},
-		{
-			"id": 4,
-			"name": "Carpentry/carpentry"
-		},
-		{
-			"id": 5,
-			"name": "Roofing"
-		},
-		{
-			"id": 6,
-			"name": "Heating installation"
-		},
-		{
-			"id": 7,
-			"name": "Tile work"
-		},
-		{
-			"id": 8,
-			"name": "Bricklaying"
-		},
-		{
-			"id": 9,
-			"name": "Garden and landscaping"
-		},
-		{
-			"id": 10,
-			"name": "Locksmith work"
-		}
-	],
-	"categories": [
-		{
-			"id": 1,
-			"name": "Home Repair",
-			"image": "/LandingPage/services/Group-1.svg"
-		},
-		{
-			"id": 2,
-			"name": "Windows",
-			"image": "/LandingPage/services/Group-2.svg"
-		},
-		{
-			"id": 3,
-			"name": "Painter",
-			"image": "/LandingPage/services/Group-3.svg"
-		},
-		{
-			"id": 4,
-			"name": "Electrician",
-			"image": "/LandingPage/services/Group-4.svg"
-		},
-		{
-			"id": 5,
-			"name": "A / C",
-			"image": "/LandingPage/services/Group-5.svg"
-		},
-		{
-			"id": 6,
-			"name": "Cleaning",
-			"image": "/LandingPage/services/Group-6.svg"
-		},
-		{
-			"id": 7,
-			"name": "Assembly",
-			"image": "/LandingPage/services/Group-7.svg"
-		},
-		{
-			"id": 8,
-			"name": "Carpenter",
-			"image": "/LandingPage/services/Group-8.svg"
-		},
-		{
-			"id": 9,
-			"name": "Construction",
-			"image": "/LandingPage/services/Group-9.svg"
-		},
-		{
-			"id": 10,
-			"name": "Plumbing",
-			"image": "/LandingPage/services/Group-10.svg"
-		},
-		{
-			"id": 11,
-			"name": "Landscaping",
-			"image": "/LandingPage/services/Group-1.svg"
-		},
-		{
-			"id": 12,
-			"name": "Roofing",
-			"image": "/LandingPage/services/Group-2.svg"
-		},
-		{
-			"id": 13,
-			"name": "Tiling",
-			"image": "/LandingPage/services/Group-3.svg"
-		},
-		{
-			"id": 14,
-			"name": "HVAC",
-			"image": "/LandingPage/services/Group-4.svg"
-		},
-		{
-			"id": 15,
-			"name": "Masonry",
-			"image": "/LandingPage/services/Group-5.svg"
-		},
-		{
-			"id": 16,
-			"name": "Handyman",
-			"image": "/LandingPage/services/Group-6.svg"
-		},
-		{
-			"id": 17,
-			"name": "Drywall",
-			"image": "/LandingPage/services/Group-7.svg"
-		},
-		{
-			"id": 18,
-			"name": "Pest Control",
-			"image": "/LandingPage/services/Group-8.svg"
-		},
-		{
-			"id": 19,
-			"name": "Flooring",
-			"image": "/LandingPage/services/Group-9.svg"
-		},
-		{
-			"id": 20,
-			"name": "Gardening",
-			"image": "/LandingPage/services/Group-10.svg"
-		},
-		{
-			"id": 21,
-			"name": "Interior Design",
-			"image": "/LandingPage/services/Group-1.svg"
-		},
-		{
-			"id": 22,
-			"name": "Exterior Painting",
-			"image": "/LandingPage/services/Group-2.svg"
-		},
-		{
-			"id": 23,
-			"name": "Window Repair",
-			"image": "/LandingPage/services/Group-3.svg"
-		},
-		{
-			"id": 24,
-			"name": "Electrical Wiring",
-			"image": "/LandingPage/services/Group-4.svg"
-		},
-		{
-			"id": 25,
-			"name": "Fencing",
-			"image": "/LandingPage/services/Group-5.svg"
-		}
-	],
-	"testimonials": [
-		{
-			"id": "1",
-			"image": "/LandingPage/testimonials/client1.svg",
-			"name": "Barack Obama",
-			"location": "Dresden",
-			"stars": 5,
-			"comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			]
-		},
-		{
-			"id": "2",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "Angela Merkel",
-			"location": "Hamburg",
-			"stars": 4,
-			"comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg"
-			]
-		},
-		{
-			"id": "3",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Gerhard Schröder",
-			"location": "Berlin",
-			"stars": 5,
-			"comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg"
-			]
-		}
-	],
-	"client-adds": [
-		{
-			"title": "Fix the sofa",
-			"description": "The sofa is broken and needs to be fixed as soon as possible.",
-			"location": "Stockholm, SWE",
-			"images": ["https://picsum.photos/400/200?random=186"],
-			"userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-			"createdAt": "2025-05-07T19:55:56.781Z",
-			"id": 6
-		},
-		{
-			"title": "Fix the TV",
-			"description": "The TV does not function. ",
-			"location": "Munich",
-			"images": ["https://picsum.photos/400/200?random=962"],
-			"userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-			"createdAt": "2025-05-07T19:56:42.572Z",
-			"id": 7
-		},
-		{
-			"title": "fix sofa",
-			"description": "my sofa is.broken",
-			"location": "Stockholm, SWE",
-			"images": ["https://picsum.photos/400/200?random=677"],
-			"userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-			"createdAt": "2025-05-09T18:38:29.091Z",
-			"id": 8
-		},
-		{
-			"title": "fix",
-			"description": "fix",
-			"location": {
-				"address": "Munich",
-				"lat": 48.1371079,
-				"lon": 11.5753822
-			},
-			"images": ["https://picsum.photos/400/200?random=539"],
-			"userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-			"createdAt": "2025-05-15T10:47:33.822Z",
-			"id": 17
-		},
-		{
-			"title": "",
-			"description": "",
-			"location": {
-				"address": "Sjövikstorget, Stockholm, 117 58",
-				"lat": 59.30760644099831,
-				"lon": 18.030052081756892
-			},
-			"images": ["https://picsum.photos/400/200?random=229"],
-			"userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-			"createdAt": "2025-05-15T10:47:47.902Z",
-			"id": 18
-		}
-	],
-	"reviews": [
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "GXvhyG2naZQOryyifq8oIFirwlD2",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"rating": "3",
-			"comment": "good",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 2
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "GXvhyG2naZQOryyifq8oIFirwlD2",
-				"location": "Skopje"
-			},
-			"handymanId": "2",
-			"rating": "5",
-			"comment": "Good job Obama, great!",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 99
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"rating": "5",
-			"comment": "masterpiece",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 3
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"proposalId": 9,
-			"rating": "5",
-			"comment": "Madonna, your work is excellent!",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 4
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"proposalId": 2,
-			"rating": "1",
-			"comment": "not good",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 5
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"proposalId": 2,
-			"rating": "4",
-			"comment": "Good job Madonna",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 6
-		}
-	],
-	"proposals": [
-		{
-			"id": 1,
-			"from": {
-				"id": "2",
-				"name": "Barack Obama",
-				"role": "handyman"
-			},
-			"to": {
-				"id": "GXvhyG2naZQOryyifq8oIFirwlD2",
-				"role": "client"
-			},
-			"title": "Electrician service",
-			"description": "Fix a lamp",
-			"location": "Strasse, Munich",
-			"time": "2025-05-04T11:00:42.680Z",
-			"status": "completed"
-		},
-		{
-			"id": 2,
-			"from": {
-				"id": "2",
-				"name": "Madonna",
-				"role": "handyman"
-			},
-			"to": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-				"role": "client"
-			},
-			"title": "Electrician service",
-			"description": "Fix a lamp",
-			"location": "Strasse, Munich",
-			"time": "2025-05-04T11:00:42.680Z",
-			"status": "pending"
-		},
-		{
-			"id": 9,
-			"from": {
-				"id": "2",
-				"name": "Brad Pitt",
-				"role": "handyman"
-			},
-			"to": {
-				"id": "4nB3ToC9PUURjoRViqoZuCRPhJG2",
-				"role": "client"
-			},
-			"title": "Electrician service",
-			"description": "Fix a lamp",
-			"location": "Strasse, Munich",
-			"time": "2025-05-04T11:00:42.680Z",
-			"status": "accepted"
-		}
-	],
-	"requests": [
-		{
-			"id": "dbc9f4bf-af2a-43d9-95d8-b9987cbc2a35",
-			"from": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "5",
-				"role": "handyman"
-			},
-			"message": "",
-			"location": {
-				"address": "Samoilova, Ново Маало, Centar, Skopje, Municipality of Centar, City of Skopje, 1111, North Macedonia",
-				"lat": 41.9996707,
-				"lon": 21.4333514
-			},
-			"time": "12pm-4pm",
-			"date": "Wednesday, May 21 2025"
-		},
-		{
-			"id": "81b6dc93-309e-4c99-bb56-fc78fdac67d4",
-			"from": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "8",
-				"role": "handyman"
-			},
-			"message": "",
-			"location": {
-				"address": "En tidsmaskin på torget, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
-				"lat": 59.30767290107413,
-				"lon": 18.02986146162855
-			},
-			"time": "12pm-4pm",
-			"date": "Wednesday, May 21 2025"
-		},
-		{
-			"id": "0ed2233c-f60d-4bca-883e-463c0ba220ab",
-			"from": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "3",
-				"role": "handyman"
-			},
-			"message": "hello",
-			"location": {
-				"address": "stockholm",
-				"lat": null,
-				"lon": null
-			},
-			"time": "12pm-4pm",
-			"date": "Wednesday, May 14 2025"
-		}
-	]
+  "users": [
+    {
+      "id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "username": "sonja",
+      "phone": "033310049",
+      "email": "avramoskamkd@gmail.com",
+      "role": "client",
+      "createdAt": "2025-05-17T10:42:57.064Z"
+    }
+  ],
+  "handymen": [
+    {
+      "id": "14f3ca31-c0ea-4182-b78d-04c8f6142fa1",
+      "image": "/LandingPage/handyman-img.png",
+      "name": "Klaus Schneider",
+      "profession": "Heating & Sanitary Technician",
+      "location": "Berlin, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 38,
+      "categories": [
+        "Heating",
+        "Windows",
+        "Sanitary",
+        "Cleaning",
+        "Solar systems"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-05-01T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Barack Obama",
+      "profession": "Cleaning & Home Repair Specialist",
+      "location": "Munich, Germany",
+      "stars": 3,
+      "jobsDone": 7,
+      "numberReviews": 25,
+      "categories": [
+        "Cleaning",
+        "Home Repair",
+        "A/C"
+      ],
+      "specialties": [
+        "Electrical installation"
+      ],
+      "description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-05-01T10:30:00Z"
+    },
+    {
+      "id": "3",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "John Doe",
+      "profession": "Renovation & A/C Technician",
+      "location": "Frankfurt, Germany",
+      "stars": 3.5,
+      "jobsDone": 6,
+      "numberReviews": 50,
+      "categories": [
+        "A/C",
+        "Plumbing",
+        "Renovation",
+        "Construction"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-03-01T10:30:00Z"
+    },
+    {
+      "id": "4",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Emma Clark",
+      "profession": "Solar Energy Specialist",
+      "location": "Hamburg, Germany",
+      "stars": 4,
+      "jobsDone": 11,
+      "numberReviews": 30,
+      "categories": [
+        "Solar systems",
+        "Heating"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Specialized in solar energy systems installation. Offering eco-friendly solutions.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-02-01T10:30:00Z"
+    },
+    {
+      "id": "5",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Liam Johnson",
+      "profession": "Electrician & A/C Specialist",
+      "location": "Stuttgart, Germany",
+      "stars": 4,
+      "jobsDone": 18,
+      "numberReviews": 40,
+      "categories": [
+        "Electrical",
+        "A/C",
+        "Renovation"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Offering professional electrical installations and A/C repairs. Fast response times.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-01-01T10:30:00Z"
+    },
+    {
+      "id": "6",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Sophia Williams",
+      "profession": "Plumber & Heating Technician",
+      "location": "Cologne, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 60,
+      "categories": [
+        "Sanitary",
+        "Plumbing",
+        "Heating"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Highly skilled plumber and heating engineer. Reliable, efficient, and friendly.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2024-03-01T10:30:00Z"
+    },
+    {
+      "id": "7",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Benjamin Lewis",
+      "profession": "Electrical & Renovation Specialist",
+      "location": "Berlin, Germany",
+      "stars": 3,
+      "jobsDone": 10,
+      "numberReviews": 20,
+      "categories": [
+        "Electrical",
+        "Renovation",
+        "Solar systems"
+      ],
+      "specialties": [
+        "Electrical installation"
+      ],
+      "description": "Electrical work and home renovation expert. Focus on sustainable solutions.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-03-01T10:30:00Z"
+    },
+    {
+      "id": "8",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Olivia Brown",
+      "profession": "Solar Heating & Plumbing Expert",
+      "location": "Hamburg, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 75,
+      "categories": [
+        "Solar systems",
+        "Plumbing",
+        "Heating"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Top-tier plumber specializing in solar-powered heating systems. Committed to quality.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-04-01T13:30:00Z"
+    }
+  ],
+  "handymenAdds": [
+    {
+      "id": "14f3ca31-c0ea-4182-b78d-04c8f6142fa1",
+      "image": "/LandingPage/handyman-img.png",
+      "name": "Klaus Schneider",
+      "profession": "Heating & Sanitary Technician",
+      "location": "Berlin, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 38,
+      "categories": [
+        "Heating",
+        "Windows",
+        "Sanitary",
+        "Cleaning",
+        "Solar systems"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "I am free around noon to work . .. If you use a section of Lorem Ipsum, you have to make sure that nothing is hidden in the middle of the text .",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-05-01T10:30:00Z"
+    }
+  ],
+  "specialties": [
+    {
+      "id": 1,
+      "name": "Electrical installation"
+    },
+    {
+      "id": 2,
+      "name": "Sanitary installation"
+    },
+    {
+      "id": 3,
+      "name": "Painting and painting work"
+    },
+    {
+      "id": 4,
+      "name": "Carpentry/carpentry"
+    },
+    {
+      "id": 5,
+      "name": "Roofing"
+    },
+    {
+      "id": 6,
+      "name": "Heating installation"
+    },
+    {
+      "id": 7,
+      "name": "Tile work"
+    },
+    {
+      "id": 8,
+      "name": "Bricklaying"
+    },
+    {
+      "id": 9,
+      "name": "Garden and landscaping"
+    },
+    {
+      "id": 10,
+      "name": "Locksmith work"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Home Repair",
+      "image": "/LandingPage/services/Group-1.svg"
+    },
+    {
+      "id": 2,
+      "name": "Windows",
+      "image": "/LandingPage/services/Group-2.svg"
+    },
+    {
+      "id": 3,
+      "name": "Painter",
+      "image": "/LandingPage/services/Group-3.svg"
+    },
+    {
+      "id": 4,
+      "name": "Electrician",
+      "image": "/LandingPage/services/Group-4.svg"
+    },
+    {
+      "id": 5,
+      "name": "A / C",
+      "image": "/LandingPage/services/Group-5.svg"
+    },
+    {
+      "id": 6,
+      "name": "Cleaning",
+      "image": "/LandingPage/services/Group-6.svg"
+    },
+    {
+      "id": 7,
+      "name": "Assembly",
+      "image": "/LandingPage/services/Group-7.svg"
+    },
+    {
+      "id": 8,
+      "name": "Carpenter",
+      "image": "/LandingPage/services/Group-8.svg"
+    },
+    {
+      "id": 9,
+      "name": "Construction",
+      "image": "/LandingPage/services/Group-9.svg"
+    },
+    {
+      "id": 10,
+      "name": "Plumbing",
+      "image": "/LandingPage/services/Group-10.svg"
+    },
+    {
+      "id": 11,
+      "name": "Landscaping",
+      "image": "/LandingPage/services/Group-1.svg"
+    },
+    {
+      "id": 12,
+      "name": "Roofing",
+      "image": "/LandingPage/services/Group-2.svg"
+    },
+    {
+      "id": 13,
+      "name": "Tiling",
+      "image": "/LandingPage/services/Group-3.svg"
+    },
+    {
+      "id": 14,
+      "name": "HVAC",
+      "image": "/LandingPage/services/Group-4.svg"
+    },
+    {
+      "id": 15,
+      "name": "Masonry",
+      "image": "/LandingPage/services/Group-5.svg"
+    },
+    {
+      "id": 16,
+      "name": "Handyman",
+      "image": "/LandingPage/services/Group-6.svg"
+    },
+    {
+      "id": 17,
+      "name": "Drywall",
+      "image": "/LandingPage/services/Group-7.svg"
+    },
+    {
+      "id": 18,
+      "name": "Pest Control",
+      "image": "/LandingPage/services/Group-8.svg"
+    },
+    {
+      "id": 19,
+      "name": "Flooring",
+      "image": "/LandingPage/services/Group-9.svg"
+    },
+    {
+      "id": 20,
+      "name": "Gardening",
+      "image": "/LandingPage/services/Group-10.svg"
+    },
+    {
+      "id": 21,
+      "name": "Interior Design",
+      "image": "/LandingPage/services/Group-1.svg"
+    },
+    {
+      "id": 22,
+      "name": "Exterior Painting",
+      "image": "/LandingPage/services/Group-2.svg"
+    },
+    {
+      "id": 23,
+      "name": "Window Repair",
+      "image": "/LandingPage/services/Group-3.svg"
+    },
+    {
+      "id": 24,
+      "name": "Electrical Wiring",
+      "image": "/LandingPage/services/Group-4.svg"
+    },
+    {
+      "id": 25,
+      "name": "Fencing",
+      "image": "/LandingPage/services/Group-5.svg"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Barack Obama",
+      "location": "Dresden",
+      "stars": 5,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ]
+    },
+    {
+      "id": "2",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Angela Merkel",
+      "location": "Hamburg",
+      "stars": 4,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg"
+      ]
+    },
+    {
+      "id": "3",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Gerhard Schröder",
+      "location": "Berlin",
+      "stars": 5,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg"
+      ]
+    }
+  ],
+  "client-adds": [
+    {
+      "title": "Fix the sofa",
+      "description": "The sofa is broken and needs to be fixed as soon as possible.",
+      "location": "Stockholm, SWE",
+      "images": [
+        "https://picsum.photos/400/200?random=186"
+      ],
+      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+      "createdAt": "2025-05-07T19:55:56.781Z",
+      "id": 6
+    },
+    {
+      "title": "Fix the TV",
+      "description": "The TV does not function. ",
+      "location": "Munich",
+      "images": [
+        "https://picsum.photos/400/200?random=962"
+      ],
+      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+      "createdAt": "2025-05-07T19:56:42.572Z",
+      "id": 7
+    },
+    {
+      "title": "fix sofa",
+      "description": "my sofa is.broken",
+      "location": "Stockholm, SWE",
+      "images": [
+        "https://picsum.photos/400/200?random=677"
+      ],
+      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+      "createdAt": "2025-05-09T18:38:29.091Z",
+      "id": 8
+    },
+    {
+      "title": "fix",
+      "description": "fix",
+      "location": {
+        "address": "Munich",
+        "lat": 48.1371079,
+        "lon": 11.5753822
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=539"
+      ],
+      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+      "createdAt": "2025-05-15T10:47:33.822Z",
+      "id": 17
+    },
+    {
+      "title": "",
+      "description": "",
+      "location": {
+        "address": "Sjövikstorget, Stockholm, 117 58",
+        "lat": 59.30760644099831,
+        "lon": 18.030052081756892
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=229"
+      ],
+      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+      "createdAt": "2025-05-15T10:47:47.902Z",
+      "id": 18
+    },
+    {
+      "title": "Fix the sofa",
+      "description": "fix the sofa",
+      "location": {
+        "address": "Stockholm, SWE",
+        "lat": 59.3587062,
+        "lon": 17.8736682
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=984"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-17T12:06:02.961Z",
+      "id": 19
+    }
+  ],
+  "reviews": [
+    {
+      "from": {
+        "name": "Sonja",
+        "id": "GXvhyG2naZQOryyifq8oIFirwlD2",
+        "location": "Berlin"
+      },
+      "handymanId": "2",
+      "rating": "3",
+      "comment": "good",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 2
+    },
+    {
+      "from": {
+        "name": "Sonja",
+        "id": "GXvhyG2naZQOryyifq8oIFirwlD2",
+        "location": "Skopje"
+      },
+      "handymanId": "2",
+      "rating": "5",
+      "comment": "Good job Obama, great!",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 99
+    },
+    {
+      "from": {
+        "name": "Sonja",
+        "id": "44",
+        "location": "Berlin"
+      },
+      "handymanId": "2",
+      "rating": "5",
+      "comment": "masterpiece",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 3
+    },
+    {
+      "from": {
+        "name": "Sonja",
+        "id": "44",
+        "location": "Berlin"
+      },
+      "handymanId": "2",
+      "proposalId": 9,
+      "rating": "5",
+      "comment": "Madonna, your work is excellent!",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 4
+    },
+    {
+      "from": {
+        "name": "Sonja",
+        "id": "44",
+        "location": "Berlin"
+      },
+      "handymanId": "2",
+      "proposalId": 2,
+      "rating": "1",
+      "comment": "not good",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 5
+    },
+    {
+      "from": {
+        "name": "Sonja",
+        "id": "44",
+        "location": "Berlin"
+      },
+      "handymanId": "2",
+      "proposalId": 2,
+      "rating": "4",
+      "comment": "Good job Madonna",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 6
+    }
+  ],
+  "proposals": [
+    {
+      "id": 1,
+      "from": {
+        "id": "2",
+        "name": "Barack Obama",
+        "role": "handyman",
+        "lat": 41.9996707,
+        "lon": 18.02986146162855
+      },
+      "to": {
+        "id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+        "role": "client"
+      },
+      "title": "Electrician service",
+      "description": "Fix a lamp",
+      "location": "Strasse, Munich",
+      "time": "2025-05-04T11:00:42.680Z",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "from": {
+        "id": "2",
+        "name": "Madonna",
+        "role": "handyman",
+        "lat": 59.30744919057832,
+        "lon": 18.03032580820606
+      },
+      "to": {
+        "id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+        "role": "client"
+      },
+      "title": "Electrician service",
+      "description": "Fix a lamp",
+      "location": "Strasse, Munich",
+      "time": "2025-05-04T11:00:42.680Z",
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "from": {
+        "id": "2",
+        "name": "Brad Pitt",
+        "role": "handyman",
+        "lat": 59.30744919057832,
+        "lon": 18.03032580820606
+      },
+      "to": {
+        "id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+        "role": "client"
+      },
+      "title": "Electrician service",
+      "description": "Fix a lamp",
+      "location": "Strasse, Munich",
+      "time": "2025-05-04T11:00:42.680Z",
+      "status": "accepted"
+    }
+  ],
+  "requests": [
+    {
+      "id": "dbc9f4bf-af2a-43d9-95d8-b9987cbc2a35",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "5",
+        "role": "handyman"
+      },
+      "message": "",
+      "location": {
+        "address": "Samoilova, Ново Маало, Centar, Skopje, Municipality of Centar, City of Skopje, 1111, North Macedonia",
+        "lat": 41.9996707,
+        "lon": 21.4333514
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 21 2025"
+    },
+    {
+      "id": "81b6dc93-309e-4c99-bb56-fc78fdac67d4",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "8",
+        "role": "handyman"
+      },
+      "message": "",
+      "location": {
+        "address": "En tidsmaskin på torget, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
+        "lat": 59.30767290107413,
+        "lon": 18.02986146162855
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 21 2025"
+    },
+    {
+      "id": "0ed2233c-f60d-4bca-883e-463c0ba220ab",
+      "from": {
+        "id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "3",
+        "role": "handyman"
+      },
+      "message": "hello",
+      "location": {
+        "address": "stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "time": "12pm-4pm",
+      "date": "Wednesday, May 14 2025"
+    }
+  ]
 }

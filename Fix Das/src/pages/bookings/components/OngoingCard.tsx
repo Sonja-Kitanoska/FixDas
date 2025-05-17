@@ -3,6 +3,9 @@ import { LuClock3, LuMapPin } from "react-icons/lu";
 import { PiArrowsClockwiseFill, PiUserGearLight } from "react-icons/pi";
 import { Proposal } from "../../../types/types";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import MapModal from "../../../components/MapModal/MapModal";
+
 
 const OngoingCard = ({
 	proposal,
@@ -12,6 +15,7 @@ const OngoingCard = ({
 	updateProposal: (proposal: Proposal) => void;
 }) => {
 	const navigate = useNavigate();
+	const [showMap, setShowMap] = useState(false);
 	return (
 		<div className="card">
 			<div className="card-body">
@@ -19,10 +23,21 @@ const OngoingCard = ({
 					<h5 className="card-title font-size-14 font-weight-700">
 						{proposal.title}
 					</h5>
-					<div className="d-flex orange align-items-center gap-1">
+					<div
+						className="d-flex orange align-items-center gap-1"
+						onClick={() => setShowMap(true)}
+					>
 						<LuMapPin />
 						<p className="mb-0 font-size-12 font-weight-600">View on map</p>
 					</div>
+
+		{showMap && (
+			<MapModal
+				lat={proposal.from.lat}
+				lon={proposal.from.lon}
+				onClose={() => setShowMap(false)}
+			/>
+		)}
 				</div>
 				<div className="d-flex justify-content-between py-3 font-size-12 font-weight-400">
 					<div className="f-flex flex-column">

@@ -4,6 +4,8 @@ import { PiArrowsClockwiseFill, PiUserGearLight } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { Proposal } from "../../../types/types";
 import { format, getHours } from "date-fns";
+import MapModal from "../../../components/MapModal/MapModal";
+import { useState } from "react";
 
 const ProposalCard = ({
 	proposal,
@@ -15,6 +17,7 @@ const ProposalCard = ({
 	updateProposal: (proposal: Proposal) => void;
 }) => {
 	const navigate = useNavigate();
+	const [showMap, setShowMap] = useState(false);
 
 	const date = new Date(proposal.time);
 	const formattedDate = format(date, "EEE, d MMM");
@@ -37,11 +40,21 @@ const ProposalCard = ({
 					<h5 className="card-title font-size-14 font-weight-700">
 						{proposal.title}
 					</h5>
-					<div className="d-flex orange align-items-center gap-1">
+					<div
+						className="d-flex orange align-items-center gap-1"
+						onClick={() => setShowMap(true)}
+					>
 						<LuMapPin />
 						<p className="mb-0 font-size-12 font-weight-600">View on map</p>
 					</div>
 				</div>
+				{showMap && (
+					<MapModal
+						lat={proposal.from.lat}
+						lon={proposal.from.lon}
+						onClose={() => setShowMap(false)}
+					/>
+				)}
 
 				<div className="d-flex justify-content-between py-3 font-size-12 font-weight-400">
 					<div className="f-flex flex-column">

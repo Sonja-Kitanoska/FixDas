@@ -12,6 +12,9 @@ import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import { createUser } from "../../../api/users";
 
 const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+	prompt: "select_account",
+});
 
 const SignUp = () => {
 	const setUser = useUserStore((state) => state.setUser);
@@ -118,7 +121,7 @@ const SignUp = () => {
 			</p>
 
 			<p className="gray-light my-3 text-center font-size-14 mb-0">
-				Already an account? 
+				Already an account?
 				<span
 					onClick={() => navigate("/sign-in")}
 					className="orange"
