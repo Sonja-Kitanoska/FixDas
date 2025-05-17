@@ -1,4 +1,4 @@
-import { Handyman } from "../types/types";
+import { Handyman, HandymanAd } from "../types/types";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -50,5 +50,19 @@ export const handymanRatingUpdate = async (id: string, data: Handyman) => {
 	} catch (error) {
 		console.error("PUT handyman error:", error);
 		throw error;
+	}
+};
+
+
+export const fetchHandymenAds = async (): Promise<HandymanAd[]> => {
+	try {
+		const response = await fetch(`${BASE_URL}/handymenAdds`);
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+		const data: HandymanAd[] = await response.json();
+		return data;
+	} catch (err) {
+		console.error("Error fetching handymen:", err);
+		return [];
 	}
 };

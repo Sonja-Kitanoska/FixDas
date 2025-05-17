@@ -40,6 +40,22 @@ export type Handyman = {
 	createdAt: string;
 };
 
+export interface HandymanAd {
+	id: string;
+	image: string;
+	name: string;
+	profession: string;
+	location: string;
+	stars: number;
+	jobsDone: number;
+	numberReviews: number;
+	categories: string[];
+	specialties: string[];
+	description: string;
+	workImages: string[];
+	createdAt: string;
+}
+
 export type Specialty = {
 	id: number;
 	name: string;

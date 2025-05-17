@@ -12,11 +12,11 @@ const HandymanInfo = ({ handyman }: { handyman: Handyman }) => {
 	return (
 		<div>
 			<div className="py-3">
-				<div>
+				<div style={{ height: "230px" }}>
 					<img
-						src="/PublicProfileHandyman/profile-picture-handyman.png"
+						src={handyman.image}
 						alt="Profile picture of the handyman"
-						className="w-100"
+						className="w-100 h-100 object-fit-cover"
 					/>
 				</div>
 
@@ -76,7 +76,7 @@ const HandymanInfo = ({ handyman }: { handyman: Handyman }) => {
 			<div className="d-flex align-items-center gap-1">
 				<PiSuitcaseSimpleBold color="#FA6100" />
 				<p className="font-size-12 font-weight-400 mb-0">
-					{handyman.numberJobs} Abgeschlossene Aufträge
+					{handyman.jobsDone} Abgeschlossene Aufträge
 				</p>
 			</div>
 			<div className="d-flex gap-2 py-3">
