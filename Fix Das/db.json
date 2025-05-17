@@ -2,11 +2,12 @@
   "users": [
     {
       "id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
-      "username": "sonja",
-      "phone": "033310049",
       "email": "avramoskamkd@gmail.com",
+      "username": "Sonja Kitanoska",
+      "phone": null,
       "role": "client",
-      "createdAt": "2025-05-17T10:42:57.064Z"
+      "createdAt": "2025-05-17T10:52:34.354Z",
+      "location": "skopje, macedonia"
     }
   ],
   "handymen": [
@@ -539,6 +540,21 @@
       "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
       "createdAt": "2025-05-17T12:06:02.961Z",
       "id": 19
+    },
+    {
+      "title": "hello",
+      "description": "hello",
+      "location": {
+        "address": "skopje, macedonia",
+        "lat": 41.9961816,
+        "lon": 21.4319213
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=738"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-17T12:17:11.882Z",
+      "id": 20
     }
   ],
   "reviews": [

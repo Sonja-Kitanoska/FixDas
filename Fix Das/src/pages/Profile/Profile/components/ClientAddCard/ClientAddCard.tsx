@@ -3,9 +3,43 @@ import { LuMapPin } from "react-icons/lu";
 import { ClientAddData } from "../../../../../types/types";
 import { useUserStore } from "../../../../../store/userStore";
 import { formatDistanceToNow } from "date-fns";
+import { useState } from "react";
+import MapModal from "../../../../../components/MapModal/MapModal";
+const LOCATIONIQ_TOKEN = import.meta.env.VITE_LOCATIONIQ_TOKEN;
 
 const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 	const user = useUserStore((state) => state.user);
+	const [showMap, setShowMap] = useState(false);
+	const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(
+		null
+	);
+	const handleShowMap = async () => {
+		try {
+			const response = await fetch(
+				`https://us1.locationiq.com/v1/search?key=${LOCATIONIQ_TOKEN}&q=${encodeURIComponent(
+					add.location.address
+				)}&format=json`
+			);
+
+			if (!response.ok) {
+				throw new Error("Failed to fetch geolocation");
+			}
+
+			const data = await response.json();
+
+			if (data && data.length > 0) {
+				const { lat, lon } = data[0];
+				setCoords({ lat: parseFloat(lat), lon: parseFloat(lon) });
+				setShowMap(true);
+			} else {
+				alert("No coordinates found for this address.");
+			}
+		} catch (error) {
+			console.error("Geocoding failed", error);
+			alert("Couldn't load map for this address.");
+		}
+	};
+
 	return (
 		<div
 			className="p-3 bg-white rounded-2 card"
@@ -71,10 +105,21 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 						{add.location.address}
 					</p>
 				</div>
-				<p className="font-size-10 mb-0" style={{ color: "#1461F0" }}>
+				<p
+					className="font-size-10 mb-0"
+					style={{ color: "#1461F0" }}
+					onClick={handleShowMap}
+				>
 					Auf der Karte anzeigen
 				</p>
 			</div>
+			{showMap && coords && (
+				<MapModal
+					lat={coords.lat}
+					lon={coords.lon}
+					onClose={() => setShowMap(false)}
+				/>
+			)}
 
 			{/* <div className="d-flex justify-content-end font-size-12 font-weight-600 pt-3">
 				<button className="orange-btn" style={{ width: "110px" }}>
