@@ -1,54 +1,73 @@
-# React + TypeScript + Vite
+# 🛠️ Fix Das
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **client-side** of a web application that connects users with **trusted handymen** for various home services. Built with a **mobile-first approach**, the app allows clients to post job requests, browse professionals, communicate via chat and manage bookings.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✅ User Authentication (via Firebase)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Sign up / log in with **email** or **Google**
+- Password reset functionality
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 📄 Profile Management
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Edit personal information
+
+---
+
+### 🔍 Search & Filter
+
+- Clients can **search for handymen using keywords**
+- Filter results by **category** or **specialty**
+- Quickly find the right professional for the job
+
+---
+
+### 🧰 Job Ads
+
+Clients can create job ads with:
+
+- Detailed descriptions
+- Job location
+- Images 
+
+---
+
+### 📅 Booking & Scheduling
+
+- Browse handyman profiles that showcase their past work
+- Choose a date on their calendar
+- Send location and job description
+- Confirm job details via in-app chat
+
+---
+
+### 📩 Proposal Management
+
+- Clients receive proposals from handymen
+- Review proposal details
+- Accept or reject proposals based on preferences and availability
+
+---
+
+### 💬 Messaging & Reviews
+
+- Real-time **in-app chat**
+- Leave **reviews and ratings** after job completion
+
+---
+
+## 🧪 Tools & Technologies
+
+- **Frontend:** React
+- **Firebase:** Authentication
+- **Firestore:** Real-time chat
+- **JSON Server:** Mock backend (users, handyman profiles, proposals, reviews, job requests)
+- **UI Framework:** Bootstrap
+- **Maps & Location:** LocationIQ for suggested places and map display
+
+---
