@@ -120,194 +120,196 @@ const BookingDetails = () => {
 
 	return (
 		<>
-			<div style={{ minHeight: "100vh" }}>
-				<form
-					onSubmit={handleSubmit}
-					className="container py-3 font-size-14"
-					style={{ paddingBottom: "78px" }}
-				>
-					<div
-						className="d-flex gap-2 align-items-center mb-4"
-						onClick={() => navigate(`/bookings/calendar/${handymanId}`)}
+			<div style={{ paddingBottom: "78px" }}>
+				<div style={{ minHeight: "calc(100vh - 78px)" }}>
+					<form
+						onSubmit={handleSubmit}
+						className="container py-3 font-size-14"
+						style={{ paddingBottom: "78px" }}
 					>
-						<IoChevronBack style={{ fontSize: "20px", cursor: "pointer" }} />
-						<p className="mb-0" style={{ fontSize: "16px" }}>
-							Datum/Zeit
-						</p>
-					</div>
-
-					<div>
-						<p className="font-weight-700">Serviceanfrage</p>
-						<div className="d-flex justify-content-between bg-white p-2 border-top mb-3">
-							{selectedDate && <p className="mb-0">{selectedDate}</p>}
-							<div className="d-flex align-items-center gap-2">
-								<LuClock3 color="#5584E5" size={15} />
-								<p className="mb-0">{selectedTime}</p>
-							</div>
-						</div>
-					</div>
-					{/* handyman card */}
-					<div key={handyman?.id} className="border-bottom bg-white p-2">
-						<div className="d-flex justify-content-between mb-4">
-							<div className="d-flex gap-1 align-items-center">
-								<div style={{ width: "36px", height: "36px" }}>
-									<img
-										src="/LandingPage/testimonials/client1.svg"
-										alt="User image"
-										className="w-100 h-100 rounded-circle"
-									/>
-								</div>
-
-								<div>
-									<div className="d-flex gap-2 align-items-center mb-1">
-										<p
-											className="font-size-14 font-weight-700 mb-0"
-											style={{ color: "#080808" }}
-										>
-											{handyman?.name}
-											<span>
-												<MdVerified color="#1461F0" />
-											</span>
-										</p>
-									</div>
-
-									<div className="d-flex gap-1">
-										<LuMapPin color="#5584E5" />
-										<p className="font-size-12 fontt-weight-400 mb-0">
-											{handyman?.location}
-										</p>
-									</div>
-								</div>
-							</div>
-
-							<div className="d-flex flex-column justify-content-between">
-								<p
-									className="mb-0 font-size-10 font-weight-600 rounded p-1"
-									style={{ color: "#38830A", backgroundColor: "#C3E2B0" }}
-								>
-									Now available
-								</p>
-								<div className="d-flex gap-2 align-items-center">
-									<FaStar color="#F5CE47" />
-									<p className="font-size-10 font-weight-600 mb-0">
-										{handyman?.stars}
-									</p>
-								</div>
-							</div>
-						</div>
-
 						<div
-							className="d-flex flex-wrap gap-2 font-size-12 font-weight-700"
-							style={{ color: "#5584E5" }}
+							className="d-flex gap-2 align-items-center mb-4"
+							onClick={() => navigate(`/bookings/calendar/${handymanId}`)}
 						>
-							{handyman.categories.map((category) => (
-								<p
-									key={crypto.randomUUID()}
-									style={{ backgroundColor: "#E8EFFE" }}
-									className="p-1 mb-0"
-								>
-									{category}
-								</p>
-							))}
+							<IoChevronBack style={{ fontSize: "20px", cursor: "pointer" }} />
+							<p className="mb-0" style={{ fontSize: "16px" }}>
+								Datum/Zeit
+							</p>
 						</div>
-					</div>
-					{/* textarea */}
-					<div>
-						<label htmlFor="message" className="font-weight-700 py-3 pb-2">
-							Geben Sie Ihre Anfrage an &nbsp;
-							<span
-								style={{ color: "#1461F0" }}
-								className="font-weight-400 font-size-12"
-							>
-								Optional
-							</span>
-						</label>
-						<textarea
-							id="message"
-							name="message"
-							placeholder="Deine Nachricht"
-							className="w-100 border rounded p-2"
-							style={{ resize: "none", outline: "none" }}
-							rows={4}
-							value={message}
-							onChange={(e) => setMessage(e.target.value)}
-						></textarea>
-					</div>
-					<div>
-						<label htmlFor="address" className="font-weight-700 py-3 pb-2">
-							Was ist deine Adresse? &nbsp;
-							<span
-								style={{ color: "#1461F0" }}
-								className="font-weight-400 font-size-12"
-							>
-								Optional
-							</span>
-						</label>
-						<div className={styles.inputWrapper}>
-							{<LuMapPin className={styles.icon} />}
-							<input
-								id="address"
-								name="address"
-								placeholder="Gib deine Adresse ein"
-								className={`form-control input-field ${styles.inputField}`}
-								value={address}
-								onChange={(e) => setAddress(e.target.value)}
-							/>
-							<span
-								className={styles.locationIcon}
-								role="button"
-								onClick={() => {
-									updateFormData({
-										message,
-										address,
-									});
-									navigate(`/bookings/enter-location/${handymanId}`);
-								}}
-							>
-								<TbCurrentLocation color="#939393" />
-							</span>
+
+						<div>
+							<p className="font-weight-700">Serviceanfrage</p>
+							<div className="d-flex justify-content-between bg-white p-2 border-top mb-3">
+								{selectedDate && <p className="mb-0">{selectedDate}</p>}
+								<div className="d-flex align-items-center gap-2">
+									<LuClock3 color="#5584E5" size={15} />
+									<p className="mb-0">{selectedTime}</p>
+								</div>
+							</div>
 						</div>
-					</div>
+						{/* handyman card */}
+						<div key={handyman?.id} className="border-bottom bg-white p-2">
+							<div className="d-flex justify-content-between mb-4">
+								<div className="d-flex gap-1 align-items-center">
+									<div style={{ width: "36px", height: "36px" }}>
+										<img
+											src="/LandingPage/testimonials/client1.svg"
+											alt="User image"
+											className="w-100 h-100 rounded-circle"
+										/>
+									</div>
 
-					<div className="py-4">
-						<button type="submit" className="orange-btn">
-							Anfrage senden
-						</button>
-					</div>
+									<div>
+										<div className="d-flex gap-2 align-items-center mb-1">
+											<p
+												className="font-size-14 font-weight-700 mb-0"
+												style={{ color: "#080808" }}
+											>
+												{handyman?.name}
+												<span>
+													<MdVerified color="#1461F0" />
+												</span>
+											</p>
+										</div>
 
-					{/* Modal */}
-					<Modal
-						open={open}
-						onClose={handleClose}
-						aria-labelledby="modal-title"
-						aria-describedby="modal-description"
-						className="text-center"
-					>
-						<Box sx={modalStyle}>
-							<div>
-								<img src="/Checkmark.png" alt="Checkmark" />
+										<div className="d-flex gap-1">
+											<LuMapPin color="#5584E5" />
+											<p className="font-size-12 fontt-weight-400 mb-0">
+												{handyman?.location}
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div className="d-flex flex-column justify-content-between">
+									<p
+										className="mb-0 font-size-10 font-weight-600 rounded p-1"
+										style={{ color: "#38830A", backgroundColor: "#C3E2B0" }}
+									>
+										Now available
+									</p>
+									<div className="d-flex gap-2 align-items-center">
+										<FaStar color="#F5CE47" />
+										<p className="font-size-10 font-weight-600 mb-0">
+											{handyman?.stars}
+										</p>
+									</div>
+								</div>
 							</div>
-							<Typography id="modal-title" variant="h6" component="h2">
-								Anfrage Gesendet!
-							</Typography>
-							<Typography
-								id="modal-description"
-								sx={{ mt: 2, color: "#939393" }}
-								className="font-size-24"
+
+							<div
+								className="d-flex flex-wrap gap-2 font-size-12 font-weight-700"
+								style={{ color: "#5584E5" }}
 							>
-								Der Handwerker wird so schnell wie möglich antworten.
-							</Typography>
-							<div className="py-3">
-								<button
-									className="orange-btn w-50 font-size-12"
-									onClick={() => navigate("/homepage")}
-								>
-									Startseite
-								</button>
+								{handyman.categories.map((category) => (
+									<p
+										key={crypto.randomUUID()}
+										style={{ backgroundColor: "#E8EFFE" }}
+										className="p-1 mb-0"
+									>
+										{category}
+									</p>
+								))}
 							</div>
-						</Box>
-					</Modal>
-				</form>
+						</div>
+						{/* textarea */}
+						<div>
+							<label htmlFor="message" className="font-weight-700 py-3 pb-2">
+								Geben Sie Ihre Anfrage an &nbsp;
+								<span
+									style={{ color: "#1461F0" }}
+									className="font-weight-400 font-size-12"
+								>
+									Optional
+								</span>
+							</label>
+							<textarea
+								id="message"
+								name="message"
+								placeholder="Deine Nachricht"
+								className="w-100 border rounded p-2"
+								style={{ resize: "none", outline: "none" }}
+								rows={4}
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+							></textarea>
+						</div>
+						<div>
+							<label htmlFor="address" className="font-weight-700 py-3 pb-2">
+								Was ist deine Adresse? &nbsp;
+								<span
+									style={{ color: "#1461F0" }}
+									className="font-weight-400 font-size-12"
+								>
+									Optional
+								</span>
+							</label>
+							<div className={styles.inputWrapper}>
+								{<LuMapPin className={styles.icon} />}
+								<input
+									id="address"
+									name="address"
+									placeholder="Gib deine Adresse ein"
+									className={`form-control input-field ${styles.inputField}`}
+									value={address}
+									onChange={(e) => setAddress(e.target.value)}
+								/>
+								<span
+									className={styles.locationIcon}
+									role="button"
+									onClick={() => {
+										updateFormData({
+											message,
+											address,
+										});
+										navigate(`/bookings/enter-location/${handymanId}`);
+									}}
+								>
+									<TbCurrentLocation color="#939393" />
+								</span>
+							</div>
+						</div>
+
+						<div className="py-4">
+							<button type="submit" className="orange-btn">
+								Anfrage senden
+							</button>
+						</div>
+
+						{/* Modal */}
+						<Modal
+							open={open}
+							onClose={handleClose}
+							aria-labelledby="modal-title"
+							aria-describedby="modal-description"
+							className="text-center"
+						>
+							<Box sx={modalStyle}>
+								<div>
+									<img src="/Checkmark.png" alt="Checkmark" />
+								</div>
+								<Typography id="modal-title" variant="h6" component="h2">
+									Anfrage Gesendet!
+								</Typography>
+								<Typography
+									id="modal-description"
+									sx={{ mt: 2, color: "#939393" }}
+									className="font-size-24"
+								>
+									Der Handwerker wird so schnell wie möglich antworten.
+								</Typography>
+								<div className="py-3">
+									<button
+										className="orange-btn w-50 font-size-12"
+										onClick={() => navigate("/homepage")}
+									>
+										Startseite
+									</button>
+								</div>
+							</Box>
+						</Modal>
+					</form>
+				</div>
 			</div>
 			<Navbar />
 		</>

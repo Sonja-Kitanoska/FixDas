@@ -73,8 +73,11 @@ const CalendarPage = () => {
 
 	return (
 		<>
-			<div style={{ minHeight: "100vh" }}>
-				<div className="container py-3" style={{ paddingBottom: "78px" }}>
+			<div style={{ paddingBottom: "78px" }}>
+				<div
+					className="container py-3"
+					style={{ minHeight: "calc(100vh - 78px)" }}
+				>
 					<div
 						className="d-flex gap-2 align-items-center mb-4"
 						onClick={() =>

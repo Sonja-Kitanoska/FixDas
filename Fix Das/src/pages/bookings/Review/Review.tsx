@@ -10,6 +10,8 @@ import { Proposal } from "../../../types/types";
 import { useUserStore } from "../../../store/userStore";
 import { fetchHandymanById, handymanRatingUpdate } from "../../../api/handymen";
 import styles from "./Review.module.css";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Review = () => {
 	const navigate = useNavigate();
@@ -115,7 +117,10 @@ const Review = () => {
 				}
 			}
 
-			navigate("/bookings/completed");
+			toast.success("Review submitted successfully!");
+			setTimeout(() => {
+				navigate("/bookings/completed");
+			}, 1000);
 		} catch (err) {
 			console.error("Failed to submit review:", err);
 		}
@@ -199,6 +204,16 @@ const Review = () => {
 					<button className="orange-btn">Send evaluation</button>
 				</form>
 			</div>
+			<ToastContainer
+				position="bottom-right"
+				autoClose={3000}
+				hideProgressBar
+				transition={Slide}
+				className="!w-auto max-w-[300px]"
+				newestOnTop
+				closeOnClick
+				pauseOnHover
+			/>
 			<Navbar />
 		</div>
 	);

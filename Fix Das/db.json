@@ -45,7 +45,7 @@
       "name": "Barack Obama",
       "profession": "Cleaning & Home Repair Specialist",
       "location": "Munich, Germany",
-      "stars": 2,
+      "stars": 1.375,
       "jobsDone": 7,
       "numberReviews": 25,
       "categories": [
@@ -516,6 +516,86 @@
       "createdAt": "2025-05-19T08:24:15.368Z",
       "isUrgent": true,
       "id": 27
+    },
+    {
+      "title": "ngmv",
+      "description": "",
+      "location": {
+        "address": "",
+        "lat": 0,
+        "lon": 0
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=668"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-19T10:49:22.093Z",
+      "isUrgent": false,
+      "id": 28
+    },
+    {
+      "title": "sonja",
+      "description": "sonja fix",
+      "location": {
+        "address": "Stockholm, SWE",
+        "lat": 59.3587062,
+        "lon": 17.8736682
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=781"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-19T11:08:31.846Z",
+      "isUrgent": true,
+      "id": 29
+    },
+    {
+      "title": "d",
+      "description": "d",
+      "location": {
+        "address": "d",
+        "lat": 50.9206028,
+        "lon": 16.4946351
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=857"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-19T11:09:42.104Z",
+      "isUrgent": false,
+      "id": 30
+    },
+    {
+      "title": "d",
+      "description": "d",
+      "location": {
+        "address": "d",
+        "lat": 50.9206028,
+        "lon": 16.4946351
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=633"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-19T11:11:51.260Z",
+      "isUrgent": false,
+      "id": 31
+    },
+    {
+      "title": "l",
+      "description": "d",
+      "location": {
+        "address": "d",
+        "lat": 50.9206028,
+        "lon": 16.4946351
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=502"
+      ],
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-19T11:12:22.590Z",
+      "isUrgent": false,
+      "id": 32
     }
   ],
   "reviews": [
@@ -617,6 +697,24 @@
       "photos": [],
       "agreedToPublish": true,
       "id": 101
+    },
+    {
+      "handymanId": "2",
+      "proposalId": 1,
+      "rating": "2.5",
+      "comment": "..-.",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 102
+    },
+    {
+      "handymanId": "2",
+      "proposalId": 1,
+      "rating": "0.5",
+      "comment": "great job",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 103
     }
   ],
   "proposals": [
@@ -738,6 +836,26 @@
       },
       "time": "12pm-4pm",
       "date": "Wednesday, May 14 2025"
+    },
+    {
+      "id": "6446acfb-62f7-4d75-8115-4a6d097c5127",
+      "from": {
+        "id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "14f3ca31-c0ea-4182-b78d-04c8f6142fa1",
+        "role": "handyman"
+      },
+      "message": "",
+      "location": {
+        "address": "",
+        "lat": null,
+        "lon": null
+      },
+      "time": "12pm-4pm",
+      "date": "Friday, May 23 2025"
     }
   ]
 }

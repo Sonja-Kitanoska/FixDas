@@ -8,10 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { postClientAdd } from "../../../api/postClientAdd";
 import { useUserStore } from "../../../store/userStore";
+import { Slide, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PostAdd = () => {
 	const { user } = useUserStore();
 	const navigate = useNavigate();
+	const [error, setError] = useState<string | null>(null);
 
 	const reverseGeocode = async (
 		lat: number,
@@ -117,7 +120,9 @@ const PostAdd = () => {
 		images: [] as File[],
 		isUrgent: false,
 	});
-	const [error, setError] = useState<string | null>(null);
+	const [errors, setErrors] = useState<{ title?: string; location?: string }>(
+		{}
+	);
 
 	const handleFileUploadClick = () => {
 		const fileInput = document.getElementById("photoUpload");
@@ -138,6 +143,9 @@ const PostAdd = () => {
 			...prev,
 			[name]: type === "checkbox" ? checked : value,
 		}));
+		if (errors[name as keyof typeof errors]) {
+			setErrors((prev) => ({ ...prev, [name]: undefined }));
+		}
 	};
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = e.target.files;
@@ -153,8 +161,40 @@ const PostAdd = () => {
 			}));
 		}
 	};
+
+	const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value;
+		setFormData((prev) => ({
+			...prev,
+			location: {
+				...prev.location,
+				address: value,
+			},
+		}));
+
+		if (errors.location) {
+			setErrors((prev) => ({ ...prev, location: undefined }));
+		}
+	};
+
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
+
+		const newErrors: { title?: string; location?: string } = {};
+
+		if (!formData.title.trim()) {
+			newErrors.title = "Bitte geben Sie einen Titel ein.";
+		}
+
+		if (!formData.location.address.trim()) {
+			newErrors.location = "Bitte geben Sie einen Standort ein.";
+		}
+
+		setErrors(newErrors);
+
+		if (Object.keys(newErrors).length > 0) {
+			return;
+		}
 
 		let lat = formData.location.lat;
 		let lon = formData.location.lon;
@@ -197,9 +237,11 @@ const PostAdd = () => {
 			};
 
 			await postClientAdd(data);
-			console.log(data);
+			toast.success("Ad successfully sent!");
 
-			navigate("/profile");
+			setTimeout(() => {
+				navigate("/profile");
+			}, 1000);
 		} catch (err) {
 			if (err instanceof Error) {
 				setError(`Something went wrong: ${err.message}`);
@@ -225,7 +267,7 @@ const PostAdd = () => {
 					/>
 				</div>
 
-				<form onSubmit={handleSubmit} className="font-size-14 pt-5">
+				<form onSubmit={handleSubmit} className="font-size-14 pt-5" noValidate>
 					{/* Title */}
 					<div className="mb-3">
 						<label htmlFor="title" className="mb-2">
@@ -241,6 +283,10 @@ const PostAdd = () => {
 							className={`form-control input-field ${styles.inputField}`}
 						/>
 					</div>
+					{errors.title && (
+						<div className="text-danger mt-1">{errors.title}</div>
+					)}
+
 					{/* Description */}
 					<div className="mb-3">
 						<label htmlFor="description" className="mb-2">
@@ -268,15 +314,7 @@ const PostAdd = () => {
 								id="location"
 								name="location"
 								value={formData.location.address}
-								onChange={(e) =>
-									setFormData((prev) => ({
-										...prev,
-										location: {
-											...prev.location,
-											address: e.target.value,
-										},
-									}))
-								}
+								onChange={handleLocationChange}
 								onBlur={handleAddressBlur}
 								placeholder="Gib deine Adresse ein"
 								className={`form-control input-field ${styles.inputField} ${styles.inputFieldPaddingX}`}
@@ -290,6 +328,10 @@ const PostAdd = () => {
 							</span>
 						</div>
 					</div>
+					{errors.location && (
+						<div className="text-danger mt-1">{errors.location}</div>
+					)}
+
 					{/* Uploade photos */}
 					<div className="mb-3">
 						<label htmlFor="photoUpload" className="mb-2">
@@ -332,7 +374,16 @@ const PostAdd = () => {
 					{error && <div className="text-danger text-center">{error}</div>}
 				</form>
 			</div>
-
+			<ToastContainer
+				position="bottom-right"
+				autoClose={3000}
+				hideProgressBar
+				transition={Slide}
+				className="!w-auto max-w-[300px]"
+				newestOnTop
+				closeOnClick
+				pauseOnHover
+			/>
 			<Navbar />
 		</>
 	);
