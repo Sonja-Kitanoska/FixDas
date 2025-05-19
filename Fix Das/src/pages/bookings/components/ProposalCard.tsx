@@ -17,6 +17,7 @@ const ProposalCard = ({
 	updateProposal: (proposal: Proposal) => void;
 }) => {
 	const navigate = useNavigate();
+
 	const [showMap, setShowMap] = useState(false);
 
 	const date = new Date(proposal.time);

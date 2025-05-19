@@ -87,6 +87,7 @@ export type ClientAddData = {
 		lon: number;
 	};
 	images: (File | string)[];
+	isUrgent?: boolean;
 	userId: string;
 	createdAt: string;
 };

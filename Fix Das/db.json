@@ -45,7 +45,7 @@
       "name": "Barack Obama",
       "profession": "Cleaning & Home Repair Specialist",
       "location": "Munich, Germany",
-      "stars": 3,
+      "stars": 2,
       "jobsDone": 7,
       "numberReviews": 25,
       "categories": [
@@ -486,15 +486,20 @@
       "id": 7
     },
     {
-      "title": "fix sofa",
-      "description": "my sofa is.broken",
-      "location": "Stockholm, SWE",
+      "title": "q",
+      "description": "q",
+      "location": {
+        "address": "q",
+        "lat": -23.299332,
+        "lon": -48.054657
+      },
       "images": [
-        "https://picsum.photos/400/200?random=677"
+        "https://picsum.photos/400/200?random=130"
       ],
-      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-      "createdAt": "2025-05-09T18:38:29.091Z",
-      "id": 8
+      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+      "createdAt": "2025-05-19T08:23:09.658Z",
+      "isUrgent": true,
+      "id": 26
     },
     {
       "title": "fix",
@@ -505,56 +510,12 @@
         "lon": 11.5753822
       },
       "images": [
-        "https://picsum.photos/400/200?random=539"
-      ],
-      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-      "createdAt": "2025-05-15T10:47:33.822Z",
-      "id": 17
-    },
-    {
-      "title": "",
-      "description": "",
-      "location": {
-        "address": "Sjövikstorget, Stockholm, 117 58",
-        "lat": 59.30760644099831,
-        "lon": 18.030052081756892
-      },
-      "images": [
-        "https://picsum.photos/400/200?random=229"
-      ],
-      "userId": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-      "createdAt": "2025-05-15T10:47:47.902Z",
-      "id": 18
-    },
-    {
-      "title": "Fix the sofa",
-      "description": "fix the sofa",
-      "location": {
-        "address": "Stockholm, SWE",
-        "lat": 59.3587062,
-        "lon": 17.8736682
-      },
-      "images": [
-        "https://picsum.photos/400/200?random=984"
+        "https://picsum.photos/400/200?random=154"
       ],
       "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
-      "createdAt": "2025-05-17T12:06:02.961Z",
-      "id": 19
-    },
-    {
-      "title": "hello",
-      "description": "hello",
-      "location": {
-        "address": "skopje, macedonia",
-        "lat": 41.9961816,
-        "lon": 21.4319213
-      },
-      "images": [
-        "https://picsum.photos/400/200?random=738"
-      ],
-      "userId": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
-      "createdAt": "2025-05-17T12:17:11.882Z",
-      "id": 20
+      "createdAt": "2025-05-19T08:24:15.368Z",
+      "isUrgent": true,
+      "id": 27
     }
   ],
   "reviews": [
@@ -638,6 +599,24 @@
       "photos": [],
       "agreedToPublish": true,
       "id": 6
+    },
+    {
+      "handymanId": "2",
+      "proposalId": 2,
+      "rating": "0",
+      "comment": "",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 100
+    },
+    {
+      "handymanId": "2",
+      "proposalId": 9,
+      "rating": "2.5",
+      "comment": "brad pitt is amazing",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 101
     }
   ],
   "proposals": [
@@ -663,7 +642,7 @@
     {
       "id": 2,
       "from": {
-        "id": "2",
+        "id": "3",
         "name": "Madonna",
         "role": "handyman",
         "lat": 59.30744919057832,
@@ -677,12 +656,12 @@
       "description": "Fix a lamp",
       "location": "Strasse, Munich",
       "time": "2025-05-04T11:00:42.680Z",
-      "status": "pending"
+      "status": "accepted"
     },
     {
       "id": 9,
       "from": {
-        "id": "2",
+        "id": "4",
         "name": "Brad Pitt",
         "role": "handyman",
         "lat": 59.30744919057832,

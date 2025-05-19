@@ -3,3 +3,23 @@ textarea::placeholder {
 	font-size: 14px;
 	font-weight: 400;
 }
+
+.checkboxInput {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #fb8133;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	cursor: pointer;
+}
+
+.checkboxInput:checked {
+	background-color: #fb8133;
+}
+
+label {
+	display: block;
+}

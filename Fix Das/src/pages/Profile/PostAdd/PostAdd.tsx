@@ -115,6 +115,7 @@ const PostAdd = () => {
 			lon: 0,
 		},
 		images: [] as File[],
+		isUrgent: false,
 	});
 	const [error, setError] = useState<string | null>(null);
 
@@ -124,13 +125,18 @@ const PostAdd = () => {
 			fileInput.click();
 		}
 	};
+
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
-		const { name, value } = e.target;
+		const { name, value, type } = e.target;
+		const checked =
+			type === "checkbox" && "checked" in e.target
+				? (e.target as HTMLInputElement).checked
+				: undefined;
 		setFormData((prev) => ({
 			...prev,
-			[name]: value,
+			[name]: type === "checkbox" ? checked : value,
 		}));
 	};
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -187,6 +193,7 @@ const PostAdd = () => {
 				images,
 				userId: user.id,
 				createdAt: new Date().toISOString(),
+				isUrgent: formData.isUrgent,
 			};
 
 			await postClientAdd(data);
@@ -307,6 +314,19 @@ const PostAdd = () => {
 								</p>
 							</div>
 						</div>
+					</div>
+					<div className="d-flex gap-2 mb-4">
+						<input
+							className={`${styles.checkboxInput} form-check-input`}
+							type="checkbox"
+							id="isUrgent"
+							name="isUrgent"
+							checked={formData.isUrgent}
+							onChange={handleChange}
+						/>
+						<label className="form-check-label" htmlFor="isUrgent">
+							Post as urgent
+						</label>
 					</div>
 					<button className="orange-btn">Post a job</button>
 					{error && <div className="text-danger text-center">{error}</div>}

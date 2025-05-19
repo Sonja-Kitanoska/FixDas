@@ -9,6 +9,7 @@ import { getProposalById } from "../../../api/proposals";
 import { Proposal } from "../../../types/types";
 import { useUserStore } from "../../../store/userStore";
 import { fetchHandymanById, handymanRatingUpdate } from "../../../api/handymen";
+import styles from "./Review.module.css";
 
 const Review = () => {
 	const navigate = useNavigate();
@@ -22,6 +23,8 @@ const Review = () => {
 	const [handymanId, setHandymanId] = useState<string | null>(null);
 	const [proposal, setProposal] = useState<Proposal | null>(null);
 	const [loading, setLoading] = useState(true);
+	const [commentError, setCommentError] = useState("");
+	const [ratingError, setRatingError] = useState("");
 
 	useEffect(() => {
 		const fetchHandymanId = async () => {
@@ -47,11 +50,28 @@ const Review = () => {
 
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
+		let isValid = true;
 
 		if (!handymanId) {
 			console.error("Cannot submit review without handymanId");
 			return;
 		}
+
+		setCommentError("");
+		setRatingError("");
+
+		const comment = commentRef.current?.value.trim();
+
+		if (!rating || rating === 0) {
+			setRatingError("Rating is required.");
+			isValid = false;
+		}
+		if (!comment) {
+			setCommentError("Comment is required.");
+			isValid = false;
+		}
+
+		if (!isValid) return;
 
 		const formData = {
 			id: crypto.randomUUID(),
@@ -124,8 +144,13 @@ const Review = () => {
 				</p>
 
 				<form onSubmit={handleSubmit}>
-					<div className="d-flex py-3 justify-content-center">
+					<div className="d-flex flex-column align-items-center py-3 justify-content-center">
 						<BasicRating rating={rating} setRating={setRating} />
+						{ratingError && (
+							<p className="text-danger font-size-12 mt-1 mb-0">
+								{ratingError}
+							</p>
+						)}
 					</div>
 
 					<p className="font-size-14 font-weight-400">Share your experience</p>
@@ -137,7 +162,11 @@ const Review = () => {
 						placeholder="Enter message"
 						className="w-100 p-2 rounded"
 						style={{ borderColor: "#E9E9E9" }}
+						onChange={() => setCommentError("")}
 					></textarea>
+					{commentError && (
+						<span className="text-danger font-size-12">{commentError}</span>
+					)}
 					<div
 						className="d-flex gap-2 py-3"
 						style={{ color: "#FB8133", cursor: "pointer" }}
@@ -154,10 +183,11 @@ const Review = () => {
 						multiple
 					/>
 
-					<div className="py-3 pt-2 d-flex gap-2">
+					<div className="py-3 pt-2 d-flex align-items-center gap-2">
 						<input
 							type="checkbox"
 							name="agree"
+							className={`${styles.checkboxInput} form-check-input mt-0`}
 							onChange={(e) => {
 								setAgreedToPublish(e.target.checked);
 							}}

@@ -1,11 +1,12 @@
 import { FaRegCalendarCheck } from "react-icons/fa6";
 import { LuClock3, LuMapPin } from "react-icons/lu";
 import { PiArrowsClockwiseFill, PiUserGearLight } from "react-icons/pi";
-import { Proposal } from "../../../types/types";
+import { Handyman, Proposal } from "../../../types/types";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MapModal from "../../../components/MapModal/MapModal";
-
+import { fetchHandymanById } from "../../../api/handymen";
+import { useUserStore } from "../../../store/userStore";
 
 const OngoingCard = ({
 	proposal,
@@ -15,7 +16,17 @@ const OngoingCard = ({
 	updateProposal: (proposal: Proposal) => void;
 }) => {
 	const navigate = useNavigate();
+	const user = useUserStore((state) => state.user);
 	const [showMap, setShowMap] = useState(false);
+	const [handyman, setHandyman] = useState<Handyman | null>(null);
+
+	useEffect(() => {
+		const getHandymanById = async () => {
+			const res = await fetchHandymanById(proposal.from.id);
+			setHandyman(res);
+		};
+		getHandymanById();
+	}, [proposal.from.id]);
 	return (
 		<div className="card">
 			<div className="card-body">
@@ -31,13 +42,13 @@ const OngoingCard = ({
 						<p className="mb-0 font-size-12 font-weight-600">View on map</p>
 					</div>
 
-		{showMap && (
-			<MapModal
-				lat={proposal.from.lat}
-				lon={proposal.from.lon}
-				onClose={() => setShowMap(false)}
-			/>
-		)}
+					{showMap && (
+						<MapModal
+							lat={proposal.from.lat}
+							lon={proposal.from.lon}
+							onClose={() => setShowMap(false)}
+						/>
+					)}
 				</div>
 				<div className="d-flex justify-content-between py-3 font-size-12 font-weight-400">
 					<div className="f-flex flex-column">
@@ -67,7 +78,19 @@ const OngoingCard = ({
 				</div>
 
 				<div className="d-flex gap-2">
-					<button className="btn orange-border-btn">Chat now</button>
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							if (!user?.id || !handyman?.id) return;
+							const id = `${user?.id}_${handyman?.id}`;
+							navigate(`/chat/${id}`, {
+								state: { handyman: handyman },
+							});
+						}}
+						className="btn orange-border-btn"
+					>
+						Chat now
+					</button>
 
 					<button
 						onClick={async () => {

@@ -1,12 +1,26 @@
 import { FaRegCalendarCheck, FaRegCheckCircle, FaStar } from "react-icons/fa";
 import { LuClock3 } from "react-icons/lu";
 import { PiArrowsClockwiseFill, PiUserGearLight } from "react-icons/pi";
-import { Proposal, ReviewFormData } from "../../../types/types";
+import { Handyman, Proposal, ReviewFormData } from "../../../types/types";
 import { useEffect, useState } from "react";
 import { fetchReviewByProposalId } from "../../../api/reviews";
+import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../../../store/userStore";
+import { fetchHandymanById } from "../../../api/handymen";
 
 const CompletedCard = ({ proposal }: { proposal: Proposal }) => {
+	const navigate = useNavigate();
+	const user = useUserStore((state) => state.user);
 	const [review, setReview] = useState<ReviewFormData | null>(null);
+	const [handyman, setHandyman] = useState<Handyman | null>(null);
+
+	useEffect(() => {
+		const getHandymanById = async () => {
+			const res = await fetchHandymanById(proposal.from.id);
+			setHandyman(res);
+		};
+		getHandymanById();
+	}, [proposal.from.id]);
 
 	useEffect(() => {
 		const loadReview = async () => {
@@ -59,7 +73,19 @@ const CompletedCard = ({ proposal }: { proposal: Proposal }) => {
 				</div>
 
 				<div className="d-flex gap-2">
-					<button className="btn orange-border-btn">Chat now</button>
+					<button
+						className="btn orange-border-btn"
+						onClick={(e) => {
+							e.preventDefault();
+							if (!user?.id || !handyman?.id) return;
+							const id = `${user?.id}_${handyman?.id}`;
+							navigate(`/chat/${id}`, {
+								state: { handyman: handyman },
+							});
+						}}
+					>
+						Chat now
+					</button>
 
 					<button className="btn orange-btn">Reopen</button>
 				</div>

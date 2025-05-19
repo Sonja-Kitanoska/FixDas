@@ -104,7 +104,11 @@ const ChatRoom = () => {
 	}, [id, lastClientMessageId, messages, messagesRef, handyman]);
 
 	if (!handyman) {
-		return <p>No handyman data found.</p>;
+		return (
+			<p className="d-flex justify-content-center align-items-center vh-100">
+				No handyman data found.
+			</p>
+		);
 	}
 
 	return (

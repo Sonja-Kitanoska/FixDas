@@ -46,12 +46,14 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 
 				<div className="d-flex gap-2 rounded-1">
 					<div>
-						<p
-							className="mb-0 font-size-10 font-weight-600  px-1"
-							style={{ color: "#38830A", backgroundColor: "#C3E2B0" }}
-						>
-							DRINGEND
-						</p>
+						{add.isUrgent && (
+							<p
+								className="mb-0 font-size-10 font-weight-600  px-1"
+								style={{ color: "#38830A", backgroundColor: "#C3E2B0" }}
+							>
+								DRINGEND
+							</p>
+						)}
 					</div>
 
 					<FaRegBookmark color="#1461F0" />

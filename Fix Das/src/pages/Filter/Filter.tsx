@@ -97,15 +97,19 @@ const Filter = () => {
 				{specialties.map((specialty) => (
 					<div
 						key={specialty.id}
-						className="d-flex gap-2 font-size-14 font-weight-500 mb-2"
+						className="d-flex align-items-center gap-2 font-size-14 font-weight-500 mb-2"
 					>
 						<input
 							type="checkbox"
-							className="scale-150 mr-2"
+							className={`${styles.checkboxInput} scale-150 mr-2 form-check-input`}
 							checked={selectedSpecialties.includes(specialty.name)}
 							onChange={() => handleCheckboxChange(specialty.name)}
 						/>
-						<label htmlFor="" style={{ color: "#575757" }}>
+						<label
+							htmlFor=""
+							className="form-check-label"
+							style={{ color: "#575757" }}
+						>
 							{specialty.name}
 						</label>
 					</div>

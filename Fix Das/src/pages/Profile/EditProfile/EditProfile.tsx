@@ -472,7 +472,11 @@ const EditProfile = () => {
 						<div className="py-3">
 							<div className="font-size-14">
 								<div className="d-flex gap-2 align-items-center">
-									<input type="checkbox" id="notifyEmail" />
+									<input
+										type="checkbox"
+										id="notifyEmail"
+										className={`${styles.checkboxInput} form-check-input`}
+									/>
 									<label htmlFor="notifyEmail">Notify via email</label>
 								</div>
 								<p className="font-size-12" style={{ color: "#474747" }}>
@@ -481,7 +485,11 @@ const EditProfile = () => {
 							</div>
 							<div className="font-size-14">
 								<div className="d-flex gap-2 align-items-center">
-									<input type="checkbox" id="notifySMS" className="" />
+									<input
+										type="checkbox"
+										id="notifySMS"
+										className={`${styles.checkboxInput} form-check-input`}
+									/>
 									<label htmlFor="notifySMS">Notify via SMS</label>
 								</div>
 								<p className="font-size-12" style={{ color: "#474747" }}>

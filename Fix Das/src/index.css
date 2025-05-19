@@ -98,7 +98,3 @@ body {
 	border: 1px solid transparent;
 	cursor: pointer;
 }
-
-input[type="checkbox"] {
-	accent-color: #fa6100;
-}

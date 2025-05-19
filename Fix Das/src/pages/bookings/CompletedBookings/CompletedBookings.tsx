@@ -37,7 +37,8 @@ const CompletedBookings = () => {
 						onClick={() => navigate("/bookings")}
 						className="font-size-14 font-weight-500"
 					>
-						New Proposals (1)
+						New Proposals (
+						{proposals.filter((p) => p.status === "pending").length})
 					</p>
 					<p
 						onClick={() => navigate("/bookings/ongoing")}
