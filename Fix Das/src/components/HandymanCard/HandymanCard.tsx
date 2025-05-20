@@ -14,7 +14,7 @@ const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 				<div className="d-flex gap-1 align-items-center">
 					<div style={{ width: "36px", height: "36px" }}>
 						<img
-							src="/LandingPage/testimonials/client1.svg"
+							src={handyman.image}
 							alt="User image"
 							className="w-100 h-100 rounded-circle"
 						/>

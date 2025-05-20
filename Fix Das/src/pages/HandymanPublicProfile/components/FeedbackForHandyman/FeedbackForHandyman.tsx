@@ -1,11 +1,13 @@
 import { FaStar } from "react-icons/fa6";
 import { ReviewFormData } from "../../../../types/types";
+import { useUserStore } from "../../../../store/userStore";
 
 const FeedbackForHandyman = ({
 	feedbacks,
 }: {
 	feedbacks: ReviewFormData[];
 }) => {
+	const user = useUserStore((state) => state.user);
 	if (!Array.isArray(feedbacks) || feedbacks.length === 0) {
 		return <p>No feedbacks yet.</p>;
 	}
@@ -20,7 +22,11 @@ const FeedbackForHandyman = ({
 								style={{ width: "40px", height: "40px", borderRadius: "50%" }}
 							>
 								<img
-									src="/PublicProfileHandyman/client.png"
+									src={
+										typeof user?.image === "string" && user.image.length > 0
+											? user.image
+											: "/Profile/ProfilePicture.svg"
+									}
 									alt="Client's photo"
 									className="w-100 h-100 object-fit-cover"
 								/>

@@ -42,7 +42,7 @@
 			"name": "Barack Obama",
 			"profession": "Cleaning & Home Repair Specialist",
 			"location": "Munich, Germany",
-			"stars": 1.375,
+			"stars": 5,
 			"jobsDone": 7,
 			"numberReviews": 25,
 			"categories": ["Cleaning", "Home Repair", "A/C"],
@@ -451,7 +451,7 @@
 		{
 			"from": {
 				"name": "Sonja",
-				"id": "GXvhyG2naZQOryyifq8oIFirwlD2",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"location": "Berlin"
 			},
 			"handymanId": "2",
@@ -464,7 +464,7 @@
 		{
 			"from": {
 				"name": "Sonja",
-				"id": "GXvhyG2naZQOryyifq8oIFirwlD2",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"location": "Skopje"
 			},
 			"handymanId": "2",
@@ -477,7 +477,7 @@
 		{
 			"from": {
 				"name": "Sonja",
-				"id": "44",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"location": "Berlin"
 			},
 			"handymanId": "2",
@@ -486,84 +486,6 @@
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 3
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"proposalId": 9,
-			"rating": "5",
-			"comment": "Madonna, your work is excellent!",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 4
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"proposalId": 2,
-			"rating": "1",
-			"comment": "not good",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 5
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "44",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"proposalId": 2,
-			"rating": "4",
-			"comment": "Good job Madonna",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 6
-		},
-		{
-			"handymanId": "2",
-			"proposalId": 2,
-			"rating": "0",
-			"comment": "",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 100
-		},
-		{
-			"handymanId": "2",
-			"proposalId": 9,
-			"rating": "2.5",
-			"comment": "brad pitt is amazing",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 101
-		},
-		{
-			"handymanId": "2",
-			"proposalId": 1,
-			"rating": "2.5",
-			"comment": "..-.",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 102
-		},
-		{
-			"handymanId": "2",
-			"proposalId": 1,
-			"rating": "0.5",
-			"comment": "great job",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 103
 		}
 	],
 	"proposals": [
