@@ -40,8 +40,11 @@ const NewProposals = () => {
 
 	return (
 		<>
-			<div style={{ height: "100vh", paddingBottom: "78px" }}>
-				<div className="container py-3">
+			<div
+				style={{ paddingBottom: "83px", minHeight: "100vh" }}
+				className="container"
+			>
+				<div className="container">
 					<div className="d-flex justify-content-between align-items-center py-2">
 						<h3 className="orange">My bookings</h3>
 						<img src="/notification-icon.svg" alt="Notiffication icon" />

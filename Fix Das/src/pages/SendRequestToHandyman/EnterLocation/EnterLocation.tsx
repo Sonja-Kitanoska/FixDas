@@ -15,8 +15,6 @@ const EnterLocation = () => {
 	const [suggestions, setSuggestions] = useState<Place[]>([]);
 	const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
 
-	console.log("LOCATIONIQ_TOKEN:", LOCATIONIQ_TOKEN);
-
 	const reverseGeocode = async (lat: number, lon: number) => {
 		try {
 			// Use LocationIQ reverse geocoding API
@@ -70,11 +68,9 @@ const EnterLocation = () => {
 			);
 			const data = await response.json();
 
-			// If response is an array, set it
 			if (Array.isArray(data)) {
 				setSuggestions(data);
 			} else {
-				// fallback if error or unexpected response
 				console.warn("Unexpected LocationIQ response:", data);
 				setSuggestions([]);
 			}

@@ -82,7 +82,7 @@
 			"name": "Madonna",
 			"profession": "Solar Energy Specialist",
 			"location": "Hamburg, Germany",
-			"stars": 4,
+			"stars": 4.5,
 			"jobsDone": 11,
 			"numberReviews": 30,
 			"categories": ["Solar systems", "Heating"],
@@ -450,20 +450,20 @@
 	"reviews": [
 		{
 			"from": {
-				"name": "Sonja",
+				"name": "Sonja Kitanoska",
 				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"location": "Berlin"
 			},
-			"handymanId": "2",
-			"rating": "3",
-			"comment": "good",
+			"handymanId": "1",
+			"rating": "5",
+			"comment": "Great experience from start to finish. Very professional and detail-oriented.",
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 2
 		},
 		{
 			"from": {
-				"name": "Sonja",
+				"name": "Sonja Kitanoska",
 				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"location": "Skopje"
 			},
@@ -473,160 +473,164 @@
 			"photos": [],
 			"agreedToPublish": true,
 			"id": 99
-		},
-		{
-			"from": {
-				"name": "Sonja",
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"location": "Berlin"
-			},
-			"handymanId": "2",
-			"rating": "5",
-			"comment": "masterpiece",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 3
 		}
 	],
 	"proposals": [
 		{
-			"id": 1,
-			"from": {
-				"id": "2",
-				"name": "Barack Obama",
-				"role": "handyman",
-				"lat": 41.9996707,
-				"lon": 18.02986146162855
-			},
-			"to": {
-				"id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
-				"role": "client"
-			},
-			"title": "Electrician service",
-			"description": "Fix a lamp",
-			"location": "Strasse, Munich",
-			"time": "2025-05-04T11:00:42.680Z",
-			"status": "completed"
-		},
-		{
 			"id": 2,
 			"from": {
 				"id": "3",
-				"name": "Madonna",
+				"name": "Brad Pitt",
 				"role": "handyman",
-				"lat": 59.30744919057832,
-				"lon": 18.03032580820606
+				"lat": 48.1351,
+				"lon": 11.582
 			},
 			"to": {
-				"id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"role": "client"
 			},
 			"title": "Electrician service",
 			"description": "Fix a lamp",
-			"location": "Strasse, Munich",
-			"time": "2025-05-04T11:00:42.680Z",
+			"location": "Munich, Germany",
+			"time": "2025-05-20T12:05:00Z",
 			"status": "accepted"
 		},
 		{
-			"id": 9,
+			"id": 1,
 			"from": {
-				"id": "4",
-				"name": "Brad Pitt",
+				"id": "1",
+				"name": "Klaus Schneider",
 				"role": "handyman",
-				"lat": 59.30744919057832,
-				"lon": 18.03032580820606
+				"lat": 50.1109,
+				"lon": 8.6821
 			},
 			"to": {
-				"id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"role": "client"
 			},
-			"title": "Electrician service",
-			"description": "Fix a lamp",
-			"location": "Strasse, Munich",
-			"time": "2025-05-04T11:00:42.680Z",
-			"status": "accepted"
+			"title": "Wall Painting",
+			"description": "Painting living room and hallway",
+			"location": "Frankfurt, Germany",
+			"time": "2025-05-10T10:05:00Z",
+			"status": "pending"
+		},
+		{
+			"id": 4,
+			"from": {
+				"id": "4",
+				"name": "Madonna",
+				"role": "handyman",
+				"lat": 53.5511,
+				"lon": 9.9937
+			},
+			"to": {
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
+				"role": "client"
+			},
+			"title": "Leak Fix",
+			"description": "Repair leaking kitchen faucet",
+			"location": "Hamburg, Germany",
+			"time": "2025-05-20T11:20:00Z",
+			"status": "completed"
+		},
+		{
+			"id": 5,
+			"from": {
+				"id": "5",
+				"name": "Tom Cruise",
+				"role": "handyman",
+				"lat": 48.7758,
+				"lon": 9.1829
+			},
+			"to": {
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
+				"role": "client"
+			},
+			"title": "TV Wall Mounting",
+			"description": "Mount 55-inch TV on living room wall",
+			"location": "Stuttgart, Germany",
+			"time": "2025-04-20T23:25:00Z",
+			"status": "pending"
+		},
+		{
+			"id": 6,
+			"from": {
+				"id": "6",
+				"name": "Serena Williams",
+				"role": "handyman",
+				"lat": 48.7758,
+				"lon": 9.1829
+			},
+			"to": {
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
+				"role": "client"
+			},
+			"title": "Bathroom Tiling",
+			"description": "Retile shower area and fix grout",
+			"location": "Cologne, Germany",
+			"time": "2025-05-20T08:30:00Z",
+			"status": "pending"
+		},
+		{
+			"id": 7,
+			"from": {
+				"id": "7",
+				"name": "Jennifer Lopez",
+				"role": "handyman",
+				"lat": 52.52,
+				"lon": 13.405
+			},
+			"to": {
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
+				"role": "client"
+			},
+			"title": "Garden Work",
+			"description": "Trim hedges and mow the lawn",
+			"location": "Berlin, Germany",
+			"time": "2025-05-20T17:35:00Z",
+			"status": "pending"
 		}
 	],
 	"requests": [
 		{
-			"id": "dbc9f4bf-af2a-43d9-95d8-b9987cbc2a35",
+			"id": "a41fd0c2-6b21-4e39-8d9e-ad6bb36873ad",
 			"from": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"name": "Sonja Kitanoska",
 				"role": "client"
 			},
 			"to": {
-				"id": "5",
+				"id": "2",
 				"role": "handyman"
 			},
-			"message": "",
+			"message": " I have a few things that need fixing:\nThe electrical outlets in my living room are loose and sometimes spark when I plug things in.\nMy air conditioning unit isn’t cooling properly and might need a thorough check or repair.\nThere are some minor home repairs like fixing a broken cabinet hinge and sealing a few gaps around the windows.",
 			"location": {
-				"address": "Samoilova, Ново Маало, Centar, Skopje, Municipality of Centar, City of Skopje, 1111, North Macedonia",
-				"lat": 41.9996707,
-				"lon": 21.4333514
-			},
-			"time": "12pm-4pm",
-			"date": "Wednesday, May 21 2025"
-		},
-		{
-			"id": "81b6dc93-309e-4c99-bb56-fc78fdac67d4",
-			"from": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "8",
-				"role": "handyman"
-			},
-			"message": "",
-			"location": {
-				"address": "En tidsmaskin på torget, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
-				"lat": 59.30767290107413,
-				"lon": 18.02986146162855
-			},
-			"time": "12pm-4pm",
-			"date": "Wednesday, May 21 2025"
-		},
-		{
-			"id": "0ed2233c-f60d-4bca-883e-463c0ba220ab",
-			"from": {
-				"id": "WSj0QeP92wbj9DMhOASl1Mi3n313",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "3",
-				"role": "handyman"
-			},
-			"message": "hello",
-			"location": {
-				"address": "stockholm",
+				"address": "Berlin, Germany",
 				"lat": null,
 				"lon": null
 			},
 			"time": "12pm-4pm",
-			"date": "Wednesday, May 14 2025"
+			"date": "Thursday, June 5 2025"
 		},
 		{
-			"id": "6446acfb-62f7-4d75-8115-4a6d097c5127",
+			"id": "12a2e2af-fb05-4a2b-a22c-a9147d5bb431",
 			"from": {
-				"id": "o0kB2uFmaoPGOTESWVcHrz4iWyk2",
+				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
 				"name": "Sonja Kitanoska",
 				"role": "client"
 			},
 			"to": {
-				"id": "14f3ca31-c0ea-4182-b78d-04c8f6142fa1",
+				"id": "1",
 				"role": "handyman"
 			},
-			"message": "",
+			"message": "Hey Klaus,\nI’m having some trouble with my living room radiator — it’s not heating up like it should. Could you take a look and maybe fix the heating setup? Also, it’d be great if you could check my bathroom fixtures to make sure everything’s working fine. Thanks!",
 			"location": {
-				"address": "",
-				"lat": null,
-				"lon": null
+				"address": "Sjövikstorget, Liljeholmen, Stockholm,  117 58, Sweden",
+				"lat": 59.3077420606884,
+				"lon": 18.029732951012626
 			},
-			"time": "12pm-4pm",
-			"date": "Friday, May 23 2025"
+			"time": "8am-12pm",
+			"date": "Thursday, June 12 2025"
 		}
 	]
 }
