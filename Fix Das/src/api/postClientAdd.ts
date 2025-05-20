@@ -48,6 +48,7 @@ export const postClientAdd = async (data: ClientAddData) => {
 	);
 	const body = {
 		title: data.title,
+		image: data.image,
 		description: data.description,
 		location: data.location,
 		images: base64Images,

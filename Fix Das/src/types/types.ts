@@ -80,6 +80,7 @@ export type Testimonial = {
 export type ClientAddData = {
 	id: string;
 	title: string;
+	image?: string;
 	description: string;
 	location: {
 		address: string;

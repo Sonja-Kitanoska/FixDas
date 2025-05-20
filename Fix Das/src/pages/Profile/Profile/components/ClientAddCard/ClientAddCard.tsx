@@ -23,7 +23,11 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 				<div className="d-flex gap-2 align-items-center">
 					<div style={{ width: "36px", height: "36px" }}>
 						<img
-							src="/LandingPage/testimonials/client1.svg"
+							src={
+								typeof user?.image === "string" && user.image.length > 0
+									? user.image
+									: "/Profile/ProfilePicture.svg"
+							}
 							alt="User image"
 							className="w-100 h-100 rounded-circle"
 						/>

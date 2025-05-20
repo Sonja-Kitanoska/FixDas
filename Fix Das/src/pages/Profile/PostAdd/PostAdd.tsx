@@ -111,6 +111,7 @@ const PostAdd = () => {
 
 	const [formData, setFormData] = useState({
 		title: "",
+		image: "",
 		description: "",
 		location: {
 			address: "",
@@ -224,6 +225,7 @@ const PostAdd = () => {
 			const data = {
 				id: crypto.randomUUID(),
 				title: formData.title,
+				image: user.image,
 				description: formData.description,
 				location: {
 					address: address,
