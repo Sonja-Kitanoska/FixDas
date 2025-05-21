@@ -34,6 +34,7 @@
 				"/LandingPage/testimonials/work-images/work3.svg",
 				"/LandingPage/testimonials/work-images/work4.svg"
 			],
+			"unavailableDates": ["2025-06-22", "2025-06-12", "2025-05-27"],
 			"createdAt": "2025-05-01T10:30:00Z"
 		},
 		{
@@ -54,6 +55,7 @@
 				"/LandingPage/testimonials/work-images/work3.svg",
 				"/LandingPage/testimonials/work-images/work4.svg"
 			],
+			"unavailableDates": ["2025-06-22", "2025-06-12", "2025-05-26"],
 			"createdAt": "2025-05-01T10:30:00Z"
 		},
 		{

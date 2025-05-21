@@ -16,12 +16,19 @@ const CalendarPage = () => {
 	const navigate = useNavigate();
 	const { handymanId } = useParams();
 	const [handyman, setHandyman] = useState<Handyman | null>(null);
+	const [disabledDates, setDisabledDates] = useState<Date[]>([]);
 
 	useEffect(() => {
 		const getHandyman = async () => {
 			if (handymanId) {
 				const data = await fetchHandymanById(handymanId);
 				setHandyman(data);
+				if (data?.unavailableDates) {
+					const parsedDates = data.unavailableDates.map(
+						(dateStr: string) => new Date(dateStr)
+					);
+					setDisabledDates(parsedDates);
+				}
 			}
 		};
 
@@ -93,6 +100,7 @@ const CalendarPage = () => {
 							<CalendarComponent
 								value={selectedDate}
 								onChange={setSelectedDate}
+								disabledDates={disabledDates}
 							/>
 						</div>
 					</div>

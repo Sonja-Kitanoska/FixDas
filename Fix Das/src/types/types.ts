@@ -37,6 +37,7 @@ export type Handyman = {
 	specialties: string[];
 	description: string;
 	workImages: string[];
+	unavailableDates?: string[];
 	createdAt: string;
 };
 
