@@ -140,3 +140,10 @@ export type ClientRequest = {
 	time: string;
 	date: string;
 };
+
+export interface Place {
+	display_name: string;
+	place_id: string;
+	lat: string;
+	lon: string;
+}

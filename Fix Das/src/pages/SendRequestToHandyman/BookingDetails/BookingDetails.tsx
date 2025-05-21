@@ -244,7 +244,16 @@ const BookingDetails = () => {
 									Optional
 								</span>
 							</label>
-							<div className={styles.inputWrapper}>
+							<div
+								className={styles.inputWrapper}
+								onClick={() => {
+									updateFormData({
+										message,
+										address,
+									});
+									navigate(`/bookings/enter-location/${handymanId}`);
+								}}
+							>
 								{<LuMapPin className={styles.icon} />}
 								<input
 									id="address"
@@ -254,17 +263,7 @@ const BookingDetails = () => {
 									value={address}
 									onChange={(e) => setAddress(e.target.value)}
 								/>
-								<span
-									className={styles.locationIcon}
-									role="button"
-									onClick={() => {
-										updateFormData({
-											message,
-											address,
-										});
-										navigate(`/bookings/enter-location/${handymanId}`);
-									}}
-								>
+								<span className={styles.locationIcon} role="button">
 									<TbCurrentLocation color="#939393" />
 								</span>
 							</div>
