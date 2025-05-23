@@ -1,638 +1,767 @@
 {
-	"users": [
-		{
-			"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-			"email": "avramoskamkd@gmail.com",
-			"username": "Sonja Kitanoska",
-			"phone": null,
-			"role": "client",
-			"createdAt": "2025-05-20T08:13:41.598Z"
-		}
-	],
-	"handymen": [
-		{
-			"id": "1",
-			"image": "/LandingPage/handyman-img.png",
-			"name": "Klaus Schneider",
-			"profession": "Heating & Sanitary Technician",
-			"location": "Berlin, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 38,
-			"categories": [
-				"Heating",
-				"Windows",
-				"Sanitary",
-				"Cleaning",
-				"Solar systems"
-			],
-			"specialties": ["Heating installation"],
-			"description": "I'm available around noon and ready to help with heating or sanitary work. I focus on quality and getting the job done right.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"unavailableDates": ["2025-06-22", "2025-06-12", "2025-05-27"],
-			"createdAt": "2025-05-01T10:30:00Z"
-		},
-		{
-			"id": "2",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Barack Obama",
-			"profession": "Cleaning & Home Repair Specialist",
-			"location": "Munich, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 25,
-			"categories": ["Cleaning", "Home Repair", "A/C"],
-			"specialties": ["Electrical installation"],
-			"description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"unavailableDates": ["2025-06-22", "2025-06-12", "2025-05-26"],
-			"createdAt": "2025-05-01T10:30:00Z"
-		},
-		{
-			"id": "3",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "Brad Pitt",
-			"profession": "Renovation & A/C Technician",
-			"location": "Frankfurt, Germany",
-			"stars": 3.5,
-			"jobsDone": 6,
-			"numberReviews": 50,
-			"categories": ["A/C", "Plumbing", "Renovation", "Construction"],
-			"specialties": ["Heating installation"],
-			"description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-03-01T10:30:00Z"
-		},
-		{
-			"id": "4",
-			"image": "/LandingPage/testimonials/client1.svg",
-			"name": "Madonna",
-			"profession": "Solar Energy Specialist",
-			"location": "Hamburg, Germany",
-			"stars": 4.5,
-			"jobsDone": 11,
-			"numberReviews": 30,
-			"categories": ["Solar systems", "Heating"],
-			"specialties": ["Heating installation"],
-			"description": "Specialized in solar energy systems installation. Offering eco-friendly solutions.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-02-01T10:30:00Z"
-		},
-		{
-			"id": "5",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Tom Cruise",
-			"profession": "Electrician & A/C Specialist",
-			"location": "Stuttgart, Germany",
-			"stars": 4,
-			"jobsDone": 18,
-			"numberReviews": 40,
-			"categories": ["Electrical", "A/C", "Renovation"],
-			"specialties": ["Heating installation"],
-			"description": "Offering professional electrical installations and A/C repairs. Fast response times.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-01-01T10:30:00Z"
-		},
-		{
-			"id": "6",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "Serena Williams",
-			"profession": "Plumber & Heating Technician",
-			"location": "Cologne, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 60,
-			"categories": ["Sanitary", "Plumbing", "Heating"],
-			"specialties": ["Heating installation"],
-			"description": "Highly skilled plumber and heating engineer. Reliable, efficient, and friendly.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2024-03-01T10:30:00Z"
-		},
-		{
-			"id": "7",
-			"image": "/LandingPage/testimonials/client1.svg",
-			"name": "Jennifer Lopez",
-			"profession": "Electrical & Renovation Specialist",
-			"location": "Berlin, Germany",
-			"stars": 3,
-			"jobsDone": 10,
-			"numberReviews": 20,
-			"categories": ["Electrical", "Renovation", "Solar systems"],
-			"specialties": ["Electrical installation"],
-			"description": "Electrical work and home renovation expert. Focus on sustainable solutions.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-03-01T10:30:00Z"
-		},
-		{
-			"id": "8",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Beyonce",
-			"profession": "Solar Heating & Plumbing Expert",
-			"location": "Hamburg, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 75,
-			"categories": ["Solar systems", "Plumbing", "Heating"],
-			"specialties": ["Heating installation"],
-			"description": "Top-tier plumber specializing in solar-powered heating systems. Committed to quality.",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			],
-			"createdAt": "2025-04-01T13:30:00Z"
-		}
-	],
-	"handymenAdds": [
-		{
-			"id": "1",
-			"image": "/LandingPage/handyman-img.png",
-			"name": "Klaus Schneider",
-			"profession": "Heating & Sanitary Technician",
-			"location": "Berlin, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 38,
-			"categories": [
-				"Heating",
-				"Windows",
-				"Sanitary",
-				"Cleaning",
-				"Solar systems"
-			],
-			"description": "Hi, I'm Klaus – your go-to expert for heating and sanitary systems in Berlin. With years of hands-on experience, I bring precision and reliability to every job. Whether you need a quick repair or a complete installation, I’m here to help – especially around noon when I'm usually available. I believe in clear communication, clean work, and long-lasting solutions. Let’s make your home more efficient and comfortable!"
-		},
-		{
-			"id": "5",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Tom Cruise",
-			"profession": "Electrician & A/C Specialist",
-			"location": "Stuttgart, Germany",
-			"stars": 4,
-			"jobsDone": 18,
-			"numberReviews": 40,
-			"categories": ["Electrical", "A/C", "Renovation"],
-			"description": "Hi, I’m Tom — your local expert in electrical installations and A/C systems in Stuttgart. I’ve handled everything from minor fixes to full-scale renovations. My goal is always the same: deliver fast, professional, and safe service you can count on. I'm passionate about creating comfortable, energy-efficient homes, and I’d love to help you with your next project!"
-		},
-		{
-			"id": "6",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "Serena Williams",
-			"profession": "Plumber & Heating Technician",
-			"location": "Cologne, Germany",
-			"stars": 5,
-			"jobsDone": 7,
-			"numberReviews": 60,
-			"categories": ["Sanitary", "Plumbing", "Heating"],
-			"description": "I'm Serena, a skilled plumber and heating specialist based in Cologne. I take pride in offering reliable, friendly, and top-quality service. Whether it’s a leaky faucet or a complete heating system setup, I work efficiently and make sure you're 100% satisfied. My clients love my attention to detail and the peace of mind they get when I handle their repairs. Let’s get your home running smoothly again!"
-		}
-	],
-	"specialties": [
-		{
-			"id": 1,
-			"name": "Electrical installation"
-		},
-		{
-			"id": 2,
-			"name": "Sanitary installation"
-		},
-		{
-			"id": 3,
-			"name": "Painting and painting work"
-		},
-		{
-			"id": 4,
-			"name": "Carpentry/carpentry"
-		},
-		{
-			"id": 5,
-			"name": "Roofing"
-		},
-		{
-			"id": 6,
-			"name": "Heating installation"
-		},
-		{
-			"id": 7,
-			"name": "Tile work"
-		},
-		{
-			"id": 8,
-			"name": "Bricklaying"
-		},
-		{
-			"id": 9,
-			"name": "Garden and landscaping"
-		},
-		{
-			"id": 10,
-			"name": "Locksmith work"
-		}
-	],
-	"categories": [
-		{
-			"id": 1,
-			"name": "Home Repair",
-			"image": "/LandingPage/services/Group-1.svg"
-		},
-		{
-			"id": 2,
-			"name": "Windows",
-			"image": "/LandingPage/services/Group-2.svg"
-		},
-		{
-			"id": 3,
-			"name": "Painter",
-			"image": "/LandingPage/services/Group-3.svg"
-		},
-		{
-			"id": 4,
-			"name": "Electrician",
-			"image": "/LandingPage/services/Group-4.svg"
-		},
-		{
-			"id": 5,
-			"name": "A / C",
-			"image": "/LandingPage/services/Group-5.svg"
-		},
-		{
-			"id": 6,
-			"name": "Cleaning",
-			"image": "/LandingPage/services/Group-6.svg"
-		},
-		{
-			"id": 7,
-			"name": "Assembly",
-			"image": "/LandingPage/services/Group-7.svg"
-		},
-		{
-			"id": 8,
-			"name": "Carpenter",
-			"image": "/LandingPage/services/Group-8.svg"
-		},
-		{
-			"id": 9,
-			"name": "Construction",
-			"image": "/LandingPage/services/Group-9.svg"
-		},
-		{
-			"id": 10,
-			"name": "Plumbing",
-			"image": "/LandingPage/services/Group-10.svg"
-		},
-		{
-			"id": 11,
-			"name": "Landscaping",
-			"image": "/LandingPage/services/Group-1.svg"
-		},
-		{
-			"id": 12,
-			"name": "Roofing",
-			"image": "/LandingPage/services/Group-2.svg"
-		},
-		{
-			"id": 13,
-			"name": "Tiling",
-			"image": "/LandingPage/services/Group-3.svg"
-		},
-		{
-			"id": 14,
-			"name": "HVAC",
-			"image": "/LandingPage/services/Group-4.svg"
-		},
-		{
-			"id": 15,
-			"name": "Masonry",
-			"image": "/LandingPage/services/Group-5.svg"
-		},
-		{
-			"id": 16,
-			"name": "Handyman",
-			"image": "/LandingPage/services/Group-6.svg"
-		},
-		{
-			"id": 17,
-			"name": "Drywall",
-			"image": "/LandingPage/services/Group-7.svg"
-		},
-		{
-			"id": 18,
-			"name": "Pest Control",
-			"image": "/LandingPage/services/Group-8.svg"
-		},
-		{
-			"id": 19,
-			"name": "Flooring",
-			"image": "/LandingPage/services/Group-9.svg"
-		},
-		{
-			"id": 20,
-			"name": "Gardening",
-			"image": "/LandingPage/services/Group-10.svg"
-		},
-		{
-			"id": 21,
-			"name": "Interior Design",
-			"image": "/LandingPage/services/Group-1.svg"
-		},
-		{
-			"id": 22,
-			"name": "Exterior Painting",
-			"image": "/LandingPage/services/Group-2.svg"
-		},
-		{
-			"id": 23,
-			"name": "Window Repair",
-			"image": "/LandingPage/services/Group-3.svg"
-		},
-		{
-			"id": 24,
-			"name": "Electrical Wiring",
-			"image": "/LandingPage/services/Group-4.svg"
-		},
-		{
-			"id": 25,
-			"name": "Fencing",
-			"image": "/LandingPage/services/Group-5.svg"
-		}
-	],
-	"testimonials": [
-		{
-			"id": "1",
-			"image": "/LandingPage/testimonials/client1.svg",
-			"name": "John Doe",
-			"location": "Dresden",
-			"stars": 5,
-			"comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg",
-				"/LandingPage/testimonials/work-images/work4.svg"
-			]
-		},
-		{
-			"id": "2",
-			"image": "/LandingPage/testimonials/client3.svg",
-			"name": "Angela Merkel",
-			"location": "Hamburg",
-			"stars": 4,
-			"comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg"
-			]
-		},
-		{
-			"id": "3",
-			"image": "/LandingPage/testimonials/client2.svg",
-			"name": "Gerhard Schröder",
-			"location": "Berlin",
-			"stars": 5,
-			"comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
-			"workImages": [
-				"/LandingPage/testimonials/work-images/work1.svg",
-				"/LandingPage/testimonials/work-images/work2.svg",
-				"/LandingPage/testimonials/work-images/work3.svg"
-			]
-		}
-	],
-	"client-adds": [
-		{
-			"title": "Repair Broken Sofa",
-			"description": "The sofa frame is damaged and needs urgent repair. Looking for someone available soon.",
-			"location": {
-				"address": "Berlin, Germany",
-				"lat": 52.510885,
-				"lon": 13.3989367
-			},
-			"images": ["https://picsum.photos/400/200?random=777"],
-			"userId": "PmGGfweLsmavyzADGUroyPzQuj22",
-			"createdAt": "2025-05-20T07:47:01.767Z",
-			"isUrgent": true,
-			"id": 33
-		}
-	],
-	"reviews": [
-		{
-			"from": {
-				"name": "Sonja Kitanoska",
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"location": "Berlin"
-			},
-			"handymanId": "1",
-			"rating": "5",
-			"comment": "Great experience from start to finish. Very professional and detail-oriented.",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 2
-		},
-		{
-			"from": {
-				"name": "Sonja Kitanoska",
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"location": "Skopje"
-			},
-			"handymanId": "2",
-			"rating": "5",
-			"comment": "Good job Obama, great!",
-			"photos": [],
-			"agreedToPublish": true,
-			"id": 99
-		}
-	],
-	"proposals": [
-		{
-			"id": 2,
-			"from": {
-				"id": "3",
-				"name": "Brad Pitt",
-				"role": "handyman",
-				"lat": 48.1351,
-				"lon": 11.582
-			},
-			"to": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"role": "client"
-			},
-			"title": "Electrician service",
-			"description": "Fix a lamp",
-			"location": "Munich, Germany",
-			"time": "2025-05-20T12:05:00Z",
-			"status": "accepted"
-		},
-		{
-			"id": 1,
-			"from": {
-				"id": "1",
-				"name": "Klaus Schneider",
-				"role": "handyman",
-				"lat": 50.1109,
-				"lon": 8.6821
-			},
-			"to": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"role": "client"
-			},
-			"title": "Wall Painting",
-			"description": "Painting living room and hallway",
-			"location": "Frankfurt, Germany",
-			"time": "2025-05-10T10:05:00Z",
-			"status": "pending"
-		},
-		{
-			"id": 4,
-			"from": {
-				"id": "4",
-				"name": "Madonna",
-				"role": "handyman",
-				"lat": 53.5511,
-				"lon": 9.9937
-			},
-			"to": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"role": "client"
-			},
-			"title": "Leak Fix",
-			"description": "Repair leaking kitchen faucet",
-			"location": "Hamburg, Germany",
-			"time": "2025-05-20T11:20:00Z",
-			"status": "completed"
-		},
-		{
-			"id": 5,
-			"from": {
-				"id": "5",
-				"name": "Tom Cruise",
-				"role": "handyman",
-				"lat": 48.7758,
-				"lon": 9.1829
-			},
-			"to": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"role": "client"
-			},
-			"title": "TV Wall Mounting",
-			"description": "Mount 55-inch TV on living room wall",
-			"location": "Stuttgart, Germany",
-			"time": "2025-04-20T23:25:00Z",
-			"status": "pending"
-		},
-		{
-			"id": 6,
-			"from": {
-				"id": "6",
-				"name": "Serena Williams",
-				"role": "handyman",
-				"lat": 48.7758,
-				"lon": 9.1829
-			},
-			"to": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"role": "client"
-			},
-			"title": "Bathroom Tiling",
-			"description": "Retile shower area and fix grout",
-			"location": "Cologne, Germany",
-			"time": "2025-05-20T08:30:00Z",
-			"status": "pending"
-		},
-		{
-			"id": 7,
-			"from": {
-				"id": "7",
-				"name": "Jennifer Lopez",
-				"role": "handyman",
-				"lat": 52.52,
-				"lon": 13.405
-			},
-			"to": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"role": "client"
-			},
-			"title": "Garden Work",
-			"description": "Trim hedges and mow the lawn",
-			"location": "Berlin, Germany",
-			"time": "2025-05-20T17:35:00Z",
-			"status": "pending"
-		}
-	],
-	"requests": [
-		{
-			"id": "a41fd0c2-6b21-4e39-8d9e-ad6bb36873ad",
-			"from": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "2",
-				"role": "handyman"
-			},
-			"message": " I have a few things that need fixing:\nThe electrical outlets in my living room are loose and sometimes spark when I plug things in.\nMy air conditioning unit isn’t cooling properly and might need a thorough check or repair.\nThere are some minor home repairs like fixing a broken cabinet hinge and sealing a few gaps around the windows.",
-			"location": {
-				"address": "Berlin, Germany",
-				"lat": null,
-				"lon": null
-			},
-			"time": "12pm-4pm",
-			"date": "Thursday, June 5 2025"
-		},
-		{
-			"id": "12a2e2af-fb05-4a2b-a22c-a9147d5bb431",
-			"from": {
-				"id": "PmGGfweLsmavyzADGUroyPzQuj22",
-				"name": "Sonja Kitanoska",
-				"role": "client"
-			},
-			"to": {
-				"id": "1",
-				"role": "handyman"
-			},
-			"message": "Hey Klaus,\nI’m having some trouble with my living room radiator — it’s not heating up like it should. Could you take a look and maybe fix the heating setup? Also, it’d be great if you could check my bathroom fixtures to make sure everything’s working fine. Thanks!",
-			"location": {
-				"address": "Sjövikstorget, Liljeholmen, Stockholm,  117 58, Sweden",
-				"lat": 59.3077420606884,
-				"lon": 18.029732951012626
-			},
-			"time": "8am-12pm",
-			"date": "Thursday, June 12 2025"
-		}
-	]
+  "users": [
+    {
+      "location": "skopje",
+      "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+      "image": "data:image/jpeg;base64,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",
+      "email": "avramoskamkd@gmail.com",
+      "phone": "",
+      "username": "Sonja Kitanoska",
+      "createdAt": "2025-05-23T09:16:09.286Z",
+      "role": "client"
+    }
+  ],
+  "handymen": [
+    {
+      "id": "1",
+      "image": "/LandingPage/handyman-img.png",
+      "name": "Klaus Schneider",
+      "profession": "Heating & Sanitary Technician",
+      "location": "Berlin, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 38,
+      "categories": [
+        "Heating",
+        "Windows",
+        "Sanitary",
+        "Cleaning",
+        "Solar systems"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "I'm available around noon and ready to help with heating or sanitary work. I focus on quality and getting the job done right.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "unavailableDates": [
+        "2025-06-22",
+        "2025-06-12",
+        "2025-05-27"
+      ],
+      "createdAt": "2025-05-01T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Barack Obama",
+      "profession": "Cleaning & Home Repair Specialist",
+      "location": "Munich, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 25,
+      "categories": [
+        "Cleaning",
+        "Home Repair",
+        "A/C"
+      ],
+      "specialties": [
+        "Electrical installation"
+      ],
+      "description": "Available for emergency plumbing work. Quality service and punctuality guaranteed.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "unavailableDates": [
+        "2025-06-22",
+        "2025-06-12",
+        "2025-05-26"
+      ],
+      "createdAt": "2025-05-01T10:30:00Z"
+    },
+    {
+      "id": "3",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Brad Pitt",
+      "profession": "Renovation & A/C Technician",
+      "location": "Frankfurt, Germany",
+      "stars": 3.5,
+      "jobsDone": 6,
+      "numberReviews": 50,
+      "categories": [
+        "A/C",
+        "Plumbing",
+        "Renovation",
+        "Construction"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Experienced in home renovation and air conditioning installations. Call for quotes.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-03-01T10:30:00Z"
+    },
+    {
+      "id": "4",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Madonna",
+      "profession": "Solar Energy Specialist",
+      "location": "Hamburg, Germany",
+      "stars": 4.5,
+      "jobsDone": 11,
+      "numberReviews": 30,
+      "categories": [
+        "Solar systems",
+        "Heating"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Specialized in solar energy systems installation. Offering eco-friendly solutions.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-02-01T10:30:00Z"
+    },
+    {
+      "id": "5",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Tom Cruise",
+      "profession": "Electrician & A/C Specialist",
+      "location": "Stuttgart, Germany",
+      "stars": 4,
+      "jobsDone": 18,
+      "numberReviews": 40,
+      "categories": [
+        "Electrical",
+        "A/C",
+        "Renovation"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Offering professional electrical installations and A/C repairs. Fast response times.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-01-01T10:30:00Z"
+    },
+    {
+      "id": "6",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Serena Williams",
+      "profession": "Plumber & Heating Technician",
+      "location": "Cologne, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 60,
+      "categories": [
+        "Sanitary",
+        "Plumbing",
+        "Heating"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Highly skilled plumber and heating engineer. Reliable, efficient, and friendly.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2024-03-01T10:30:00Z"
+    },
+    {
+      "id": "7",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "Jennifer Lopez",
+      "profession": "Electrical & Renovation Specialist",
+      "location": "Berlin, Germany",
+      "stars": 3,
+      "jobsDone": 10,
+      "numberReviews": 20,
+      "categories": [
+        "Electrical",
+        "Renovation",
+        "Solar systems"
+      ],
+      "specialties": [
+        "Electrical installation"
+      ],
+      "description": "Electrical work and home renovation expert. Focus on sustainable solutions.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-03-01T10:30:00Z"
+    },
+    {
+      "id": "8",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Beyonce",
+      "profession": "Solar Heating & Plumbing Expert",
+      "location": "Hamburg, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 75,
+      "categories": [
+        "Solar systems",
+        "Plumbing",
+        "Heating"
+      ],
+      "specialties": [
+        "Heating installation"
+      ],
+      "description": "Top-tier plumber specializing in solar-powered heating systems. Committed to quality.",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ],
+      "createdAt": "2025-04-01T13:30:00Z"
+    }
+  ],
+  "handymenAdds": [
+    {
+      "id": "1",
+      "image": "/LandingPage/handyman-img.png",
+      "name": "Klaus Schneider",
+      "profession": "Heating & Sanitary Technician",
+      "location": "Berlin, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 38,
+      "categories": [
+        "Heating",
+        "Windows",
+        "Sanitary",
+        "Cleaning",
+        "Solar systems"
+      ],
+      "description": "Hi, I'm Klaus – your go-to expert for heating and sanitary systems in Berlin. With years of hands-on experience, I bring precision and reliability to every job. Whether you need a quick repair or a complete installation, I’m here to help – especially around noon when I'm usually available. I believe in clear communication, clean work, and long-lasting solutions. Let’s make your home more efficient and comfortable!"
+    },
+    {
+      "id": "5",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Tom Cruise",
+      "profession": "Electrician & A/C Specialist",
+      "location": "Stuttgart, Germany",
+      "stars": 4,
+      "jobsDone": 18,
+      "numberReviews": 40,
+      "categories": [
+        "Electrical",
+        "A/C",
+        "Renovation"
+      ],
+      "description": "Hi, I’m Tom — your local expert in electrical installations and A/C systems in Stuttgart. I’ve handled everything from minor fixes to full-scale renovations. My goal is always the same: deliver fast, professional, and safe service you can count on. I'm passionate about creating comfortable, energy-efficient homes, and I’d love to help you with your next project!"
+    },
+    {
+      "id": "6",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Serena Williams",
+      "profession": "Plumber & Heating Technician",
+      "location": "Cologne, Germany",
+      "stars": 5,
+      "jobsDone": 7,
+      "numberReviews": 60,
+      "categories": [
+        "Sanitary",
+        "Plumbing",
+        "Heating"
+      ],
+      "description": "I'm Serena, a skilled plumber and heating specialist based in Cologne. I take pride in offering reliable, friendly, and top-quality service. Whether it’s a leaky faucet or a complete heating system setup, I work efficiently and make sure you're 100% satisfied. My clients love my attention to detail and the peace of mind they get when I handle their repairs. Let’s get your home running smoothly again!"
+    }
+  ],
+  "specialties": [
+    {
+      "id": 1,
+      "name": "Electrical installation"
+    },
+    {
+      "id": 2,
+      "name": "Sanitary installation"
+    },
+    {
+      "id": 3,
+      "name": "Painting and painting work"
+    },
+    {
+      "id": 4,
+      "name": "Carpentry/carpentry"
+    },
+    {
+      "id": 5,
+      "name": "Roofing"
+    },
+    {
+      "id": 6,
+      "name": "Heating installation"
+    },
+    {
+      "id": 7,
+      "name": "Tile work"
+    },
+    {
+      "id": 8,
+      "name": "Bricklaying"
+    },
+    {
+      "id": 9,
+      "name": "Garden and landscaping"
+    },
+    {
+      "id": 10,
+      "name": "Locksmith work"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Home Repair",
+      "image": "/LandingPage/services/Group-1.svg"
+    },
+    {
+      "id": 2,
+      "name": "Windows",
+      "image": "/LandingPage/services/Group-2.svg"
+    },
+    {
+      "id": 3,
+      "name": "Painter",
+      "image": "/LandingPage/services/Group-3.svg"
+    },
+    {
+      "id": 4,
+      "name": "Electrician",
+      "image": "/LandingPage/services/Group-4.svg"
+    },
+    {
+      "id": 5,
+      "name": "A / C",
+      "image": "/LandingPage/services/Group-5.svg"
+    },
+    {
+      "id": 6,
+      "name": "Cleaning",
+      "image": "/LandingPage/services/Group-6.svg"
+    },
+    {
+      "id": 7,
+      "name": "Assembly",
+      "image": "/LandingPage/services/Group-7.svg"
+    },
+    {
+      "id": 8,
+      "name": "Carpenter",
+      "image": "/LandingPage/services/Group-8.svg"
+    },
+    {
+      "id": 9,
+      "name": "Construction",
+      "image": "/LandingPage/services/Group-9.svg"
+    },
+    {
+      "id": 10,
+      "name": "Plumbing",
+      "image": "/LandingPage/services/Group-10.svg"
+    },
+    {
+      "id": 11,
+      "name": "Landscaping",
+      "image": "/LandingPage/services/Group-1.svg"
+    },
+    {
+      "id": 12,
+      "name": "Roofing",
+      "image": "/LandingPage/services/Group-2.svg"
+    },
+    {
+      "id": 13,
+      "name": "Tiling",
+      "image": "/LandingPage/services/Group-3.svg"
+    },
+    {
+      "id": 14,
+      "name": "HVAC",
+      "image": "/LandingPage/services/Group-4.svg"
+    },
+    {
+      "id": 15,
+      "name": "Masonry",
+      "image": "/LandingPage/services/Group-5.svg"
+    },
+    {
+      "id": 16,
+      "name": "Handyman",
+      "image": "/LandingPage/services/Group-6.svg"
+    },
+    {
+      "id": 17,
+      "name": "Drywall",
+      "image": "/LandingPage/services/Group-7.svg"
+    },
+    {
+      "id": 18,
+      "name": "Pest Control",
+      "image": "/LandingPage/services/Group-8.svg"
+    },
+    {
+      "id": 19,
+      "name": "Flooring",
+      "image": "/LandingPage/services/Group-9.svg"
+    },
+    {
+      "id": 20,
+      "name": "Gardening",
+      "image": "/LandingPage/services/Group-10.svg"
+    },
+    {
+      "id": 21,
+      "name": "Interior Design",
+      "image": "/LandingPage/services/Group-1.svg"
+    },
+    {
+      "id": 22,
+      "name": "Exterior Painting",
+      "image": "/LandingPage/services/Group-2.svg"
+    },
+    {
+      "id": 23,
+      "name": "Window Repair",
+      "image": "/LandingPage/services/Group-3.svg"
+    },
+    {
+      "id": 24,
+      "name": "Electrical Wiring",
+      "image": "/LandingPage/services/Group-4.svg"
+    },
+    {
+      "id": 25,
+      "name": "Fencing",
+      "image": "/LandingPage/services/Group-5.svg"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "image": "/LandingPage/testimonials/client1.svg",
+      "name": "John Doe",
+      "location": "Dresden",
+      "stars": 5,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg",
+        "/LandingPage/testimonials/work-images/work4.svg"
+      ]
+    },
+    {
+      "id": "2",
+      "image": "/LandingPage/testimonials/client3.svg",
+      "name": "Angela Merkel",
+      "location": "Hamburg",
+      "stars": 4,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg"
+      ]
+    },
+    {
+      "id": "3",
+      "image": "/LandingPage/testimonials/client2.svg",
+      "name": "Gerhard Schröder",
+      "location": "Berlin",
+      "stars": 5,
+      "comment": "Die App hat es einfach gemacht, einen Tischler zu finden. Er hat meinen Kleiderschrank und meinen Badezimmer-Schrank gebaut, und sie sehen fantastisch aus!",
+      "workImages": [
+        "/LandingPage/testimonials/work-images/work1.svg",
+        "/LandingPage/testimonials/work-images/work2.svg",
+        "/LandingPage/testimonials/work-images/work3.svg"
+      ]
+    }
+  ],
+  "client-adds": [
+    {
+      "title": "Repair Broken Sofa",
+      "description": "The sofa frame is damaged and needs urgent repair. Looking for someone available soon.",
+      "location": {
+        "address": "Berlin, Germany",
+        "lat": 52.510885,
+        "lon": 13.3989367
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=777"
+      ],
+      "userId": "PmGGfweLsmavyzADGUroyPzQuj22",
+      "createdAt": "2025-05-20T07:47:01.767Z",
+      "isUrgent": true,
+      "id": 33
+    },
+    {
+      "title": "ааа",
+      "description": "ааа",
+      "location": {
+        "address": "Скопје",
+        "lat": 41.991046,
+        "lon": 21.4456931
+      },
+      "images": [
+        "https://picsum.photos/400/200?random=728"
+      ],
+      "userId": "PmGGfweLsmavyzADGUroyPzQuj22",
+      "createdAt": "2025-05-23T08:19:20.813Z",
+      "isUrgent": true,
+      "id": 34
+    }
+  ],
+  "reviews": [
+    {
+      "from": {
+        "name": "Sonja Kitanoska",
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "location": "Berlin"
+      },
+      "handymanId": "1",
+      "rating": "5",
+      "comment": "Great experience from start to finish. Very professional and detail-oriented.",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 2
+    },
+    {
+      "from": {
+        "name": "Sonja Kitanoska",
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "location": "Skopje"
+      },
+      "handymanId": "2",
+      "rating": "5",
+      "comment": "Good job Obama, great!",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 99
+    },
+    {
+      "handymanId": "1",
+      "proposalId": 1,
+      "rating": "5",
+      "comment": "Great job!",
+      "photos": [],
+      "agreedToPublish": true,
+      "id": 100
+    }
+  ],
+  "proposals": [
+    {
+      "id": 2,
+      "from": {
+        "id": "3",
+        "name": "Brad Pitt",
+        "role": "handyman",
+        "lat": 48.1351,
+        "lon": 11.582
+      },
+      "to": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "role": "client"
+      },
+      "title": "Electrician service",
+      "description": "Fix a lamp",
+      "location": "Munich, Germany",
+      "time": "2025-05-20T12:05:00Z",
+      "status": "completed"
+    },
+    {
+      "id": 1,
+      "from": {
+        "id": "1",
+        "name": "Klaus Schneider",
+        "role": "handyman",
+        "lat": 50.1109,
+        "lon": 8.6821
+      },
+      "to": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "role": "client"
+      },
+      "title": "Wall Painting",
+      "description": "Painting living room and hallway",
+      "location": "Frankfurt, Germany",
+      "time": "2025-05-10T10:05:00Z",
+      "status": "completed"
+    },
+    {
+      "id": 4,
+      "from": {
+        "id": "4",
+        "name": "Madonna",
+        "role": "handyman",
+        "lat": 53.5511,
+        "lon": 9.9937
+      },
+      "to": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "role": "client"
+      },
+      "title": "Leak Fix",
+      "description": "Repair leaking kitchen faucet",
+      "location": "Hamburg, Germany",
+      "time": "2025-05-20T11:20:00Z",
+      "status": "completed"
+    },
+    {
+      "id": 5,
+      "from": {
+        "id": "5",
+        "name": "Tom Cruise",
+        "role": "handyman",
+        "lat": 48.7758,
+        "lon": 9.1829
+      },
+      "to": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "role": "client"
+      },
+      "title": "TV Wall Mounting",
+      "description": "Mount 55-inch TV on living room wall",
+      "location": "Stuttgart, Germany",
+      "time": "2025-04-20T23:25:00Z",
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "from": {
+        "id": "6",
+        "name": "Serena Williams",
+        "role": "handyman",
+        "lat": 48.7758,
+        "lon": 9.1829
+      },
+      "to": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "role": "client"
+      },
+      "title": "Bathroom Tiling",
+      "description": "Retile shower area and fix grout",
+      "location": "Cologne, Germany",
+      "time": "2025-05-20T08:30:00Z",
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "from": {
+        "id": "7",
+        "name": "Jennifer Lopez",
+        "role": "handyman",
+        "lat": 52.52,
+        "lon": 13.405
+      },
+      "to": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "role": "client"
+      },
+      "title": "Garden Work",
+      "description": "Trim hedges and mow the lawn",
+      "location": "Berlin, Germany",
+      "time": "2025-05-20T17:35:00Z",
+      "status": "pending"
+    }
+  ],
+  "requests": [
+    {
+      "id": "a41fd0c2-6b21-4e39-8d9e-ad6bb36873ad",
+      "from": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "2",
+        "role": "handyman"
+      },
+      "message": " I have a few things that need fixing:\nThe electrical outlets in my living room are loose and sometimes spark when I plug things in.\nMy air conditioning unit isn’t cooling properly and might need a thorough check or repair.\nThere are some minor home repairs like fixing a broken cabinet hinge and sealing a few gaps around the windows.",
+      "location": {
+        "address": "Berlin, Germany",
+        "lat": null,
+        "lon": null
+      },
+      "time": "12pm-4pm",
+      "date": "Thursday, June 5 2025"
+    },
+    {
+      "id": "12a2e2af-fb05-4a2b-a22c-a9147d5bb431",
+      "from": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "1",
+        "role": "handyman"
+      },
+      "message": "Hey Klaus,\nI’m having some trouble with my living room radiator — it’s not heating up like it should. Could you take a look and maybe fix the heating setup? Also, it’d be great if you could check my bathroom fixtures to make sure everything’s working fine. Thanks!",
+      "location": {
+        "address": "Sjövikstorget, Liljeholmen, Stockholm,  117 58, Sweden",
+        "lat": 59.3077420606884,
+        "lon": 18.029732951012626
+      },
+      "time": "8am-12pm",
+      "date": "Thursday, June 12 2025"
+    },
+    {
+      "id": "9edcf1eb-8061-4ef7-a60e-eed762acd0fd",
+      "from": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "1",
+        "role": "handyman"
+      },
+      "message": "",
+      "location": {
+        "address": "Mama Ye's, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
+        "lat": 59.307552642823374,
+        "lon": 18.030152934167457
+      },
+      "time": "12pm-4pm",
+      "date": "Thursday, June 5 2025"
+    },
+    {
+      "id": "bb98835c-079f-44bb-b9c5-3cf92c46272c",
+      "from": {
+        "id": "PmGGfweLsmavyzADGUroyPzQuj22",
+        "name": "Sonja Kitanoska",
+        "role": "client"
+      },
+      "to": {
+        "id": "2",
+        "role": "handyman"
+      },
+      "message": "",
+      "location": {
+        "address": "En tidsmaskin på torget, Sjövikstorget, Liljeholmen, Hägersten-Älvsjö stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 117 58, Sweden",
+        "lat": 59.30763226143329,
+        "lon": 18.029822320289416
+      },
+      "time": "12pm-4pm",
+      "date": "Friday, June 13 2025"
+    }
+  ]
 }

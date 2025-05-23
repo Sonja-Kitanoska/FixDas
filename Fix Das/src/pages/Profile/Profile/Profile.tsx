@@ -7,11 +7,34 @@ import { useUserStore } from "../../../store/userStore";
 import { useEffect, useState } from "react";
 import { fetchUserClientAdds } from "../../../api/fetchUserClientAdds";
 import { ClientAddData } from "../../../types/types";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 const Profile = () => {
 	const navigate = useNavigate();
 	const user = useUserStore((state) => state.user);
 	const [clientAdds, setClientAdds] = useState<ClientAddData[]>([]);
+	const [userDetails, setUserDetails] = useState<{
+		location?: string;
+		phone?: string;
+	} | null>(null);
+
+	const fetchUserDetails = async (userId: string) => {
+		try {
+			const docRef = doc(db, "users", userId);
+			const docSnap = await getDoc(docRef);
+
+			if (docSnap.exists()) {
+				return docSnap.data();
+			} else {
+				console.error("No such document!");
+				return null;
+			}
+		} catch (error) {
+			console.error("Error fetching user details:", error);
+			return null;
+		}
+	};
 
 	useEffect(() => {
 		const getAdds = async () => {
@@ -19,8 +42,19 @@ const Profile = () => {
 			const adds: ClientAddData[] = await fetchUserClientAdds(user.id);
 			setClientAdds(adds);
 		};
+		const getUserDetails = async () => {
+			if (!user) return;
+			const data = await fetchUserDetails(user.id);
+			if (data) {
+				setUserDetails({
+					location: data.location,
+					phone: data.phone,
+				});
+			}
+		};
 
 		getAdds();
+		getUserDetails();
 	}, [user]);
 
 	const formatPhoneNumber = (number: string | undefined | null) => {
@@ -79,13 +113,13 @@ const Profile = () => {
 								/>
 							</div>
 							<p className="mb-1">{user?.email}</p>
-							{user?.location && (
+							{userDetails?.location && (
 								<div className="d-flex align-items-center gap-1 mb-1">
 									<LuMapPin color="#1461F0" />{" "}
 									<p className="mb-0">{user?.location}</p>
 								</div>
 							)}
-							{user?.phone && (
+							{userDetails?.phone && (
 								<div className="d-flex align-items-center gap-1 mb-1">
 									<MdOutlineLocalPhone />
 									<p className="mb-0">{formatPhoneNumber(user?.phone)}</p>
