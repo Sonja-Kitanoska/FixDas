@@ -116,13 +116,13 @@ const Profile = () => {
 							{userDetails?.location && (
 								<div className="d-flex align-items-center gap-1 mb-1">
 									<LuMapPin color="#1461F0" />{" "}
-									<p className="mb-0">{user?.location}</p>
+									<p className="mb-0">{userDetails.location}</p>
 								</div>
 							)}
 							{userDetails?.phone && (
 								<div className="d-flex align-items-center gap-1 mb-1">
 									<MdOutlineLocalPhone />
-									<p className="mb-0">{formatPhoneNumber(user?.phone)}</p>
+									<p className="mb-0">{formatPhoneNumber(userDetails.phone)}</p>
 								</div>
 							)}
 						</div>
