@@ -90,7 +90,7 @@ const Profile = () => {
 									src={
 										typeof user?.image === "string" && user.image.length > 0
 											? user.image
-											: "/Profile/ProfilePicture.svg"
+											: "/avatar.jpg"
 									}
 									alt="Profile Image"
 									className="w-100 h-100 rounded-circle object-fit-cover"

@@ -295,7 +295,7 @@ const EditProfile = () => {
 										typeof formData?.image === "string" &&
 										formData.image.length > 0
 											? formData.image
-											: "/Profile/ProfilePicture.svg"
+											: "/avatar.jpg"
 									}
 									alt="Profile Image"
 									className={styles.profileImage}

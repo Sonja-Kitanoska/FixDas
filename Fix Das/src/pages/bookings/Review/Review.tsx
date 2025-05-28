@@ -86,6 +86,7 @@ const Review = () => {
 			agreedToPublish,
 			from: {
 				name: user?.username ?? "Anonymous",
+				image: user?.image ?? "/avatar.jpg",
 				id: user?.id ?? "",
 				location: user?.location,
 			},

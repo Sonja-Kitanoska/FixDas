@@ -102,7 +102,12 @@ export type ReviewFormData = {
 	comment: string | null;
 	photos: (File | string)[];
 	agreedToPublish: boolean;
-	from: { name: string; id: string; location: string | undefined };
+	from: {
+		name: string;
+		image: string;
+		id: string;
+		location: string | undefined;
+	};
 };
 
 export type Proposal = {

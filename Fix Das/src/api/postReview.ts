@@ -53,6 +53,12 @@ export const postReview = async (data: ReviewFormData) => {
 		comment: data.comment,
 		photos: base64Images,
 		agreedToPublish: data.agreedToPublish,
+		from: {
+			name: data.from.name,
+			image: data.from.image,
+			id: data.from.id,
+			location: data.from.location,
+		},
 	};
 
 	try {
