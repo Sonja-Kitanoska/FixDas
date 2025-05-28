@@ -30,7 +30,7 @@ const Menu = () => {
 	return (
 		<div className="container py-2 vh-100">
 			<div className="d-flex justify-content-between align-items-center">
-				<img src="/small-logo.svg" alt="Logo" />
+				<img src="/small-logo.svg" alt="Logo" onClick={() => navigate("/")} />
 				<IoCloseSharp
 					style={{ fontSize: "30px" }}
 					onClick={() => navigate("/")}
