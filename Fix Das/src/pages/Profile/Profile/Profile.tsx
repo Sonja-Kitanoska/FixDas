@@ -17,6 +17,7 @@ const Profile = () => {
 	const [userDetails, setUserDetails] = useState<{
 		location?: string;
 		phone?: string;
+		image?: string;
 	} | null>(null);
 
 	const fetchUserDetails = async (userId: string) => {
@@ -49,6 +50,7 @@ const Profile = () => {
 				setUserDetails({
 					location: data.location,
 					phone: data.phone,
+					image: data.image,
 				});
 			}
 		};
@@ -88,8 +90,10 @@ const Profile = () => {
 							<div style={{ width: "67px", height: "67px" }}>
 								<img
 									src={
-										typeof user?.image === "string" && user.image.length > 0
+										user?.image?.length
 											? user.image
+											: userDetails?.image?.length
+											? userDetails.image
 											: "/avatar.jpg"
 									}
 									alt="Profile Image"

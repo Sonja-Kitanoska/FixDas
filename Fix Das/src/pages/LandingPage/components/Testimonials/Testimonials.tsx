@@ -41,7 +41,7 @@ const Testimonials = () => {
 								<img
 									src={testimonial.image}
 									alt="User image"
-									className="w-100 h-100 rounded-circle"
+									className="w-100 h-100 rounded-circle object-fit-cover"
 								/>
 							</div>
 							<div>

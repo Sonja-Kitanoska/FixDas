@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./EditProfile.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../store/userStore";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { User } from "../../../types/types";
 import { FiLogOut } from "react-icons/fi";
 import { auth, db } from "../../../firebase";
@@ -16,7 +16,7 @@ import {
 	verifyBeforeUpdateEmail,
 } from "firebase/auth";
 import { deleteUserData, updateUser } from "../../../api/users";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 const resizeAndConvertToBase64 = (file: File): Promise<string> => {
 	return new Promise((resolve, reject) => {
@@ -68,6 +68,25 @@ const EditProfile = () => {
 	const [success, setSuccess] = useState("");
 
 	const fileInputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		const fetchUserData = async () => {
+			if (!user?.id) return;
+			try {
+				const userRef = doc(db, "users", user.id);
+				const userSnap = await getDoc(userRef);
+
+				if (userSnap.exists()) {
+					const userData = userSnap.data() as User;
+					setFormData(userData); // include the image from Firebase
+				}
+			} catch (err) {
+				console.error("Failed to fetch user data:", err);
+			}
+		};
+
+		fetchUserData();
+	}, [user?.id]);
 
 	async function reauthenticate(password: string) {
 		if (!auth.currentUser || !auth.currentUser.email)
@@ -224,7 +243,7 @@ const EditProfile = () => {
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const { password, ...userDataWithoutPassword } = formData;
 
-			setUser(userDataWithoutPassword); // Safe for Zustand
+			setUser(userDataWithoutPassword);
 			await updateUser(formData.id, userDataWithoutPassword);
 			await updateUserProfile(formData.id, userDataWithoutPassword);
 
@@ -291,12 +310,7 @@ const EditProfile = () => {
 								onClick={handleImageClick}
 							>
 								<img
-									src={
-										typeof formData?.image === "string" &&
-										formData.image.length > 0
-											? formData.image
-											: "/avatar.jpg"
-									}
+									src={formData?.image ?? "/avatar.jpg"}
 									alt="Profile Image"
 									className={styles.profileImage}
 								/>
@@ -313,7 +327,7 @@ const EditProfile = () => {
 						</div>
 						{/* Name */}
 						<div className="d-flex justify-content-between align-items-center font-size-14 border-bottom py-2 border-top">
-							<div>
+							<div className="w-100">
 								<label htmlFor="name" className="w-100">
 									Full Name <span className="orange">*</span>
 								</label>
@@ -337,13 +351,13 @@ const EditProfile = () => {
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
-									{user?.phone ? "Edit" : "Add"}
+									{formData?.phone ? "Edit" : "Add"}
 								</button>
 							</div>
 						</div>
 						{/* Email */}
 						<div className="d-flex justify-content-between align-items-center font-size-14  border-bottom py-2">
-							<div>
+							<div className="w-100">
 								<label htmlFor="email" className="w-100">
 									Email Address <span className="orange">*</span>
 								</label>
@@ -368,13 +382,13 @@ const EditProfile = () => {
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
-									{user?.email ? "Edit" : "Add"}
+									{formData?.email ? "Edit" : "Add"}
 								</button>
 							</div>
 						</div>
 						{/* Location */}
 						<div className="d-flex justify-content-between align-items-center font-size-14  border-bottom py-2">
-							<div>
+							<div className="w-100">
 								<label htmlFor="location" className="w-100">
 									Location
 								</label>
@@ -399,13 +413,13 @@ const EditProfile = () => {
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
-									{user?.location ? "Edit" : "Add"}
+									{formData?.location ? "Edit" : "Add"}
 								</button>
 							</div>
 						</div>
 						{/* Phone number */}
 						<div className="d-flex justify-content-between align-items-center font-size-14  border-bottom py-2">
-							<div>
+							<div className="w-100">
 								<label htmlFor="phone" className="w-100">
 									Phone Number
 								</label>
@@ -430,13 +444,13 @@ const EditProfile = () => {
 									className="orange-border-btn"
 									style={{ padding: "6px 14px", borderRadius: "8px" }}
 								>
-									{user?.phone ? "Edit" : "Add"}
+									{formData?.phone ? "Edit" : "Add"}
 								</button>
 							</div>
 						</div>
 						{/* Password */}
 						<div className="d-flex justify-content-between align-items-center font-size-14  border-bottom py-2">
-							<div>
+							<div className="w-100">
 								<label htmlFor="phone" className="w-100">
 									Password
 								</label>
@@ -446,6 +460,7 @@ const EditProfile = () => {
 									id="password"
 									className={`${styles.bgColor} border-0`}
 									style={{ color: "#939393" }}
+									placeholder="***********"
 									value={formData?.password}
 									onChange={handleInputChange}
 									disabled={editingField !== "password"}

@@ -3,12 +3,44 @@ import { LuMapPin } from "react-icons/lu";
 import { ClientAddData } from "../../../../../types/types";
 import { useUserStore } from "../../../../../store/userStore";
 import { formatDistanceToNow } from "date-fns";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MapModal from "../../../../../components/MapModal/MapModal";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../../../firebase";
 
 const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 	const user = useUserStore((state) => state.user);
 	const [showMap, setShowMap] = useState(false);
+	const [imageURL, setImageURL] = useState<string | null>(null);
+
+	const fetchUserImage = async (userId: string) => {
+		try {
+			const docRef = doc(db, "users", userId);
+			const docSnap = await getDoc(docRef);
+
+			if (docSnap.exists()) {
+				return docSnap.data();
+			} else {
+				console.error("No such document!");
+				return null;
+			}
+		} catch (error) {
+			console.error("Error fetching user details:", error);
+			return null;
+		}
+	};
+
+	useEffect(() => {
+		const getUserDetails = async () => {
+			if (!user) return;
+			const data = await fetchUserImage(user.id);
+			if (data) {
+				setImageURL(data.image);
+			}
+		};
+
+		getUserDetails();
+	}, [user]);
 
 	const handleShowMap = () => {
 		setShowMap(true);
@@ -23,11 +55,7 @@ const ClientAddCard = ({ add }: { add: ClientAddData }) => {
 				<div className="d-flex gap-2 align-items-center">
 					<div style={{ width: "36px", height: "36px" }}>
 						<img
-							src={
-								typeof user?.image === "string" && user.image.length > 0
-									? user.image
-									: "/Profile/ProfilePicture.svg"
-							}
+							src={imageURL || "/avatar.jpg"}
 							alt="User image"
 							className="w-100 h-100 rounded-circle"
 						/>

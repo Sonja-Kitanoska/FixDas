@@ -16,7 +16,7 @@ const HandymanCard = ({ handyman }: { handyman: Handyman }) => {
 						<img
 							src={handyman.image}
 							alt="User image"
-							className="w-100 h-100 rounded-circle"
+							className="w-100 h-100 rounded-circle object-fit-cover"
 						/>
 					</div>
 
