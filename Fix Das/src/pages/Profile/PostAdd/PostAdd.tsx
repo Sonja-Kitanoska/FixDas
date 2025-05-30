@@ -10,6 +10,7 @@ import { postClientAdd } from "../../../api/postClientAdd";
 import { useUserStore } from "../../../store/userStore";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const LOCATIONIQ_TOKEN = import.meta.env.VITE_LOCATIONIQ_TOKEN;
 
 const PostAdd = () => {
 	const { user } = useUserStore();
@@ -22,7 +23,7 @@ const PostAdd = () => {
 	): Promise<string | null> => {
 		try {
 			const res = await fetch(
-				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+				`https://us1.locationiq.com/v1/reverse.php?key=${LOCATIONIQ_TOKEN}&lat=${lat}&lon=${lon}&format=json`
 			);
 			const data = await res.json();
 			const address = `${data.address.road || ""}, ${
