@@ -1,4 +1,10 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+	BrowserRouter,
+	Navigate,
+	Route,
+	Routes,
+	useLocation,
+} from "react-router-dom";
 import "./App.css";
 import SignUpWithEmail from "./pages/Auth/SignUpWithEmail/SignUpWithEmail";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -26,74 +32,93 @@ import Filter from "./pages/Filter/Filter";
 import ChatRoom from "./pages/Chat/ChatRoom/ChatRoom";
 import BookingDetails from "./pages/SendRequestToHandyman/BookingDetails/BookingDetails";
 import EnterLocation from "./pages/SendRequestToHandyman/EnterLocation/EnterLocation";
+import { useEffect } from "react";
 
 function App() {
+	const Wrapper = ({ children }: { children: React.ReactNode }) => {
+		const location = useLocation();
+
+		useEffect(() => {
+			window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+		}, [location.pathname]);
+
+		return <>{children}</>;
+	};
+
 	return (
 		<div style={{ backgroundColor: "#FAFAFA" }}>
 			<BrowserRouter>
-				<Routes>
-					{/* PUBLIC ROUTES */}
-					{/* Landing page */}
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/find-handyman" element={<FindHandyman />} />
-					<Route path="/menu" element={<Menu />} />
-					<Route path="/filter" element={<Filter />} />
+				<Wrapper>
+					<Routes>
+						{/* PUBLIC ROUTES */}
+						{/* Landing page */}
+						<Route path="/" element={<LandingPage />} />
+						<Route path="/find-handyman" element={<FindHandyman />} />
+						<Route path="/menu" element={<Menu />} />
+						<Route path="/filter" element={<Filter />} />
 
-					<Route element={<PublicRoute />}>
-						{/* Login and sign up */}
-						<Route path="/sign-up" element={<SignUp />} />
-						<Route path="/sign-up-email" element={<SignUpWithEmail />} />
-						<Route path="/sign-in" element={<SignIn />} />
-						<Route path="/reset-password" element={<ResetPassword />} />
-					</Route>
+						<Route element={<PublicRoute />}>
+							{/* Login and sign up */}
+							<Route path="/sign-up" element={<SignUp />} />
+							<Route path="/sign-up-email" element={<SignUpWithEmail />} />
+							<Route path="/sign-in" element={<SignIn />} />
+							<Route path="/reset-password" element={<ResetPassword />} />
+						</Route>
 
-					{/* PROTECTED ROUTES */}
+						{/* PROTECTED ROUTES */}
 
-					{/* Bookings */}
-					<Route element={<ProtectedRoute />}>
-						<Route path="/bookings" element={<NewProposals />} />
-						<Route path="/bookings/ongoing" element={<OngoingBooking />} />
-						<Route path="/bookings/review/:proposalId" element={<Review />} />
-						<Route path="/bookings/completed" element={<CompletedBookings />} />
-						{/* Send request to handyman */}
-						<Route
-							path="/bookings/calendar/:handymanId"
-							element={<CalendarPage />}
-						/>
-						<Route
-							path="/bookings/booking-details/:handymanId"
-							element={<BookingDetails />}
-						/>
-						<Route
-							path="/bookings/enter-location/:handymanId"
-							element={<EnterLocation />}
-						/>
+						{/* Bookings */}
+						<Route element={<ProtectedRoute />}>
+							<Route path="/bookings" element={<NewProposals />} />
+							<Route path="/bookings/ongoing" element={<OngoingBooking />} />
+							<Route path="/bookings/review/:proposalId" element={<Review />} />
+							<Route
+								path="/bookings/completed"
+								element={<CompletedBookings />}
+							/>
+							{/* Send request to handyman */}
+							<Route
+								path="/bookings/calendar/:handymanId"
+								element={<CalendarPage />}
+							/>
+							<Route
+								path="/bookings/booking-details/:handymanId"
+								element={<BookingDetails />}
+							/>
+							<Route
+								path="/bookings/enter-location/:handymanId"
+								element={<EnterLocation />}
+							/>
 
-						{/* Categories*/}
-						<Route path="/categories" element={<Categories />} />
+							{/* Categories*/}
+							<Route path="/categories" element={<Categories />} />
 
-						{/* Chat */}
-						<Route path="/chat" element={<Chat />} />
-						<Route path="/chat/:id" element={<ChatRoom />} />
+							{/* Chat */}
+							<Route path="/chat" element={<Chat />} />
+							<Route path="/chat/:id" element={<ChatRoom />} />
 
-						{/* Homepage */}
-						<Route path="/homepage" element={<Homepage />} />
-						{/* Public Profile Handyman */}
-						<Route
-							path="/homepage/handyman-public-profile/:handymanId"
-							element={<HandymanPublicProfile />}
-						/>
+							{/* Homepage */}
+							<Route path="/homepage" element={<Homepage />} />
+							{/* Public Profile Handyman */}
+							<Route
+								path="/homepage/handyman-public-profile/:handymanId"
+								element={<HandymanPublicProfile />}
+							/>
 
-						{/* Profile */}
-						<Route path="/profile" element={<Profile />} />
-						<Route path="/profile/edit" element={<EditProfile />} />
-						<Route path="/profile/post-add" element={<PostAdd />} />
-						<Route path="/profile/notifications" element={<Notifications />} />
-					</Route>
+							{/* Profile */}
+							<Route path="/profile" element={<Profile />} />
+							<Route path="/profile/edit" element={<EditProfile />} />
+							<Route path="/profile/post-add" element={<PostAdd />} />
+							<Route
+								path="/profile/notifications"
+								element={<Notifications />}
+							/>
+						</Route>
 
-					{/* Catch-all route for non-existent pages */}
-					<Route path="*" element={<Navigate to="/sign-up" replace />} />
-				</Routes>
+						{/* Catch-all route for non-existent pages */}
+						<Route path="*" element={<Navigate to="/sign-up" replace />} />
+					</Routes>
+				</Wrapper>
 			</BrowserRouter>
 		</div>
 	);
