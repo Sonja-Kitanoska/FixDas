@@ -114,13 +114,12 @@ const Review = () => {
 						};
 						await handymanRatingUpdate(handymanId, updatedHandyman);
 					}
-					console.log("Handyman rating updated to:", averageRating);
 				}
 			}
 
 			toast.success("Review submitted successfully!");
 			setTimeout(() => {
-				navigate("/bookings/completed");
+				navigate("/homepage");
 			}, 1000);
 		} catch (err) {
 			console.error("Failed to submit review:", err);

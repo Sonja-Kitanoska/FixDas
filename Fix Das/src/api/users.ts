@@ -56,10 +56,8 @@ export const deleteUserData = async (userId: string) => {
 	}
 };
 
-
 // update user
 export const updateUser = async (userId: string, updatedData: User) => {
-	
 	try {
 		const response = await fetch(`${BASE_URL}/users/${userId}`, {
 			method: "PUT",
@@ -74,7 +72,6 @@ export const updateUser = async (userId: string, updatedData: User) => {
 		}
 
 		const result = await response.json();
-		console.log("User updated:", result);
 		return result;
 	} catch (error) {
 		if (error instanceof Error) {

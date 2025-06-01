@@ -119,8 +119,6 @@ const EditProfile = () => {
 		try {
 			const userRef = doc(db, "users", userId);
 			await updateDoc(userRef, updatedUser);
-
-			console.log("User updated in Firestore.");
 		} catch (error) {
 			console.error("Error updating user:", error);
 		}
@@ -220,7 +218,6 @@ const EditProfile = () => {
 				if (formData.password && formData.password.length >= 6) {
 					try {
 						await updatePassword(firebaseUser, formData.password);
-						console.log("Password updated successfully");
 					} catch (error: unknown) {
 						console.error("Error updating password:", error);
 						// Handle re-authentication required
@@ -259,7 +256,6 @@ const EditProfile = () => {
 	const handleSignOut = async () => {
 		try {
 			await signOut(auth);
-			console.log("Sign-out successful.");
 			setUser(null);
 			navigate("/");
 		} catch (error) {
@@ -275,7 +271,6 @@ const EditProfile = () => {
 			await deleteUserData(firebaseUser.uid);
 			setUser(null);
 			navigate("/");
-			console.log("User deleted successfully");
 		} catch (error) {
 			console.error("Error deleting user from Firebase", error);
 		}

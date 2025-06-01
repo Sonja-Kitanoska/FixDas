@@ -47,7 +47,6 @@ const CalendarPage = () => {
 
 	const handleTimeClick = (time: string) => {
 		setSelectedTime(time);
-		console.log("Selected time:", time);
 	};
 	const timeSlots = [
 		{

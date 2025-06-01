@@ -31,9 +31,11 @@ const FeedbackForHandyman = ({
 					</div>
 
 					<div className="my-2 d-flex gap-1 ">
-						{[...Array(Number(feedback.rating) || 0)].map((_, index) => (
-							<FaStar key={index} color="#F5CE47" />
-						))}
+						{[...Array(Math.max(0, Math.floor(Number(feedback.rating))))].map(
+							(_, index) => (
+								<FaStar key={index} color="#F5CE47" />
+							)
+						)}
 					</div>
 
 					<p className="mb-0">{feedback.comment}</p>
