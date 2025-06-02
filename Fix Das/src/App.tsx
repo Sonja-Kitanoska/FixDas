@@ -32,7 +32,8 @@ import Filter from "./pages/Filter/Filter";
 import ChatRoom from "./pages/Chat/ChatRoom/ChatRoom";
 import BookingDetails from "./pages/SendRequestToHandyman/BookingDetails/BookingDetails";
 import EnterLocation from "./pages/SendRequestToHandyman/EnterLocation/EnterLocation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import MobileWarning from "./components/MobileWarning/MobileWarning";
 
 function App() {
 	const Wrapper = ({ children }: { children: React.ReactNode }) => {
@@ -44,6 +45,19 @@ function App() {
 
 		return <>{children}</>;
 	};
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+	useEffect(() => {
+		function handleResize() {
+			setIsMobile(window.innerWidth < 768);
+		}
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	if (!isMobile) {
+		return <MobileWarning />;
+	}
 
 	return (
 		<div style={{ backgroundColor: "#FAFAFA" }}>
