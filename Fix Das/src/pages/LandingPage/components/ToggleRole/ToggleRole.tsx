@@ -1,4 +1,4 @@
-import { Role } from "../../../../store/userStore";
+import { Role } from "../../../../types/types";
 import styles from "./ToggleRole.module.css";
 
 interface RoleToggleProps {
