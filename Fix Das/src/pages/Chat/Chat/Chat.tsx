@@ -14,10 +14,12 @@ import { formatDistanceToNow } from "date-fns";
 import { IoSearch } from "react-icons/io5";
 import styles from "./Chat.module.css";
 import { useNavigate } from "react-router-dom";
+import { fetchHandymanById } from "../../../api/handymen";
 
 interface Message {
 	handymanId: string;
 	handymanName: string;
+	handymanImage?: string;
 	text: string;
 	createdAt: Date;
 }
@@ -49,27 +51,35 @@ const Chat = () => {
 			const latestMessages: Record<string, Message> = {};
 			const allMessagesArr: Message[] = [];
 
-			querySnapshot.forEach((doc) => {
+			for (const doc of querySnapshot.docs) {
 				const data = doc.data();
 				const [clientId, handymanId] = data.room.split("_");
 
-				if (clientId !== user?.id) return;
+				if (clientId !== user?.id) continue;
 
 				if (!latestMessages[handymanId]) {
+					const handymanData = await fetchHandymanById(handymanId);
 					latestMessages[handymanId] = {
 						handymanId,
 						handymanName: data.role === "client" ? "" : data.user,
+						handymanImage: handymanData?.image || "",
 						text: data.text,
-						createdAt: data.createdAt.toDate(),
+						createdAt:
+							data.createdAt?.toDate instanceof Function
+								? data.createdAt.toDate()
+								: new Date(),
 					};
 				}
 				allMessagesArr.push({
 					handymanId,
 					handymanName: data.role === "client" ? "" : data.user,
 					text: data.text,
-					createdAt: data.createdAt.toDate(),
+					createdAt:
+						data.createdAt?.toDate instanceof Function
+							? data.createdAt.toDate()
+							: new Date(),
 				});
-			});
+			}
 
 			setHandymanChats(Object.values(latestMessages));
 			setAllMessages(allMessagesArr);
@@ -136,7 +146,7 @@ const Chat = () => {
 									padding: "10px",
 									borderRadius: "5px",
 								}}
-								className="border-bottom mb-3 d-flex gap-4 align-items-start"
+								className="border-bottom mb-3 row justify-content-between align-items-center"
 								onClick={() => {
 									const id = `${user?.id}_${chat.handymanId}`;
 									navigate(`/chat/${id}`, {
@@ -144,25 +154,26 @@ const Chat = () => {
 											handyman: {
 												name: chat.handymanName,
 												id: chat.handymanId,
+												image: chat.handymanImage,
 											},
 										},
 									});
 								}}
 							>
-								<div style={{ width: "48px", height: "48px" }}>
+								<div style={{ height: "48px" }} className="col-2">
 									<img
-										src="https://picsum.photos/200/300?random=1"
+										src={chat.handymanImage || "https://via.placeholder.com/48"}
 										alt="handyman-image"
 										className="w-100 h-100 object-fit-cover"
 										style={{ borderRadius: "12px" }}
 									/>
 								</div>
 
-								<div>
+								<div className="col-10">
 									<h4 className="font-weight-700 font-weight-14">
 										{chat.handymanName}
 									</h4>
-									<p className="font-size-12" style={{ color: "#939393" }}>
+									<p className="font-size-12 mb-0" style={{ color: "#939393" }}>
 										{chat.text}
 									</p>
 								</div>

@@ -123,7 +123,7 @@ const ChatRoom = () => {
 						<div className="d-flex gap-2 align-items-center">
 							<div style={{ width: "30px", height: "30px" }}>
 								<img
-									src="https://picsum.photos/200/300?random=1"
+									src={handyman.image}
 									alt="handyman-image"
 									className="w-100 h-100 object-fit-cover rounded-circle"
 								/>
